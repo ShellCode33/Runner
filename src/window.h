@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include "game.h"
 
 class WindowRunner
 {
@@ -9,6 +10,8 @@ private:
     sf::RenderWindow *window;
     int width;
     int height;
+    void processEvent();
+    Game *game;
 
 
 public:
