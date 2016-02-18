@@ -14,7 +14,6 @@ private:
     std::string username;
     unsigned int score;
     unsigned short life;
-
 };
 
 #endif // PLAYER_H
