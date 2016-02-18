@@ -1,5 +1,5 @@
 #include "game.h"
-
+//steak
 Game::Game(WindowRunner *window)
 {
     this->window = window;
