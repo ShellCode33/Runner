@@ -12,6 +12,7 @@ private:
     int height;
     void processEvent();
     Game *game;
+    Config *config;
 
 
 public:

@@ -6,17 +6,25 @@ WindowRunner::WindowRunner(int width, int height)
 {
     this->width = width;
     this->height = height;
-    this->game = new Game(this);
+
+    //On créait une config du jeu, qu'on va lui passer en paramètre
+    this->config = new Config("config");
+    this->game = new Game(this->config, this);
 }
 
 WindowRunner::~WindowRunner()
 {
     delete this->game;
+    delete this->config;
 }
 
 void WindowRunner::create()
 {
-    window = new RenderWindow(VideoMode(width, height), "Runner");
+    // Create a window with the same pixel depth as the desktop
+    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+    window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
+
+    window->setFramerateLimit(60);
 
     while(window->isOpen())
     {
@@ -40,6 +48,15 @@ void WindowRunner::processEvent()
                 break;
 
             case Event::KeyPressed:
+
+                switch(event.key.code)
+                {
+                    case Keyboard::Escape:
+                        window->close();
+                        break;
+
+                    default: break;
+                }
 
                 break;
 

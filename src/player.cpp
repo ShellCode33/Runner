@@ -12,7 +12,27 @@ Player::~Player()
 
 }
 
-string Player::getUsername()
+unsigned int Player::getScore() const
 {
-    return username;
+    return score;
+}
+
+void Player::setScore(unsigned int value)
+{
+    score = value;
+}
+
+unsigned short Player::getLife() const
+{
+    return life;
+}
+
+void Player::setLife(unsigned short value)
+{
+    life = value;
+}
+
+void Player::setUsername(string value)
+{
+    username = value;
 }
