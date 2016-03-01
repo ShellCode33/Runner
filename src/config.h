@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <cassert>
 #include <map>
 
 class Config

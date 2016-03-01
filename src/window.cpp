@@ -20,6 +20,7 @@ WindowRunner::~WindowRunner()
 
 void WindowRunner::create()
 {
+    Menu menu(*this);
     // Create a window with the same pixel depth as the desktop
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
@@ -30,7 +31,8 @@ void WindowRunner::create()
     {
         processEvent();
         window->clear();
-        game->run();
+        menu.show();
+        //game->run();
         window->display();
     }
 }

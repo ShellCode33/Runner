@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "game.h"
+#include "menu.h"
 
 class WindowRunner
 {

@@ -14,7 +14,7 @@ Config::~Config()
 
 void Config::createConfig()
 {
-    fstream config_file(filename, ios::out);
+    fstream config_file(filename.c_str(), ios::out);
 
     if(config_file.is_open())
     {
@@ -29,7 +29,7 @@ void Config::createConfig()
 
 void Config::readConfig()
 {
-    ifstream config_file(filename, ios::in);
+    ifstream config_file(filename.c_str(), ios::in);
 
     if(config_file.is_open())
     {
