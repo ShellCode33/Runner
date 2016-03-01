@@ -21,4 +21,4 @@ public:
 
 };
 
-#endif
+#endif // GAME_H

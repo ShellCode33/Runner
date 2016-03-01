@@ -1,9 +1,16 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <SFML/Graphics.hpp>
-#include "game.h"
 #include "menu.h"
+#include "game.h"
+#include <SFML/Graphics.hpp>
+
+enum State
+{
+    SPLASH,
+    MENU,
+    GAME
+};
 
 class WindowRunner
 {
@@ -14,12 +21,14 @@ private:
     void processEvent();
     Game *game;
     Config *config;
+    State state;
 
 
 public:
-    WindowRunner(int width=600, int height=600);
+    WindowRunner();
     ~WindowRunner();
     void create();
+    void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
 
 };
 

@@ -19,4 +19,4 @@ public:
     std::string getSetting(std::string key);
 };
 
-#endif
+#endif // CONFIG_H

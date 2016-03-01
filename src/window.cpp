@@ -2,11 +2,8 @@
 
 using namespace sf;
 
-WindowRunner::WindowRunner(int width, int height)
+WindowRunner::WindowRunner()
 {
-    this->width = width;
-    this->height = height;
-
     //On créait une config du jeu, qu'on va lui passer en paramètre
     this->config = new Config("config");
     this->game = new Game(this->config, this);
@@ -20,10 +17,17 @@ WindowRunner::~WindowRunner()
 
 void WindowRunner::create()
 {
-    Menu menu(*this);
     // Create a window with the same pixel depth as the desktop
-    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
-    window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
+    VideoMode desktop = VideoMode::getDesktopMode();
+    window = new RenderWindow(desktop, "Runner", /*Style::Fullscreen*/Style::Close);
+    state = SPLASH;
+
+    Sprite splash;
+    Texture splash_texture;
+    splash_texture.loadFromFile("../Runner/img/splash.jpg");
+    splash.setTexture(splash_texture);
+
+    Menu menu(this);
 
     window->setFramerateLimit(60);
 
@@ -31,11 +35,25 @@ void WindowRunner::create()
     {
         processEvent();
         window->clear();
-        menu.show();
-        //game->run();
+
+        switch(state)
+        {
+        case SPLASH:
+            window->draw(splash);
+            break;
+
+        case MENU:
+            menu.show();
+            break;
+
+        case GAME:
+            game->run();
+            break;
+        }
         window->display();
     }
 }
+
 
 void WindowRunner::processEvent()
 {
@@ -57,6 +75,13 @@ void WindowRunner::processEvent()
                         window->close();
                         break;
 
+                    case Keyboard::Space:
+
+                        if(state == SPLASH)
+                            state = MENU;
+
+                        break;
+
                     default: break;
                 }
 
@@ -65,4 +90,9 @@ void WindowRunner::processEvent()
             default: break;
         }
     }
+}
+
+void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
+{
+    window->draw(drawable, states);
 }
