@@ -37,7 +37,7 @@ void WindowRunner::create()
     state = SPLASH;
 
     ScreenWait splash_screen(this, "../Runner/img/splash.jpg", "<< Press Space To Play >>");
-    splash_screen.setTextPosition(Vector2f((window->getSize().x - splash_screen.getTextWidth()) / 2, (window->getSize().y - splash_screen.getTextHeight()) / 1.2));
+    splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     Menu menu(this);
 
