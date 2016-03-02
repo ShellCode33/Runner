@@ -39,7 +39,8 @@ void Button::setBoundaries(const int pos_x, const int pos_y, const int width, co
 
 void Button::draw(RenderTarget& target, RenderStates states) const
 {
-    this->text->setPosition(this->sprite->getPosition().x + this->sprite->getLocalBounds().width / 2, this->sprite->getPosition().y + this->sprite->getLocalBounds().height / 2);
+    this->sprite->setPosition(this->pos_x, this->pos_y);
+    this->text->setPosition(this->sprite->getPosition().x + (this->sprite->getLocalBounds().width - this->text->getLocalBounds().width) / 2, this->sprite->getPosition().y + (this->sprite->getLocalBounds().height - this->text->getLocalBounds().height) / 3);
 
     target.draw(*this->sprite, states);
     target.draw(*this->text, states);
