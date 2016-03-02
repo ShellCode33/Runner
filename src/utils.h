@@ -11,6 +11,7 @@ private:
 public:
     Utils();
     ~Utils();
+    static void log(const std::string text);
 
 };
 

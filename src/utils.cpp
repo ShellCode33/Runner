@@ -11,3 +11,8 @@ Utils::~Utils()
 {
 
 }
+
+void Utils::log(const string text)
+{
+    cout << "[TIME] " << text << endl;
+}

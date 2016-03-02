@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <cassert>
 
 class ScreenWait
 {
@@ -10,11 +11,18 @@ private:
     sf::Sprite *background;
     sf::Texture *background_texture;
     sf::Text *text;
+    sf::Font *font;
 
 public:
-    ScreenWait();
+    ScreenWait(const std::string filename, const std::string text);
     ~ScreenWait();
-    void setBackground(std::string filename);
+    void setBackground(const std::string filename);
+    void setText(const std::string value);
+    void setTextPosition(const sf::Vector2f pos);
+    float getTextWidth() const;
+    float getTextHeight() const;
+    sf::Sprite & getBackground() const;
+    sf::Text & getText() const;
 };
 
 #endif //SCREENWAIT_H

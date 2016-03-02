@@ -5,6 +5,8 @@
 #include <cassert>
 #include "menu.h"
 #include "game.h"
+#include "screenwait.h"
+#include "utils.h"
 
 enum State
 {

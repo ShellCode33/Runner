@@ -1,6 +1,7 @@
 #include "window.h"
 
 using namespace sf;
+using namespace std;
 
 WindowRunner::WindowRunner()
 {
@@ -20,23 +21,18 @@ void WindowRunner::create()
 {
     // Create a window with the same pixel depth as the desktop
     VideoMode desktop = VideoMode::getDesktopMode();
+
+    if(desktop.width / desktop.height != 16/9)
+    {
+        Utils::log(string("Sorry resolution ") + desktop.width + "x" + desktop.height + " isn't supported. Only 16/9 screens.");
+        exit(1);
+    }
+
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
     state = SPLASH;
 
-    Sprite splash;
-    Texture splash_texture;
-    assert(splash_texture.loadFromFile("../Runner/img/splash.jpg"));
-    splash.setTexture(splash_texture);
-
-    Font splash_font;
-    assert(splash_font.loadFromFile("../Runner/fonts/onthemove.ttf"));
-
-    Text text_splash;
-    text_splash.setFont(splash_font);
-    text_splash.setCharacterSize(100);
-    text_splash.setColor(Color::Black);
-    text_splash.setString("<< Press Space To Play >>");
-    text_splash.setPosition(Vector2f((window->getSize().x - text_splash.getLocalBounds().width) / 2, (window->getSize().y - text_splash.getLocalBounds().height) / 1.2));
+    ScreenWait splash_screen("../Runner/img/splash.jpg", "<< Press Space To Play >>");
+    splash_screen.setTextPosition(Vector2f((window->getSize().x - splash_screen.getTextWidth()) / 2, (window->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     Menu menu(this);
 
@@ -50,8 +46,8 @@ void WindowRunner::create()
         switch(state)
         {
             case SPLASH:
-                window->draw(splash);
-                window->draw(text_splash);
+                window->draw(splash_screen.getBackground());
+                window->draw(splash_screen.getText());
                 break;
 
             case MENU:
