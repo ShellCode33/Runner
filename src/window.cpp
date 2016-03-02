@@ -6,6 +6,7 @@ WindowRunner::WindowRunner()
 {
     //On créait une config du jeu, qu'on va lui passer en paramètre
     this->config = new Config("config");
+    this->config->readConfig();
     this->game = new Game(this->config, this);
 }
 
@@ -24,8 +25,18 @@ void WindowRunner::create()
 
     Sprite splash;
     Texture splash_texture;
-    splash_texture.loadFromFile("../Runner/img/splash.jpg");
+    assert(splash_texture.loadFromFile("../Runner/img/splash.jpg"));
     splash.setTexture(splash_texture);
+
+    Font splash_font;
+    assert(splash_font.loadFromFile("../Runner/fonts/onthemove.ttf"));
+
+    Text text_splash;
+    text_splash.setFont(splash_font);
+    text_splash.setCharacterSize(100);
+    text_splash.setColor(Color::Black);
+    text_splash.setString("<< Press Space To Play >>");
+    text_splash.setPosition(Vector2f((window->getSize().x - text_splash.getLocalBounds().width) / 2, (window->getSize().y - text_splash.getLocalBounds().height) / 1.2));
 
     Menu menu(this);
 
@@ -40,6 +51,7 @@ void WindowRunner::create()
         {
             case SPLASH:
                 window->draw(splash);
+                window->draw(text_splash);
                 break;
 
             case MENU:
