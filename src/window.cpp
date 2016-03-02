@@ -19,7 +19,7 @@ void WindowRunner::create()
 {
     // Create a window with the same pixel depth as the desktop
     VideoMode desktop = VideoMode::getDesktopMode();
-    window = new RenderWindow(desktop, "Runner", /*Style::Fullscreen*/Style::Close);
+    window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
     state = SPLASH;
 
     Sprite splash;
@@ -38,18 +38,19 @@ void WindowRunner::create()
 
         switch(state)
         {
-        case SPLASH:
-            window->draw(splash);
-            break;
+            case SPLASH:
+                window->draw(splash);
+                break;
 
-        case MENU:
-            menu.show();
-            break;
+            case MENU:
+                menu.show();
+                break;
 
-        case GAME:
-            game->run();
-            break;
+            case GAME:
+                game->run();
+                break;
         }
+
         window->display();
     }
 }

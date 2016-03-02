@@ -9,6 +9,7 @@ class Menu
 {
 private:
   WindowRunner *window;
+  sf::Texture *menubg_texture;
   sf::Sprite *menu_bg;
   Button campaign, survival, options, about, leave;
 
