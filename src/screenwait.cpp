@@ -1,10 +1,12 @@
 #include "screenwait.h"
+#include "window.h"
 
 using namespace std;
 using namespace sf;
 
-ScreenWait::ScreenWait(const string filename, const string text)
+ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string text)
 {
+    this->window = window;
     this->background_texture = NULL;
 
     this->background = new Sprite();

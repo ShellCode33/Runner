@@ -5,6 +5,9 @@ using namespace std;
 
 WindowRunner::WindowRunner()
 {
+    //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
+    this->reset(FloatRect(0, 0, 1920, 1080));
+
     //On créait une config du jeu, qu'on va lui passer en paramètre
     this->config = new Config("config");
     this->config->readConfig();
@@ -20,7 +23,7 @@ WindowRunner::~WindowRunner()
 void WindowRunner::create()
 {
     // Create a window with the same pixel depth as the desktop
-    VideoMode desktop = VideoMode::getDesktopMode();
+    desktop = VideoMode::getDesktopMode();
 
     if(desktop.width / desktop.height != 16/9)
     {
@@ -29,9 +32,11 @@ void WindowRunner::create()
     }
 
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
+    this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
+    window->setView(*this);
     state = SPLASH;
 
-    ScreenWait splash_screen("../Runner/img/splash.jpg", "<< Press Space To Play >>");
+    ScreenWait splash_screen(this, "../Runner/img/splash.jpg", "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((window->getSize().x - splash_screen.getTextWidth()) / 2, (window->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     Menu menu(this);
@@ -104,4 +109,10 @@ void WindowRunner::processEvent()
 void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
 {
     window->draw(drawable, states);
+}
+
+pair<int, int> WindowRunner::getResolution()
+{
+    pair<int, int> res = make_pair(desktop.width, desktop.height);
+    return res;
 }

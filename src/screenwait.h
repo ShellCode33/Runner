@@ -5,16 +5,19 @@
 #include <SFML/Graphics.hpp>
 #include <cassert>
 
+class WindowRunner;
+
 class ScreenWait
 {
 private:
+    WindowRunner* window;
     sf::Sprite *background;
     sf::Texture *background_texture;
     sf::Text *text;
     sf::Font *font;
 
 public:
-    ScreenWait(const std::string filename, const std::string text);
+    ScreenWait(WindowRunner* window, const std::string filename, const std::string text);
     ~ScreenWait();
     void setBackground(const std::string filename);
     void setText(const std::string value);

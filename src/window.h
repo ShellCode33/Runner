@@ -15,10 +15,11 @@ enum State
     GAME
 };
 
-class WindowRunner
+class WindowRunner : sf::View
 {
 private:
     sf::RenderWindow *window;
+    sf::VideoMode desktop;
     int width;
     int height;
     void processEvent();
@@ -34,6 +35,7 @@ public:
     void create();
     void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
 
+    std::pair<int, int> getResolution();
 };
 
 #endif //WINDOW_H

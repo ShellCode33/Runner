@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 class Utils
 {
