@@ -25,12 +25,6 @@ void WindowRunner::create()
     // Create a window with the same pixel depth as the desktop
     desktop = VideoMode::getDesktopMode();
 
-    if(desktop.width / desktop.height != 16/9)
-    {
-        Utils::log(string("Sorry resolution ") + desktop.width + "x" + desktop.height + " isn't supported. Only 16/9 screens.");
-        exit(1);
-    }
-
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     window->setView(*this);
