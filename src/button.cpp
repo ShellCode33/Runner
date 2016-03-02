@@ -37,7 +37,11 @@ void Button::setBoundaries(const int pos_x, const int pos_y, const int width, co
     this->sprite->setTextureRect(IntRect(pos_x, pos_y, width, height));
 }
 
+<<<<<<< HEAD
+void Button::setBoundaries(int pos_x_img, int pos_y_img, int width_img, int height_img )
+=======
 void Button::draw(RenderTarget& target, RenderStates states) const
+>>>>>>> e4de024d6560b78ead09ca840cff7ed8e55dd141
 {
     this->sprite->setPosition(this->pos_x, this->pos_y);
     this->text->setPosition(this->sprite->getPosition().x + (this->sprite->getLocalBounds().width - this->text->getLocalBounds().width) / 2, this->sprite->getPosition().y + (this->sprite->getLocalBounds().height - this->text->getLocalBounds().height) / 3);
