@@ -34,8 +34,6 @@ public:
     ~WindowRunner();
     void create();
     void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
-
-    std::pair<int, int> getResolution();
 };
 
 #endif //WINDOW_H

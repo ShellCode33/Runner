@@ -104,9 +104,3 @@ void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
 {
     window->draw(drawable, states);
 }
-
-pair<int, int> WindowRunner::getResolution()
-{
-    pair<int, int> res = make_pair(desktop.width, desktop.height);
-    return res;
-}
