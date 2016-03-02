@@ -15,7 +15,7 @@ Button::~Button()
     delete sprite;
 }
 
-void Button::setBoundaries(int pos_x, int pos_y)
+void Button::setBoundaries(int pos_x_img, int pos_y_img, int width_img, int height_img )
 {
 
 }
