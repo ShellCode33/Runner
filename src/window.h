@@ -1,9 +1,10 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <SFML/Graphics.hpp>
+#include <cassert>
 #include "menu.h"
 #include "game.h"
-#include <SFML/Graphics.hpp>
 
 enum State
 {
@@ -22,6 +23,7 @@ private:
     Game *game;
     Config *config;
     State state;
+    int resolution_x, resolution_y;
 
 
 public:
