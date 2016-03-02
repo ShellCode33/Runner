@@ -2,18 +2,25 @@
 #define BUTTON_H
 
 #include <SFML/Graphics.hpp>
+#include "const.h"
 
-class Button
+class Button : public sf::Drawable
 {
 private :
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    sf::Texture *texture;
     sf::Sprite *sprite;
+    sf::Text *text;
+    sf::Font *font;
+
     int pos_x, pos_y;
     int width, height;
 
 public :
-    Button(std::string img_filename, int pos_x=0, int pos_y=0, int width=150, int height=150);
+    Button(const std::string &text, const int pos_x=0, const int pos_y=0, const int width=280, const int height=50);
     ~Button();
-    void setBoundaries(int pos_x, int pos_y);
+    void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
+    void setImage(const std::string filename);
 
 };
 

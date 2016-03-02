@@ -1,23 +1,23 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "const.h"
 #include "button.h"
 
 class WindowRunner;
 
-class Menu
+class Menu : public sf::Drawable
 {
 private:
-  WindowRunner *window;
-  sf::Texture *menubg_texture;
-  sf::Sprite *menu_bg;
-  Button campaign, survival, options, about, leave;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    WindowRunner *window;
+    sf::Texture *menubg_texture;
+    sf::Sprite *menu_bg;
+    Button campaign, survival, options, about, leave;
 
 public:
     Menu(WindowRunner *window);
     ~Menu();
-
-    void show();
 
 };
 

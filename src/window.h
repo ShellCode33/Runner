@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "const.h"
 #include "menu.h"
 #include "game.h"
 #include "screenwait.h"
@@ -34,8 +35,6 @@ public:
     ~WindowRunner();
     void create();
     void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
-
-    std::pair<int, int> getResolution();
 };
 
 #endif //WINDOW_H

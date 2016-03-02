@@ -7,13 +7,13 @@ using namespace sf;
 ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string text)
 {
     this->window = window;
-    this->background_texture = NULL;
+    this->background_texture = new Texture();
 
     this->background = new Sprite();
     setBackground(filename);
 
     this->font = new Font();
-    assert(this->font->loadFromFile("../Runner/fonts/onthemove.ttf")); //ttf par défaut
+    assert(this->font->loadFromFile(ONTHEMOVE_TTF)); //ttf par défaut
 
     this->text = new Text();
     setText(text);
@@ -24,29 +24,16 @@ ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string
 
 ScreenWait::~ScreenWait()
 {
-    delete this->background;
     delete this->background_texture;
+    delete this->background;
+    delete this->text;
     delete this->font;
-
-    if(this->text != NULL)
-        delete this->text;
 }
 
 void ScreenWait::setBackground(const string filename)
 {
-    this->background_texture = new Texture();
     assert(this->background_texture->loadFromFile(filename));
     this->background->setTexture(*this->background_texture);
-}
-
-Sprite& ScreenWait::getBackground() const
-{
-    return *this->background;
-}
-
-Text& ScreenWait::getText() const
-{
-    return *this->text;
 }
 
 void ScreenWait::setText(string value)
@@ -67,4 +54,10 @@ float ScreenWait::getTextWidth() const
 float ScreenWait::getTextHeight() const
 {
     return this->text->getLocalBounds().height;
+}
+
+void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    target.draw(*this->background, states);
+    target.draw(*this->text, states);
 }

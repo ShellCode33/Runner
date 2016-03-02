@@ -22,21 +22,15 @@ WindowRunner::~WindowRunner()
 
 void WindowRunner::create()
 {
-    // Create a window with the same pixel depth as the desktop
+    // Récupère la résolution du bureau
     desktop = VideoMode::getDesktopMode();
-
-    if(desktop.width / desktop.height != 16/9)
-    {
-        Utils::log(string("Sorry resolution ") + desktop.width + "x" + desktop.height + " isn't supported. Only 16/9 screens.");
-        exit(1);
-    }
 
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     window->setView(*this);
     state = SPLASH;
 
-    ScreenWait splash_screen(this, "../Runner/img/splash.jpg", "<< Press Space To Play >>");
+    ScreenWait splash_screen(this, SPLASH_IMG, "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     Menu menu(this);
@@ -51,12 +45,11 @@ void WindowRunner::create()
         switch(state)
         {
             case SPLASH:
-                window->draw(splash_screen.getBackground());
-                window->draw(splash_screen.getText());
+                window->draw(splash_screen);
                 break;
 
             case MENU:
-                menu.show();
+                window->draw(menu);
                 break;
 
             case GAME:
@@ -109,10 +102,4 @@ void WindowRunner::processEvent()
 void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
 {
     window->draw(drawable, states);
-}
-
-pair<int, int> WindowRunner::getResolution()
-{
-    pair<int, int> res = make_pair(desktop.width, desktop.height);
-    return res;
 }
