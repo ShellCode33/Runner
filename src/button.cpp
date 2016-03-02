@@ -14,3 +14,8 @@ Button::~Button()
 {
     delete sprite;
 }
+
+Button::setBoundaries(int pos_x, int pos_y)
+{
+
+}

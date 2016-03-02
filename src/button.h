@@ -13,6 +13,7 @@ private :
 public :
     Button(std::string img_filename, int pos_x=0, int pos_y=0, int width=150, int height=150);
     ~Button();
+    setBoundaries(int pos_x, int pos_y);
 
 };
 
