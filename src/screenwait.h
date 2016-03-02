@@ -4,12 +4,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "const.h"
 
 class WindowRunner;
 
-class ScreenWait
+class ScreenWait : public sf::Drawable
 {
 private:
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     WindowRunner* window;
     sf::Sprite *background;
     sf::Texture *background_texture;
@@ -24,8 +26,6 @@ public:
     void setTextPosition(const sf::Vector2f pos);
     float getTextWidth() const;
     float getTextHeight() const;
-    sf::Sprite & getBackground() const;
-    sf::Text & getText() const;
 };
 
 #endif //SCREENWAIT_H

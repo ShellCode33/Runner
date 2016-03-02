@@ -12,11 +12,11 @@ private:
     std::map<std::string, std::string> config_map;
 
 public:
-    Config(std::string filename);
+    Config(const std::string filename);
     ~Config();
     void createConfig();
     void readConfig();
-    std::string getSetting(std::string key);
+    std::string getSetting(const std::string key);
 };
 
 #endif // CONFIG_H

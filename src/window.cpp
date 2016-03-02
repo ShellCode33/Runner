@@ -22,7 +22,7 @@ WindowRunner::~WindowRunner()
 
 void WindowRunner::create()
 {
-    // Create a window with the same pixel depth as the desktop
+    // Récupère la résolution du bureau
     desktop = VideoMode::getDesktopMode();
 
     window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
@@ -30,7 +30,7 @@ void WindowRunner::create()
     window->setView(*this);
     state = SPLASH;
 
-    ScreenWait splash_screen(this, "../Runner/img/splash.jpg", "<< Press Space To Play >>");
+    ScreenWait splash_screen(this, SPLASH_IMG, "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     Menu menu(this);
@@ -45,12 +45,11 @@ void WindowRunner::create()
         switch(state)
         {
             case SPLASH:
-                window->draw(splash_screen.getBackground());
-                window->draw(splash_screen.getText());
+                window->draw(splash_screen);
                 break;
 
             case MENU:
-                menu.show();
+                window->draw(menu);
                 break;
 
             case GAME:

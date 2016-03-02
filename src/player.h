@@ -6,7 +6,7 @@
 class Player
 {
 public:
-    Player(std::string username="unknown");
+    Player(const std::string username="unknown");
     ~Player();
     std::string getUsername();
 

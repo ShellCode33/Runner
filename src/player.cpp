@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Player::Player(string username)
+Player::Player(const string username)
 {
     this->username = username;
 }

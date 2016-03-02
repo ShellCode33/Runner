@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Config::Config(string filename)
+Config::Config(const string filename)
 {
     this->filename = filename;
 }
@@ -40,7 +40,7 @@ void Config::readConfig()
             string key, value;
             key = line.substr(0, line.find("="));
             value = line.substr(line.find("=")+1, line.size());
-            config_map[key] = value;
+            this->config_map[key] = value;
         }
 
         config_file.close();
@@ -50,10 +50,10 @@ void Config::readConfig()
         createConfig();
 }
 
-string Config::getSetting(string key)
+string Config::getSetting(const string key)
 {
-    if(config_map.find(key) != config_map.end())
-        return config_map[key];
+    if(this->config_map.find(key) != this->config_map.end())
+        return this->config_map[key];
 
     return "";
 }

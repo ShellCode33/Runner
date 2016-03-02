@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "const.h"
 #include "menu.h"
 #include "game.h"
 #include "screenwait.h"

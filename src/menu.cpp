@@ -9,17 +9,23 @@ Menu::Menu(WindowRunner *window) :  campaign("Campaign", 100, 400, 280, 50), sur
 {
     this->window = window;
 
-    menubg_texture = new Texture();
-    menubg_texture->loadFromFile("../Runner/img/menu_bg.png");
-    menu_bg = new Sprite(*menubg_texture);
+    this->menubg_texture = new Texture();
+    this->menubg_texture->loadFromFile(MENU_BG);
+    this->menu_bg = new Sprite(*this->menubg_texture);
 }
 
 Menu::~Menu()
 {
-    delete menu_bg;
+    delete this->menubg_texture;
+    delete this->menu_bg;
 }
 
-void Menu::show()
+void Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    window->draw(*menu_bg);
+    this->window->draw(*this->menu_bg, states);
+    this->window->draw(campaign, states);
+    this->window->draw(survival, states);
+    this->window->draw(options, states);
+    this->window->draw(about, states);
+    this->window->draw(leave, states);
 }
