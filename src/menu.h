@@ -10,13 +10,12 @@ class Menu : public sf::Drawable
 {
 private:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    WindowRunner *window;
     sf::Texture *menubg_texture;
     sf::Sprite *menu_bg;
     Button campaign, survival, options, about, leave;
 
 public:
-    Menu(WindowRunner *window);
+    Menu();
     ~Menu();
 
 };

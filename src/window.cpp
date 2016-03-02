@@ -33,7 +33,7 @@ void WindowRunner::create()
     ScreenWait splash_screen(this, SPLASH_IMG, "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
-    Menu menu(this);
+    Menu menu;
 
     window->setFramerateLimit(60);
 

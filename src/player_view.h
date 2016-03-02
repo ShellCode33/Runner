@@ -2,8 +2,9 @@
 #define PLAYERVIEW_H
 
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
-class PlayerView
+class PlayerView : public sf::Drawable
 {
 public:
     PlayerView();
