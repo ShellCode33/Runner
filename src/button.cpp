@@ -11,13 +11,14 @@ Button::Button(const string & text, const int pos_x, const int pos_y, const int 
     this->font->loadFromFile(ONTHEMOVE_TTF);
     this->text->setFont(*this->font);
     this->text->setString(text);
+    this->text->setColor(Color::Black);
 
     this->texture = new Texture();
     this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton
     this->texture->loadFromFile(BUTTON_MENU_IMG);
     this->sprite = new Sprite(*texture);
 
-    setBoundaries(0, 0, width, height); //default
+    setBoundaries(0, 50, width, height); //default
 }
 
 Button::~Button()
@@ -52,13 +53,15 @@ void Button::processEvent(WindowRunner &window, Event &event)
 {
     if(event.type == Event::MouseMoved && window.getState() == MENU)
     {
-        int x_mouse = event.mouseMove.x;
-        int y_mouse = event.mouseMove.y;
+        float x_mouse = event.mouseMove.x*1.38;
+        float y_mouse = event.mouseMove.y*1.386; //Je ne comprend pas pourquoi les position sont mauvaises
 
-        if(x_mouse > this->pos_x && y_mouse > this->pos_y && x_mouse < this->pos_x + this->width && y_mouse < this->pos_y + this->height)
-            setBoundaries(0, 50, this->width, this->height);
+        //cout << x_mouse << " " << y_mouse << endl;
+
+        if((y_mouse > this->pos_y && y_mouse < this->pos_y + this->height) && (x_mouse > this->pos_x && x_mouse < this->pos_x + this->width) )
+            setBoundaries(0, 0, this->width, this->height);
 
         else
-            setBoundaries(0, 0, this->width, this->height);
+            setBoundaries(0, 50, this->width, this->height);
     }
 }
