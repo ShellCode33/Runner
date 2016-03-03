@@ -53,10 +53,8 @@ void Button::processEvent(WindowRunner &window, Event &event)
 {
     if(event.type == Event::MouseMoved && window.getState() == MENU)
     {
-        float x_mouse = event.mouseMove.x*1.38;
-        float y_mouse = event.mouseMove.y*1.386; //Je ne comprend pas pourquoi les position sont mauvaises
-
-        //cout << x_mouse << " " << y_mouse << endl;
+        float x_mouse = event.mouseMove.x;
+        float y_mouse = event.mouseMove.y;
 
         if((y_mouse > this->pos_y && y_mouse < this->pos_y + this->height) && (x_mouse > this->pos_x && x_mouse < this->pos_x + this->width) )
             setBoundaries(0, 0, this->width, this->height);
