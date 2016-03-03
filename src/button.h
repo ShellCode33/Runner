@@ -4,11 +4,14 @@
 #include <SFML/Graphics.hpp>
 #include "const.h"
 
+class WindowRunner;
+
 class Button : public sf::Drawable
 {
 private :
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::Texture *texture;
+    sf::Texture *texture_hover; //texture utilisée lorsque la souris passe sur le bouton
     sf::Sprite *sprite;
     sf::Text *text;
     sf::Font *font;
@@ -21,7 +24,7 @@ public :
     ~Button();
     void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
     void setImage(const std::string filename);
-
+    void processEvent(WindowRunner &window, sf::Event & event);
 };
 
 #endif // BUTTON_H

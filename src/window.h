@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include <unordered_set>
 #include "const.h"
 #include "menu.h"
 #include "game.h"
@@ -24,8 +25,9 @@ private:
     int width;
     int height;
     void processEvent();
-    Game *game;
-    Config *config;
+    Menu menu;
+    Config config;
+    Game game;
     State state;
     int resolution_x, resolution_y;
 
@@ -35,6 +37,8 @@ public:
     ~WindowRunner();
     void create();
     void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
+    State getState() const;
+    void setState(const State &value);
 };
 
 #endif //WINDOW_H

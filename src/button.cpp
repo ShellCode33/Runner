@@ -1,4 +1,5 @@
 #include "button.h"
+#include "window.h"
 
 using namespace std;
 using namespace sf;
@@ -12,6 +13,7 @@ Button::Button(const string & text, const int pos_x, const int pos_y, const int 
     this->text->setString(text);
 
     this->texture = new Texture();
+    this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton
     this->texture->loadFromFile(BUTTON_MENU_IMG);
     this->sprite = new Sprite(*texture);
 
@@ -44,4 +46,19 @@ void Button::draw(RenderTarget& target, RenderStates states) const
 
     target.draw(*this->sprite, states);
     target.draw(*this->text, states);
+}
+
+void Button::processEvent(WindowRunner &window, Event &event)
+{
+    if(event.type == Event::MouseMoved && window.getState() == MENU)
+    {
+        int x_mouse = event.mouseMove.x;
+        int y_mouse = event.mouseMove.y;
+
+        if(x_mouse > this->pos_x && y_mouse > this->pos_y && x_mouse < this->pos_x + this->width && y_mouse < this->pos_y + this->height)
+            setBoundaries(0, 50, this->width, this->height);
+
+        else
+            setBoundaries(0, 0, this->width, this->height);
+    }
 }

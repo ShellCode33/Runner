@@ -9,14 +9,16 @@ class WindowRunner;
 class Menu : public sf::Drawable
 {
 private:
+    WindowRunner *window;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::Texture *menubg_texture;
     sf::Sprite *menu_bg;
     Button campaign, survival, options, about, leave;
 
 public:
-    Menu();
+    Menu(WindowRunner *window);
     ~Menu();
+    void processEvents(sf::Event & event);
 
 };
 

@@ -3,21 +3,17 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner()
+WindowRunner::WindowRunner() : menu(this), config("config"), game(&config, this)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, 1920, 1080));
 
-    //On créait une config du jeu, qu'on va lui passer en paramètre
-    this->config = new Config("config");
-    this->config->readConfig();
-    this->game = new Game(this->config, this);
+    this->config.readConfig();
 }
 
 WindowRunner::~WindowRunner()
 {
-    delete this->game;
-    delete this->config;
+
 }
 
 void WindowRunner::create()
@@ -25,15 +21,13 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     desktop = VideoMode::getDesktopMode();
 
-    window = new RenderWindow(desktop, "Runner", Style::Fullscreen);
+    window = new RenderWindow(desktop, "Super Weed Boy", Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     window->setView(*this);
     state = SPLASH;
 
     ScreenWait splash_screen(this, SPLASH_IMG, "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
-
-    Menu menu;
 
     window->setFramerateLimit(60);
 
@@ -53,7 +47,7 @@ void WindowRunner::create()
                 break;
 
             case GAME:
-                game->run();
+                game.run();
                 break;
         }
 
@@ -68,6 +62,8 @@ void WindowRunner::processEvent()
 
     while(window->pollEvent(event))
     {
+        menu.processEvents(event);
+
         switch(event.type)
         {
             case Event::Closed:
@@ -99,7 +95,18 @@ void WindowRunner::processEvent()
     }
 }
 
+State WindowRunner::getState() const
+{
+    return state;
+}
+
+void WindowRunner::setState(const State &value)
+{
+    state = value;
+}
+
 void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
 {
     window->draw(drawable, states);
 }
+

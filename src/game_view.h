@@ -1,13 +1,16 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
+#include "game.h"
+
 class GameView
 {
-private:
-
 public:
     GameView();
     ~GameView();
+
+private:
+    //Game game; //model
 
 };
 
