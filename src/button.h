@@ -2,6 +2,8 @@
 #define BUTTON_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Window/Mouse.hpp>
 #include "const.h"
 
 class WindowRunner;

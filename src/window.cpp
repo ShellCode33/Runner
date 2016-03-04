@@ -110,3 +110,7 @@ void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
     window->draw(drawable, states);
 }
 
+RenderWindow & WindowRunner::getRender() const
+{
+  return *window;
+}

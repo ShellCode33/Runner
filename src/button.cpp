@@ -53,10 +53,11 @@ void Button::processEvent(WindowRunner &window, Event &event)
 {
     if(event.type == Event::MouseMoved && window.getState() == MENU)
     {
-        float x_mouse = event.mouseMove.x;
-        float y_mouse = event.mouseMove.y;
+        RenderWindow & render = window.getRender();
+        Vector2i window_mouse_pos = Mouse::getPosition(render);
+        Vector2f mouse_pos = render.mapPixelToCoords(window_mouse_pos);
 
-        if((y_mouse > this->pos_y && y_mouse < this->pos_y + this->height) && (x_mouse > this->pos_x && x_mouse < this->pos_x + this->width) )
+        if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
             setBoundaries(0, 0, this->width, this->height);
 
         else

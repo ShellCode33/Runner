@@ -39,6 +39,7 @@ public:
     void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
     State getState() const;
     void setState(const State &value);
+    sf::RenderWindow & getRender() const;
 };
 
 #endif //WINDOW_H
