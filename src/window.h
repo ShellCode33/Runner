@@ -3,10 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
-#include <unordered_set>
 #include "const.h"
 #include "menu.h"
-#include "game.h"
+#include "game_view.h"
 #include "screenwait.h"
 #include "utils.h"
 #include "gamestate.h"
@@ -20,8 +19,7 @@ private:
     int height;
     void processEvent();
     Menu menu;
-    Config config;
-    Game game;
+    GameView game_view;
     State state;
     int resolution_x, resolution_y;
     ScreenWait splash_screen;

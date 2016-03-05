@@ -3,12 +3,10 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : menu(this), config("config"), game(&config, this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
+WindowRunner::WindowRunner() : menu(*this), game_view(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, 1920, 1080));
-
-    this->config.readConfig();
 }
 
 WindowRunner::~WindowRunner()
@@ -47,7 +45,7 @@ void WindowRunner::create()
 
             case SURVIVAL:
             case CAMPAIGN:
-                game.run();
+                window->draw(game_view);
                 break;
         }
 

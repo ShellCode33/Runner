@@ -1,16 +1,20 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
+#include <SFML/Graphics.hpp>
 #include "game.h"
 
-class GameView
+class WindowRunner;
+
+class GameView : public sf::Drawable
 {
 public:
-    GameView();
+    GameView(WindowRunner& window);
     ~GameView();
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
-    //Game game; //model
+    Game game; //model
 
 };
 

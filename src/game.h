@@ -4,20 +4,16 @@
 #include "player.h"
 #include "config.h"
 
-class WindowRunner;
-
 class Game
 {
 private:
-    WindowRunner *window;
-    Player *player;
+    Player player;
     int speed; //Vitesse du jeu et donc du background
-    Config *config;
+    Config config;
 
 public:
-    Game(Config *config, WindowRunner *window);
+    Game();
     ~Game();
-    void run();
 
 };
 
