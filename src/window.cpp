@@ -3,7 +3,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : menu(this), config("config"), game(&config, this)
+WindowRunner::WindowRunner() : menu(this), config("config"), game(&config, this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, 1920, 1080));
@@ -21,12 +21,11 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     desktop = VideoMode::getDesktopMode();
 
-    window = new RenderWindow(desktop, "Super Weed Boy", Style::Fullscreen);
+    window = new RenderWindow(desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     window->setView(*this);
     state = SPLASH;
 
-    ScreenWait splash_screen(this, SPLASH_IMG, "<< Press Space To Play >>");
     splash_screen.setTextPosition(Vector2f((this->getSize().x - splash_screen.getTextWidth()) / 2, (this->getSize().y - splash_screen.getTextHeight()) / 1.2));
 
     window->setFramerateLimit(60);
@@ -46,7 +45,8 @@ void WindowRunner::create()
                 window->draw(menu);
                 break;
 
-            case GAME:
+            case SURVIVAL:
+            case CAMPAIGN:
                 game.run();
                 break;
         }
@@ -63,6 +63,7 @@ void WindowRunner::processEvent()
     while(window->pollEvent(event))
     {
         menu.processEvents(event);
+        splash_screen.processEvent(event);
 
         switch(event.type)
         {
@@ -76,13 +77,6 @@ void WindowRunner::processEvent()
                 {
                     case Keyboard::Escape:
                         window->close();
-                        break;
-
-                    case Keyboard::Space:
-
-                        if(state == SPLASH)
-                            state = MENU;
-
                         break;
 
                     default: break;

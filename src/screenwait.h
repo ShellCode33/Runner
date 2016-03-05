@@ -26,6 +26,7 @@ public:
     void setTextPosition(const sf::Vector2f pos);
     float getTextWidth() const;
     float getTextHeight() const;
+    void processEvent(sf::Event &event);
 };
 
 #endif //SCREENWAIT_H

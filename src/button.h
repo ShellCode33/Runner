@@ -5,6 +5,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include "const.h"
+#include "gamestate.h"
 
 class WindowRunner;
 
@@ -12,17 +13,18 @@ class Button : public sf::Drawable
 {
 private :
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    sf::Texture *texture;
-    sf::Texture *texture_hover; //texture utilisée lorsque la souris passe sur le bouton
+    sf::Texture texture;
+    sf::Texture texture_hover; //texture utilisée lorsque la souris passe sur le bouton
     sf::Sprite *sprite;
-    sf::Text *text;
-    sf::Font *font;
+    sf::Text text;
+    sf::Font font;
+    const State action;
 
     int pos_x, pos_y;
     int width, height;
 
 public :
-    Button(const std::string &text, const int pos_x=0, const int pos_y=0, const int width=280, const int height=50);
+    Button(const std::string &text, const State action, const int pos_x=0, const int pos_y=0, const int width=280, const int height=50);
     ~Button();
     void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
     void setImage(const std::string filename);

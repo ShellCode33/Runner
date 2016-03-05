@@ -61,3 +61,9 @@ void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(*this->background, states);
     target.draw(*this->text, states);
 }
+
+void ScreenWait::processEvent(Event & event)
+{
+    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space && window->getState() == SPLASH)
+            window->setState(MENU);
+}

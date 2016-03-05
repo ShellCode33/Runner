@@ -9,13 +9,7 @@
 #include "game.h"
 #include "screenwait.h"
 #include "utils.h"
-
-enum State
-{
-    SPLASH,
-    MENU,
-    GAME
-};
+#include "gamestate.h"
 
 class WindowRunner : sf::View
 {
@@ -30,6 +24,7 @@ private:
     Game game;
     State state;
     int resolution_x, resolution_y;
+    ScreenWait splash_screen;
 
 
 public:

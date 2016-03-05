@@ -4,8 +4,8 @@
 using namespace sf;
 using namespace std;
 
-Menu::Menu(WindowRunner *window) :  campaign("Campaign", 200, 600, 280, 50), survival("Survival", 200, 670, 280, 50),
-                                    options("Options", 200, 740, 280, 50), about("About", 200, 810, 280, 50), leave("Exit", 200, 880, 280, 50)
+Menu::Menu(WindowRunner *window) :  campaign("Campaign", SPLASH, 150, 450, 500, 91), survival("Survival", SURVIVAL, 150, 560, 500, 91),
+                                    options("Options", OPTIONS, 150, 670, 500, 91), about("About", ABOUT, 150, 780, 500, 91), leave("Exit", EXIT, 150, 890, 500, 91)
 {
     this->window = window;
     this->menubg_texture = new Texture();
