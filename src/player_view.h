@@ -5,8 +5,9 @@
 #include <SFML/Graphics.hpp>
 #include "movable.h"
 #include "player.h"
+#include "animated_sprite.h"
 
-class PlayerView : public sf::Drawable
+class PlayerView : public AnimatedSprite
 {
 public:
     PlayerView();

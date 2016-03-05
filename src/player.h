@@ -2,9 +2,8 @@
 #define PLAYER_H
 
 #include <iostream>
-#include "movable.h"
 
-class Player : public Movable
+class Player
 {
 public:
     Player(const std::string username="unknown");
