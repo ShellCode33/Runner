@@ -6,11 +6,12 @@
 #include "movable.h"
 #include "player.h"
 
-class PlayerView : public sf::Drawable, Movable
+class PlayerView : public sf::Drawable
 {
 public:
     PlayerView();
     ~PlayerView();
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
     Player player; //Player model

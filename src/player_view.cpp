@@ -9,3 +9,8 @@ PlayerView::~PlayerView()
 {
 
 }
+
+void PlayerView::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+
+}

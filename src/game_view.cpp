@@ -2,7 +2,7 @@
 
 using namespace sf;
 
-GameView::GameView(WindowRunner &window)
+GameView::GameView(WindowRunner &window) : window(window)
 {
 
 }

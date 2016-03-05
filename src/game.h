@@ -8,7 +8,7 @@ class Game
 {
 private:
     Player player;
-    int speed; //Vitesse du jeu et donc du background
+    float speed; //Vitesse du jeu et donc du background
     Config config;
 
 public:

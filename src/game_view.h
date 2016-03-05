@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "game.h"
+#include "player_view.h"
 
 class WindowRunner;
 
@@ -14,6 +15,8 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
+    WindowRunner& window;
+    PlayerView player_view;
     Game game; //model
 
 };

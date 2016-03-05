@@ -47,6 +47,18 @@ void WindowRunner::create()
             case CAMPAIGN:
                 window->draw(game_view);
                 break;
+
+            case OPTIONS:
+
+                break;
+
+            case ABOUT:
+
+                break;
+
+            case EXIT:
+                window->close();
+                break;
         }
 
         window->display();
@@ -65,10 +77,6 @@ void WindowRunner::processEvent()
 
         switch(event.type)
         {
-            case Event::Closed:
-                window->close();
-                break;
-
             case Event::KeyPressed:
 
                 switch(event.key.code)
