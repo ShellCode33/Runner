@@ -3,18 +3,22 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "movable.h"
+#include <time.h>
 
-class AnimatedSprite : public Movable
+class AnimatedSprite : public sf::Sprite
 {
 public:
     AnimatedSprite(const unsigned int speed=0);
     ~AnimatedSprite();
-    void addSprite(sf::Sprite &sprite);
+    void addClip(const sf::IntRect& clip);
+    void draw(sf::RenderTarget& target, sf::RenderStates states);
 
 private:
-    std::vector<sf::Sprite*> sprites;
-    const unsigned int speed; //temps entre 2 sprites
+    std::vector<sf::IntRect*> clips; //Contient les differentes zones de la texture qui formeront les animations du sprite
+    const unsigned int speed_ms; //temps entre 2 sprites (en millisecondes)
+    unsigned int current_clip_i;
+    time_t timer;
+
 
 };
 

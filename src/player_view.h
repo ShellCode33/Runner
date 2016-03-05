@@ -10,11 +10,11 @@
 class PlayerView : public AnimatedSprite
 {
 public:
-    PlayerView();
+    PlayerView(std::string filename_player_img);
     ~PlayerView();
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
+    sf::Texture player_texture;
     Player player; //Player model
 
 

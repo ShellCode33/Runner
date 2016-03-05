@@ -7,5 +7,6 @@
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
 #define SPLASH_IMG "img/splash.png"
 #define SPLASH_TEXT "<< Press Space To Play >>"
+#define PLAYER_IMG "img/test.png"
 
 #endif // CONST_H

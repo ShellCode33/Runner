@@ -72,26 +72,10 @@ void WindowRunner::processEvent()
 
     while(window->pollEvent(event))
     {
+        //Dispatch events processing
         menu.processEvents(event);
         splash_screen.processEvent(event);
-
-        switch(event.type)
-        {
-            case Event::KeyPressed:
-
-                switch(event.key.code)
-                {
-                    case Keyboard::Escape:
-                        window->close();
-                        break;
-
-                    default: break;
-                }
-
-                break;
-
-            default: break;
-        }
+        game_view.processEvent(event);
     }
 }
 
