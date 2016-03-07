@@ -7,12 +7,13 @@
 #include "player.h"
 #include "animated_sprite.h"
 
-class PlayerView : public AnimatedSprite
+class PlayerView : public Animation
 {
 public:
     PlayerView(std::string filename_player_img);
     ~PlayerView();
 
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 private:
     sf::Texture player_texture;
     Player player; //Player model

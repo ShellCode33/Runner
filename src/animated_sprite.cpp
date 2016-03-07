@@ -1,8 +1,23 @@
 #include "animated_sprite.h"
 
+#include <iostream>
+using namespace std;
+
 using namespace sf;
 
-AnimatedSprite::AnimatedSprite(const unsigned int speed_ms) : speed_ms(speed_ms), current_clip_i(0)
+AnimatedSprite::AnimatedSprite()
+{
+
+}
+
+AnimatedSprite::~AnimatedSprite()
+{
+
+}
+
+//-----------------------------------------------------------------------------------------------
+
+Animation::Animation(const unsigned int speed_ms) : speed_ms(speed_ms), current_clip_i(0)
 {
     struct tm default_time;
     default_time.tm_hour = 0;   default_time.tm_min = 0; default_time.tm_sec = 0;
@@ -11,23 +26,15 @@ AnimatedSprite::AnimatedSprite(const unsigned int speed_ms) : speed_ms(speed_ms)
     this->timer = mktime(&default_time);
 }
 
-AnimatedSprite::~AnimatedSprite()
+Animation::~Animation()
 {
     for(IntRect *p_clip : this->clips)
         delete p_clip;
 }
 
-void AnimatedSprite::addClip(const IntRect &clip)
+void Animation::update()
 {
-    IntRect *p_clip = new IntRect();
-    *p_clip = clip;
-    this->clips.push_back(p_clip);
-}
-
-void AnimatedSprite::draw(RenderTarget &target, RenderStates states)
-{
-    this->setTextureRect(*this->clips[this->current_clip_i]);
-    target.draw(*this);
+    this->sprite.setTextureRect(*this->clips[this->current_clip_i]);
 
     time_t current_time;
     time(&current_time);
@@ -37,4 +44,11 @@ void AnimatedSprite::draw(RenderTarget &target, RenderStates states)
         time(&this->timer);
         this->current_clip_i = (this->current_clip_i + 1) % this->clips.size(); //On passe au clip suivant
     }
+}
+
+void Animation::addClip(const IntRect &clip)
+{
+    IntRect *p_clip = new IntRect();
+    *p_clip = clip;
+    this->clips.push_back(p_clip);
 }

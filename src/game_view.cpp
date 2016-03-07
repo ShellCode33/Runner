@@ -14,7 +14,7 @@ GameView::~GameView()
 
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
-    target.draw(player_view);
+    player_view.draw(target, states);
 }
 
 void GameView::processEvent(Event &event)
