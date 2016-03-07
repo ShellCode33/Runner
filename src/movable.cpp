@@ -24,7 +24,7 @@ void Movable::setVelocity(Vector2f v)
   this->velocity.y = v.y;
 }
 
-/*bool inAir(int ground, int height_object) const
+/*bool inAir(const int ground, int height_object) const
 {
   return this->pos.y + height_object < ground;
 }*/

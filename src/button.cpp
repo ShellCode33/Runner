@@ -11,6 +11,7 @@ Button::Button(const string & text, const State action, const int pos_x, const i
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setColor(Color::Black);
+    this->text.setCharacterSize(45);
 
     this->texture.loadFromFile(BUTTON_MENU_IMG);
     this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton

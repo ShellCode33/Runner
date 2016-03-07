@@ -19,7 +19,7 @@ public:
     ~Movable();
     void setPosition(sf::Vector2f p);
     void setVelocity(sf::Vector2f v);
-    //bool inAir(int ground, int height_object) const;
+    //bool inAir(const int ground, int height_object) const;
     void run(sf::Vector2f v, const float move_speed, const float acceleration, const int framerate);
     void jump(sf::Vector2f v, const float jump_speed, const float gravity, const int framerate, sf::Vector2f p, const int ground, const int height_object);
 
