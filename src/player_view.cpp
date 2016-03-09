@@ -1,16 +1,17 @@
 #include "player_view.h"
+#include "window.h"
 
 using namespace std;
 using namespace sf;
 
-PlayerView::PlayerView(string filename_player_img)
+PlayerView::PlayerView(const string filename_player_img) : Animation(3.d)
 {
     this->player_texture.loadFromFile(filename_player_img);
-    this->sprite.setTexture(this->player_texture);
-    this->sprite.setPosition(500, 500);
-    this->addClip(IntRect(0, 0, 222, 300));
-    this->addClip(IntRect(222, 0, 222, 300));
-    this->addClip(IntRect(444, 0, 222, 300));
+    this->setTexture(this->player_texture);
+    this->setPosition(500, 500);
+    this->addClip(IntRect(0, 0, 63, 49));
+    this->addClip(IntRect(64, 0, 63, 49));
+    this->addClip(IntRect(127, 0, 63, 49));
 }
 
 PlayerView::~PlayerView()
@@ -18,7 +19,35 @@ PlayerView::~PlayerView()
 
 }
 
-void PlayerView::draw(RenderTarget &target, RenderStates states) const
+void PlayerView::update()
 {
-    target.draw(this->sprite);
+    Animation::update();
+
+    this->setPosition(player.getX(), player.getY());
+}
+
+void PlayerView::processEvents(WindowRunner &window, Event &event)
+{
+    if(window.getState() == SURVIVAL || window.getState() == CAMPAIGN)
+    {
+        if(event.type == Event::KeyPressed || event.type == Event::KeyReleased)
+        {
+            switch(event.key.code)
+            {
+                case Keyboard::Left:
+                    player.leftPressed = !player.leftPressed;
+                    break;
+
+                case Keyboard::Right:
+                    player.rightPressed = !player.rightPressed;
+                    break;
+
+                case Keyboard::Space:
+                    player.spacePressed = !player.spacePressed;
+                    break;
+
+                default: break;
+            }
+        }
+    }
 }

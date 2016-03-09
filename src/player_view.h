@@ -5,15 +5,18 @@
 #include <SFML/Graphics.hpp>
 #include "movable.h"
 #include "player.h"
-#include "animated_sprite.h"
+#include "animation.h"
+
+class WindowRunner;
 
 class PlayerView : public Animation
 {
 public:
-    PlayerView(std::string filename_player_img);
+    PlayerView(const std::string filename_player_img);
     ~PlayerView();
+    void processEvents(WindowRunner &window, sf::Event &event);
+    void update();
 
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 private:
     sf::Texture player_texture;
     Player player; //Player model

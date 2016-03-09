@@ -14,7 +14,7 @@ GameView::~GameView()
 
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
-    player_view.draw(target, states);
+    target.draw(player_view);
 }
 
 void GameView::processEvent(Event &event)
@@ -24,4 +24,9 @@ void GameView::processEvent(Event &event)
         if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
             this->window.setState(MENU);
     }
+}
+
+void GameView::update()
+{
+    this->player_view.update();
 }

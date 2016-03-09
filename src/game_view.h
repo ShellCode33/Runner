@@ -15,6 +15,7 @@ public:
     ~GameView();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
+    void update();
 
 private:
     WindowRunner& window;
