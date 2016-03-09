@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#define VIEW_WIDTH 1920
+#define VIEW_HEIGHT 1080
 #define FRAMERATE 60
 #define TITLE_WINDOW "Super Weed Boy"
 #define BUTTON_MENU_IMG "img/button.png"
@@ -12,5 +14,6 @@
 #define SPLASH_IMG "img/splash.png"
 #define SPLASH_TEXT "<< Press Space To Play >>"
 #define PLAYER_IMG "img/player.png"
+#define SNOOP_DOGG_ANIM "img/snoop.png"
 
 #endif // CONST_H

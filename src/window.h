@@ -9,6 +9,8 @@
 #include "screenwait.h"
 #include "utils.h"
 #include "gamestate.h"
+#include "about_tab.h"
+#include "option_tab.h"
 
 class WindowRunner : sf::View
 {
@@ -21,8 +23,9 @@ private:
     Menu menu;
     GameView game_view;
     State state;
-    int resolution_x, resolution_y;
     ScreenWait splash_screen;
+    AboutTab about_tab;
+    OptionTab option_tab;
 
 
 public:

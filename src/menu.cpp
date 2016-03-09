@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-Menu::Menu(WindowRunner &window) :  window(window), campaign("Campaign", SPLASH, 150, 450, 500, 91), survival("Survival", SURVIVAL, 150, 560, 500, 91),
+Menu::Menu(WindowRunner &window) :  window(window), campaign("Campaign", CAMPAIGN, 150, 450, 500, 91), survival("Survival", SURVIVAL, 150, 560, 500, 91),
                                     options("Options", OPTIONS, 150, 670, 500, 91), about("About", ABOUT, 150, 780, 500, 91), leave("Exit", EXIT, 150, 890, 500, 91)
 {
     this->menubg_texture.loadFromFile(MENU_BG);

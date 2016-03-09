@@ -29,6 +29,21 @@ void Animation::update()
     }
 }
 
+Animation &Animation::operator=(const Animation &other)
+{
+    this->current_clip_i = other.current_clip_i;
+    this->timer = clock();
+    this->setTexture(*other.getTexture());
+
+    int i;
+    for(i = 0; i < other.clips.size(); i++)
+    {
+        IntRect *new_value = new IntRect();
+        *new_value = *other.clips[i];
+        this->clips.push_back(new_value);
+    }
+}
+
 void Animation::addClip(const IntRect &clip)
 {
     IntRect *p_clip = new IntRect();

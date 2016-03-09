@@ -70,4 +70,12 @@ void Button::processEvent(WindowRunner &window, Event &event)
                 window.setState(this->action);
         }
     }
+
+    //On donne la possibilité de revenir au menu avec un echap, mais devra être enlevé à l'avenir
+    else
+    {
+        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
+            window.setState(MENU);
+    }
+    //--------------------------------------------------------------------------------------------
 }
