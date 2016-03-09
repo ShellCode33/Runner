@@ -30,7 +30,7 @@ AboutTab::~AboutTab()
 
 void AboutTab::draw(RenderTarget &target, RenderStates states) const
 {
-    //target.clear(Color(rand() % 256, rand() % 256, rand() % 256));
+    target.clear(Color(rand() % 256, rand() % 256, rand() % 256));
     target.draw(this->first_snoop);
     target.draw(this->second_snoop);
 }
