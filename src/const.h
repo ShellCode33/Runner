@@ -6,6 +6,7 @@
 
 #define VIEW_WIDTH 1920
 #define VIEW_HEIGHT 1080
+#define VIEW_RATIO ((float) VIEW_WIDTH / (float) VIEW_HEIGHT)
 #define FRAMERATE 60
 #define TITLE_WINDOW "Super Weed Boy"
 #define BUTTON_MENU_IMG "img/button.png"

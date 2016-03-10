@@ -11,10 +11,11 @@ class WindowRunner;
 class AboutTab : public sf::Drawable
 {
 public:
-    AboutTab(WindowRunner &window);
+    AboutTab();
     ~AboutTab();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();
+    void processEvent(WindowRunner & window, sf::Event & event);
 
 
 private:

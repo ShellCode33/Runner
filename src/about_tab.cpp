@@ -3,13 +3,14 @@
 
 using namespace sf;
 
-AboutTab::AboutTab(WindowRunner &window)
+AboutTab::AboutTab() : first_snoop(15.0), second_snoop(15.0)
 {
     srand(time(NULL));
 
     assert(this->illu_texture.loadFromFile(ILLUMINATI_IMG));
     this->illuminati.setTexture(illu_texture);
     this->illuminati.setPosition((VIEW_WIDTH-this->illu_texture.getSize().x) / 2, 10);
+
 
 
     this->snoop_texture = new Texture();
@@ -34,7 +35,7 @@ AboutTab::AboutTab(WindowRunner &window)
 
     assert(font.loadFromFile(ONTHEMOVE_TTF));
 
-    //Pas très propre mais necessaire car la SFML n'est pas capable de centrer horizontalement du texte.
+    //Pas très propre mais necessaire car la SFML n'est pas capable de centrer horizontalement du texte multi-ligne
     this->text[0].setString("Developped By");
     this->text[1].setString(L"Jérémie Pereyrol");
     this->text[2].setString("&");
@@ -71,5 +72,10 @@ void AboutTab::update()
 {
     this->first_snoop.update();
     this->second_snoop.update();
+}
 
+void AboutTab::processEvent(WindowRunner & window, Event & event)
+{
+    if((event.type == Event::KeyPressed && event.key.code == Keyboard::Escape) || (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left))
+        window.setState(MENU);
 }

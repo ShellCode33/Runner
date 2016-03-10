@@ -49,33 +49,22 @@ void Button::draw(RenderTarget& target, RenderStates states) const
 
 void Button::processEvent(WindowRunner &window, Event &event)
 {
-    if(window.getState() == MENU)
+    RenderWindow & render = window.getRender();
+    Vector2i window_mouse_pos = Mouse::getPosition(render);
+    Vector2f mouse_pos = render.mapPixelToCoords(window_mouse_pos);
+
+    if(event.type == Event::MouseMoved)
     {
-        RenderWindow & render = window.getRender();
-        Vector2i window_mouse_pos = Mouse::getPosition(render);
-        Vector2f mouse_pos = render.mapPixelToCoords(window_mouse_pos);
+        if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
+            setBoundaries(0, 0, this->width, this->height);
 
-        if(event.type == Event::MouseMoved)
-        {
-            if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
-                setBoundaries(0, 0, this->width, this->height);
-
-            else
-                setBoundaries(0, this->height, this->width, this->height);
-        }
-
-        if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
-        {
-            if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
-                window.setState(this->action);
-        }
+        else
+            setBoundaries(0, this->height, this->width, this->height);
     }
 
-    //On donne la possibilité de revenir au menu avec un echap, mais devra être enlevé à l'avenir
-    else
+    if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
     {
-        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-            window.setState(MENU);
+        if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
+            window.setState(this->action);
     }
-    //--------------------------------------------------------------------------------------------
 }

@@ -42,6 +42,8 @@ Animation &Animation::operator=(const Animation &other)
         *new_value = *other.clips[i];
         this->clips.push_back(new_value);
     }
+
+    return *this;
 }
 
 void Animation::addClip(const IntRect &clip)
