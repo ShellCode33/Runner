@@ -53,7 +53,7 @@ void Player::setVelocity(pair<int, int> v)
   return this->pos.y + height_object < ground;
 }*/
 
-void Player::run(pair<int, int> v, const float move_speed, const float acceleration, const int framerate)
+void Player::run(pair<float, float> v, const float move_speed, const float acceleration, const int framerate)
 {
   if(rightPressed && v.first < 7)
   {
@@ -72,7 +72,7 @@ void Player::run(pair<int, int> v, const float move_speed, const float accelerat
   }
 }
 
-void Player::jump(pair<int, int> v, const float jump_speed, const float gravity, const int framerate, pair<int, int> p, const int ground, const int height_object)
+void Player::jump(pair<float, float> v, const float jump_speed, const float gravity, const int framerate, pair<float, float> p, const int ground, const int height_object)
 {
   if(spacePressed /*&& !inAir*/)
     v.second = -jump_speed;

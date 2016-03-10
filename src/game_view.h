@@ -16,11 +16,14 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
     void update();
+    int setGroundHeight(const int ground_height);
+    int getGroundHeight() const;
 
 private:
     WindowRunner& window;
     PlayerView player_view;
     Game game; //model
+    unsigned int groundHeight;
 
 };
 
