@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-PlayerView::PlayerView(const string filename_player_img) : Animation(3.d)
+PlayerView::PlayerView(const string filename_player_img) : Animation(3.0)
 {
     this->player_texture.loadFromFile(filename_player_img);
     this->setTexture(this->player_texture);

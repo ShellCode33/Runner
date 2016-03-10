@@ -16,7 +16,7 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
     void update();
-    int setGroundHeight(const int ground_height);
+    void setGroundHeight(const int ground_height);
     int getGroundHeight() const;
 
 private:

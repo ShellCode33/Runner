@@ -19,7 +19,7 @@ public:
 
 
 private:
-    sf::Texture *snoop_texture; //grosse image, on va l'allouer sur le heap ;)
+    sf::Texture *snoop_texture, *snoop_texture_reverse; //grosse image, on va l'allouer sur le heap ;)
     Animation first_snoop, second_snoop;
 
     sf::Texture illu_texture;

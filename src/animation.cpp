@@ -15,6 +15,11 @@ Animation::~Animation()
         delete p_clip;
 }
 
+Animation::Animation(const Animation &copy) : Sprite(copy), speed_ms(copy.speed_ms)
+{
+    this->operator=(copy); // Same job here
+}
+
 void Animation::update()
 {
     this->setTextureRect(*this->clips[this->current_clip_i]);
@@ -29,14 +34,14 @@ void Animation::update()
     }
 }
 
-Animation &Animation::operator=(const Animation &other)
+Animation& Animation::operator=(const Animation &other)
 {
     this->current_clip_i = other.current_clip_i;
     this->timer = clock();
     this->setTexture(*other.getTexture());
 
     int i;
-    for(i = 0; i < other.clips.size(); i++)
+    for(i = 0; i < (int)other.clips.size(); i++)
     {
         IntRect *new_value = new IntRect();
         *new_value = *other.clips[i];

@@ -31,12 +31,12 @@ void GameView::update()
     this->player_view.update();
 }
 
-int GameView::setGroundHeight(const int ground_height)
+void GameView::setGroundHeight(const int ground_height)
 {
-  this->groundHeight = ground_height;
+    this->groundHeight = ground_height;
 }
 
 int GameView::getGroundHeight() const
 {
-  return groundHeight;
+    return groundHeight;
 }

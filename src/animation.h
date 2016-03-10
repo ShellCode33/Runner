@@ -14,12 +14,13 @@ private:
     clock_t timer;
 
 public:
-    Animation(const double speed_ms=3.d);
+    Animation(const double speed_ms=3.0);
+    Animation(const Animation &copy);
     ~Animation();
-    //Animation(const Animation &copy);
     void addClip(const sf::IntRect& clip);
     void update();
     Animation& operator=(const Animation &other);
+
 };
 
 #endif // ANIMATION_H

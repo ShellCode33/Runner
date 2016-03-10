@@ -12,10 +12,12 @@ AboutTab::AboutTab() : first_snoop(15.0), second_snoop(15.0)
     this->illuminati.setPosition((VIEW_WIDTH-this->illu_texture.getSize().x) / 2, 10);
 
 
-
     this->snoop_texture = new Texture();
     this->snoop_texture->loadFromFile(SNOOP_DOGG_ANIM);
     this->first_snoop.setTexture(*this->snoop_texture);
+
+    this->snoop_texture_reverse = new Texture();
+    this->snoop_texture_reverse->loadFromFile(SNOOP_DOGG_ANIM_REVERSE);
 
     int j, i;
     for(j = 0; j < 5; j++)
@@ -29,7 +31,17 @@ AboutTab::AboutTab() : first_snoop(15.0), second_snoop(15.0)
 
 
     this->first_snoop.setPosition(200, VIEW_HEIGHT-595); //595 = taille du snoop
-    this->second_snoop = this->first_snoop;
+
+    for(j = 0; j < 5; j++)
+    {
+        for(i = 10; i >= 0; i--)
+            this->second_snoop.addClip(IntRect(290*i, 595*j, 280, 595));
+    }
+
+    for(i = 10; i >= 8; i--)
+        this->second_snoop.addClip(IntRect(290*i, j*595, 280, 595));
+
+    this->second_snoop.setTexture(*this->snoop_texture_reverse);
     this->second_snoop.setPosition(VIEW_WIDTH-200-280, VIEW_HEIGHT-595);
 
 
@@ -53,6 +65,7 @@ AboutTab::AboutTab() : first_snoop(15.0), second_snoop(15.0)
 AboutTab::~AboutTab()
 {
     delete this->snoop_texture;
+    delete this->snoop_texture_reverse;
 }
 
 void AboutTab::draw(RenderTarget &target, RenderStates states) const

@@ -16,6 +16,7 @@
 #define SPLASH_TEXT "<< Press Space To Play >>"
 #define PLAYER_IMG "img/player.png"
 #define SNOOP_DOGG_ANIM "img/snoop.png"
+#define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"
 #define ILLUMINATI_IMG "img/illuminati.png"
 
 #endif // CONST_H
