@@ -21,6 +21,12 @@ private:
     sf::Texture *snoop_texture; //grosse image, on va l'allouer sur le heap ;)
     Animation first_snoop, second_snoop;
 
+    sf::Texture illu_texture;
+    sf::Sprite illuminati;
+
+    sf::Font font;
+    sf::Text text[4]; //Obligé d'en faire un tableau car la SFML ne gère pas le text-align center
+
 };
 
 #endif // ABOUT_TAB_H

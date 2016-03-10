@@ -14,7 +14,6 @@ ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string
 
     this->font = new Font();
     assert(this->font->loadFromFile(ONTHEMOVE_TTF)); //ttf par défaut
-
     this->text = new Text();
     setText(text);
     this->text->setFont(*this->font);
