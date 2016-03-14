@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-AboutTab::AboutTab() : first_snoop(15.0), second_snoop(15.0)
+AboutTab::AboutTab() : first_snoop(3.0), second_snoop(3.0)
 {
     srand(time(NULL));
 

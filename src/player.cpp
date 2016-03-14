@@ -32,6 +32,16 @@ void Player::setLife(unsigned short value)
     life = value;
 }
 
+int Player::getHeight() const
+{
+  return height;
+}
+
+void Player::setHeight(int value)
+{
+  height = value;
+}
+
 void Player::setUsername(string value)
 {
     username = value;
@@ -48,40 +58,40 @@ void Player::setVelocity(pair<int, int> v)
   this->velocity = v;
 }
 
-/*bool inAir(const int ground, int height_object) const
+bool Player::inAir() const
 {
-  return this->pos.y + height_object < ground;
-}*/
+  return (pos.first + height) < GROUND;
+}
 
-void Player::run(pair<float, float> v, const float move_speed, const float acceleration, const int framerate)
+void Player::run()
 {
-  if(rightPressed && v.first < 7)
+  if(rightPressed && velocity.first < 7)
   {
-    v.first += move_speed * acceleration * 1.0f / framerate;
+    velocity.first += move_speed * acceleration * 1.0f / FRAMERATE;
   }
-  else if(leftPressed && v.first > -7)
+  else if(leftPressed && velocity.first > -7)
   {
-    v.first += -move_speed * acceleration * 1.0f / framerate;
+    velocity.first += -move_speed * acceleration * 1.0f / FRAMERATE;
   }
   else
   {
-    if(v.first < 0.0001 && v.first > -0.0001)
-      v.first = 0;
+    if(velocity.first < 0.0001 && velocity.first > -0.0001)
+      velocity.first = 0;
     else
-      v.first /= 1 + move_speed * 1.0f / framerate;
+      velocity.first /= 1 + move_speed * 1.0f / FRAMERATE;
   }
 }
 
-void Player::jump(pair<float, float> v, const float jump_speed, const float gravity, const int framerate, pair<float, float> p, const int ground, const int height_object)
+void Player::jump()
 {
-  if(spacePressed /*&& !inAir*/)
-    v.second = -jump_speed;
+  if(spacePressed && !inAir())
+    velocity.second = -jump_speed;
 
-  /*if(inAir)
+  if(inAir())
   {
-    v.y += gravity * 1 / framerate;
-    setPosition(p.x, p.y + v.y * 1.0f / framerate);
+    velocity.first += GRAVITY * 1 / FRAMERATE;
+    setPos(pos.first, pos.second + velocity.second * 1.0f / FRAMERATE);
   }
   else
-    setPosition(p.x, ground - height_object);*/
+    setPos(pos.first, GROUND - height);
 }

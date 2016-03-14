@@ -12,6 +12,8 @@ PlayerView::PlayerView(const string filename_player_img) : Animation(3.0)
     this->addClip(IntRect(0, 0, 63, 49));
     this->addClip(IntRect(64, 0, 63, 49));
     this->addClip(IntRect(127, 0, 63, 49));
+
+    player.setHeight(this->getLocalBounds().height);
 }
 
 PlayerView::~PlayerView()

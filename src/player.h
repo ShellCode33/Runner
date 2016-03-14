@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#define GRAVITY 9.8f
+
 #include <iostream>
 #include "movable.h"
 
@@ -23,6 +25,9 @@ public:
     unsigned short getLife() const;
     void setLife(unsigned short value);
 
+    int getHeight() const;
+    void setHeight(int value);
+
     std::string getUsername() const;
     void setUsername(std::string value);
 
@@ -30,17 +35,22 @@ public:
     void setPosition(std::pair<int, int> p);
     void setVelocity(std::pair<int, int> v);
 
-    //bool inAir(const int ground, int height_object) const
-    void run(std::pair<float, float> v, const float move_speed, const float acceleration, const int framerate);
-    void jump(std::pair<float, float> v, const float jump_speed, const float gravity, const int framerate, std::pair<float, float> p, const int ground, const int height_object);
+    bool inAir() const;
+    void run();
+    void jump();
 
     bool leftPressed, rightPressed, spacePressed;
-
 
 private:
     std::string username;
     unsigned int score;
     unsigned short life;
+
+    float move_speed;
+    float jump_speed;
+    float acceleration;
+
+    int height;
 
     std::pair<float, float> pos;
     std::pair<float, float> velocity;
