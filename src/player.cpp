@@ -58,40 +58,84 @@ void Player::setVelocity(pair<int, int> v)
   this->velocity = v;
 }
 
-bool Player::inAir() const
-{
-  return (pos.first + height) < GROUND;
-}
-
 void Player::run()
 {
-  if(rightPressed && velocity.first < 7)
-  {
-    velocity.first += move_speed * acceleration * 1.0f / FRAMERATE;
-  }
-  else if(leftPressed && velocity.first > -7)
-  {
-    velocity.first += -move_speed * acceleration * 1.0f / FRAMERATE;
-  }
-  else
-  {
-    if(velocity.first < 0.0001 && velocity.first > -0.0001)
-      velocity.first = 0;
+    if(leftPressed)
+        velocity.first -= run_acc;
+    else if(rightPressed)
+        velocity.first += run_acc;
     else
-      velocity.first /= 1 + move_speed * 1.0f / FRAMERATE;
-  }
+        velocity.first *= 0.9;
 }
 
 void Player::jump()
 {
-  if(spacePressed && !inAir())
-    velocity.second = -jump_speed;
+    const bool onGround = pos.second > 400;
 
-  if(inAir())
-  {
-    velocity.first += GRAVITY * 1 / FRAMERATE;
-    setPos(pos.first, pos.second + velocity.second * 1.0f / FRAMERATE);
-  }
-  else
-    setPos(pos.first, GROUND - height);
+    if(spacePressed)
+    {
+        if(onGround)
+        {
+            velocity.second += jump_acc * 2;
+            jump_counter = jumpframe;
+        }
+        else if(jump_counter > 0)
+        {
+            velocity.second += jump_acc;
+            jump_counter--;
+        }
+    }
+    else
+        jump_counter = 0;
 }
+
+void Player::checkCollision()
+{
+    if(pos.second > 400)
+        {velocity.second = 0; pos.second = 400;}
+    if(pos.first < 0)
+        {velocity.first = 0; pos.first = 0;}
+    else if(pos.first > 1000)
+        {velocity.first = 0; pos.first = 1000;}
+}
+
+void Player::applyForces()
+{
+    //Surchage d'operateur a faire vu que pas Vector2f ...
+    //pos += velocity;
+    //velocity += gravity;
+}
+
+std::pair<float, float> Player::getGravity() const
+{
+    return gravity;
+}
+
+void Player::setGravity(const std::pair<float, float> &value)
+{
+    gravity = value;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

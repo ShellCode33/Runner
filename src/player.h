@@ -35,26 +35,37 @@ public:
     void setPosition(std::pair<int, int> p);
     void setVelocity(std::pair<int, int> v);
 
-    bool inAir() const;
     void run();
     void jump();
 
+    void checkCollision();
+    void applyForces();
+
     bool leftPressed, rightPressed, spacePressed;
+
+    std::pair<float, float> getGravity() const;
+    void setGravity(const std::pair<float, float> &value);
 
 private:
     std::string username;
     unsigned int score;
     unsigned short life;
 
-    float move_speed;
-    float jump_speed;
-    float acceleration;
+    float max_fall;
+    float run_acc;
+    float max_run;
+    float jump_acc;
+
+    const unsigned char jumpframe = 10;
+
+    unsigned char jump_counter;
 
     int height;
 
+    std::pair<float, float> gravity;
     std::pair<float, float> pos;
     std::pair<float, float> velocity;
-    Direction direction;
+    //Direction direction;
 };
 
 #endif // PLAYER_H
