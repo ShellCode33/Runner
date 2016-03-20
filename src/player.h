@@ -46,6 +46,8 @@ public:
     std::pair<float, float> getGravity() const;
     void setGravity(const std::pair<float, float> &value);
 
+    std::pair<float, float> getPos() const;
+
 private:
     std::string username;
     unsigned int score;
@@ -56,7 +58,7 @@ private:
     float max_run;
     float jump_acc;
 
-    const unsigned char jumpframe = 10;
+    unsigned char jumpframe;
 
     unsigned char jump_counter;
 
@@ -65,7 +67,8 @@ private:
     std::pair<float, float> gravity;
     std::pair<float, float> pos;
     std::pair<float, float> velocity;
-    //Direction direction;
 };
+
+std::pair<float, float> operator+=(std::pair<float, float>& a, const std::pair<float, float>& b);
 
 #endif // PLAYER_H

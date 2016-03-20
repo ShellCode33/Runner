@@ -24,28 +24,51 @@ PlayerView::~PlayerView()
 void PlayerView::update()
 {
     Animation::update();
-
-    this->setPosition(player.getX(), player.getY());
+    player.applyForces();
+    player.run();
+    player.jump();
+    player.checkCollision();
+    player.setPosition(player.getPos());
+    //this->setPosition(player.getX(), player.getY());
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)
 {
     if(window.getState() == SURVIVAL || window.getState() == CAMPAIGN)
     {
-        if(event.type == Event::KeyPressed || event.type == Event::KeyReleased)
+        if(event.type == Event::KeyPressed)
         {
             switch(event.key.code)
             {
                 case Keyboard::Left:
-                    player.leftPressed = !player.leftPressed;
+                    player.leftPressed = true;
                     break;
 
                 case Keyboard::Right:
-                    player.rightPressed = !player.rightPressed;
+                    player.rightPressed = true;
                     break;
 
                 case Keyboard::Space:
-                    player.spacePressed = !player.spacePressed;
+                    player.spacePressed = true;
+                    break;
+
+                default: break;
+            }
+        }
+        else if(event.type == Event::KeyReleased)
+        {
+            switch(event.key.code)
+            {
+                case Keyboard::Left:
+                    player.leftPressed = false;
+                    break;
+
+                case Keyboard::Right:
+                    player.rightPressed = false;
+                    break;
+
+                case Keyboard::Space:
+                    player.spacePressed = false;
                     break;
 
                 default: break;

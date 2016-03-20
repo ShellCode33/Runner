@@ -2,9 +2,12 @@
 
 using namespace std;
 
-Player::Player(const string username)
+Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(10), jump_counter(0)
 {
     this->username = username;
+    this->setVelocity({0, 0});
+    this->setPos(50, 50);
+    this->setGravity({0, .5f});
 }
 
 Player::~Player()
@@ -101,9 +104,8 @@ void Player::checkCollision()
 
 void Player::applyForces()
 {
-    //Surchage d'operateur a faire vu que pas Vector2f ...
-    //pos += velocity;
-    //velocity += gravity;
+    pos += velocity;
+    velocity += gravity;
 }
 
 std::pair<float, float> Player::getGravity() const
@@ -116,26 +118,14 @@ void Player::setGravity(const std::pair<float, float> &value)
     gravity = value;
 }
 
+std::pair<float, float> Player::getPos() const
+{
+    return pos;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)
+{
+ a.first += b.first;
+ a.second += b.second;
+ return a;
+}

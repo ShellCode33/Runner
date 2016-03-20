@@ -29,6 +29,7 @@ void WindowRunner::create()
     this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
 
     this->window->setFramerateLimit(FRAMERATE);
+    this->window->setVerticalSyncEnabled(false);
 
     while(this->window->isOpen())
     {
