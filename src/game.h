@@ -8,12 +8,14 @@ class Game
 {
 private:
     Config config;
-    Player player;
+
     float speed; //Vitesse du jeu et donc du background
 
 public:
     Game();
     ~Game();
+
+    Player player; //player model  --  SUPER SALE DE METTRE EN PUBLIC MAIS JE NE VOIS PAS COMMENT FAIRE DIFFEREMMENT POUR L'INSTANT
 
 };
 

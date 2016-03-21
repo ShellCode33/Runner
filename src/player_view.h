@@ -12,14 +12,14 @@ class WindowRunner;
 class PlayerView : public Animation
 {
 public:
-    PlayerView(const std::string filename_player_img);
+    PlayerView(const std::string filename_player_img, Player &model);
     ~PlayerView();
     void processEvents(WindowRunner &window, sf::Event &event);
     void update();
 
 private:
     sf::Texture player_texture;
-    Player player; //Player model
+    Player& player;
 
 
 };

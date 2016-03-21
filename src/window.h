@@ -6,6 +6,7 @@
 #include "const.h"
 #include "menu.h"
 #include "game_view.h"
+#include "game.h"
 #include "screenwait.h"
 #include "utils.h"
 #include "gamestate.h"
@@ -21,7 +22,10 @@ private:
     int height;
     void processEvent();
     Menu menu;
+
     GameView game_view;
+    Game game; //model
+
     State state;
     ScreenWait splash_screen;
     AboutTab about_tab;

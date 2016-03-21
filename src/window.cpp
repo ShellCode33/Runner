@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), menu(*this), game_view(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
+WindowRunner::WindowRunner() : window(NULL), menu(*this), game_view(*this, game), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));

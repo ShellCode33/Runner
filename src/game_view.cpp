@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-GameView::GameView(WindowRunner &window) : window(window), player_view(PLAYER_IMG)
+GameView::GameView(WindowRunner &window, Game &model) : window(window), game(model), player_view(PLAYER_IMG, game.player)
 {
 }
 
