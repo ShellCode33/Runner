@@ -8,8 +8,8 @@
 
 enum Direction
 {
-  LEFT,
-  RIGHT
+    LEFT,
+    RIGHT
 };
 
 class Player : public Movable

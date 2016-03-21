@@ -37,12 +37,12 @@ void Player::setLife(unsigned short value)
 
 int Player::getHeight() const
 {
-  return height;
+    return height;
 }
 
 void Player::setHeight(int value)
 {
-  height = value;
+    height = value;
 }
 
 void Player::setUsername(string value)
@@ -60,6 +60,13 @@ void Player::eventHandler()
     const bool onGround = pos.second > (VIEW_HEIGHT - height - GROUND);
 
     if(leftPressed)
+<<<<<<< HEAD
+    {velocity.first -= run_acc;}
+    else if(rightPressed)
+    {velocity.first += run_acc;}
+    else
+    {velocity.first *= 0.9;}
+=======
         velocity.first -= run_acc;
 
     else if(rightPressed)
@@ -67,6 +74,7 @@ void Player::eventHandler()
 
     else
         velocity.first *= 0.9;
+>>>>>>> c15d4d2c15fc61424b960718c8a848b2a66c122f
 
     if(spacePressed)
     {
@@ -84,18 +92,31 @@ void Player::eventHandler()
     }
 
     else
+<<<<<<< HEAD
+    {jump_counter = 0;}
+=======
         jump_counter = 0;
+>>>>>>> c15d4d2c15fc61424b960718c8a848b2a66c122f
 
 }
 
 void Player::checkCollision()
 {
+<<<<<<< HEAD
+    if(pos.second > VIEW_HEIGHT - height / 2)
+    {velocity.second = 0; pos.second = VIEW_HEIGHT - height / 2;}
+    if(pos.first < 0)
+    {velocity.first = 0; pos.first = 0;}
+    else if(pos.first > VIEW_WIDTH - 63)
+    {velocity.first = 0; pos.first = VIEW_WIDTH - 63;}
+=======
     if(pos.second > VIEW_HEIGHT - height - GROUND)
         {velocity.second = 0; pos.second = VIEW_HEIGHT - height - GROUND;}
     if(pos.first < 0)
         {velocity.first = 0; pos.first = 0;}
     else if(pos.first > VIEW_WIDTH - width)
         {velocity.first = 0; pos.first = VIEW_WIDTH - width;}
+>>>>>>> c15d4d2c15fc61424b960718c8a848b2a66c122f
 }
 
 void Player::applyForces()
@@ -127,6 +148,11 @@ void Player::setWidth(int value)
 pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)
 {
     a.first += b.first;
+<<<<<<< HEAD
+    a.second += b.second;
+    return a;
+=======
  a.second += b.second;
  return a;
+>>>>>>> c15d4d2c15fc61424b960718c8a848b2a66c122f
 }
