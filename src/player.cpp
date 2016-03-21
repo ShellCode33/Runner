@@ -2,11 +2,11 @@
 
 using namespace std;
 
-Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(10), jump_counter(0), rightPressed(false), leftPressed(false), spacePressed(false)
+Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), rightPressed(false), leftPressed(false), spacePressed(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
-    this->setPos(make_pair(300, 100));
+    this->setPos(make_pair(VIEW_WIDTH / 2, 0));
     this->setGravity(make_pair(0, .5f));
 }
 
@@ -52,22 +52,19 @@ void Player::setUsername(string value)
 
 void Player::setVelocity(pair<int, int> v)
 {
-  this->velocity = v;
+    this->velocity = v;
 }
 
-void Player::run()
+void Player::eventHandler()
 {
+    const bool onGround = pos.second > (VIEW_HEIGHT - height / 2);
+
     if(leftPressed)
-        velocity.first -= run_acc;
+        {velocity.first -= run_acc;}
     else if(rightPressed)
-        velocity.first += run_acc;
+        {velocity.first += run_acc;}
     else
-        velocity.first *= 0.9;
-}
-
-void Player::jump()
-{
-    const bool onGround = pos.second > 400;
+        {velocity.first *= 0.9;}
 
     if(spacePressed)
     {
@@ -83,17 +80,18 @@ void Player::jump()
         }
     }
     else
-        jump_counter = 0;
+        {jump_counter = 0;}
+
 }
 
 void Player::checkCollision()
 {
-    if(pos.second > 400)
-        {velocity.second = 0; pos.second = 400;}
+    if(pos.second > VIEW_HEIGHT - height / 2)
+        {velocity.second = 0; pos.second = VIEW_HEIGHT - height / 2;}
     if(pos.first < 0)
         {velocity.first = 0; pos.first = 0;}
-    else if(pos.first > 1000)
-        {velocity.first = 0; pos.first = 1000;}
+    else if(pos.first > VIEW_WIDTH - 63)
+        {velocity.first = 0; pos.first = VIEW_WIDTH - 63;}
 }
 
 void Player::applyForces()

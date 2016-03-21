@@ -31,11 +31,9 @@ public:
     std::string getUsername() const;
     void setUsername(std::string value);
 
-
     void setVelocity(std::pair<int, int> v);
 
-    void run();
-    void jump();
+    void eventHandler();
 
     void checkCollision();
     void applyForces();
@@ -56,13 +54,11 @@ private:
     float jump_acc;
 
     unsigned char jumpframe;
-
-    unsigned char jump_counter;
+    char jump_counter;
 
     int height;
 
     std::pair<float, float> gravity;
-    //std::pair<float, float> pos;
     std::pair<float, float> velocity;
 };
 
