@@ -12,15 +12,20 @@ private:
     const double speed_ms; //temps entre 2 sprites (en millisecondes)
     unsigned int current_clip_i;
     clock_t timer;
+    int x_offset, y_offset;
+    bool anim_enabled;
+
 
 public:
-    Animation(const double speed_ms=3.0);
+    Animation(const double speed_ms=250.0);
     Animation(const Animation &copy);
     ~Animation();
     void addClip(const sf::IntRect& clip);
     void update();
     Animation& operator=(const Animation &other);
+    void setOffset(const int x, const int y);
 
+    void setAnimEnabled(bool value);
 };
 
 #endif // ANIMATION_H
