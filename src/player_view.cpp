@@ -29,6 +29,7 @@ void PlayerView::update()
     player.run();
     player.jump();
     player.checkCollision();
+    player.setPos(player.getPos());
     this->setPosition(player.getX(), player.getY());
 }
 

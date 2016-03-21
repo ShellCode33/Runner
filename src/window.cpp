@@ -88,6 +88,8 @@ void WindowRunner::processEvent()
                 break;
 
             case SURVIVAL:
+                this->game_view.processEvent(event);
+                break;
             case CAMPAIGN:
                 this->game_view.processEvent(event);
                 break;

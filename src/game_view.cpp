@@ -19,10 +19,12 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
 
 void GameView::processEvent(Event &event)
 {
-    if(this->window.getState() == SURVIVAL)
+    if(this->window.getState() == SURVIVAL || this->window.getState() == CAMPAIGN)
     {
         if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
             this->window.setState(MENU);
+
+        player_view.processEvents(window, event);
     }
 }
 

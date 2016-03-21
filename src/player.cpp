@@ -2,12 +2,12 @@
 
 using namespace std;
 
-Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(10), jump_counter(0)
+Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(10), jump_counter(0), rightPressed(false), leftPressed(false), spacePressed(false)
 {
     this->username = username;
-    this->setVelocity({0, 0});
-    this->setPos({300, 100});
-    this->setGravity({0, .5f});
+    this->setVelocity(make_pair(0, 0));
+    this->setPos(make_pair(300, 100));
+    this->setGravity(make_pair(0, .5f));
 }
 
 Player::~Player()
