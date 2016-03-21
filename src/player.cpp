@@ -6,7 +6,7 @@ Player::Player(const string username) : max_fall(5), run_acc(.20f), max_run(2.5f
 {
     this->username = username;
     this->setVelocity({0, 0});
-    this->setPos(50, 50);
+    this->setPos({300, 100});
     this->setGravity({0, .5f});
 }
 
@@ -48,12 +48,6 @@ void Player::setHeight(int value)
 void Player::setUsername(string value)
 {
     username = value;
-}
-
-
-void Player::setPosition(pair<int, int> p)
-{
-  this->pos = p;
 }
 
 void Player::setVelocity(pair<int, int> v)
@@ -116,11 +110,6 @@ std::pair<float, float> Player::getGravity() const
 void Player::setGravity(const std::pair<float, float> &value)
 {
     gravity = value;
-}
-
-std::pair<float, float> Player::getPos() const
-{
-    return pos;
 }
 
 pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)

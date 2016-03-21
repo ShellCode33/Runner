@@ -11,14 +11,13 @@ class Movable
 public:
     Movable();
     ~Movable();
-    void move(const int x, const int y);
-    void setPos(const int x, const int y);
+    std::pair<float, float> getPos() const;
+    void setPos(const std::pair<float, float> &value);
     int getX() const;
     int getY() const;
 
-private:
-    int x;
-    int y;
+protected:
+    std::pair<float, float> pos;
 
 };
 

@@ -2,9 +2,9 @@
 
 using namespace sf;
 
-Movable::Movable() : x(0), y(0)
+Movable::Movable()
 {
-
+    setPos({0, 0});
 }
 
 Movable::~Movable()
@@ -12,24 +12,22 @@ Movable::~Movable()
 
 }
 
-void Movable::move(const int x, const int y)
+std::pair<float, float> Movable::getPos() const
 {
-    this->x += x;
-    this->y += y;
+    return pos;
 }
 
-void Movable::setPos(const int x, const int y)
+void Movable::setPos(const std::pair<float, float> &value)
 {
-    this->x = x;
-    this->y = y;
+    pos = value;
 }
 
 int Movable::getX() const
 {
-    return x;
+    return pos.first;
 }
 
 int Movable::getY() const
 {
-    return y;
+    return pos.second;
 }

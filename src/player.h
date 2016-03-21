@@ -32,7 +32,6 @@ public:
     void setUsername(std::string value);
 
 
-    void setPosition(std::pair<int, int> p);
     void setVelocity(std::pair<int, int> v);
 
     void run();
@@ -45,8 +44,6 @@ public:
 
     std::pair<float, float> getGravity() const;
     void setGravity(const std::pair<float, float> &value);
-
-    std::pair<float, float> getPos() const;
 
 private:
     std::string username;
@@ -65,7 +62,7 @@ private:
     int height;
 
     std::pair<float, float> gravity;
-    std::pair<float, float> pos;
+    //std::pair<float, float> pos;
     std::pair<float, float> velocity;
 };
 

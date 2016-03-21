@@ -23,13 +23,13 @@ PlayerView::~PlayerView()
 
 void PlayerView::update()
 {
+    cout << player.leftPressed << ":" << player.rightPressed << ":" << player.spacePressed << endl;
     Animation::update();
     player.applyForces();
     player.run();
     player.jump();
     player.checkCollision();
-    player.setPosition(player.getPos());
-    //this->setPosition(player.getX(), player.getY());
+    this->setPosition(player.getX(), player.getY());
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)
