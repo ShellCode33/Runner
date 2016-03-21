@@ -2,8 +2,10 @@
 #define GAMEVIEW_H
 
 #include <SFML/Graphics.hpp>
+#include <list>
 #include "player_view.h"
 #include "gamestate.h"
+#include "chunk.h"
 
 class WindowRunner;
 class Game;
@@ -23,6 +25,7 @@ private:
     WindowRunner& window;
     Game &game;
     PlayerView player_view;
+    std::list<Chunk> chunks;
 
 };
 
