@@ -14,7 +14,7 @@ GameView::~GameView()
 
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
-    target.draw(player_view);
+    target.draw(player_view, states);
 }
 
 void GameView::processEvent(Event &event)
@@ -31,14 +31,4 @@ void GameView::processEvent(Event &event)
 void GameView::update()
 {
     this->player_view.update();
-}
-
-void GameView::setGroundHeight(const int ground_height)
-{
-    this->groundHeight = ground_height;
-}
-
-int GameView::getGroundHeight() const
-{
-    return groundHeight;
 }

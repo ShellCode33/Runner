@@ -23,7 +23,6 @@ private:
     WindowRunner& window;
     PlayerView player_view;
     Game game; //model
-    unsigned int groundHeight;
 
 };
 

@@ -27,6 +27,8 @@ public:
 
     int getHeight() const;
     void setHeight(int value);
+    int getWidth() const;
+    void setWidth(int value);
 
     std::string getUsername() const;
     void setUsername(std::string value);
@@ -57,6 +59,7 @@ private:
     char jump_counter;
 
     int height;
+    int width;
 
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;
