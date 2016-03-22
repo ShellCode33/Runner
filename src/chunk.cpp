@@ -10,6 +10,9 @@ Chunk::Chunk(int id) : pos_x(id*CHUNK_WIDTH), id(id)
     text.setFont(font);
     text.setString(to_string(id));
     text.setCharacterSize(60);
+
+    texture_ground.loadFromFile(GROUND_IMG);
+    sprite_ground.setTexture(texture_ground);
 }
 
 Chunk::~Chunk()
@@ -20,9 +23,11 @@ Chunk::~Chunk()
 void Chunk::draw(RenderTarget& target, RenderStates states) const
 {
     target.draw(text);
+    target.draw(sprite_ground);
 }
 
 void Chunk::update()
 {
     text.setPosition(pos_x + CHUNK_WIDTH / 2, VIEW_HEIGHT / 2);
+    sprite_ground.setPosition(pos_x, VIEW_HEIGHT - GROUND);
 }

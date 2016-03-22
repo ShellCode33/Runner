@@ -23,6 +23,7 @@
 #define SNOOP_DOGG_ANIM "img/snoop.png"
 #define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"
 #define ILLUMINATI_IMG "img/illuminati.png"
+#define GROUND_IMG "img/ground.png"
 
 //GAME
 #define GROUND 100
