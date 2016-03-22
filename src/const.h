@@ -25,6 +25,7 @@
 #define ILLUMINATI_IMG "img/illuminati.png"
 #define GROUND_IMG "img/ground_chunk.png"
 #define BACKGROUND_IMG "img/background_chunk.png"
+#define FIRE_IMG "img/fire.png"
 
 //GAME
 #define GROUND 100

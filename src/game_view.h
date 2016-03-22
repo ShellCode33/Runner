@@ -6,6 +6,7 @@
 #include "player_view.h"
 #include "gamestate.h"
 #include "chunk.h"
+#include "animation.h"
 
 class WindowRunner;
 class Game;
@@ -26,6 +27,9 @@ private:
     Game &game;
     PlayerView player_view;
     std::list<Chunk*> chunks;
+
+    sf::Texture fire_texture;
+    Animation fire, fire2;
 
 };
 

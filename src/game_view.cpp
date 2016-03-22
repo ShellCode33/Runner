@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, Game &model) : window(window), game(model), player_view(PLAYER_IMG, game.player)
+GameView::GameView(WindowRunner &window, Game &model) : window(window), game(model), player_view(PLAYER_IMG, game.player), fire(20.0), fire2(20.0)
 {
     int i;
     for(i = 0; i < CHUNK_PRELOAD; i++)
@@ -13,6 +13,20 @@ GameView::GameView(WindowRunner &window, Game &model) : window(window), game(mod
         c->setPosition(i*CHUNK_WIDTH);
         chunks.push_back(c);
     }
+
+    fire_texture.loadFromFile(FIRE_IMG);
+    fire.setTexture(fire_texture);
+
+    int j;
+    for(i = 0; i < 12; i++)
+        for(j = 0; j < 4; j++)
+            fire.addClip(IntRect(j*600, i*337, 600, 337));
+
+    fire.setPosition(337, 0);
+    fire.setRotation(90);
+    fire2 = fire;
+    fire2.setPosition(337, 500);
+    fire2.setRotation(90);
 }
 
 GameView::~GameView()
@@ -27,6 +41,8 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
         target.draw(*c);
 
     target.draw(player_view, states);
+    target.draw(fire, states);
+    target.draw(fire2, states);
 }
 
 void GameView::processEvent(Event &event)
@@ -43,6 +59,8 @@ void GameView::processEvent(Event &event)
 void GameView::update()
 {
     this->player_view.update(); //On met à jouer l'affichage du joueur
+    fire.update(); //On met l'animation du feu à jour
+    fire2.update();
 
     bool need_move_background = game.player.needMoveBackground();
 
