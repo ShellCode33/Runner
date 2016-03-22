@@ -12,6 +12,7 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();
     int pos_x;
+    void setPosition(int x);
 
 private:
     int id; //pour les tests, à supprimer plus tard

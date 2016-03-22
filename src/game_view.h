@@ -25,7 +25,7 @@ private:
     WindowRunner& window;
     Game &game;
     PlayerView player_view;
-    std::list<Chunk> chunks;
+    std::list<Chunk*> chunks;
 
 };
 

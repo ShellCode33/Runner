@@ -30,6 +30,7 @@
 #define GROUND 100
 #define CHUNK_WIDTH (VIEW_WIDTH / 4) //4 chunks visibles en meme temps
 #define CHUNK_HEIGHT VIEW_HEIGHT
+#define CHUNK_PRELOAD 10 //charge 10 chunks en mémoire
 
 
 #endif // CONST_H

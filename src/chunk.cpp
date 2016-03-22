@@ -3,8 +3,9 @@
 using namespace sf;
 using namespace std;
 
-Chunk::Chunk(int id) : pos_x(id*CHUNK_WIDTH), id(id)
+Chunk::Chunk(int id) : pos_x(0), id(id)
 {
+    cout << "Chunk " << to_string(id) << " créé." << endl;
     font.loadFromFile(ONTHEMOVE_TTF);
     text.setColor(Color::White);
     text.setFont(font);
@@ -20,7 +21,7 @@ Chunk::Chunk(int id) : pos_x(id*CHUNK_WIDTH), id(id)
 
 Chunk::~Chunk()
 {
-
+    cout << "Chunk " << to_string(id) << " détruit." << endl;
 }
 
 void Chunk::draw(RenderTarget& target, RenderStates states) const
@@ -28,6 +29,11 @@ void Chunk::draw(RenderTarget& target, RenderStates states) const
     target.draw(sprite_ground);
     target.draw(sprite_background);
     target.draw(text);
+}
+
+void Chunk::setPosition(int x)
+{
+    pos_x = x;
 }
 
 void Chunk::update()
