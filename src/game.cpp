@@ -10,3 +10,10 @@ Game::~Game()
 {
 
 }
+
+void Game::update()
+{
+    player.applyForces();
+    player.eventHandler();
+    player.checkCollision();
+}

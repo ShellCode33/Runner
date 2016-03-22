@@ -48,6 +48,7 @@ void WindowRunner::create()
 
             case SURVIVAL:
             case CAMPAIGN:
+                this->game.update();
                 this->game_view.update();
                 this->window->draw(this->game_view);
                 break;

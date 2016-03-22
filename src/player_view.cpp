@@ -24,9 +24,6 @@ PlayerView::~PlayerView()
 void PlayerView::update()
 {
     Animation::update();
-    player.applyForces();
-    player.eventHandler();
-    player.checkCollision();
     this->setPosition(player.getX(), player.getY());
 }
 

@@ -33,6 +33,7 @@ public:
     std::string getUsername() const;
     void setUsername(std::string value);
 
+    std::pair<int, int> getVelocity() const;
     void setVelocity(std::pair<int, int> v);
 
     void eventHandler();
@@ -44,6 +45,9 @@ public:
 
     std::pair<float, float> getGravity() const;
     void setGravity(const std::pair<float, float> &value);
+
+    bool needMoveBackground() const;
+    void setMoveBackground(bool value);
 
 private:
     std::string username;
@@ -63,6 +67,8 @@ private:
 
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;
+
+    bool move_background; //utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background
 };
 
 std::pair<float, float> operator+=(std::pair<float, float>& a, const std::pair<float, float>& b);

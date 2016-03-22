@@ -8,7 +8,6 @@ class Game
 {
 private:
     Config config;
-
     float speed; //Vitesse du jeu et donc du background
 
 public:
@@ -17,6 +16,7 @@ public:
 
     Player player; //player model  --  SUPER SALE DE METTRE EN PUBLIC MAIS JE NE VOIS PAS COMMENT FAIRE DIFFEREMMENT POUR L'INSTANT
 
+    void update();
 };
 
 #endif // GAME_H

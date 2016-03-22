@@ -19,10 +19,10 @@ GameView::~GameView()
 
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
-    target.draw(player_view, states);
-
     for(const Chunk& c : chunks)
         target.draw(c);
+
+    target.draw(player_view, states);
 }
 
 void GameView::processEvent(Event &event)
@@ -40,6 +40,16 @@ void GameView::update()
 {
     this->player_view.update();
 
+    bool need_move_background = game.player.needMoveBackground();
+
     for(Chunk& c : chunks)
+    {
+        if(need_move_background)
+        //c.pos_x -= game.player.getVelocity().first;
+            c.pos_x -= 10;
+
         c.update();
+    }
+
+    game.player.setMoveBackground(false);
 }

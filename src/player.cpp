@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Player::Player(const string username) : leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0)
+Player::Player(const string username) : leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -50,6 +50,11 @@ void Player::setUsername(string value)
     username = value;
 }
 
+pair<int, int> Player::getVelocity() const
+{
+    return this->velocity;
+}
+
 void Player::setVelocity(pair<int, int> v)
 {
     this->velocity = v;
@@ -91,11 +96,23 @@ void Player::eventHandler()
 void Player::checkCollision()
 {
     if(pos.second > VIEW_HEIGHT - height - GROUND)
-        {velocity.second = 0; pos.second = VIEW_HEIGHT - height - GROUND;}
-    if(pos.first < 0)
-        {velocity.first = 0; pos.first = 0;}
-    else if(pos.first > VIEW_WIDTH - width)
-        {velocity.first = 0; pos.first = VIEW_WIDTH - width;}
+    {
+        velocity.second = 0;
+        pos.second = VIEW_HEIGHT - height - GROUND;
+    }
+
+    if(pos.first < CHUNK_WIDTH)
+    {
+        velocity.first = 0;
+        pos.first = CHUNK_WIDTH;
+    }
+
+    else if(pos.first > VIEW_WIDTH - CHUNK_WIDTH - width)
+    {
+        velocity.first = 0;
+        pos.first = VIEW_WIDTH - CHUNK_WIDTH - width;
+        move_background = true;
+    }
 }
 
 void Player::applyForces()
@@ -113,6 +130,17 @@ void Player::setGravity(const std::pair<float, float> &value)
 {
     gravity = value;
 }
+
+bool Player::needMoveBackground() const
+{
+    return move_background;
+}
+
+void Player::setMoveBackground(bool value)
+{
+    move_background = value;
+}
+
 
 int Player::getWidth() const
 {
