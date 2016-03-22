@@ -7,7 +7,7 @@
 class Chunk : public sf::Drawable
 {
 public:
-    Chunk(int id);
+    Chunk();
     ~Chunk();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();
@@ -15,10 +15,6 @@ public:
     void setPosition(int x);
 
 private:
-    int id; //pour les tests, à supprimer plus tard
-    sf::Font font;
-    sf::Text text;
-
     sf::Texture texture_ground;
     sf::Sprite sprite_ground;
 

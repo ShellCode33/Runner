@@ -9,7 +9,7 @@ GameView::GameView(WindowRunner &window, Game &model) : window(window), game(mod
     int i;
     for(i = 0; i < CHUNK_PRELOAD; i++)
     {
-        Chunk *c = new Chunk(i);
+        Chunk *c = new Chunk();
         c->setPosition(i*CHUNK_WIDTH);
         chunks.push_back(c);
     }
@@ -51,7 +51,7 @@ void GameView::update()
     {
         delete *chunks.begin();
         chunks.pop_front();
-        Chunk *c = new Chunk(0);
+        Chunk *c = new Chunk();
         c->setPosition((*chunks.rbegin())->pos_x + CHUNK_WIDTH); //On met le nouveau chunk à coté du dernier dans la liste
         chunks.push_back(c);
     }
