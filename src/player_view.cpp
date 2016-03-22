@@ -13,6 +13,7 @@ PlayerView::PlayerView(const string filename_player_img, Player& model) : Animat
     this->addClip(IntRect(0, 0, player.getHeight(), player.getWidth()));
     this->addClip(IntRect(64, 0, player.getHeight(), player.getWidth()));
     this->addClip(IntRect(127, 0, player.getHeight(), player.getWidth()));
+    this->setAnimEnabled(false);
 }
 
 PlayerView::~PlayerView()
@@ -40,11 +41,13 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
                 case Keyboard::Left:
                     player.leftPressed = true;
                     this->setOffset(0, 50);
+                    this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::Right:
                     player.rightPressed = true;
                     this->setOffset(0, 0);
+                    this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::Space:
@@ -57,6 +60,9 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
         }
         else if(event.type == Event::KeyReleased)
         {
+            if((event.key.code == Keyboard::Left && !player.rightPressed) || (event.key.code == Keyboard::Right && !player.leftPressed))
+                this->setAnimEnabled(false);
+
             switch(event.key.code)
             {
                 case Keyboard::Left:
