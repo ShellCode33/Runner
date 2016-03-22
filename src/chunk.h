@@ -9,7 +9,7 @@ class Chunk : public sf::Drawable
 public:
     Chunk(int id);
     ~Chunk();
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();
     int pos_x;
     void setPosition(int x);

@@ -11,7 +11,7 @@ class WindowRunner;
 class ScreenWait : public sf::Drawable
 {
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     WindowRunner* window;
     sf::Sprite *background;
     sf::Texture *background_texture;

@@ -12,7 +12,7 @@ class WindowRunner;
 class Button : public sf::Drawable
 {
 private :
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::Texture texture;
     sf::Texture texture_hover; //texture utilisée lorsque la souris passe sur le bouton
     sf::Sprite *sprite;

@@ -21,7 +21,7 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     this->desktop = VideoMode::getDesktopMode();
 
-    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Close);
+    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
     this->state = SPLASH;
@@ -122,7 +122,7 @@ void WindowRunner::setState(const State &value)
     this->state = value;
 }
 
-void WindowRunner::draw(const Drawable &drawable, const RenderStates &states)
+void WindowRunner::draw(const Drawable &drawable, const RenderStates &states) const
 {
     this->window->draw(drawable, states);
 }

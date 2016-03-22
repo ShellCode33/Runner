@@ -13,7 +13,7 @@ class AboutTab : public sf::Drawable
 public:
     AboutTab();
     ~AboutTab();
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();
     void processEvent(WindowRunner & window, sf::Event & event);
 

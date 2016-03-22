@@ -18,7 +18,7 @@
 #define BUTTON_MENU_IMG "img/button.png"
 #define MENU_BG "img/menu_bg.png"
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
-#define SPLASH_IMG "img/splash.png"
+#define SPLASH_IMG "img/splash2.png"
 #define PLAYER_IMG "img/player.png"
 #define SNOOP_DOGG_ANIM "img/snoop.png"
 #define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"

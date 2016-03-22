@@ -15,7 +15,7 @@ class GameView : public sf::Drawable
 public:
     GameView(WindowRunner& window, Game& model);
     ~GameView();
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
     void update();
     void setGroundHeight(const int ground_height);

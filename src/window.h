@@ -36,7 +36,7 @@ public:
     WindowRunner();
     ~WindowRunner();
     void create();
-    void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default);
+    void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default) const;
     State getState() const;
     void setState(const State &value);
     sf::RenderWindow & getRender() const;
