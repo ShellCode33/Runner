@@ -66,7 +66,7 @@ void Player::eventHandler()
         velocity.first += run_acc;
 
     else
-        velocity.first *= 0.9;
+        velocity.first *= 0.7;
 
     if(spacePressed)
     {
