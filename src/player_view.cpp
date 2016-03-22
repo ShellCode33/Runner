@@ -8,11 +8,11 @@ PlayerView::PlayerView(const string filename_player_img, Player& model) : Animat
 {
     this->player_texture.loadFromFile(filename_player_img);
     this->setTexture(this->player_texture);
-    player.setHeight(63);
-    player.setWidth(49);
-    this->addClip(IntRect(0, 0, player.getHeight(), player.getWidth()));
-    this->addClip(IntRect(64, 0, player.getHeight(), player.getWidth()));
-    this->addClip(IntRect(127, 0, player.getHeight(), player.getWidth()));
+    player.setHeight(49);
+    player.setWidth(63);
+    this->addClip(IntRect(0, 0, player.getWidth(), player.getHeight()));
+    this->addClip(IntRect(64, 0, player.getWidth(), player.getHeight()));
+    this->addClip(IntRect(127, 0, player.getWidth(), player.getHeight()));
     this->setAnimEnabled(false);
 }
 
