@@ -3,10 +3,11 @@
 #include <iostream>
 
 using namespace sf;
+using namespace std::chrono;
 
-Animation::Animation(const double speed_ms) : speed_ms(speed_ms), current_clip_i(0), x_offset(0), y_offset(0), anim_enabled(true)
+Animation::Animation(const long speed_ms) : speed_ms(speed_ms), current_clip_i(0), x_offset(0), y_offset(0), anim_enabled(true)
 {
-    this->timer = clock();
+    this->timer = high_resolution_clock::now();
 }
 
 Animation::~Animation()
@@ -24,12 +25,13 @@ void Animation::update()
 {
     if(this->anim_enabled)
     {
-        clock_t current = clock();
-        double ms = (double)(current - this->timer ) / CLOCKS_PER_SEC * 1000;
+        time_point<long, std::milli>::time_point current = high_resolution_clock::now();
+        //double ms = (double)(chrono::duration_cast<chrono::microseconds>(current - this->timer).count());
+        std::chrono::duration<long, std::milli> ms = current - this->timer;
 
-        if(ms > this->speed_ms)
+        if(ms.count() > this->speed_ms)
         {
-            this->timer = clock();
+            this->timer = AccurateClock::now();
             this->current_clip_i = (this->current_clip_i + 1) % this->clips.size(); //On passe au clip suivant
             IntRect offset_rect = *this->clips[this->current_clip_i];
             offset_rect.top += y_offset;
@@ -42,7 +44,7 @@ void Animation::update()
 Animation& Animation::operator=(const Animation &other)
 {
     this->current_clip_i = other.current_clip_i;
-    this->timer = clock();
+    this->timer = high_resolution_clock::now();
     this->setTexture(*other.getTexture());
 
     int i;
