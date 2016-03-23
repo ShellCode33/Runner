@@ -71,14 +71,14 @@ AboutTab::~AboutTab()
 void AboutTab::draw(RenderTarget &target, RenderStates states) const
 {
     target.clear(Color(rand() % 256, rand() % 256, rand() % 256));
-    target.draw(this->first_snoop);
-    target.draw(this->second_snoop);
+    target.draw(this->first_snoop, states);
+    target.draw(this->second_snoop, states);
 
     int i;
     for(i = 0; i < (int)(sizeof(text)/sizeof(Text)); i++)
         target.draw(this->text[i]);
 
-    target.draw(this->illuminati);
+    target.draw(this->illuminati, states);
 }
 
 void AboutTab::update()

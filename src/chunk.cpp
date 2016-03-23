@@ -5,11 +5,11 @@ using namespace std;
 
 Chunk::Chunk() : pos_x(0)
 {
-    texture_ground.loadFromFile(GROUND_IMG);
-    sprite_ground.setTexture(texture_ground);
+    this->texture_ground.loadFromFile(GROUND_IMG);
+    this->sprite_ground.setTexture(this->texture_ground);
 
-    texture_background.loadFromFile(BACKGROUND_IMG);
-    sprite_background.setTexture(texture_background);
+    this->texture_background.loadFromFile(BACKGROUND_IMG);
+    this->sprite_background.setTexture(this->texture_background);
 }
 
 Chunk::~Chunk()
@@ -19,17 +19,17 @@ Chunk::~Chunk()
 
 void Chunk::draw(RenderTarget& target, RenderStates states) const
 {
-    target.draw(sprite_ground);
-    target.draw(sprite_background);
+    target.draw(this->sprite_ground, states);
+    target.draw(this->sprite_background, states);
 }
 
 void Chunk::setPosition(int x)
 {
-    pos_x = x;
+    this->pos_x = x;
 }
 
 void Chunk::update()
 {
-    sprite_background.setPosition(pos_x, 0);
-    sprite_ground.setPosition(pos_x, VIEW_HEIGHT - GROUND);
+    this->sprite_background.setPosition(this->pos_x, 0);
+    this->sprite_ground.setPosition(this->pos_x, VIEW_HEIGHT - GROUND);
 }

@@ -19,18 +19,18 @@ Menu::~Menu()
 void Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(*this->menu_bg, states);
-    target.draw(campaign, states);
-    target.draw(survival, states);
-    target.draw(options, states);
-    target.draw(about, states);
-    target.draw(leave, states);
+    target.draw(this->campaign, states);
+    target.draw(this->survival, states);
+    target.draw(this->options, states);
+    target.draw(this->about, states);
+    target.draw(this->leave, states);
 }
 
 void Menu::processEvents(Event & event)
 {
-    campaign.processEvent(window, event);
-    survival.processEvent(window, event);
-    options.processEvent(window, event);
-    about.processEvent(window, event);
-    leave.processEvent(window, event);
+    this->campaign.processEvent(this->window, event);
+    this->survival.processEvent(this->window, event);
+    this->options.processEvent(this->window, event);
+    this->about.processEvent(this->window, event);
+    this->leave.processEvent(this->window, event);
 }

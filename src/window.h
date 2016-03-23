@@ -21,11 +21,10 @@ private:
     int height;
     void processEvent();
     Menu menu;
-
+    ScreenWait splash_screen;
     Game game;
 
     State state;
-    ScreenWait splash_screen;
     AboutTab about_tab;
     OptionTab option_tab;
 

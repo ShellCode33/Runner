@@ -16,27 +16,27 @@ PlayerModel::~PlayerModel()
 
 unsigned int PlayerModel::getScore() const
 {
-    return score;
+    return this->score;
 }
 
 void PlayerModel::setScore(unsigned int value)
 {
-    score = value;
+    this->score = value;
 }
 
 unsigned short PlayerModel::getLife() const
 {
-    return life;
+    return this->life;
 }
 
 void PlayerModel::setLife(unsigned short value)
 {
-    life = value;
+    this->life = value;
 }
 
 void PlayerModel::setUsername(string value)
 {
-    username = value;
+    this->username = value;
 }
 
 pair<int, int> PlayerModel::getVelocity() const
@@ -51,82 +51,82 @@ void PlayerModel::setVelocity(pair<int, int> v)
 
 void PlayerModel::eventHandler()
 {
-    const bool onGround = pos.second > (VIEW_HEIGHT - height - GROUND);
+    const bool onGround = this->pos.second > (VIEW_HEIGHT - this->height - GROUND);
 
-    if(leftPressed)
-        velocity.first -= run_acc;
+    if(this->leftPressed)
+        this->velocity.first -= this->run_acc;
 
-    else if(rightPressed)
-        velocity.first += run_acc;
+    else if(this->rightPressed)
+        this->velocity.first += this->run_acc;
 
     else
-        velocity.first *= 0.7;
+        this->velocity.first *= 0.7;
 
-    if(spacePressed)
+    if(this->spacePressed)
     {
         if(onGround)
         {
-            velocity.second += jump_acc * 2;
-            jump_counter = jumpframe;
+            this->velocity.second += this->jump_acc * 2;
+            this->jump_counter = this->jumpframe;
         }
 
-        else if(jump_counter > 0)
+        else if(this->jump_counter > 0)
         {
-            velocity.second += jump_acc;
-            jump_counter--;
+            this->velocity.second += this->jump_acc;
+            this->jump_counter--;
         }
     }
 
     else
-        jump_counter = 0;
+        this->jump_counter = 0;
 
 }
 
 void PlayerModel::checkCollision()
 {
-    if(pos.second > VIEW_HEIGHT - height - GROUND)
+    if(this->pos.second > VIEW_HEIGHT - this->height - GROUND)
     {
-        velocity.second = 0;
-        pos.second = VIEW_HEIGHT - height - GROUND;
+        this->velocity.second = 0;
+        this->pos.second = VIEW_HEIGHT - this->height - GROUND;
     }
 
-    if(pos.first < CHUNK_WIDTH)
+    if(this->pos.first < CHUNK_WIDTH)
     {
-        velocity.first = 0;
-        pos.first = CHUNK_WIDTH;
+        this->velocity.first = 0;
+        this->pos.first = CHUNK_WIDTH;
     }
 
-    else if(pos.first > VIEW_WIDTH - CHUNK_WIDTH - width)
+    else if(this->pos.first > VIEW_WIDTH - CHUNK_WIDTH - this->width)
     {
-        pos.first = VIEW_WIDTH - CHUNK_WIDTH - width;
-        move_background = true;
+        this->pos.first = VIEW_WIDTH - CHUNK_WIDTH - this->width;
+        this->move_background = true;
     }
 }
 
 void PlayerModel::applyForces()
 {
-    pos += velocity;
-    velocity += gravity;
+    this->pos += this->velocity;
+    this->velocity += this->gravity;
 }
 
 std::pair<float, float> PlayerModel::getGravity() const
 {
-    return gravity;
+    return this->gravity;
 }
 
 void PlayerModel::setGravity(const std::pair<float, float> &value)
 {
-    gravity = value;
+    this->gravity = value;
 }
 
 bool PlayerModel::needMoveBackground() const
 {
-    return move_background;
+    return this->move_background;
 }
 
 void PlayerModel::setMoveBackground(bool value)
 {
-    move_background = value;
+    this->move_background = value;
 }
 
 pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)

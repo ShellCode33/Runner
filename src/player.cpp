@@ -12,27 +12,27 @@ Player::~Player()
 
 void Player::update()
 {
-    player_model.applyForces();
-    player_model.eventHandler();
-    player_model.checkCollision();
+    this->player_model.applyForces();
+    this->player_model.eventHandler();
+    this->player_model.checkCollision();
 }
 
 PlayerView* Player::getView()
 {
-    return &player_view;
+    return &this->player_view;
 }
 
 bool Player::needMoveBackground() const
 {
-    return player_model.needMoveBackground();
+    return this->player_model.needMoveBackground();
 }
 
 int Player::getBackgroundShift() const
 {
-    return player_model.getVelocity().first;
+    return this->player_model.getVelocity().first;
 }
 
 void Player::setMoveBackground(bool value)
 {
-    player_model.setMoveBackground(value);
+    this->player_model.setMoveBackground(value);
 }

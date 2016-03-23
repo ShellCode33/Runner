@@ -12,12 +12,12 @@ Game::~Game()
 
 void Game::update()
 {
-    game_model.update();
-    game_view.update();
-    player.update();
+    this->game_model.update();
+    this->game_view.update();
+    this->player.update();
 }
 
 GameView* Game::getView()
 {
-    return &game_view;
+    return &this->game_view;
 }

@@ -10,12 +10,12 @@ ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string
     this->background_texture = new Texture();
 
     this->background = new Sprite();
-    setBackground(filename);
+    this->setBackground(filename);
 
     this->font = new Font();
     assert(this->font->loadFromFile(ONTHEMOVE_TTF)); //ttf par défaut
     this->text = new Text();
-    setText(text);
+    this->setText(text);
     this->text->setFont(*this->font);
     this->text->setCharacterSize(100);
     this->text->setColor(Color::Black);
@@ -63,6 +63,6 @@ void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void ScreenWait::processEvent(Event & event)
 {
-    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space && window->getState() == SPLASH)
-            window->setState(MENU);
+    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space && this->window->getState() == SPLASH)
+            this->window->setState(MENU);
 }

@@ -3,13 +3,8 @@
 
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
-    if(argc > 1)
-    {
-        //easter egg
-    }
-
     WindowRunner window;
     window.create();
 

@@ -15,40 +15,40 @@ Movable::~Movable()
 
 std::pair<float, float> Movable::getPos() const
 {
-    return pos;
+    return this->pos;
 }
 
 void Movable::setPos(const std::pair<float, float> &value)
 {
-    pos = value;
+    this->pos = value;
 }
 
 int Movable::getX() const
 {
-    return pos.first;
+    return this->pos.first;
 }
 
 int Movable::getY() const
 {
-    return pos.second;
+    return this->pos.second;
 }
 
 int Movable::getHeight() const
 {
-    return height;
+    return this->height;
 }
 
 void Movable::setHeight(int value)
 {
-    height = value;
+    this->height = value;
 }
 
 int Movable::getWidth() const
 {
-    return width;
+    return this->width;
 }
 
 void Movable::setWidth(int value)
 {
-    width = value;
+    this->width = value;
 }
