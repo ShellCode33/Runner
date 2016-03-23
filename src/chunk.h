@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "utils.h"
 #include "const.h"
 
 class Chunk : public sf::Drawable
@@ -11,11 +12,11 @@ public:
     Chunk();
     ~Chunk();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    void update();
+    virtual void update();
     int pos_x;
     void setPosition(int x);
 
-private:
+protected:
     sf::Texture texture_ground;
     sf::Sprite sprite_ground;
 
