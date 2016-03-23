@@ -14,7 +14,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
         this->chunks.push_back(c);
     }
 
-    this->fire_texture.loadFromFile(FIRE_IMG);
+    assert(this->fire_texture.loadFromFile(FIRE_IMG));
     this->fire.setTexture(fire_texture);
 
     int j;

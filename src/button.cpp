@@ -7,13 +7,13 @@ using namespace sf;
 Button::Button(const string & text, const State action, const int pos_x, const int pos_y, const int width, const int height) : action(action), pos_x(pos_x), pos_y(pos_y), width(width), height(height)
 {
 
-    this->font.loadFromFile(ONTHEMOVE_TTF);
+    assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setColor(Color::Black);
     this->text.setCharacterSize(45);
 
-    this->texture.loadFromFile(BUTTON_MENU_IMG);
+    assert(this->texture.loadFromFile(BUTTON_MENU_IMG));
     this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton
 
     this->sprite = new Sprite(texture);
@@ -32,7 +32,7 @@ Button::~Button()
 
 void Button::setImage(const string filename)
 {
-    this->texture.loadFromFile(filename);
+    assert(this->texture.loadFromFile(filename));
     this->sprite->setTexture(this->texture);
 }
 

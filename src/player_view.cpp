@@ -6,7 +6,7 @@ using namespace sf;
 
 PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(model)
 {
-    this->player_texture.loadFromFile(PLAYER_IMG);
+    assert(this->player_texture.loadFromFile(PLAYER_IMG));
     this->setTexture(this->player_texture);
 
     //Liste d'initialisation ?

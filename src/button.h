@@ -6,6 +6,7 @@
 #include <SFML/Window/Mouse.hpp>
 #include "const.h"
 #include "gamestate.h"
+#include <cassert>
 
 class WindowRunner;
 

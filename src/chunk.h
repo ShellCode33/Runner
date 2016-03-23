@@ -2,6 +2,7 @@
 #define CHUNK_H
 
 #include <SFML/Graphics.hpp>
+#include <cassert>
 #include "const.h"
 
 class Chunk : public sf::Drawable
