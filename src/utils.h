@@ -22,6 +22,8 @@ public:
     Utils();
     ~Utils();
 
+    float frand_a_b(float a, float b) const;
+
     /*!
      * \brief Fonction de log permettant un suivi de l'execution
      * \param text : texte qui va être affiché

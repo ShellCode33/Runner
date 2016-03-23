@@ -19,6 +19,7 @@ void ChunkSaw::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void ChunkSaw::update()
 {
+    srand(time(NULL));
     Chunk::update();
     this->saw.update();
     this->saw.setPosition(this->pos_x + this->saw.getPosition().first, this->saw.getPosition().second);

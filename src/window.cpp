@@ -39,24 +39,29 @@ void WindowRunner::create()
         switch(this->state)
         {
             case SPLASH:
+                this->window->setMouseCursorVisible(false);
                 this->window->draw(this->splash_screen);
                 break;
 
             case MENU:
+                this->window->setMouseCursorVisible(true);
                 this->window->draw(this->menu);
                 break;
 
             case SURVIVAL:
             case CAMPAIGN:
                 game.update();
+                this->window->setMouseCursorVisible(false);
                 this->window->draw(*game.getView());
                 break;
 
             case OPTIONS:
+                this->window->setMouseCursorVisible(false);
                 this->window->draw(this->option_tab);
                 break;
 
             case ABOUT:
+                this->window->setMouseCursorVisible(false);
                 this->about_tab.update();
                 this->window->draw(this->about_tab);
                 break;

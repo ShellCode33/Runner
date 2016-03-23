@@ -5,6 +5,7 @@
 #include <cassert>
 #include "chunk.h"
 #include "const.h"
+#include "utils.h"
 #include "saw.h"
 
 class ChunkSaw : public Chunk
