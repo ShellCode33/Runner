@@ -1,10 +1,11 @@
 #include "movable.h"
 
+using namespace std;
 using namespace sf;
 
-Movable::Movable()
+Movable::Movable(int x, int y, int w, int h) : pos(make_pair(x, y)), width(w), height(h)
 {
-    setPos({0, 0});
+
 }
 
 Movable::~Movable()
@@ -30,4 +31,24 @@ int Movable::getX() const
 int Movable::getY() const
 {
     return pos.second;
+}
+
+int Movable::getHeight() const
+{
+    return height;
+}
+
+void Movable::setHeight(int value)
+{
+    height = value;
+}
+
+int Movable::getWidth() const
+{
+    return width;
+}
+
+void Movable::setWidth(int value)
+{
+    width = value;
 }

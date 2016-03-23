@@ -2,11 +2,10 @@
 
 using namespace std;
 
-Player::Player(const string username) : leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), move_background(false)
+Player::Player(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
-    this->setPos(make_pair(VIEW_WIDTH / 2, 0));
     this->setGravity(make_pair(0, .5f));
 }
 
@@ -33,16 +32,6 @@ unsigned short Player::getLife() const
 void Player::setLife(unsigned short value)
 {
     life = value;
-}
-
-int Player::getHeight() const
-{
-    return height;
-}
-
-void Player::setHeight(int value)
-{
-    height = value;
 }
 
 void Player::setUsername(string value)
@@ -109,7 +98,6 @@ void Player::checkCollision()
 
     else if(pos.first > VIEW_WIDTH - CHUNK_WIDTH - width)
     {
-        velocity.first = 0;
         pos.first = VIEW_WIDTH - CHUNK_WIDTH - width;
         move_background = true;
     }
@@ -139,17 +127,6 @@ bool Player::needMoveBackground() const
 void Player::setMoveBackground(bool value)
 {
     move_background = value;
-}
-
-
-int Player::getWidth() const
-{
-    return width;
-}
-
-void Player::setWidth(int value)
-{
-    width = value;
 }
 
 pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)

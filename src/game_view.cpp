@@ -77,8 +77,7 @@ void GameView::update()
     for(Chunk *c : chunks)
     {
         if(need_move_background)
-        //c.pos_x -= game.player.getVelocity().first;
-            c->pos_x -= 20;
+            c->pos_x -= game.player.getVelocity().first;
 
         c->update();
     }

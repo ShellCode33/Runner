@@ -1,8 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#define GRAVITY 9.8f
-
 #include <iostream>
 #include "movable.h"
 
@@ -25,11 +23,6 @@ public:
     unsigned short getLife() const;
     void setLife(unsigned short value);
 
-    int getHeight() const;
-    void setHeight(int value);
-    int getWidth() const;
-    void setWidth(int value);
-
     std::string getUsername() const;
     void setUsername(std::string value);
 
@@ -49,6 +42,8 @@ public:
     bool needMoveBackground() const;
     void setMoveBackground(bool value);
 
+    int getSavedVelocityX() const;
+
 private:
     std::string username;
     unsigned int score;
@@ -61,9 +56,6 @@ private:
 
     unsigned char jumpframe;
     char jump_counter;
-
-    int height;
-    int width;
 
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;
