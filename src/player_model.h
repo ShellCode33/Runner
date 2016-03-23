@@ -41,25 +41,30 @@ public:
     void checkCollision();
     void applyForces();
 
-    bool leftPressed, rightPressed, spacePressed;
+    bool leftPressed, rightPressed, spacePressed, shiftPressed;
 
     std::pair<float, float> getGravity() const;
     void setGravity(const std::pair<float, float> &value);
 
     bool needMoveBackground() const;
     void setMoveBackground(bool value);
-
     int getSavedVelocityX() const;
+
+    void setVelocityX(float value);
+    void setVelocityY(float value);
 
 private:
     std::string username;
     unsigned int score;
     unsigned short life;
 
-    float max_fall;
     float run_acc;
+    float run_acc_over;
     float max_run;
+    float max_run_over;
     float jump_acc;
+
+    float decelaration;
 
     unsigned char jumpframe;
     char jump_counter;

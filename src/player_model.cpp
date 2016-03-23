@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), run_acc(.20f), run_acc_over(.35f), max_run(12.f), max_run_over(17), jump_acc(-1), decelaration(0.7), jumpframe(30), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -54,13 +54,42 @@ void PlayerModel::eventHandler()
     const bool onGround = this->pos.second > (VIEW_HEIGHT - this->height - GROUND);
 
     if(this->leftPressed)
-        this->velocity.first -= this->run_acc;
+        if(this->shiftPressed)
+        {
+            if(this->velocity.first > this->max_run_over * (-1)) //ask
+                this->velocity.first -= this->run_acc_over;
+            else {}
+        }
+        else
+        {
+
+            if(this->velocity.first > this->max_run * (-1))
+                this->velocity.first -= this->run_acc;
+            else {
+                if(this->velocity.first > this->max_run * (-1))
+                    this->setVelocityX(this->max_run);
+            }
+        }
 
     else if(this->rightPressed)
-        this->velocity.first += this->run_acc;
+        if(this->shiftPressed)
+        {
+            if(this->velocity.first < this->max_run_over)
+                this->velocity.first += this->run_acc_over;
+            else {}
+        }
+        else
+        {
+            if(this->velocity.first < this->max_run)
+                this->velocity.first += this->run_acc;
+            else {
+                if(this->velocity.first > this->max_run)
+                    this->setVelocityX(this->max_run);
+            }
+        }
 
     else
-        this->velocity.first *= 0.7;
+        this->velocity.first *= decelaration;
 
     if(this->spacePressed)
     {
@@ -129,9 +158,20 @@ void PlayerModel::setMoveBackground(bool value)
     this->move_background = value;
 }
 
+void PlayerModel::setVelocityX(float value)
+{
+    this->velocity.first = value;
+}
+
+void PlayerModel::setVelocityY(float value)
+{
+    this->velocity.second = value;
+}
+
 pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)
 {
     a.first += b.first;
     a.second += b.second;
     return a;
 }
+

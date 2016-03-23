@@ -55,6 +55,10 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
                     this->setAnimEnabled(false);
                     break;
 
+                case Keyboard::LShift:
+                    this->player_model.shiftPressed = true;
+                    break;
+
                 default: break;
             }
         }
@@ -76,6 +80,10 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
                 case Keyboard::Space:
                     this->player_model.spacePressed = false;
                     this->setAnimEnabled(true);
+                    break;
+
+                case Keyboard::LShift:
+                    this->player_model.shiftPressed = false;
                     break;
 
                 default: break;
