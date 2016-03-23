@@ -4,18 +4,15 @@
 using namespace std;
 using namespace sf;
 
-PlayerView::PlayerView(const string filename_player_img, Player& model) : Animation(100.0), player(model)
+PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(model)
 {
-    this->player_texture.loadFromFile(filename_player_img);
+    this->player_texture.loadFromFile(PLAYER_IMG);
     this->setTexture(this->player_texture);
-    player.setHeight(49);
-    player.setWidth(64);
-    this->addClip(IntRect(0, 0, player.getWidth(), player.getHeight()));
-    this->addClip(IntRect(64, 0, player.getWidth(), player.getHeight()));
-    this->addClip(IntRect(127, 0, player.getWidth(), player.getHeight()));
-    //this->addClip(IntRect(0, 0, 63, 49));
-    //this->addClip(IntRect(64, 0, 63, 49));
-    //this->addClip(IntRect(127, 0, 63, 49));
+    player_model.setHeight(49);
+    player_model.setWidth(63);
+    this->addClip(IntRect(0, 0, player_model.getWidth(), player_model.getHeight()));
+    this->addClip(IntRect(64, 0, player_model.getWidth(), player_model.getHeight()));
+    this->addClip(IntRect(127, 0, player_model.getWidth(), player_model.getHeight()));
     this->setAnimEnabled(false);
 }
 
@@ -27,7 +24,7 @@ PlayerView::~PlayerView()
 void PlayerView::update()
 {
     Animation::update();
-    this->setPosition(player.getX(), player.getY());
+    this->setPosition(player_model.getX(), player_model.getY());
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)
@@ -39,19 +36,19 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
             switch(event.key.code)
             {
                 case Keyboard::Left:
-                    player.leftPressed = true;
+                    player_model.leftPressed = true;
                     this->setOffset(0, 50);
                     this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::Right:
-                    player.rightPressed = true;
+                    player_model.rightPressed = true;
                     this->setOffset(0, 0);
                     this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::Space:
-                    player.spacePressed = true;
+                    player_model.spacePressed = true;
                     this->setAnimEnabled(false);
                     break;
 
@@ -60,21 +57,21 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
         }
         else if(event.type == Event::KeyReleased)
         {
-            if((event.key.code == Keyboard::Left && !player.rightPressed) || (event.key.code == Keyboard::Right && !player.leftPressed))
+            if((event.key.code == Keyboard::Left && !player_model.rightPressed) || (event.key.code == Keyboard::Right && !player_model.leftPressed))
                 this->setAnimEnabled(false);
 
             switch(event.key.code)
             {
                 case Keyboard::Left:
-                    player.leftPressed = false;
+                    player_model.leftPressed = false;
                     break;
 
                 case Keyboard::Right:
-                    player.rightPressed = false;
+                    player_model.rightPressed = false;
                     break;
 
                 case Keyboard::Space:
-                    player.spacePressed = false;
+                    player_model.spacePressed = false;
                     this->setAnimEnabled(true);
                     break;
 

@@ -3,18 +3,18 @@
 
 #include <SFML/Graphics.hpp>
 #include <list>
-#include "player_view.h"
 #include "gamestate.h"
 #include "chunk.h"
 #include "animation.h"
+#include "game_model.h"
+#include "player.h"
 
 class WindowRunner;
-class Game;
 
 class GameView : public sf::Drawable
 {
 public:
-    GameView(WindowRunner& window, Game& model);
+    GameView(WindowRunner& window, GameModel& model, Player &player);
     ~GameView();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
@@ -24,12 +24,12 @@ public:
 
 private:
     WindowRunner& window;
-    Game &game;
-    PlayerView player_view;
+    GameModel &game_model;
     std::list<Chunk*> chunks;
 
     sf::Texture fire_texture;
     Animation fire, fire2;
+    Player &player;
 
 };
 

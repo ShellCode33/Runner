@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), menu(*this), game_view(*this, game), splash_screen(this, SPLASH_IMG, SPLASH_TEXT)
+WindowRunner::WindowRunner() : window(NULL), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game(*this)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -24,7 +24,7 @@ void WindowRunner::create()
     this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
-    this->state = SPLASH;
+    this->state = SURVIVAL;
 
     this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
 
@@ -48,9 +48,8 @@ void WindowRunner::create()
 
             case SURVIVAL:
             case CAMPAIGN:
-                this->game.update();
-                this->game_view.update();
-                this->window->draw(this->game_view);
+                game.update();
+                this->window->draw(*game.getView());
                 break;
 
             case OPTIONS:
@@ -89,10 +88,10 @@ void WindowRunner::processEvent()
                 break;
 
             case SURVIVAL:
-                this->game_view.processEvent(event);
+                game.getView()->processEvent(event);
                 break;
             case CAMPAIGN:
-                this->game_view.processEvent(event);
+                game.getView()->processEvent(event);
                 break;
 
             case OPTIONS:

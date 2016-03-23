@@ -1,9 +1,8 @@
 #include "game.h"
-#include "window.h"
 
-Game::Game() : config("config"), speed(1.f)
+Game::Game(WindowRunner &window) : game_view(window, game_model, player)
 {
-    this->config.readConfig();
+
 }
 
 Game::~Game()
@@ -13,7 +12,12 @@ Game::~Game()
 
 void Game::update()
 {
-    player.applyForces();
-    player.eventHandler();
-    player.checkCollision();
+    game_model.update();
+    game_view.update();
+    player.update();
+}
+
+GameView* Game::getView()
+{
+    return &game_view;
 }

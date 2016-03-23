@@ -1,0 +1,137 @@
+#include "player_model.h"
+
+using namespace std;
+
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), max_fall(5), run_acc(.20f), max_run(2.5f), jump_acc(-1), jumpframe(30), jump_counter(0), move_background(false)
+{
+    this->username = username;
+    this->setVelocity(make_pair(0, 0));
+    this->setGravity(make_pair(0, .5f));
+}
+
+PlayerModel::~PlayerModel()
+{
+
+}
+
+unsigned int PlayerModel::getScore() const
+{
+    return score;
+}
+
+void PlayerModel::setScore(unsigned int value)
+{
+    score = value;
+}
+
+unsigned short PlayerModel::getLife() const
+{
+    return life;
+}
+
+void PlayerModel::setLife(unsigned short value)
+{
+    life = value;
+}
+
+void PlayerModel::setUsername(string value)
+{
+    username = value;
+}
+
+pair<int, int> PlayerModel::getVelocity() const
+{
+    return this->velocity;
+}
+
+void PlayerModel::setVelocity(pair<int, int> v)
+{
+    this->velocity = v;
+}
+
+void PlayerModel::eventHandler()
+{
+    const bool onGround = pos.second > (VIEW_HEIGHT - height - GROUND);
+
+    if(leftPressed)
+        velocity.first -= run_acc;
+
+    else if(rightPressed)
+        velocity.first += run_acc;
+
+    else
+        velocity.first *= 0.7;
+
+    if(spacePressed)
+    {
+        if(onGround)
+        {
+            velocity.second += jump_acc * 2;
+            jump_counter = jumpframe;
+        }
+
+        else if(jump_counter > 0)
+        {
+            velocity.second += jump_acc;
+            jump_counter--;
+        }
+    }
+
+    else
+        jump_counter = 0;
+
+}
+
+void PlayerModel::checkCollision()
+{
+    if(pos.second > VIEW_HEIGHT - height - GROUND)
+    {
+        velocity.second = 0;
+        pos.second = VIEW_HEIGHT - height - GROUND;
+    }
+
+    if(pos.first < CHUNK_WIDTH)
+    {
+        velocity.first = 0;
+        pos.first = CHUNK_WIDTH;
+    }
+
+    else if(pos.first > VIEW_WIDTH - CHUNK_WIDTH - width)
+    {
+        pos.first = VIEW_WIDTH - CHUNK_WIDTH - width;
+        move_background = true;
+    }
+}
+
+void PlayerModel::applyForces()
+{
+    pos += velocity;
+    velocity += gravity;
+}
+
+std::pair<float, float> PlayerModel::getGravity() const
+{
+    return gravity;
+}
+
+void PlayerModel::setGravity(const std::pair<float, float> &value)
+{
+    gravity = value;
+}
+
+bool PlayerModel::needMoveBackground() const
+{
+    return move_background;
+}
+
+void PlayerModel::setMoveBackground(bool value)
+{
+    move_background = value;
+}
+
+pair<float, float> operator+=(pair<float, float>& a, const pair<float, float>& b)
+{
+    a.first += b.first;
+    a.second += b.second;
+    return a;
+}

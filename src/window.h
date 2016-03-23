@@ -5,13 +5,12 @@
 #include <cassert>
 #include "const.h"
 #include "menu.h"
-#include "game_view.h"
-#include "game.h"
 #include "screenwait.h"
 #include "utils.h"
 #include "gamestate.h"
 #include "about_tab.h"
 #include "option_tab.h"
+#include "game.h"
 
 class WindowRunner : sf::View
 {
@@ -23,8 +22,7 @@ private:
     void processEvent();
     Menu menu;
 
-    GameView game_view;
-    Game game; //model
+    Game game;
 
     State state;
     ScreenWait splash_screen;

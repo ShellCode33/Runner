@@ -3,23 +3,24 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "const.h"
 #include "movable.h"
-#include "player.h"
 #include "animation.h"
+#include "player_model.h"
 
 class WindowRunner;
 
 class PlayerView : public Animation
 {
 public:
-    PlayerView(const std::string filename_player_img, Player &model);
+    PlayerView(PlayerModel &model);
     ~PlayerView();
     void processEvents(WindowRunner &window, sf::Event &event);
     void update();
 
 private:
     sf::Texture player_texture;
-    Player& player;
+    PlayerModel& player_model;
 
 
 };

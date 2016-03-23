@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, Game &model) : window(window), game(model), player_view(PLAYER_IMG, game.player), fire(20.0), fire2(20.0)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : window(window), game_model(model), fire(20.0), fire2(20.0), player(player)
 {
     int i;
     for(i = 0; i < CHUNK_PRELOAD; i++)
@@ -40,7 +40,7 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
     for(const Chunk *c : chunks)
         target.draw(*c);
 
-    target.draw(player_view, states);
+    target.draw(*player.getView(), states);
     target.draw(fire, states);
     target.draw(fire2, states);
 }
@@ -52,17 +52,17 @@ void GameView::processEvent(Event &event)
         if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
             this->window.setState(MENU);
 
-        player_view.processEvents(window, event);
+        player.getView()->processEvents(window, event);
     }
 }
 
 void GameView::update()
 {
-    this->player_view.update(); //On met à jouer l'affichage du joueur
+    player.getView()->update(); //On met à jouer l'affichage du joueur
     fire.update(); //On met l'animation du feu à jour
     fire2.update();
 
-    bool need_move_background = game.player.needMoveBackground();
+    bool need_move_background = player.needMoveBackground();
 
     //On vérifie que le 1er chunk est visible, si ce n'est pas le cas on le supprime pour un ré-allouer un nouveau
     if((*chunks.begin())->pos_x + CHUNK_WIDTH < 0)
@@ -77,10 +77,10 @@ void GameView::update()
     for(Chunk *c : chunks)
     {
         if(need_move_background)
-            c->pos_x -= game.player.getVelocity().first;
+            c->pos_x -= player.getBackgroundShift();
 
         c->update();
     }
 
-    game.player.setMoveBackground(false);
+    player.setMoveBackground(false);
 }
