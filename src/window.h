@@ -1,4 +1,11 @@
 #ifndef WINDOW_H
+/*!
+ * \file window.h
+ * \class WindowRunner
+ * \brief Début de l'application, chargé de répartir les évênements et mettre à jour les composants graphiques.
+ * \author Clément
+ */
+
 #define WINDOW_H
 
 #include <SFML/Graphics.hpp>
@@ -17,23 +24,23 @@ class WindowRunner : sf::View
 private:
     sf::RenderWindow *window;
     sf::VideoMode desktop;
-    int width;
-    int height;
-    void processEvent();
+
     Menu menu;
     ScreenWait splash_screen;
     Game game;
 
-    State state;
+    State state; /*!< Enumeration des différents états du jeu*/
     AboutTab about_tab;
     OptionTab option_tab;
+
+    void dispatchEvents(); /*!< Se charge de répartir les évênements entre les différents éléments graphiques*/
 
 
 public:
     WindowRunner();
     ~WindowRunner();
     void create();
-    void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default) const;
+    virtual void draw(const sf::Drawable &drawable, const sf::RenderStates &states=sf::RenderStates::Default) const;
     State getState() const;
     void setState(const State &value);
     sf::RenderWindow & getRender() const;

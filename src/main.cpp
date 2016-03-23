@@ -1,7 +1,10 @@
-#include <iostream>
-#include "window.h"
+/*!
+ * \file main.cpp
+ * \brief Point d'entrée du programme, qui se charge de lancer l'application
+ * \author Clément
+ */
 
-using namespace std;
+#include "window.h"
 
 int main()
 {

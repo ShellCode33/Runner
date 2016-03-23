@@ -1,3 +1,10 @@
+/*!
+ * \file config.h
+ * \brief Classe utilisée pour gérer le fichier de config
+ * \author Clément
+ *
+ */
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -8,14 +15,27 @@
 class Config
 {
 private:
-    std::string filename;
-    std::map<std::string, std::string> config_map;
+    std::string filename; /*!< Nom du fichier de config */
+    std::map<std::string, std::string> config_map; /*!< Map utilisée afin de faire correspondre l'option avec sa valeur */
 
 public:
     Config(const std::string filename);
     ~Config();
+    /*!
+     * \brief crée la configuration par défaut
+     */
     void createConfig();
+
+    /*!
+     * \brief Se charge de lire la configuration et de tout mettre dans config_map
+     */
     void readConfig();
+
+    /*!
+     * \brief Récupère la valeur correspondante à un paramètre
+     * \param key : Le paramètre souhaité
+     * \return La valeur du paramètre
+     */
     std::string getSetting(const std::string key);
 };
 

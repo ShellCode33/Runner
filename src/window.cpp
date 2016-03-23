@@ -24,7 +24,7 @@ void WindowRunner::create()
     this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
-    this->state = SURVIVAL;
+    this->state = SPLASH;
 
     this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
 
@@ -33,7 +33,7 @@ void WindowRunner::create()
 
     while(this->window->isOpen())
     {
-        processEvent();
+        dispatchEvents();
         this->window->clear();
 
         switch(this->state)
@@ -71,7 +71,7 @@ void WindowRunner::create()
 }
 
 
-void WindowRunner::processEvent()
+void WindowRunner::dispatchEvents()
 {
     Event event;
 

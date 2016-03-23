@@ -9,7 +9,7 @@ PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(mode
     assert(this->player_texture.loadFromFile(PLAYER_IMG));
     this->setTexture(this->player_texture);
 
-    //Liste d'initialisation ?
+    //Liste d'initialisation impossible car sinon, bug avec les getWidth et getHeight qui suivent
     this->player_model.setHeight(49);
     this->player_model.setWidth(63);
 

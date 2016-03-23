@@ -1,3 +1,10 @@
+/*!
+ * \file menu.h
+ * \brief Menu qui sera affiché et avec lequel l'utilisateur pourra interagir
+ * \author Jérémie, Clément
+ *
+ */
+
 #ifndef MENU_H
 #define MENU_H
 
@@ -18,6 +25,11 @@ private:
 public:
     Menu(WindowRunner &window);
     ~Menu();
+
+    /*!
+     * \brief Gère les évenements qui le concerne
+     * \param event : Evenements SFML
+     */
     void processEvents(sf::Event & event);
 
 };
