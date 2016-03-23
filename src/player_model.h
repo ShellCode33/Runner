@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include "movable.h"
+#include "utils.h"
 
 enum Direction
 {

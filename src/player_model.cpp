@@ -119,10 +119,11 @@ void PlayerModel::checkCollision()
         this->pos.second = VIEW_HEIGHT - this->height - GROUND;
     }
 
-    if(this->pos.first < CHUNK_WIDTH)
+    if(this->pos.first < DEAD_LINE)
     {
         this->velocity.first = 0;
-        this->pos.first = CHUNK_WIDTH;
+        this->pos.first = DEAD_LINE;
+        Utils::log("Player DIED");
     }
 
     else if(this->pos.first > VIEW_WIDTH - CHUNK_WIDTH - this->width)
