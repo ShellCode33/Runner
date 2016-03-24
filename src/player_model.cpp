@@ -55,6 +55,9 @@ void PlayerModel::eventHandler()
 
     if(this->leftPressed)
     {
+        if(this->velocity.first > 0)
+            this->setVelocityX(0.);
+
         if(this->shiftPressed)
         {
             if(this->velocity.first > this->max_run * (-1)) //ask
@@ -75,6 +78,9 @@ void PlayerModel::eventHandler()
 
     else if(this->rightPressed)
     {
+        if(this->velocity.first < 0)
+            this->setVelocityX(0.);
+
         if(this->shiftPressed)
         {
             if(this->velocity.first < this->max_run)
