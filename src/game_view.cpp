@@ -69,7 +69,14 @@ void GameView::update()
     {
         delete *this->chunks.begin();
         this->chunks.pop_front();
-        Chunk *c = new ChunkSaw();
+        Chunk *c;
+
+        if(rand()%2)
+            c = new ChunkSaw();
+
+        else
+            c = new Chunk();
+
         c->setPosition((*this->chunks.rbegin())->pos_x + CHUNK_WIDTH); //On met le nouveau chunk à coté du dernier dans la liste
         this->chunks.push_back(c);
     }
@@ -92,5 +99,12 @@ std::list<Chunk *> GameView::getChunks() const
 
 std::list<Chunk *> GameView::getVisibleChunks() const
 {
+    std::list<Chunk *> visible_chunks;
+    std::list<Chunk *>::const_iterator it = chunks.begin();
 
+    int i;
+    for(i = 0; i < NB_CHUNK+1 && it != chunks.end(); i++, ++it)
+        visible_chunks.push_back(*it);
+
+    return visible_chunks;
 }

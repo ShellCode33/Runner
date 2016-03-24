@@ -11,6 +11,7 @@
 #include <utility>
 #include <SFML/Graphics.hpp>
 #include "movable.h"
+#include "utils.h"
 
 class Obstacle : public sf::Sprite
 {

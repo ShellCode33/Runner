@@ -42,5 +42,5 @@ bool Obstacle::checkCollision(Movable &m)
 
 void Obstacle::action()
 {
-
+    Utils::log("Action de collision");
 }
