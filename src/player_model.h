@@ -64,6 +64,7 @@ private:
     float max_walk;
     float max_run;
     float jump_acc;
+    float max_fall;
 
     float decelaration;
 

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -114,6 +114,7 @@ void PlayerModel::eventHandler()
             this->velocity.second += this->jump_acc;
             this->jump_counter--;
         }
+
     }
 
     else
@@ -146,7 +147,9 @@ void PlayerModel::checkCollision()
 void PlayerModel::applyForces()
 {
     this->pos += this->velocity;
-    this->velocity += this->gravity;
+
+    if(this->velocity.second < this->max_fall)
+        this->velocity += this->gravity;
 }
 
 std::pair<float, float> PlayerModel::getGravity() const
