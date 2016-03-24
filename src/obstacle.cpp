@@ -30,12 +30,11 @@ void Obstacle::update()
 
 bool Obstacle::checkCollision(Movable &m)
 {
-    int x_obst = this->getLocalBounds().left;
-    int y_obst = this->getLocalBounds().top;
-    int w_obst = this->getLocalBounds().width;
-    int h_obst = this->getLocalBounds().height;
-
-    //TODO : collision entre le joueur et l'obstacle
+    if((m.getX() <= this->getLocalBounds().left + this->getLocalBounds().width)
+        && (m.getX() + m.getWidth() >= this->getLocalBounds().left)
+        && (m.getY() <= this->getLocalBounds().top + this->getLocalBounds().height)
+        && (m.getY() + m.getHeight() >= this->getLocalBounds().top))
+        return true;
 
     return false;
 }
