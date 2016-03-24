@@ -12,14 +12,13 @@ ChunkSaw::~ChunkSaw()
 
 void ChunkSaw::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    target.draw(this->sprite_ground, states);
-    target.draw(this->sprite_background, states);
+    Chunk::draw(target, states);
     target.draw(this->saw, states);
 }
 
 void ChunkSaw::update()
 {
-    srand(time(NULL));
+    srand(time(NULL)); //WTF ??
     Chunk::update();
     this->saw.update();
     this->saw.setPosition(this->pos_x + this->saw.getPosition().first, this->saw.getPosition().second);

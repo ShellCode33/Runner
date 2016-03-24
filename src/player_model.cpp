@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), run_acc(.20f), run_acc_over(.35f), max_run(12.f), max_run_over(17), jump_acc(-1), decelaration(0.7), jumpframe(30), jump_counter(0), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), run_acc(.20f), run_acc_over(.35f), max_run(12.f), max_run_over(17), jump_acc(-4), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -54,6 +54,7 @@ void PlayerModel::eventHandler()
     const bool onGround = this->pos.second > (VIEW_HEIGHT - this->height - GROUND);
 
     if(this->leftPressed)
+    {
         if(this->shiftPressed)
         {
             if(this->velocity.first > this->max_run_over * (-1)) //ask
@@ -70,8 +71,10 @@ void PlayerModel::eventHandler()
                     this->setVelocityX(this->max_run);
             }
         }
+    }
 
     else if(this->rightPressed)
+    {
         if(this->shiftPressed)
         {
             if(this->velocity.first < this->max_run_over)
@@ -87,6 +90,7 @@ void PlayerModel::eventHandler()
                     this->setVelocityX(this->max_run);
             }
         }
+    }
 
     else
         this->velocity.first *= decelaration;

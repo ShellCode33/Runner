@@ -67,8 +67,8 @@ private:
 
     float decelaration;
 
-    unsigned char jumpframe;
-    char jump_counter;
+    unsigned char jumpframe; //WTFFF ???
+    char jump_counter;      //WTFFF ??
 
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;
