@@ -22,6 +22,7 @@
 #define SPLASH_TEXT "<< Press Space To Play >>"
 
 //PATH
+#define CURSOR_IMG "img/cursor.png"
 #define BUTTON_MENU_IMG "img/button.png"
 #define MENU_BG "img/menu_bg.png"
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"

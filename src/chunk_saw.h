@@ -17,7 +17,7 @@ public:
     virtual void update();
 
 private:
-    Saw saw;
+    Saw *saw;
 
 };
 

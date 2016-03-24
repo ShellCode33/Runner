@@ -59,16 +59,16 @@ private:
     unsigned int score;
     unsigned short life;
 
+    float walk_acc;
     float run_acc;
-    float run_acc_over;
+    float max_walk;
     float max_run;
-    float max_run_over;
     float jump_acc;
 
     float decelaration;
 
-    unsigned char jumpframe; //WTFFF ???
-    char jump_counter;      //WTFFF ??
+    int jumpframe;
+    int jump_counter;
 
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;

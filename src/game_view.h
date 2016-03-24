@@ -23,6 +23,9 @@ public:
     void setGroundHeight(const int ground_height);
     int getGroundHeight() const;
 
+    std::list<Chunk *> getChunks() const;
+
+    std::list<Chunk *> getVisibleChunks() const;
 private:
     WindowRunner& window;
     GameModel &game_model;

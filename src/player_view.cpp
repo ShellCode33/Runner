@@ -40,12 +40,14 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
             {
                 case Keyboard::Left:
                     this->player_model.leftPressed = true;
+                    this->player_model.rightPressed = false;
                     this->setOffset(0, 50);
                     this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::Right:
                     this->player_model.rightPressed = true;
+                    this->player_model.leftPressed = false;
                     this->setOffset(0, 0);
                     this->setAnimEnabled(true);
                     break;

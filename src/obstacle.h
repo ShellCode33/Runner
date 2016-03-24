@@ -20,7 +20,12 @@ public:
     void setPositionRelat(const int x, const int y);
     std::pair<int, int> getPosition() const;
     void update();
-    bool checkCollision(Movable &player);
+    bool checkCollision(Movable &m);
+
+    /*!
+     * \brief action que doit effectuer l'obstacle (ex : tuer le joueur)
+     */
+    void action();
 
 private:
     int relat_x; /*!< Position relative au chunk de l'axe X */

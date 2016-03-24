@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), run_acc(.20f), run_acc_over(.35f), max_run(12.f), max_run_over(17), jump_acc(-4), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -57,18 +57,18 @@ void PlayerModel::eventHandler()
     {
         if(this->shiftPressed)
         {
-            if(this->velocity.first > this->max_run_over * (-1)) //ask
-                this->velocity.first -= this->run_acc_over;
+            if(this->velocity.first > this->max_run * (-1)) //ask
+                this->velocity.first -= this->run_acc;
             else {}
         }
         else
         {
 
-            if(this->velocity.first > this->max_run * (-1))
-                this->velocity.first -= this->run_acc;
+            if(this->velocity.first > this->max_walk * (-1))
+                this->velocity.first -= this->walk_acc;
             else {
-                if(this->velocity.first > this->max_run * (-1))
-                    this->setVelocityX(this->max_run);
+                if(this->velocity.first > this->max_walk * (-1))
+                    this->setVelocityX(this->max_walk);
             }
         }
     }
@@ -77,17 +77,17 @@ void PlayerModel::eventHandler()
     {
         if(this->shiftPressed)
         {
-            if(this->velocity.first < this->max_run_over)
-                this->velocity.first += this->run_acc_over;
+            if(this->velocity.first < this->max_run)
+                this->velocity.first += this->run_acc;
             else {}
         }
         else
         {
-            if(this->velocity.first < this->max_run)
-                this->velocity.first += this->run_acc;
+            if(this->velocity.first < this->max_walk)
+                this->velocity.first += this->walk_acc;
             else {
-                if(this->velocity.first > this->max_run)
-                    this->setVelocityX(this->max_run);
+                if(this->velocity.first > this->max_walk)
+                    this->setVelocityX(this->max_walk);
             }
         }
     }

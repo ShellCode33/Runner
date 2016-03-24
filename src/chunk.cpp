@@ -14,7 +14,8 @@ Chunk::Chunk() : pos_x(0)
 
 Chunk::~Chunk()
 {
-
+    for(Obstacle* o : obstacles)
+        delete o;
 }
 
 void Chunk::draw(RenderTarget& target, RenderStates states) const
@@ -26,6 +27,11 @@ void Chunk::draw(RenderTarget& target, RenderStates states) const
 void Chunk::setPosition(int x)
 {
     this->pos_x = x;
+}
+
+std::list<Obstacle *> Chunk::getObstacles() const
+{
+    return obstacles;
 }
 
 void Chunk::update()

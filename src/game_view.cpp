@@ -84,3 +84,13 @@ void GameView::update()
 
     this->player.setMoveBackground(false);
 }
+
+std::list<Chunk *> GameView::getChunks() const
+{
+    return chunks;
+}
+
+std::list<Chunk *> GameView::getVisibleChunks() const
+{
+
+}

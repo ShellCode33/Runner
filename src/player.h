@@ -10,6 +10,7 @@ public:
     Player();
     ~Player();
     PlayerView* getView();
+    PlayerModel* getModel();
 
     bool needMoveBackground() const;
     void setMoveBackground(bool value);

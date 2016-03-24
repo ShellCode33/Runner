@@ -28,7 +28,7 @@ void Obstacle::update()
 
 }
 
-bool Obstacle::checkCollision(Movable &player)
+bool Obstacle::checkCollision(Movable &m)
 {
     int x_obst = this->getLocalBounds().left;
     int y_obst = this->getLocalBounds().top;
@@ -38,4 +38,9 @@ bool Obstacle::checkCollision(Movable &player)
     //TODO : collision entre le joueur et l'obstacle
 
     return false;
+}
+
+void Obstacle::action()
+{
+
 }

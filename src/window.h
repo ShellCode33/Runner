@@ -25,6 +25,9 @@ private:
     sf::RenderWindow *window;
     sf::VideoMode desktop;
 
+    sf::Texture cursor_texture;
+    Animation cursor;
+
     Menu menu;
     ScreenWait splash_screen;
     Game game;

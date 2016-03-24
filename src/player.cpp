@@ -22,6 +22,11 @@ PlayerView* Player::getView()
     return &this->player_view;
 }
 
+PlayerModel* Player::getModel()
+{
+    return &this->player_model;
+}
+
 bool Player::needMoveBackground() const
 {
     return this->player_model.needMoveBackground();
