@@ -34,7 +34,8 @@ void WindowRunner::create()
     this->window->setView(*this);
     this->state = SPLASH;
 
-    this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
+    //this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
+    this->splash_screen.setTextPosition(Vector2f((this->getSize().x / 50), (this->getSize().y) / 1.6));
 
     this->window->setFramerateLimit(FRAMERATE);
     this->window->setVerticalSyncEnabled(false);
