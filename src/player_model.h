@@ -58,7 +58,6 @@ public:
 
 private:
     std::string username;
-    unsigned int score;
     unsigned short life;
 
     float walk_acc;

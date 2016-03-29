@@ -35,6 +35,9 @@ private:
     Animation fire, fire2;
     Player &player;
 
+    sf::Font score_font;
+    sf::Text score_display;
+
 };
 
 #endif //GAMEVIEW_H

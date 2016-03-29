@@ -27,6 +27,12 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     this->fire2 = this->fire;
     this->fire2.setPosition(337, 500);
     this->fire2.setRotation(90);
+
+    assert(this->score_font.loadFromFile(ONTHEMOVE_TTF));
+    this->score_display.setFont(this->score_font);
+    this->score_display.setCharacterSize(50);
+    this->score_display.setString("Score: 0");
+    this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100); //-20 pour l'espace depuis l'écran
 }
 
 GameView::~GameView()
@@ -48,6 +54,7 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
 
     target.draw(this->fire, states);
     target.draw(this->fire2, states);
+    target.draw(this->score_display, states);
 }
 
 void GameView::processEvent(Event &event)
@@ -95,6 +102,10 @@ void GameView::update()
     }
 
     this->player.setMoveBackground(false);
+
+    //On met à jour l'affichage du score
+    this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
+    this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100);
 }
 
 std::list<Chunk *> GameView::getChunks() const

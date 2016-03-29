@@ -14,16 +14,6 @@ PlayerModel::~PlayerModel()
 
 }
 
-unsigned int PlayerModel::getScore() const
-{
-    return this->score;
-}
-
-void PlayerModel::setScore(unsigned int value)
-{
-    this->score = value;
-}
-
 unsigned short PlayerModel::getLife() const
 {
     return this->life;
@@ -138,8 +128,7 @@ void PlayerModel::checkCollision()
     if(this->pos.first < DEAD_LINE)
     {
         this->velocity.first = 0;
-        this->pos.first = DEAD_LINE;
-        Utils::log("Player DIED");
+        Utils::log("Player died");
         this->life = 0;
     }
 
