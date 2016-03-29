@@ -20,6 +20,7 @@
 //STRING
 #define TITLE_WINDOW "Super Weed Boy"
 #define SPLASH_TEXT "<< Press Space >>"
+#define GAME_OVER_TEXT SPLASH_TEXT
 
 //PATH
 #define CURSOR_IMG "img/cursor.png"
@@ -36,6 +37,7 @@
 #define FIRE_ANIM "img/fire.png"
 #define SAW_IMG "img/saw.png"
 #define DEAD_ANIM "img/smoke.png"
+#define GAME_OVER_BG "img/gameover.png"
 
 //GAME
 #define GROUND 100

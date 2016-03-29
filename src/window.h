@@ -29,7 +29,7 @@ private:
     Animation cursor;
 
     Menu menu;
-    ScreenWait splash_screen;
+    ScreenWait splash_screen, game_over;
     Game game;
 
     State state; /*!< Enumeration des différents états du jeu*/
