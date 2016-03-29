@@ -69,13 +69,17 @@ void WindowRunner::create()
 
             case OPTIONS:
                 this->window->draw(this->option_tab);
-            this->window->draw(this->cursor);
+                this->window->draw(this->cursor);
                 break;
 
             case ABOUT:
                 this->about_tab.update();
                 this->window->draw(this->about_tab);
                 this->window->draw(this->cursor);
+                break;
+
+            case GAME_OVER:
+
                 break;
 
             case EXIT:
@@ -115,6 +119,10 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case OPTIONS:
+
+                break;
+
+            case GAME_OVER:
 
                 break;
 

@@ -4,6 +4,9 @@
 #include "player.h"
 #include "game_model.h"
 #include "game_view.h"
+#include "gamestate.h"
+
+class WindowRunner;
 
 class Game
 {
@@ -14,9 +17,24 @@ public:
     GameView* getView();
 
 private:
-    Player player;
-    GameModel game_model;
-    GameView game_view;
+    WindowRunner &window;
+
+    /*!
+     * \brief Un pointeur est utilisé de manière à réinitialiser une partie plus facilement à l'aide d'un new/delete
+     */
+    Player *player;
+
+    /*!
+     * \brief Un pointeur est utilisé de manière à réinitialiser une partie plus facilement à l'aide d'un new/delete
+     */
+    GameModel *game_model;
+
+    /*!
+     * \brief Un pointeur est utilisé de manière à réinitialiser une partie plus facilement à l'aide d'un new/delete
+     */
+    GameView *game_view;
+
+    bool game_over;
 
 };
 

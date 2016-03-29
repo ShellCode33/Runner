@@ -2,6 +2,7 @@
 #include "window.h"
 
 using namespace sf;
+using namespace std;
 
 AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
 {
@@ -48,10 +49,10 @@ AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
     assert(font.loadFromFile(ONTHEMOVE_TTF));
 
     //Pas très propre mais necessaire car la SFML n'est pas capable de centrer horizontalement du texte multi-ligne
-    this->text[0].setString("Developped By");
-    this->text[1].setString(L"Jérémie Pereyrol");
-    this->text[2].setString("&");
-    this->text[3].setString(L"Clément Fleury");
+    this->text[0].setString(String("Developped By"));
+    this->text[1].setString(String(L"Jérémie Pereyrol"));
+    this->text[2].setString(String("&"));
+    this->text[3].setString(String(L"Clément Fleury"));
 
     for(i = 0; i < (int)(sizeof(this->text)/sizeof(Text)); i++)
     {

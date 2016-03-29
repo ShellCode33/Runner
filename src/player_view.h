@@ -17,8 +17,8 @@ public:
     ~PlayerView();
     void processEvents(WindowRunner &window, sf::Event &event);
     void update();
+    Animation *getDeadAnim();
 
-    bool deadAnim();
 private:
     sf::Texture player_texture;
     PlayerModel& player_model;

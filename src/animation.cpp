@@ -95,6 +95,7 @@ bool Animation::playOneTime()
     if(msec.count() > this->speed_ms)
     {
         this->timer = chrono::system_clock::now();
+        this->setTextureRect(*this->clips[this->current_clip_i]);
         this->current_clip_i = (this->current_clip_i + 1); //On passe au clip suivant
     }
 

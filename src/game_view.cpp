@@ -9,7 +9,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     int i;
     for(i = 0; i < CHUNK_PRELOAD; i++)
     {
-        Chunk *c = new Chunk();
+        Chunk *c = new ChunkSaw();
         c->setPosition(i*CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
@@ -40,7 +40,12 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
     for(const Chunk *c : this->chunks)
         target.draw(*c);
 
-    target.draw(*this->player.getView(), states);
+    if(!this->player.getModel()->isDead())
+        target.draw(*this->player.getView(), states);
+
+    else
+        target.draw(*this->player.getView()->getDeadAnim(), states);
+
     target.draw(this->fire, states);
     target.draw(this->fire2, states);
 }

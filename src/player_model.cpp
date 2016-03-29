@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), life(100)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));
@@ -140,6 +140,7 @@ void PlayerModel::checkCollision()
         this->velocity.first = 0;
         this->pos.first = DEAD_LINE;
         Utils::log("Player DIED");
+        this->life = 0;
     }
 
     else if(this->pos.first > VIEW_WIDTH - CHUNK_WIDTH - this->width)

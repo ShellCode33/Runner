@@ -16,6 +16,7 @@ enum State
     SURVIVAL,   /*!< Mode Survival infini */
     OPTIONS,    /*!< Options du jeu */
     ABOUT,      /*!< A propos */
+    GAME_OVER,  /*!< Le joueur a perdu, écran de défaite */
     EXIT        /*!< Quitte le jeu */
 };
 

@@ -18,15 +18,6 @@ void Player::update()
         this->player_model.eventHandler();
         this->player_model.checkCollision();
     }
-
-    else //if(!this->player_view.deadAnim())
-    {
-        this->player_view.deadAnim();
-        //TODO :
-        //gameover
-        //reset game
-    }
-
 }
 
 PlayerView* Player::getView()

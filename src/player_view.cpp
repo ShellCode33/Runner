@@ -18,13 +18,16 @@ PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(mode
     this->addClip(IntRect(127, 0, player_model.getWidth(), player_model.getHeight()));
     this->setAnimEnabled(false);
 
+
     assert(this->smoke_texture.loadFromFile(DEAD_ANIM));
     this->smoke.setTexture(this->smoke_texture);
 
     int i, j;
     for(i = 0; i < 5; i++)
         for(j = 0; j < 2; j++)
-            this->smoke.addClip(IntRect(512*j, 512*i, 512, 512));
+            this->smoke.addClip(IntRect(256*j, 256*i, 256, 256));
+
+    this->smoke.setOrigin(this->smoke.getLocalBounds().width / 2, this->smoke.getLocalBounds().height / 2);
 }
 
 PlayerView::~PlayerView()
@@ -34,26 +37,17 @@ PlayerView::~PlayerView()
 
 void PlayerView::update()
 {
-    //tester si le joueur est mort et faire un playOneTime
-    Animation::update();
-    this->setPosition(player_model.getX(), player_model.getY());
+    if(!this->player_model.isDead())
+    {
+        Animation::update();
+        this->setPosition(player_model.getX(), player_model.getY());
+        this->smoke.setPosition(this->getPosition());
+    }
 }
 
-bool PlayerView::deadAnim()
+Animation* PlayerView::getDeadAnim()
 {
-    this->setTexture(this->smoke_texture);
-    this->removeClips();
-
-    //TESTS : A SUPPRIMER
-    int i, j;
-    for(i = 0; i < 5; i++)
-        for(j = 0; j < 2; j++)
-            this->addClip(IntRect(512*j, 512*i, 512, 512));
-
-    /*
-    this->smoke.setPosition(this->getPosition());
-    return this->smoke.playOneTime();
-    */
+    return &this->smoke;
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)
