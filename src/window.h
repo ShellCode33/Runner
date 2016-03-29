@@ -30,6 +30,7 @@ private:
 
     Menu menu;
     ScreenWait splash_screen;
+    ScreenWait game_over_screen;
     Game game;
 
     State state; /*!< Enumeration des différents états du jeu*/
