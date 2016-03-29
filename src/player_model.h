@@ -54,6 +54,8 @@ public:
     void setVelocityX(float value);
     void setVelocityY(float value);
 
+    bool isDead() const;
+
 private:
     std::string username;
     unsigned int score;

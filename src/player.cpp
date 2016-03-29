@@ -12,9 +12,21 @@ Player::~Player()
 
 void Player::update()
 {
-    this->player_model.applyForces();
-    this->player_model.eventHandler();
-    this->player_model.checkCollision();
+    if(!this->player_model.isDead())
+    {
+        this->player_model.applyForces();
+        this->player_model.eventHandler();
+        this->player_model.checkCollision();
+    }
+
+    else //if(!this->player_view.deadAnim())
+    {
+        this->player_view.deadAnim();
+        //TODO :
+        //gameover
+        //reset game
+    }
+
 }
 
 PlayerView* Player::getView()
@@ -40,4 +52,9 @@ int Player::getBackgroundShift() const
 void Player::setMoveBackground(bool value)
 {
     this->player_model.setMoveBackground(value);
+}
+
+void Player::kill()
+{
+    this->player_model.setLife(0);
 }

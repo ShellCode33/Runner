@@ -18,9 +18,13 @@ public:
     void processEvents(WindowRunner &window, sf::Event &event);
     void update();
 
+    bool deadAnim();
 private:
     sf::Texture player_texture;
     PlayerModel& player_model;
+
+    sf::Texture smoke_texture;
+    Animation smoke;
 
 
 };

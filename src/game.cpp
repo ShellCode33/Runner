@@ -17,10 +17,13 @@ void Game::update()
     this->player.update();
 
 
-    for(Chunk* c : this->game_view.getVisibleChunks())
-        for(Obstacle* o : c->getObstacles())
-            if(o->checkCollision(*player.getModel()))
-                o->action();
+    if(!this->player.getModel()->isDead())
+    {
+        for(Chunk* c : this->game_view.getVisibleChunks())
+            for(Obstacle* o : c->getObstacles())
+                if(o->checkCollision(player))
+                    o->action(player);
+    }
 }
 
 GameView* Game::getView()

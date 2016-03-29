@@ -10,7 +10,7 @@
 
 #include <utility>
 #include <SFML/Graphics.hpp>
-#include "movable.h"
+#include "player.h"
 #include "utils.h"
 
 class Obstacle : public sf::Sprite
@@ -20,13 +20,13 @@ public:
     ~Obstacle();
     void setPositionRelat(const int x, const int y);
     std::pair<int, int> getPosition() const;
-    void update();
-    bool checkCollision(Movable &m);
+    virtual void update();
+    virtual bool checkCollision(Player &player) const;
 
     /*!
      * \brief action que doit effectuer l'obstacle (ex : tuer le joueur)
      */
-    void action();
+    virtual void action(Player &player);
 
 private:
     int relat_x; /*!< Position relative au chunk de l'axe X */

@@ -30,8 +30,10 @@ public:
     void update();
     Animation& operator=(const Animation &other);
     void setOffset(const int x, const int y);
-
     void setAnimEnabled(bool value);
+    void removeClips();
+    bool playOneTime();
+
 };
 
 #endif // ANIMATION_H

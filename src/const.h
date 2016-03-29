@@ -33,8 +33,9 @@
 #define ILLUMINATI_IMG "img/illuminati.png"
 #define GROUND_IMG "img/ground_chunk.png"
 #define BACKGROUND_IMG "img/background_chunk.png"
-#define FIRE_IMG "img/fire.png"
+#define FIRE_ANIM "img/fire.png"
 #define SAW_IMG "img/saw.png"
+#define DEAD_ANIM "img/smoke.png"
 
 //GAME
 #define GROUND 100

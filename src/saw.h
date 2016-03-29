@@ -13,13 +13,18 @@
 #include "obstacle.h"
 #include "const.h"
 #include "utils.h"
+#include "player.h"
+#include <algorithm>
+#include <utility>
 
 class Saw : public Obstacle
 {
 public:
     Saw();
     ~Saw();
-    virtual void update();
+    void update();
+    bool checkCollision(Player &m) const;
+    void action(Player &player);
 
 private:
     sf::Texture texture;

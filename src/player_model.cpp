@@ -49,6 +49,11 @@ void PlayerModel::setVelocity(pair<int, int> v)
     this->velocity = v;
 }
 
+bool PlayerModel::isDead() const
+{
+	return !this->life;
+}
+
 void PlayerModel::eventHandler()
 {
     const bool onGround = this->pos.second > (VIEW_HEIGHT - this->height - GROUND);

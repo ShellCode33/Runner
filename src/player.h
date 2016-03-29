@@ -18,6 +18,7 @@ public:
 
     void update();
 
+    void kill();
 private:
     PlayerModel player_model;
     PlayerView player_view;

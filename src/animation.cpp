@@ -75,3 +75,28 @@ void Animation::setAnimEnabled(bool value)
 {
     this->anim_enabled = value;
 }
+
+void Animation::removeClips()
+{
+    for(IntRect *p_clip : this->clips)
+        delete p_clip;
+
+    this->clips.clear();
+}
+
+bool Animation::playOneTime()
+{
+    if(this->current_clip_i >= this->clips.size())
+        return false;
+
+    auto diff = chrono::system_clock::now() - this->timer;
+    auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
+
+    if(msec.count() > this->speed_ms)
+    {
+        this->timer = chrono::system_clock::now();
+        this->current_clip_i = (this->current_clip_i + 1); //On passe au clip suivant
+    }
+
+    return true;
+}
