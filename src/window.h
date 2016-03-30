@@ -18,6 +18,7 @@
 #include "about_tab.h"
 #include "option_tab.h"
 #include "game.h"
+#include "gameover.h"
 
 class WindowRunner : sf::View
 {
@@ -30,7 +31,7 @@ private:
 
     Menu menu;
     ScreenWait splash_screen;
-    ScreenWait game_over_screen;
+    GameOver game_over;
     Game game;
 
     State state; /*!< Enumeration des différents états du jeu*/

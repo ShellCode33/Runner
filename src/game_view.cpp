@@ -122,7 +122,7 @@ void GameView::update()
     //Lave
     this->lava_sprites.clear();
     int lava_w = this->lava.getLocalBounds().width;
-    int nb_lava = (DEAD_LINE + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
+    int nb_lava = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
 
     int i;
     for(i = 0; i < nb_lava; i++)
@@ -134,7 +134,7 @@ void GameView::update()
 
 std::list<Chunk *> GameView::getChunks() const
 {
-    return chunks;
+    return this->chunks;
 }
 
 std::list<Chunk *> GameView::getVisibleChunks() const
@@ -143,7 +143,7 @@ std::list<Chunk *> GameView::getVisibleChunks() const
     std::list<Chunk *>::const_iterator it = chunks.begin();
 
     int i;
-    for(i = 0; i < NB_CHUNK+1 && it != chunks.end(); i++, ++it)
+    for(i = 0; i < NB_CHUNK && it != chunks.end(); i++, ++it)
         visible_chunks.push_back(*it);
 
     return visible_chunks;

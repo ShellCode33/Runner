@@ -20,7 +20,6 @@
 //STRING
 #define TITLE_WINDOW "Super Weed Boy"
 #define SPLASH_TEXT "<< Press Space >>"
-#define GAME_OVER_TEXT SPLASH_TEXT
 
 //PATH
 #define CURSOR_IMG "img/cursor.png"
@@ -38,14 +37,16 @@
 #define SAW_IMG "img/saw.png"
 #define DEAD_ANIM "img/smoke.png"
 #define GAME_OVER_BG "img/gameover.png"
+#define GAME_OVER_BOARD "img/gameover_board.png"
 #define LAVA_IMG "img/lava.png"
+
 //GAME
-#define GROUND 100
+#define GROUND_DEFAULT 100
 #define NB_CHUNK 4
 #define CHUNK_WIDTH (VIEW_WIDTH / NB_CHUNK) //4 chunks visibles en meme temps
 #define CHUNK_HEIGHT VIEW_HEIGHT
-#define CHUNK_PRELOAD 10 //charge 10 chunks en mémoire
-#define DEAD_LINE 100
+#define CHUNK_PRELOAD 6 //charge X chunks en mémoire
+#define DEAD_LINE_DEFAULT 100
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 //Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur
 

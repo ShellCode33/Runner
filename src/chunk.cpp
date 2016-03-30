@@ -37,5 +37,5 @@ std::list<Obstacle *> Chunk::getObstacles() const
 void Chunk::update()
 {
     this->sprite_background.setPosition(this->pos_x, 0);
-    this->sprite_ground.setPosition(this->pos_x, VIEW_HEIGHT - GROUND);
+    this->sprite_ground.setPosition(this->pos_x, VIEW_HEIGHT - GROUND_DEFAULT);
 }

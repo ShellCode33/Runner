@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game_over_screen(this, GAME_OVER_BG, GAME_OVER_TEXT), game(*this)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game_over(this), game(*this)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -35,7 +35,7 @@ void WindowRunner::create()
     this->state = SPLASH;
 
     this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
-    this->game_over_screen.setTextPosition(Vector2f((this->getSize().x / 15), (this->getSize().y / 2)));
+    this->game_over.setTextPosition(Vector2f((this->getSize().x / 15), (this->getSize().y / 2)));
 
     this->window->setFramerateLimit(FRAMERATE);
     this->window->setVerticalSyncEnabled(false);
@@ -78,7 +78,9 @@ void WindowRunner::create()
                 break;
 
             case GAME_OVER:
-                this->window->draw(this->game_over_screen);
+                this->game_over.update();
+                this->window->draw(this->game_over);
+                this->window->draw(this->cursor);
                 break;
 
             case EXIT:
@@ -122,7 +124,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case GAME_OVER:
-                this->game_over_screen.processEvent(event);
+                this->game_over.processEvent(event);
                 break;
 
             case ABOUT:

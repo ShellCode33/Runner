@@ -17,7 +17,6 @@ class WindowRunner;
 class ScreenWait : public sf::Drawable
 {
 private:
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     WindowRunner* window;
     sf::Sprite *background;
     sf::Texture *background_texture;
@@ -27,6 +26,8 @@ private:
 public:
     ScreenWait(WindowRunner* window, const std::string filename, const std::string text);
     ~ScreenWait();
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
     /*!
      * \brief Change l'image de fond
      * \param filename : chemin d'accès de l'image
@@ -51,7 +52,7 @@ public:
      * \brief Gère les évenements qui le concerne
      * \param event : Evenements SFML
      */
-    void processEvent(sf::Event &event);
+    virtual void processEvent(sf::Event &event);
 };
 
 #endif //SCREENWAIT_H

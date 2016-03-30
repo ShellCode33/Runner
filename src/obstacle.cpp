@@ -30,7 +30,7 @@ void Obstacle::update()
 
 bool Obstacle::checkCollision(Player &player) const
 {
-    PlayerModel m =  *player.getModel();
+    PlayerModel *m =  player.getModel();
     int obst_w = this->getLocalBounds().width;
     int obst_h = this->getLocalBounds().height;
 
@@ -39,10 +39,10 @@ bool Obstacle::checkCollision(Player &player) const
     int obst_x = this->Sprite::getPosition().x - obst_w / 2;
     int obst_y = this->Sprite::getPosition().y - obst_h / 2;
 
-    if((m.getX() <= obst_x + obst_w)
-        && (m.getX() + m.getWidth() >= obst_x)
-        && (m.getY() <= obst_y + obst_h)
-        && (m.getY() + m.getHeight() >= obst_y))
+    if((m->getX() <= obst_x + obst_w)
+        && (m->getX() + m->getWidth() >= obst_x)
+        && (m->getY() <= obst_y + obst_h)
+        && (m->getY() + m->getHeight() >= obst_y))
         return true;
 
     return false;
