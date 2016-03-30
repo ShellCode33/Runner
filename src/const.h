@@ -46,6 +46,7 @@
 #define CHUNK_HEIGHT VIEW_HEIGHT
 #define CHUNK_PRELOAD 10 //charge 10 chunks en mémoire
 #define DEAD_LINE 100
+#define FIRE_DEFAULT_POS 337
 
 
 #endif // CONST_H

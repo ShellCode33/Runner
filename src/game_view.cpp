@@ -20,13 +20,13 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     int j;
     for(i = 0; i < 12; i++)
         for(j = 0; j < 4; j++)
-            this->fire.addClip(IntRect(j*600, i*337, 600, 337));
+            this->fire.addClip(IntRect(j*600, i*FIRE_DEFAULT_POS, 600, FIRE_DEFAULT_POS));
 
-    this->fire.setPosition(337, 0);
+    this->fire.setPosition(FIRE_DEFAULT_POS, 0);
     this->fire.setRotation(90);
     this->fire2 = this->fire;
     this->fire2.scale(-1.f, 1.f);
-    this->fire2.setPosition(337, this->fire.getLocalBounds().width*2);
+    this->fire2.setPosition(FIRE_DEFAULT_POS, this->fire.getLocalBounds().width*2);
     this->fire2.setRotation(90);
 
     assert(this->score_font.loadFromFile(ONTHEMOVE_TTF));
@@ -74,8 +74,10 @@ void GameView::update()
     this->player.getView()->update(); //On met à jouer l'affichage du joueur
     this->fire.update(); //On met l'animation du feu à jour
     this->fire2.update();
-    this->fire.setPosition(this->fire.getPosition().x + this->game_model.getFireOffset(), this->fire.getPosition().y);
-    this->fire2.setPosition(this->fire2.getPosition().x + this->game_model.getFireOffset(), this->fire2.getPosition().y);
+
+    //337 = position par défaut
+    this->fire.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire.getPosition().y);
+    this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
 
     bool need_move_background = this->player.needMoveBackground();
 

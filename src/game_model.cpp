@@ -26,15 +26,9 @@ void GameModel::update()
 
     if(msec2.count() > this->time_per_move)
     {
-        this->fire_offset = this->fire_speed;
+        this->fire_offset += this->fire_speed;
         this->timer = chrono::system_clock::now();
     }
-
-    else
-    {
-        this->fire_offset = 0;
-    }
-
 }
 
 unsigned long GameModel::getScore() const

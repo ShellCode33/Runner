@@ -56,6 +56,9 @@ public:
 
     bool isDead() const;
 
+    int getDeadLine() const;
+    void setDeadLine(int value);
+
 private:
     std::string username;
     unsigned short life;
@@ -75,7 +78,8 @@ private:
     std::pair<float, float> gravity;
     std::pair<float, float> velocity;
 
-    bool move_background; //utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background
+    bool move_background; /*!< utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background */
+    int dead_line; /*!< Utilisé pour savoir où se situe le feu et tuer le joueur si celui-ci est dedans */
 };
 
 std::pair<float, float> operator+=(std::pair<float, float>& a, const std::pair<float, float>& b);

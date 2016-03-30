@@ -24,6 +24,8 @@ void Game::update()
         this->game_view->update();
         this->player->update();
 
+        this->player->getModel()->setDeadLine(this->game_model->getFireOffset());
+
 
         if(!this->player->getModel()->isDead())
         {
