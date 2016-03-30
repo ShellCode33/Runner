@@ -25,7 +25,8 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     this->fire.setPosition(337, 0);
     this->fire.setRotation(90);
     this->fire2 = this->fire;
-    this->fire2.setPosition(337, 500);
+    this->fire2.scale(-1.f, 1.f);
+    this->fire2.setPosition(337, this->fire.getLocalBounds().width*2);
     this->fire2.setRotation(90);
 
     assert(this->score_font.loadFromFile(ONTHEMOVE_TTF));
@@ -73,6 +74,8 @@ void GameView::update()
     this->player.getView()->update(); //On met à jouer l'affichage du joueur
     this->fire.update(); //On met l'animation du feu à jour
     this->fire2.update();
+    this->fire.setPosition(this->fire.getPosition().x + this->game_model.getFireOffset(), this->fire.getPosition().y);
+    this->fire2.setPosition(this->fire2.getPosition().x + this->game_model.getFireOffset(), this->fire2.getPosition().y);
 
     bool need_move_background = this->player.needMoveBackground();
 

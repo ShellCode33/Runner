@@ -132,9 +132,9 @@ void PlayerModel::checkCollision()
         this->life = 0;
     }
 
-    else if(this->pos.first > VIEW_WIDTH - CHUNK_WIDTH - this->width)
+    else if(this->pos.first > VIEW_WIDTH - CHUNK_WIDTH - CHUNK_WIDTH / 2 - this->width)
     {
-        this->pos.first = VIEW_WIDTH - CHUNK_WIDTH - this->width;
+        this->pos.first = VIEW_WIDTH - CHUNK_WIDTH - CHUNK_WIDTH / 2 - this->width;
         this->move_background = true;
     }
 }

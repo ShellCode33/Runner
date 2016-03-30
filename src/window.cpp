@@ -4,7 +4,11 @@
 using namespace sf;
 using namespace std;
 
+<<<<<<< HEAD
 WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game_over_screen(this, GAME_OVER_BG, GAME_OVER_TEXT), game(*this)
+=======
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game_over(this, GAME_OVER_BG, GAME_OVER_TEXT), game(*this)
+>>>>>>> 3a3fd8da1b9bff9724fd3d6638d7d3c286a3ab7e
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -35,7 +39,7 @@ void WindowRunner::create()
     this->state = SPLASH;
 
     this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
-    //this->splash_screen.setTextPosition(Vector2f((this->getSize().x / ((2 * FRAMERATE) / 3)), (this->getSize().y) / 1.75));
+    this->game_over.setTextPosition(Vector2f((this->getSize().x - this->game_over.getTextWidth()) / 2, (this->getSize().y - this->game_over.getTextHeight()) / 1.2));
 
     this->game_over_screen.setTextPosition(Vector2f((this->getSize().x / 40), (this->getSize().y / 1.75)));
 
@@ -54,7 +58,6 @@ void WindowRunner::create()
         switch(this->state)
         {
             case SPLASH:
-
                 this->window->draw(this->splash_screen);
                 break;
 
@@ -81,7 +84,11 @@ void WindowRunner::create()
                 break;
 
             case GAME_OVER:
+<<<<<<< HEAD
                 this->window->draw(this->game_over_screen);
+=======
+                this->window->draw(this->game_over);
+>>>>>>> 3a3fd8da1b9bff9724fd3d6638d7d3c286a3ab7e
                 break;
 
             case EXIT:
@@ -125,7 +132,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case GAME_OVER:
-
+                this->game_over.processEvent(event);
                 break;
 
             case ABOUT:
