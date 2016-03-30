@@ -24,6 +24,9 @@ void Game::update()
         this->game_view->update();
         this->player->update();
 
+        if(this->player->getModel()->needMoveBackground())
+            this->game_model->setFireOffset(this->game_model->getFireOffset() - this->player->getBackgroundShift());
+
         this->player->getModel()->setDeadLine(this->game_model->getFireOffset());
 
 

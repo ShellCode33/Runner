@@ -38,6 +38,7 @@
 #define SAW_IMG "img/saw.png"
 #define DEAD_ANIM "img/smoke.png"
 #define GAME_OVER_BG "img/gameover.png"
+#define LAVA_IMG "img/lava.png"
 
 //GAME
 #define GROUND 100
@@ -47,6 +48,7 @@
 #define CHUNK_PRELOAD 10 //charge 10 chunks en mémoire
 #define DEAD_LINE 100
 #define FIRE_DEFAULT_POS 337
+#define MIN_FIRE_POS -150 //Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur
 
 
 #endif // CONST_H

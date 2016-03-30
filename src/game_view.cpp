@@ -34,6 +34,10 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     this->score_display.setCharacterSize(50);
     this->score_display.setString("Score: 0");
     this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100); //-20 pour l'espace depuis l'écran
+
+
+    assert(this->lava_texture.loadFromFile(LAVA_IMG));
+    this->lava.setTexture(this->lava_texture);
 }
 
 GameView::~GameView()
@@ -56,6 +60,9 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
     target.draw(this->fire, states);
     target.draw(this->fire2, states);
     target.draw(this->score_display, states);
+
+    for(const Sprite& s : this->lava_sprites)
+        target.draw(s, states);
 }
 
 void GameView::processEvent(Event &event)
@@ -75,7 +82,6 @@ void GameView::update()
     this->fire.update(); //On met l'animation du feu à jour
     this->fire2.update();
 
-    //337 = position par défaut
     this->fire.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire.getPosition().y);
     this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
 
@@ -111,6 +117,19 @@ void GameView::update()
     //On met à jour l'affichage du score
     this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
     this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100);
+
+
+    //Lave
+    this->lava_sprites.clear();
+    int lava_w = this->lava.getLocalBounds().width;
+    int nb_lava = (DEAD_LINE + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
+
+    int i;
+    for(i = 0; i < nb_lava; i++)
+    {
+        this->lava.setPosition(this->game_model.getFireOffset()-(i+1)*lava_w, 0);
+        this->lava_sprites.push_back(this->lava);
+    }
 }
 
 std::list<Chunk *> GameView::getChunks() const

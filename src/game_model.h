@@ -22,6 +22,7 @@ public:
     void update();
     unsigned long getScore() const;
     int getFireOffset() const;
+    void setFireOffset(int value);
 };
 
 #endif // GAMEMODEL_H

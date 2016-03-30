@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), life(100), dead_line(DEAD_LINE), move_background(false)
+PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 2, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE)
 {
     this->username = username;
     this->setVelocity(make_pair(0, 0));

@@ -38,5 +38,11 @@ unsigned long GameModel::getScore() const
 
 int GameModel::getFireOffset() const
 {
-    return fire_offset;
+    return this->fire_offset;
+}
+
+void GameModel::setFireOffset(int value)
+{
+    if(this->fire_offset > MIN_FIRE_POS)
+        this->fire_offset = value;
 }
