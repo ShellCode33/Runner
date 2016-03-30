@@ -32,6 +32,10 @@ public:
     void setOffset(const int x, const int y);
     void setAnimEnabled(bool value);
     void removeClips();
+    /*!
+     * \brief playOneTime se charge de lire l'animation qu'une seule fois
+     * \return false si l'animation est terminée et true si l'animation est en cours
+     */
     bool playOneTime();
 
 };

@@ -33,11 +33,16 @@ private:
 
     sf::Texture fire_texture;
     Animation fire, fire2;
+
+    sf::Texture lava_texture;
+    sf::Sprite lava;
+
     Player &player;
 
     sf::Font score_font;
     sf::Text score_display;
 
+    std::vector<sf::Sprite> lava_sprites;
 };
 
 #endif //GAMEVIEW_H
