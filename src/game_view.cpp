@@ -86,7 +86,7 @@ void GameView::update()
         this->chunks.pop_front();
         Chunk *c;
 
-        if(rand()%2)
+        if(rand()%3)
             c = new ChunkSaw();
 
         else

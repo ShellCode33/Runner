@@ -29,12 +29,8 @@ private:
     Animation cursor;
 
     Menu menu;
-<<<<<<< HEAD
     ScreenWait splash_screen;
     ScreenWait game_over_screen;
-=======
-    ScreenWait splash_screen, game_over;
->>>>>>> 3a3fd8da1b9bff9724fd3d6638d7d3c286a3ab7e
     Game game;
 
     State state; /*!< Enumeration des différents états du jeu*/
