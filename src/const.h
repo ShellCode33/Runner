@@ -37,7 +37,7 @@
 #define FIRE_ANIM "img/fire.png"
 #define SAW_IMG "img/saw.png"
 #define DEAD_ANIM "img/smoke.png"
-#define GAME_OVER_BG "img/game_over_bg.png"
+#define GAME_OVER_BG "img/gameover.png"
 #define LAVA_IMG "img/lava.png"
 //GAME
 #define GROUND 100
