@@ -24,22 +24,24 @@ bool Saw::checkCollision(Player &player) const
 {
     PlayerModel m =  *player.getModel();
 
-    //Afin de simplifier, on considère que le scie est un carré que l'on réduit un peu (d'où la division)
-    int obst_w = this->getLocalBounds().width / 1.8;
-    int obst_h = this->getLocalBounds().height / 1.8;
+    AABB rCircle, r;
+    Circle c;
 
-    //On enlève la taille car l'origine est au centre
-    //On utilise Sprite:: pour récupérer la position absolue de l'image
-    int obst_x = this->Sprite::getPosition().x - obst_w / 2;
-    int obst_y = this->Sprite::getPosition().y - obst_h / 2;
+    rCircle.h = this->getLocalBounds().height;
+    rCircle.w = this->getLocalBounds().width;
+    rCircle.x = this->Sprite::getPosition().x - rCircle.w / 2;
+    rCircle.y = this->Sprite::getPosition().y - rCircle.h / 2;
 
-    if((m.getX() <= obst_x + obst_w)
-        && (m.getX() + m.getWidth() >= obst_x)
-        && (m.getY() <= obst_y + obst_h)
-        && (m.getY() + m.getHeight() >= obst_y))
-        return true;
+    r.h = m.getHeight();
+    r.w = m.getWidth();
+    r.x = m.getX();
+    r.y = m.getY();
 
-    return false;
+    c.x = this->Sprite::getPosition().x;
+    c.y = this->Sprite::getPosition().y;
+    c.radius = rCircle.w / 2;
+
+    return this->AABBintersectCircle(rCircle, r, c);
 }
 
 void Saw::action(Player &player)

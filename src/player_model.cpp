@@ -41,7 +41,7 @@ void PlayerModel::setVelocity(pair<int, int> v)
 
 bool PlayerModel::isDead() const
 {
-	return !this->life;
+    return !this->life;
 }
 
 int PlayerModel::getDeadLine() const

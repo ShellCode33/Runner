@@ -31,21 +31,20 @@ void Obstacle::update()
 bool Obstacle::checkCollision(Player &player) const
 {
     PlayerModel *m =  player.getModel();
-    int obst_w = this->getLocalBounds().width;
-    int obst_h = this->getLocalBounds().height;
 
-    //On enlève la taille car l'origine est au centre
-    //On utilise Sprite:: pour récupérer la position absolue de l'image
-    int obst_x = this->Sprite::getPosition().x - obst_w / 2;
-    int obst_y = this->Sprite::getPosition().y - obst_h / 2;
+    AABB r1, r2;
 
-    if((m->getX() <= obst_x + obst_w)
-        && (m->getX() + m->getWidth() >= obst_x)
-        && (m->getY() <= obst_y + obst_h)
-        && (m->getY() + m->getHeight() >= obst_y))
-        return true;
+    r1.w = this->getLocalBounds().width;
+    r1.h = this->getLocalBounds().height;
+    r1.x = this->Sprite::getPosition().x - r1.w / 2; //car origine au centre
+    r1.y = this->Sprite::getPosition().y - r1.h / 2; //car origine au centre
 
-    return false;
+    r2.x = m->getX();
+    r2.y = m->getY();
+    r2.w = m->getWidth();
+    r2.h = m->getHeight();
+
+    return this->AABBintersectAABB(r1, r2);
 }
 
 void Obstacle::action(Player &player)
@@ -53,62 +52,76 @@ void Obstacle::action(Player &player)
 
 }
 
-bool Obstacle::pointIntersectRect(Point p, Rect r) const
+bool Obstacle::pointIntersectAABB(int x, int y, AABB box) const
 {
-    return(p.x < r.br.x && p.x > r.tl.x && p.y < r.br.y && p.y > r.tl.y);
-}
-
-bool Obstacle::segIntersectRect(Seg s, Rect r) const
-{
+    if(x >= box.x
+        && x < box.x + box.w
+        && y >= box.y
+        && y < box.y + box.h)
+        return true;
     return false;
 }
 
-bool Obstacle::rectIntersectRect(Rect r1, Rect r2) const
+bool Obstacle::AABBintersectAABB(AABB box1, AABB box2) const
 {
-    return(r2.tl.x < r1.br.x && r2.br.y > r1.tl.y);
+    if((box2.x >= box1.x + box1.w)
+        || (box2.x + box2.w <= box1.x)
+        || (box2.y >= box1.y + box1.h)
+        || (box2.y + box2.h <= box1.y))
+        return false;
+    return true;
 }
 
-bool Obstacle::pointIntersectCircle(Point p, Circle c) const
+bool Obstacle::pointIntersectCircle(int x, int y, Circle c) const
 {
-    return (pow((p.x-c.c.x), 2) + pow((p.y-c.c.y), 2)) < pow(c.r, 2);
-}
-
-bool Obstacle::rectIntersectCircle(Rect r, Circle c) const
-{
-    Point p;
-
-    for(int i = 0; i < 4; ++i)
-    {
-        switch(i)
-        {
-        case 0:
-            p = r.tl;
-            break;
-        case 1:
-            p = r.tr;
-            break;
-        case 2:
-            p = r.br;
-            break;
-        case 3:
-            p = r.bl;
-            break;
-        default: break;
-        }
-        p.x = p.x - c.c.x;
-        p.x *= p.x;
-        p.y = p.y - c.c.x;
-        p.y *= p.y;
-
-        if(p.x + p.y < pow(c.r, 2))
-            return true;
-    }
-    return false;
+    if ((pow(x - c.x , 2) + pow(y - c.y, 2)) > pow(c.radius, 2))
+        return false;
+    return true;
 }
 
 bool Obstacle::circleIntersectCircle(Circle c1, Circle c2) const
 {
+    if((pow(c1.x - c2.x, 2) + pow(c2.x - c2.y, 2)) > pow(c1.radius + c2.radius, 2))
+        return false;
+    return true;
+}
+
+bool Obstacle::AABBintersectCircle(AABB boxCircle, AABB box, Circle c) const
+{
+    //on test d'abord la col entre deux AABB pour eviter tout calcul inutile
+    if(!this->AABBintersectAABB(box, boxCircle))
+        return false;
+
+
+    //on test si un des sommets du rectangle est dans le cercle
+    if(pointIntersectCircle(box.x, box.y, c)
+            || pointIntersectCircle(box.x, box.y + box.h, c)
+            || pointIntersectCircle(box.x + box.w, box.y, c)
+            || pointIntersectCircle(box.x + box.w, box.y + box.h, c))
+    {std::cout << "2" << endl;return true;}
+
+    //on test si le centre du cercle est dans le rectangle (cas impossible pour le moment mais bon j'suis un ouf)
+    if(pointIntersectAABB(c.x, c.y, box))
+        {std::cout << "3" << endl;return true;}
+
+    //On va maintenant tester la collision de chacun des segment du rectangle avec le centre du cercle sur les 2 axes : verticale et horizontale
+    if(projectionSurSegment(c.x, c.y, box.x, box.y, box.x, box.y + box.h) || projectionSurSegment(c.x, c.y, box.x, box.y, box.x + box.w, box.y))
+        {std::cout << "4" << endl;return true;}
     return false;
+}
+
+bool Obstacle::projectionSurSegment(int Cx, int Cy, int Ax, int Ay, int Bx, int By) const
+{
+    int ACx = Cx-Ax;
+    int ACy = Cy-Ay;
+    int ABx = Bx-Ax;
+    int ABy = By-Ay;
+    int BCx = Cx-Bx;
+    int BCy = Cy-By;
+
+    if (((ACx*ABx) + (ACy*ABy)) * ((BCx*ABx) + (BCy*ABy)) > 0)
+        return false;
+    return true;
 }
 
 

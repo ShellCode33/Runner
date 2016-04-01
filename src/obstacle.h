@@ -13,26 +13,19 @@
 #include "player.h"
 #include "utils.h"
 
-struct Point
+struct AABB
 {
-    float x, y;
-};
-
-struct Seg
-{
-    Point a, b;
-};
-
-struct Rect
-{
-    Point tl, tr, bl, br;
-    int w, h;
+    int x;
+    int y;
+    int w;
+    int h;
 };
 
 struct Circle
 {
-    Point c;
-    float r;
+    int x;
+    int y;
+    int radius;
 };
 
 class Obstacle : public sf::Sprite
@@ -50,13 +43,17 @@ public:
      */
     virtual void action(Player &player);
 
-    bool pointIntersectRect(Point p, Rect r) const;
-    bool segIntersectRect(Seg s, Rect r) const;
-    bool rectIntersectRect(Rect r1, Rect r2) const;
-    bool pointIntersectCircle(Point p, Circle c) const;
-    bool rectIntersectCircle(Rect r, Circle c) const;
-    bool circleIntersectCircle(Circle c1, Circle c2) const;
+    /***GESTION DES COLLISION***/
 
+    bool pointIntersectAABB(int x, int y, AABB box) const;
+    bool AABBintersectAABB(AABB box1, AABB box2) const;
+    bool pointIntersectCircle(int x, int y, Circle c) const;
+    bool circleIntersectCircle(Circle c1, Circle c2) const;
+    bool AABBintersectCircle(AABB boxCircle, AABB box, Circle c) const;
+
+    bool projectionSurSegment(int Cx,int Cy,int Ax,int Ay,int Bx,int By) const;
+
+    /***************************/
 
 private:
     int relat_x; /*!< Position relative au chunk de l'axe X */
