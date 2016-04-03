@@ -11,7 +11,7 @@ Button::Button(const string & text, const State action, const int pos_x, const i
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setColor(Color::Black);
-    this->text.setCharacterSize(45);
+    this->text.setCharacterSize(40);
 
     assert(this->texture.loadFromFile(BUTTON_MENU_IMG));
     this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton
@@ -22,7 +22,7 @@ Button::Button(const string & text, const State action, const int pos_x, const i
 
     this->text.setOrigin(this->text.getLocalBounds().width / 2, this->text.getLocalBounds().height / 1.2); // divisé par 1.2 car la taille du Text est plus grande que la taille de la police
     this->text.setPosition(this->pos_x + this->width / 2, this->pos_y + this->height / 2);
-    setBoundaries(0, this->height, this->width, this->height); //default
+    setBoundaries(0, 0, this->width, this->height); //default
 }
 
 Button::~Button()
@@ -56,10 +56,10 @@ void Button::processEvent(WindowRunner &window, Event &event)
     if(event.type == Event::MouseMoved)
     {
         if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
-            setBoundaries(0, 0, this->width, this->height);
+            setBoundaries(this->width, 0, this->width, this->height);
 
         else
-            setBoundaries(0, this->height, this->width, this->height);
+            setBoundaries(0, 0, this->width, this->height);
     }
 
     if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)

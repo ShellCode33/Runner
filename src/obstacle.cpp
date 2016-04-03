@@ -74,21 +74,22 @@ bool Obstacle::AABBintersectAABB(AABB box1, AABB box2) const
 
 bool Obstacle::pointIntersectCircle(int x, int y, Circle c) const
 {
-    if ((pow(x - c.x , 2) + pow(y - c.y, 2)) > pow(c.radius, 2))
+    if((((x - c.x) * (x - c.x)) + ((y - c.y) * (y - c.y))) > (c.radius * c.radius))
         return false;
     return true;
 }
 
 bool Obstacle::circleIntersectCircle(Circle c1, Circle c2) const
 {
-    if((pow(c1.x - c2.x, 2) + pow(c2.x - c2.y, 2)) > pow(c1.radius + c2.radius, 2))
+    if((((c1.x - c2.x) * (c1.x - c2.x)) + ((c2.x - c2.y) * (c2.x - c2.y))) > ((c1.radius + c2.radius) * (c1.radius + c2.radius)))
         return false;
+
     return true;
 }
 
 bool Obstacle::AABBintersectCircle(AABB boxCircle, AABB box, Circle c) const
 {
-    //on test d'abord la col entre deux AABB pour eviter tout calcul inutile
+    //on test d'abord la col entre deux AABB (le second étant la box entourant le cercle) pour eviter tout calcul inutile
     if(!this->AABBintersectAABB(box, boxCircle))
         return false;
 
@@ -98,15 +99,24 @@ bool Obstacle::AABBintersectCircle(AABB boxCircle, AABB box, Circle c) const
             || pointIntersectCircle(box.x, box.y + box.h, c)
             || pointIntersectCircle(box.x + box.w, box.y, c)
             || pointIntersectCircle(box.x + box.w, box.y + box.h, c))
-    {std::cout << "2" << endl;return true;}
+    {
+        std::cout << "test 2" << std::endl;
+        return true;
+    }
 
     //on test si le centre du cercle est dans le rectangle (cas impossible pour le moment mais bon j'suis un ouf)
     if(pointIntersectAABB(c.x, c.y, box))
-        {std::cout << "3" << endl;return true;}
+    {
+        std::cout << "test 3" << std::endl;
+        return true;
+    }
 
     //On va maintenant tester la collision de chacun des segment du rectangle avec le centre du cercle sur les 2 axes : verticale et horizontale
     if(projectionSurSegment(c.x, c.y, box.x, box.y, box.x, box.y + box.h) || projectionSurSegment(c.x, c.y, box.x, box.y, box.x + box.w, box.y))
-        {std::cout << "4" << endl;return true;}
+    {
+        std::cout << "test 4" << std::endl;
+        return true;
+    }
     return false;
 }
 

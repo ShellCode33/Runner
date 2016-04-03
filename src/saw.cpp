@@ -27,13 +27,13 @@ bool Saw::checkCollision(Player &player) const
     AABB rCircle, r;
     Circle c;
 
-    rCircle.h = this->getLocalBounds().height;
     rCircle.w = this->getLocalBounds().width;
+    rCircle.h = this->getLocalBounds().height;
     rCircle.x = this->Sprite::getPosition().x - rCircle.w / 2;
     rCircle.y = this->Sprite::getPosition().y - rCircle.h / 2;
 
-    r.h = m.getHeight();
     r.w = m.getWidth();
+    r.h = m.getHeight();
     r.x = m.getX();
     r.y = m.getY();
 

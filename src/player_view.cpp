@@ -10,12 +10,11 @@ PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(mode
     this->setTexture(this->player_texture);
 
     //Liste d'initialisation impossible car sinon, bug avec les getWidth et getHeight qui suivent
-    this->player_model.setHeight(49);
-    this->player_model.setWidth(63);
+    this->player_model.setHeight(46);
+    this->player_model.setWidth(50);
 
-    this->addClip(IntRect(0, 0, player_model.getWidth(), player_model.getHeight()));
-    this->addClip(IntRect(64, 0, player_model.getWidth(), player_model.getHeight()));
-    this->addClip(IntRect(127, 0, player_model.getWidth(), player_model.getHeight()));
+    for(int i = 0; i< 4; i++)
+        this->addClip(IntRect(50 * i, 0, player_model.getWidth(), player_model.getHeight()));
     this->setAnimEnabled(false);
 
 
@@ -61,7 +60,7 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
                 case Keyboard::Left:
                     this->player_model.leftPressed = true;
                     this->player_model.rightPressed = false;
-                    this->setOffset(0, 50);
+                    this->setOffset(0, 46);
                     this->setAnimEnabled(true);
                     break;
 
