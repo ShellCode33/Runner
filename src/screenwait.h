@@ -11,6 +11,7 @@
 #include <SFML/Graphics.hpp>
 #include <cassert>
 #include "const.h"
+#include "gamestate.h"
 
 class WindowRunner;
 
@@ -52,7 +53,7 @@ public:
      * \brief Gère les évenements qui le concerne
      * \param event : Evenements SFML
      */
-    virtual void processEvent(sf::Event &event);
+    virtual void processEvent(sf::Event &event, State &state);
 };
 
 #endif //SCREENWAIT_H

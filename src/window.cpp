@@ -105,7 +105,7 @@ void WindowRunner::dispatchEvents()
         switch(this->state)
         {
             case SPLASH:
-                this->splash_screen.processEvent(event);
+                this->splash_screen.processEvent(event, this->state);
                 break;
 
             case MENU:
@@ -124,7 +124,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case GAME_OVER:
-                this->game_over.processEvent(event);
+                this->game_over.processEvent(event, this->state);
                 break;
 
             case ABOUT:

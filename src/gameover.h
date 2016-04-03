@@ -17,7 +17,7 @@ public:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
     void update();
-    void processEvent(sf::Event &event);
+    virtual void processEvent(sf::Event &event, State & state) override;
 private:
     WindowRunner *window;
     std::chrono::high_resolution_clock::time_point timer; /*!< Utilisé pour l'apparation progressive du "tableau" de score/username etc... */

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-GameOver::GameOver(WindowRunner *window) : ScreenWait(window, GAME_OVER_BG, ""), window(window), button_menu("Menu", MENU), button_playagain("Play Again", SURVIVAL)
+GameOver::GameOver(WindowRunner *window) : ScreenWait(window, GAME_OVER_BG, GAME_OVER_TEXT), window(window), button_menu("Menu", MENU), button_playagain("Play Again", SURVIVAL)
 {
     assert(this->board_texture.loadFromFile(GAME_OVER_BOARD));
     this->board.setTexture(this->board_texture);
@@ -38,7 +38,7 @@ void GameOver::update()
     }
 }
 
-void GameOver::processEvent(sf::Event &event)
+void GameOver::processEvent(sf::Event &event, State &state)
 {
-    ScreenWait::processEvent(event);
+    ScreenWait::processEvent(event, state);
 }

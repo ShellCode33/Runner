@@ -20,6 +20,7 @@
 //STRING
 #define TITLE_WINDOW "Super Weed Boy"
 #define SPLASH_TEXT " "
+#define GAME_OVER_TEXT "<< Space to replay >>\n<< Escape to menu >>"
 
 //PATH
 #define CURSOR_IMG "img/cursor.png"
