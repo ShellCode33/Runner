@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : window(window), game_model(model), fire(20.0), fire2(20.0), player(player)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player)
 {
     int i;
     for(i = 0; i < CHUNK_PRELOAD; i++)
@@ -15,7 +15,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     }
 
     assert(this->fire_texture.loadFromFile(FIRE_ANIM));
-    this->fire.setTexture(fire_texture);
+    this->fire.setTexture(this->fire_texture);
 
     int j;
     for(i = 0; i < 12; i++)
@@ -38,6 +38,14 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
 
     assert(this->lava_texture.loadFromFile(LAVA_IMG));
     this->lava.setTexture(this->lava_texture);
+
+    for(i = 0; i < 7; i++)
+        this->lava.addClip(IntRect(130*i, 112, 128, 128));
+
+    for(i = 0; i < 4; i++)
+        this->lava.addClip(IntRect(130*i, 114+128, 128, 128));
+
+    this->lava.setOffset(2, 2);
 }
 
 GameView::~GameView()
@@ -120,15 +128,21 @@ void GameView::update()
 
 
     //Lave
+    this->lava.update();
     this->lava_sprites.clear();
     int lava_w = this->lava.getLocalBounds().width;
-    int nb_lava = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
+    int lava_h = this->lava.getLocalBounds().height;
+    int nb_lava_x = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
+    int nb_lava_y = VIEW_HEIGHT / lava_h + 1;
 
-    int i;
-    for(i = 0; i < nb_lava; i++)
+    int i, j;
+    for(i = 0; i < nb_lava_x; i++)
     {
-        this->lava.setPosition(this->game_model.getFireOffset()-(i+1)*lava_w, 0);
-        this->lava_sprites.push_back(this->lava);
+        for(j = 0; j < nb_lava_y; j++)
+        {
+            this->lava.setPosition(this->game_model.getFireOffset()-(i+1)*lava_w, j*lava_h);
+            this->lava_sprites.push_back(this->lava);
+        }
     }
 }
 

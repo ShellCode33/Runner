@@ -9,6 +9,7 @@
 #include "animation.h"
 #include "game_model.h"
 #include "player.h"
+#include "animation.h"
 
 class WindowRunner;
 
@@ -35,14 +36,14 @@ private:
     Animation fire, fire2;
 
     sf::Texture lava_texture;
-    sf::Sprite lava;
+    Animation lava;
 
     Player &player;
 
     sf::Font score_font;
     sf::Text score_display;
 
-    std::vector<sf::Sprite> lava_sprites;
+    std::vector<Animation> lava_sprites;
 };
 
 #endif //GAMEVIEW_H
