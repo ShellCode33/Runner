@@ -3,9 +3,6 @@
 
 Game::Game(WindowRunner &window) : window(window), game_over(false)
 {
-    this->player = new Player();
-    this->game_model = new GameModel();
-    this->game_view = new GameView(window, *this->game_model, *this->player);
     srand(time(NULL));
 }
 
@@ -46,19 +43,24 @@ void Game::update()
     {
         window.setState(GAME_OVER);
 
-        //reset game
+        Utils::log("delete game");
         delete this->game_view;
         delete this->game_model;
         delete this->player;
 
-        this->player = new Player();
-        this->game_model = new GameModel();
-        this->game_view = new GameView(window, *this->game_model, *this->player);
-        this->game_over = false;
+        //this->create();
     }
 }
 
 GameView* Game::getView()
 {
     return this->game_view;
+}
+
+void Game::create()
+{
+    this->player = new Player();
+    this->game_model = new GameModel();
+    this->game_view = new GameView(window, *this->game_model, *this->player);
+    this->game_over = false;
 }

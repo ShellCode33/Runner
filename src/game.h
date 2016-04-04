@@ -16,6 +16,7 @@ public:
     void update();
     GameView* getView();
 
+    void create();
 private:
     WindowRunner &window;
 

@@ -62,8 +62,8 @@ void WindowRunner::create()
 
             case SURVIVAL:
             case CAMPAIGN:
-                game.update();
                 this->window->draw(*game.getView());
+                game.update();
                 break;
 
             case OPTIONS:
@@ -150,6 +150,12 @@ State WindowRunner::getState() const
 
 void WindowRunner::setState(const State &value)
 {
+    if(value == SURVIVAL || value == CAMPAIGN)
+    {
+        Utils::log("Launch game");
+        launchGame();
+    }
+
     this->state = value;
 }
 
@@ -161,4 +167,9 @@ void WindowRunner::draw(const Drawable &drawable, const RenderStates &states) co
 RenderWindow & WindowRunner::getRender() const
 {
   return *this->window;
+}
+
+void WindowRunner::launchGame()
+{
+    this->game.create();
 }

@@ -63,20 +63,7 @@ void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void ScreenWait::processEvent(Event & event, State & state)
 {
-    switch(state)
-    {
-    case GAME_OVER:
-        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
-            this->window->setState(SURVIVAL);
-        else if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-            this->window->setState(MENU);
-        break;
-    case SPLASH:
-        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
-            this->window->setState(MENU);
-        break;
+    if(state == SPLASH && event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
+        this->window->setState(MENU);
 
-    default: break;
-
-    }
 }

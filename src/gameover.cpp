@@ -1,6 +1,8 @@
 #include "gameover.h"
+#include "window.h"
 
 using namespace std;
+using namespace sf;
 
 GameOver::GameOver(WindowRunner *window) : ScreenWait(window, GAME_OVER_BG, GAME_OVER_TEXT), window(window), button_menu("Menu", MENU), button_playagain("Play Again", SURVIVAL)
 {
@@ -40,5 +42,9 @@ void GameOver::update()
 
 void GameOver::processEvent(sf::Event &event, State &state)
 {
-    ScreenWait::processEvent(event, state);
+    if(state == GAME_OVER && event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
+        this->window->setState(SURVIVAL);
+
+    else if(state == GAME_OVER && event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
+        this->window->setState(MENU);
 }

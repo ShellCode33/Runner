@@ -49,6 +49,7 @@ public:
     State getState() const;
     void setState(const State &value);
     sf::RenderWindow & getRender() const;
+    void launchGame();
 };
 
 #endif //WINDOW_H

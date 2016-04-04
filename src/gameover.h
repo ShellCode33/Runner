@@ -9,6 +9,8 @@
 #include "const.h"
 #include "gamestate.h"
 
+class WindowRunner;
+
 class GameOver : public ScreenWait
 {
 public:
