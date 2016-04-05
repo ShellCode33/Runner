@@ -6,6 +6,7 @@
 #include "gamestate.h"
 #include "chunk.h"
 #include "chunk_saw.h"
+#include "chunk_special.h"
 #include "animation.h"
 #include "game_model.h"
 #include "player.h"

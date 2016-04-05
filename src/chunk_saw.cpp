@@ -2,7 +2,6 @@
 
 ChunkSaw::ChunkSaw()
 {
-    srand(time(NULL));
     this->nb_saw = (rand() % (MAX_SAW_COUNT-1)) + 1;
 
     int i;

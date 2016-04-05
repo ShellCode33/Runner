@@ -17,7 +17,8 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
     int i;
     for(i = 2; i < CHUNK_PRELOAD; i++)
     {
-        c = randomChunk();
+        //c = randomChunk();
+        c = new ChunkSpecial(player);
         c->setPosition(i*CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
@@ -141,7 +142,8 @@ void GameView::update()
     {
         for(j = 0; j < nb_lava_y; j++)
         {
-            this->lava.setPosition(this->game_model.getFireOffset()-(i+1)*lava_w, j*lava_h);
+            this->lava.setRotation(90);
+            this->lava.setPosition(this->game_model.getFireOffset()-i*lava_w, j*lava_h);
             this->lava_sprites.push_back(this->lava);
         }
     }

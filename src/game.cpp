@@ -47,8 +47,6 @@ void Game::update()
         delete this->game_view;
         delete this->game_model;
         delete this->player;
-
-        //this->create();
     }
 }
 

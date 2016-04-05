@@ -100,7 +100,6 @@ void PlayerView::processEvents(WindowRunner &window, Event &event)
 
                 case Keyboard::Space:
                     this->player_model.spacePressed = false;
-                    this->setAnimEnabled(true);
                     break;
 
                 case Keyboard::LShift:
