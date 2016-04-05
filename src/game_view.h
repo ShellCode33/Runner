@@ -44,6 +44,7 @@ private:
     sf::Text score_display;
 
     std::vector<Animation> lava_sprites;
+    Chunk *randomChunk() const;
 };
 
 #endif //GAMEVIEW_H

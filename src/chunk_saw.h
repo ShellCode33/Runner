@@ -8,16 +8,19 @@
 #include "utils.h"
 #include "saw.h"
 
+#define MAX_SAW_COUNT 4
+
 class ChunkSaw : public Chunk
 {
 public:
     ChunkSaw();
     ~ChunkSaw();
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    virtual void update();
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void update();
 
 private:
-    Saw *saw;
+    Saw *saw[MAX_SAW_COUNT];
+    unsigned short nb_saw;
 
 };
 

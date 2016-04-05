@@ -6,10 +6,18 @@ using namespace sf;
 
 GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player)
 {
+    Chunk *c = new Chunk();
+    c->setPosition(0);
+    this->chunks.push_back(c);
+
+    c = new Chunk();
+    c->setPosition(CHUNK_WIDTH);
+    this->chunks.push_back(c);
+
     int i;
-    for(i = 0; i < CHUNK_PRELOAD; i++)
+    for(i = 2; i < CHUNK_PRELOAD; i++)
     {
-        Chunk *c = new Chunk();
+        c = randomChunk();
         c->setPosition(i*CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
@@ -100,14 +108,7 @@ void GameView::update()
     {
         delete *this->chunks.begin();
         this->chunks.pop_front();
-        Chunk *c;
-
-        if(rand()%3)
-            c = new ChunkSaw();
-
-        else
-            c = new Chunk();
-
+        Chunk *c = randomChunk();
         c->setPosition((*this->chunks.rbegin())->pos_x + CHUNK_WIDTH); //On met le nouveau chunk à coté du dernier dans la liste
         this->chunks.push_back(c);
     }
@@ -161,4 +162,13 @@ std::list<Chunk *> GameView::getVisibleChunks() const
         visible_chunks.push_back(*it);
 
     return visible_chunks;
+}
+
+Chunk* GameView::randomChunk() const
+{
+    switch(rand()%2)
+    {
+        case 1: return new ChunkSaw();
+        default: return new Chunk();
+    }
 }

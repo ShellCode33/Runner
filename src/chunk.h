@@ -12,7 +12,7 @@ class Chunk : public sf::Drawable
 {
 public:
     Chunk();
-    ~Chunk();
+    virtual ~Chunk();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     virtual void update();
     int pos_x;

@@ -18,7 +18,7 @@ class Obstacle : public sf::Sprite
 {
 public:
     Obstacle(int relat_x=0, int relat_y=0);
-    ~Obstacle();
+    virtual ~Obstacle();
     void setPositionRelat(const int x, const int y);
     std::pair<int, int> getPosition() const;
     virtual void update() = 0;
