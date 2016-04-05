@@ -12,21 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include "player.h"
 #include "utils.h"
-
-struct AABB
-{
-    int x;
-    int y;
-    int w;
-    int h;
-};
-
-struct Circle
-{
-    int x;
-    int y;
-    int radius;
-};
+#include "collision.h"
 
 class Obstacle : public sf::Sprite
 {
@@ -35,25 +21,13 @@ public:
     ~Obstacle();
     void setPositionRelat(const int x, const int y);
     std::pair<int, int> getPosition() const;
-    virtual void update();
-    virtual bool checkCollision(Player &player) const;
+    virtual void update() = 0;
+    virtual bool checkCollision(Movable &m) = 0;
 
     /*!
      * \brief action que doit effectuer l'obstacle (ex : tuer le joueur)
      */
-    virtual void action(Player &player);
-
-    /***GESTION DES COLLISION***/
-
-    bool pointIntersectAABB(int x, int y, AABB box) const;
-    bool AABBintersectAABB(AABB box1, AABB box2) const;
-    bool pointIntersectCircle(int x, int y, Circle c) const;
-    bool circleIntersectCircle(Circle c1, Circle c2) const;
-    bool AABBintersectCircle(AABB boxCircle, AABB box, Circle c) const;
-
-    bool projectionSurSegment(int Cx,int Cy,int Ax,int Ay,int Bx,int By) const;
-
-    /***************************/
+    virtual void action(Player &player) = 0;
 
 private:
     int relat_x; /*!< Position relative au chunk de l'axe X */

@@ -20,10 +20,8 @@ void Saw::update()
     this->rotate(4);
 }
 
-bool Saw::checkCollision(Player &player) const
+bool Saw::checkCollision(Movable &m)
 {
-    PlayerModel m =  *player.getModel();
-
     AABB rCircle, r;
     Circle c;
 
@@ -41,7 +39,7 @@ bool Saw::checkCollision(Player &player) const
     c.y = this->Sprite::getPosition().y;
     c.radius = rCircle.w / 2;
 
-    return this->AABBintersectCircle(rCircle, r, c);
+    return Collision::AABBintersectCircle(rCircle, r, c);
 }
 
 void Saw::action(Player &player)

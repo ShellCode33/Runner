@@ -23,7 +23,7 @@ public:
     Saw();
     ~Saw();
     void update();
-    virtual bool checkCollision(Player &m) const override;
+    bool checkCollision(Movable &m);
     void action(Player &player);
 
 private:

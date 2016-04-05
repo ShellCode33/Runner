@@ -31,8 +31,8 @@ void Game::update()
         {
             for(Chunk* c : this->game_view->getVisibleChunks())
                 for(Obstacle* o : c->getObstacles())
-                    if(o->checkCollision(*player))
-                        o->action(*player);
+                    if(o->checkCollision(*this->player->getModel()))
+                        o->action(*this->player);
         }
 
         else
