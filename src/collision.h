@@ -26,7 +26,7 @@ public:
     static bool pointIntersectCircle(int x, int y, Circle c);
     static bool circleIntersectCircle(Circle c1, Circle c2);
     static bool AABBintersectCircle(AABB boxCircle, AABB box, Circle c);
-    static bool projectionSurSegment(int Cx,int Cy,int Ax,int Ay,int Bx,int By);
+    static bool segmentProjectionPoint(int Cx,int Cy,int Ax,int Ay,int Bx,int By);
 };
 
 #endif // COLLISION_H

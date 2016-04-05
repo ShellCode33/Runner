@@ -48,27 +48,24 @@ bool Collision::AABBintersectCircle(AABB boxCircle, AABB box, Circle c)
             || pointIntersectCircle(box.x + box.w, box.y, c)
             || pointIntersectCircle(box.x + box.w, box.y + box.h, c))
     {
-        std::cout << "test 2" << std::endl;
         return true;
     }
 
     //on test si le centre du cercle est dans le rectangle (cas impossible pour le moment mais bon j'suis un ouf)
     if(pointIntersectAABB(c.x, c.y, box))
     {
-        std::cout << "test 3" << std::endl;
         return true;
     }
 
     //On va maintenant tester la collision de chacun des segment du rectangle avec le centre du cercle sur les 2 axes : verticale et horizontale
-    if(projectionSurSegment(c.x, c.y, box.x, box.y, box.x, box.y + box.h) || projectionSurSegment(c.x, c.y, box.x, box.y, box.x + box.w, box.y))
+    if(segmentProjectionPoint(c.x, c.y, box.x, box.y, box.x, box.y + box.h) || segmentProjectionPoint(c.x, c.y, box.x, box.y, box.x + box.w, box.y))
     {
-        std::cout << "test 4" << std::endl;
         return true;
     }
     return false;
 }
 
-bool Collision::projectionSurSegment(int Cx, int Cy, int Ax, int Ay, int Bx, int By)
+bool Collision::segmentProjectionPoint(int Cx, int Cy, int Ax, int Ay, int Bx, int By)
 {
     int ACx = Cx-Ax;
     int ACy = Cy-Ay;

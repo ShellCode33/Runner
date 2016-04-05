@@ -25,7 +25,7 @@ private :
     int width, height;
 
 public :
-    Button(const std::string &text, const State action, const int pos_x=0, const int pos_y=0, const int width=500, const int height=90);
+    Button(const std::string &text, const State action, const int pos_x=0, const int pos_y=0, const int width=500, const int height=80);
     ~Button();
     void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
     void setImage(const std::string filename);

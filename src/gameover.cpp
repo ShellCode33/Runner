@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameOver::GameOver(WindowRunner *window) : ScreenWait(window, GAME_OVER_BG, GAME_OVER_TEXT), window(window), button_menu("Menu", MENU), button_playagain("Play Again", SURVIVAL)
+GameOver::GameOver(WindowRunner *window) : ScreenWait(window, GAME_OVER_BG, GAME_OVER_TEXT), window(window), button_menu("MENU", MENU, 100, 450), button_playagain("PLAY AGAIN", SURVIVAL, 1320, 450) // position a faire en fonction de const
 {
     assert(this->board_texture.loadFromFile(GAME_OVER_BOARD));
     this->board.setTexture(this->board_texture);
@@ -23,6 +23,8 @@ void GameOver::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     ScreenWait::draw(target, states);
     target.draw(this->board);
+    target.draw(this->button_menu, states);
+    target.draw(this->button_playagain, states);
 }
 
 void GameOver::update()
@@ -42,6 +44,9 @@ void GameOver::update()
 
 void GameOver::processEvent(sf::Event &event, State &state)
 {
+    this->button_menu.processEvent(*this->window, event);
+    this->button_playagain.processEvent(*this->window, event);
+
     if(state == GAME_OVER && event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
         this->window->setState(SURVIVAL);
 

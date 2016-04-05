@@ -7,7 +7,7 @@ using namespace sf;
 Button::Button(const string & text, const State action, const int pos_x, const int pos_y, const int width, const int height) : action(action), pos_x(pos_x), pos_y(pos_y), width(width), height(height)
 {
 
-    assert(this->font.loadFromFile(ONTHEMOVE_TTF));
+    assert(this->font.loadFromFile(PIXEL_TTF));
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setColor(Color::Black);
@@ -20,7 +20,7 @@ Button::Button(const string & text, const State action, const int pos_x, const i
     this->sprite->setPosition(this->pos_x, this->pos_y);
 
 
-    this->text.setOrigin(this->text.getLocalBounds().width / 2, this->text.getLocalBounds().height / 1.2); // divisé par 1.2 car la taille du Text est plus grande que la taille de la police
+    this->text.setOrigin(this->text.getLocalBounds().width / 2.1, this->text.getLocalBounds().height); // divisé par 2.1 car la taille du Text est plus grande que la taille de la police
     this->text.setPosition(this->pos_x + this->width / 2, this->pos_y + this->height / 2);
     setBoundaries(0, 0, this->width, this->height); //default
 }

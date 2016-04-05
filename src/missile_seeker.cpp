@@ -18,7 +18,7 @@ void MissileSeeker::update()
 {
     int x = abs(player.getModel()->getPos().first - this->Sprite::getPosition().x);
     int y = abs(player.getModel()->getPos().second - this->Sprite::getPosition().y);
-    float angle = (float)atan((float)x/y) * 180.0 / 3.14159 + 90;
+    float angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
 
     this->setRotation(player.getModel()->getPos().first < this->Sprite::getPosition().x ? angle : -angle-180);
 }
