@@ -2,37 +2,28 @@
 
 bool Collision::pointIntersectAABB(int x, int y, AABB box)
 {
-    if(x >= box.x
+    return (x >= box.x
         && x < box.x + box.w
         && y >= box.y
-        && y < box.y + box.h)
-        return true;
-    return false;
+        && y < box.y + box.h);
 }
 
 bool Collision::AABBintersectAABB(AABB box1, AABB box2)
 {
-    if((box2.x >= box1.x + box1.w)
+    return (box2.x >= box1.x + box1.w)
         || (box2.x + box2.w <= box1.x)
         || (box2.y >= box1.y + box1.h)
-        || (box2.y + box2.h <= box1.y))
-        return false;
-    return true;
+        || (box2.y + box2.h <= box1.y);
 }
 
 bool Collision::pointIntersectCircle(int x, int y, Circle c)
 {
-    if((((x - c.x) * (x - c.x)) + ((y - c.y) * (y - c.y))) > (c.radius * c.radius))
-        return false;
-    return true;
+    return (((x - c.x) * (x - c.x)) + ((y - c.y) * (y - c.y))) > (c.radius * c.radius);
 }
 
 bool Collision::circleIntersectCircle(Circle c1, Circle c2)
 {
-    if((((c1.x - c2.x) * (c1.x - c2.x)) + ((c2.x - c2.y) * (c2.x - c2.y))) > ((c1.radius + c2.radius) * (c1.radius + c2.radius)))
-        return false;
-
-    return true;
+    return (((c1.x - c2.x) * (c1.x - c2.x)) + ((c2.x - c2.y) * (c2.x - c2.y))) > ((c1.radius + c2.radius) * (c1.radius + c2.radius));
 }
 
 bool Collision::AABBintersectCircle(AABB boxCircle, AABB box, Circle c)
@@ -62,6 +53,7 @@ bool Collision::AABBintersectCircle(AABB boxCircle, AABB box, Circle c)
     {
         return true;
     }
+
     return false;
 }
 
@@ -74,7 +66,5 @@ bool Collision::segmentProjectionPoint(int Cx, int Cy, int Ax, int Ay, int Bx, i
     int BCx = Cx-Bx;
     int BCy = Cy-By;
 
-    if (((ACx*ABx) + (ACy*ABy)) * ((BCx*ABx) + (BCy*ABy)) > 0)
-        return false;
-    return true;
+    return ((ACx*ABx) + (ACy*ABy)) * ((BCx*ABx) + (BCy*ABy)) > 0;
 }
