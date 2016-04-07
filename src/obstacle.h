@@ -23,7 +23,7 @@ public:
     void setPositionRelat(const int x, const int y);
     std::pair<int, int> getRelatPosition() const;
     virtual void update() = 0;
-    virtual bool checkCollision(Movable &m) = 0;
+    virtual bool checkCollision(Movable &m) const = 0;
 
     /*!
      * \brief action que doit effectuer l'obstacle (ex : tuer le joueur)

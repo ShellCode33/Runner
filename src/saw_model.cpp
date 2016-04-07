@@ -10,7 +10,7 @@ SawModel::~SawModel()
 
 }
 
-bool SawModel::checkCollision(Movable &m)
+bool SawModel::checkCollision(Movable &m) const
 {
     Rect rCircle, r;
     Circle c;

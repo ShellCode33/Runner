@@ -10,7 +10,7 @@ public:
     ~SawModel();
 
     void action(Player &player);
-    bool checkCollision(Movable &m);
+    bool checkCollision(Movable &m) const;
     void update();
 
 private:
