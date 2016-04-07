@@ -12,7 +12,7 @@ SawModel::~SawModel()
 
 bool SawModel::checkCollision(Movable &m) const
 {
-    Rect rCircle, r;
+    AABB rCircle, r;
     Circle c;
 
     rCircle.w = this->width;

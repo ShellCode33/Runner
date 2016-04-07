@@ -1,6 +1,6 @@
 #include "collision.h"
 
-bool Collision::pointIntersectAABB(int x, int y, Rect box)
+bool Collision::pointIntersectAABB(int x, int y, AABB box)
 {
     return (x >= box.x
         && x < box.x + box.w
@@ -8,7 +8,7 @@ bool Collision::pointIntersectAABB(int x, int y, Rect box)
         && y < box.y + box.h);
 }
 
-bool Collision::AABBintersectAABB(Rect box1, Rect box2)
+bool Collision::AABBintersectAABB(AABB box1, AABB box2)
 {
     return !((box2.x >= box1.x + box1.w)
         || (box2.x + box2.w <= box1.x)
@@ -26,7 +26,7 @@ bool Collision::circleIntersectCircle(Circle c1, Circle c2)
     return !((((c1.x - c2.x) * (c1.x - c2.x)) + ((c2.x - c2.y) * (c2.x - c2.y))) > ((c1.radius + c2.radius) * (c1.radius + c2.radius)));
 }
 
-bool Collision::AABBintersectCircle(Rect boxCircle, Rect box, Circle c)
+bool Collision::AABBintersectCircle(AABB boxCircle, AABB box, Circle c)
 {
     //on test d'abord la col entre deux AABB (le second étant la box entourant le cercle) pour eviter tout calcul inutile
     if(!AABBintersectAABB(box, boxCircle))
