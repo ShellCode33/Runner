@@ -1,34 +1,21 @@
-/*!
- * \file saw.h
- * \brief Obstacle scie circulaire
- * \author Clément
- *
- */
-
 #ifndef SAW_H
 #define SAW_H
 
-#include <SFML/Graphics.hpp>
-#include <cassert>
-#include "obstacle.h"
-#include "const.h"
-#include "utils.h"
-#include "player.h"
-#include <algorithm>
-#include <utility>
+#include "saw_model.h"
+#include "saw_view.h"
 
-class Saw : public Obstacle
+class Saw
 {
 public:
-    Saw();
+    Saw(int relat_x, int relat_y, int width, int height);
     ~Saw();
+    SawModel* getModel();
+    SawView* getView();
     void update();
-    bool checkCollision(Movable &m);
-    void action(Player &player);
 
 private:
-    sf::Texture texture;
-
+    SawModel model;
+    SawView view;
 };
 
 #endif // SAW_H

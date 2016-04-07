@@ -4,29 +4,12 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks)
 {
-    Chunk *c = new Chunk();
-    c->setPosition(0);
-    this->chunks.push_back(c);
-
-    c = new Chunk();
-    c->setPosition(CHUNK_WIDTH);
-    this->chunks.push_back(c);
-
-    int i;
-    for(i = 2; i < CHUNK_PRELOAD; i++)
-    {
-        //c = randomChunk();
-        c = new ChunkSpecial(player);
-        c->setPosition(i*CHUNK_WIDTH);
-        this->chunks.push_back(c);
-    }
-
     assert(this->fire_texture.loadFromFile(FIRE_ANIM));
     this->fire.setTexture(this->fire_texture);
 
-    int j;
+    int i, j;
     for(i = 0; i < 12; i++)
         for(j = 0; j < 4; j++)
             this->fire.addClip(IntRect(j*600, i*FIRE_DEFAULT_POS, 600, FIRE_DEFAULT_POS));
@@ -59,14 +42,13 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player) : win
 
 GameView::~GameView()
 {
-    for(Chunk *c : this->chunks)
-        delete c;
+
 }
 
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
-    for(const Chunk *c : this->chunks)
-        target.draw(*c);
+    for(Chunk *c : this->chunks)
+            c->draw(target, states);
 
     if(!this->player.getModel()->isDead())
         target.draw(*this->player.getView(), states);
@@ -102,28 +84,6 @@ void GameView::update()
     this->fire.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire.getPosition().y);
     this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
 
-    bool need_move_background = this->player.needMoveBackground();
-
-    //On vérifie que le 1er chunk est visible, si ce n'est pas le cas on le supprime pour un ré-allouer un nouveau
-    if((*this->chunks.begin())->pos_x + CHUNK_WIDTH < 0)
-    {
-        delete *this->chunks.begin();
-        this->chunks.pop_front();
-        Chunk *c = randomChunk();
-        c->setPosition((*this->chunks.rbegin())->pos_x + CHUNK_WIDTH); //On met le nouveau chunk à coté du dernier dans la liste
-        this->chunks.push_back(c);
-    }
-
-    for(Chunk *c : this->chunks)
-    {
-        if(need_move_background)
-            c->pos_x -= this->player.getBackgroundShift();
-
-        c->update();
-    }
-
-    this->player.setMoveBackground(false);
-
     //On met à jour l'affichage du score
     this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
     this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100);
@@ -146,31 +106,5 @@ void GameView::update()
             this->lava.setPosition(this->game_model.getFireOffset()-i*lava_w, j*lava_h);
             this->lava_sprites.push_back(this->lava);
         }
-    }
-}
-
-std::list<Chunk *> GameView::getChunks() const
-{
-    return this->chunks;
-}
-
-std::list<Chunk *> GameView::getVisibleChunks() const
-{
-    std::list<Chunk *> visible_chunks;
-    std::list<Chunk *>::const_iterator it = chunks.begin();
-
-    int i;
-    for(i = 0; i < NB_CHUNK && it != chunks.end(); i++, ++it)
-        visible_chunks.push_back(*it);
-
-    return visible_chunks;
-}
-
-Chunk* GameView::randomChunk() const
-{
-    switch(rand()%2)
-    {
-        case 1: return new ChunkSaw();
-        default: return new Chunk();
     }
 }

@@ -17,7 +17,7 @@ class WindowRunner;
 class GameView : public sf::Drawable
 {
 public:
-    GameView(WindowRunner& window, GameModel& model, Player &player);
+    GameView(WindowRunner& window, GameModel& model, Player &player, std::list<Chunk *> &chunks);
     ~GameView();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
@@ -31,7 +31,7 @@ public:
 private:
     WindowRunner& window;
     GameModel &game_model;
-    std::list<Chunk*> chunks;
+
 
     sf::Texture fire_texture;
     Animation fire, fire2;
@@ -46,6 +46,8 @@ private:
 
     std::vector<Animation> lava_sprites;
     Chunk *randomChunk() const;
+
+    std::list<Chunk *> &chunks;
 };
 
 #endif //GAMEVIEW_H

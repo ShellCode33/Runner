@@ -14,13 +14,14 @@
 #include "utils.h"
 #include "collision.h"
 
-class Obstacle : public sf::Sprite
+class Obstacle
 {
 public:
-    Obstacle(int relat_x=0, int relat_y=0);
+    Obstacle(int relat_x, int relat_y, int width, int height);
     virtual ~Obstacle();
     void setPositionRelat(const int x, const int y);
-    std::pair<int, int> getPosition() const;
+    std::pair<int, int> getRelatPosition() const;
+    std::pair<int, int> getSize() const;
     virtual void update() = 0;
     virtual bool checkCollision(Movable &m) = 0;
 
@@ -29,9 +30,15 @@ public:
      */
     virtual void action(Player &player) = 0;
 
-private:
+    std::pair<int, int> getAbsolutePos() const;
+    void setAbsolutePos(const std::pair<int, int> &value);
+
+protected:
+    std::pair<int, int> absolute_pos;
     int relat_x; /*!< Position relative au chunk de l'axe X */
     int relat_y; /*!< Position relative au chunk de l'axe Y */
+    int width;
+    int height;
 
 };
 

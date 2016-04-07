@@ -20,7 +20,7 @@ WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_s
 
 WindowRunner::~WindowRunner()
 {
-    if(this->window != NULL)
+    if(this->window != nullptr)
         delete this->window;
 }
 

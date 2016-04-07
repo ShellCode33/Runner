@@ -3,10 +3,26 @@
 
 using namespace std;
 
-GameModel::GameModel() : score(0), fire_offset(0), fire_speed(3), time_per_move(30)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks)
 {
-    this->game_begin = chrono::system_clock::now();
-    this->timer = chrono::system_clock::now();
+    Chunk *c = new Chunk();
+    c->getModel()->pos_x = 0;
+    this->chunks.push_back(c);
+
+    c = new Chunk();
+    c->getModel()->pos_x = CHUNK_WIDTH;
+    this->chunks.push_back(c);
+
+    int i;
+    for(i = 2; i < CHUNK_PRELOAD; i++)
+    {
+        c = randomChunk();
+        c->getModel()->pos_x = i * CHUNK_WIDTH;
+        this->chunks.push_back(c);
+    }
+
+    this->game_begin.begin();
+    this->timer.begin();
 }
 
 GameModel::~GameModel()
@@ -16,19 +32,35 @@ GameModel::~GameModel()
 
 void GameModel::update()
 {
-    auto diff = chrono::system_clock::now() - this->game_begin;
-    auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
-    this->score = msec.count() / 100;
+    this->score = this->game_begin.getDuration() / 100;
 
-
-    auto diff2 = chrono::system_clock::now() - this->timer;
-    auto msec2 = chrono::duration_cast<chrono::milliseconds>(diff2);
-
-    if(msec2.count() > this->time_per_move)
+    if(this->timer.isFinish())
     {
         this->fire_offset += this->fire_speed;
-        this->timer = chrono::system_clock::now();
+        this->timer.reset();
     }
+
+    bool need_move_background = this->player.needMoveBackground();
+
+    //On vérifie que le 1er chunk est visible, si ce n'est pas le cas on le supprime pour un ré-allouer un nouveau
+    if((*this->chunks.begin())->getModel()->pos_x + CHUNK_WIDTH < 0)
+    {
+        delete *this->chunks.begin();
+        this->chunks.pop_front();
+        Chunk *c = randomChunk();
+        c->getModel()->pos_x = (*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH; //On met le nouveau chunk à coté du dernier dans la liste
+        this->chunks.push_back(c);
+    }
+
+    for(Chunk *c : this->chunks)
+    {
+        if(need_move_background)
+            c->getModel()->pos_x -= this->player.getBackgroundShift();
+
+        c->update();
+    }
+
+    this->player.setMoveBackground(false);
 }
 
 unsigned long GameModel::getScore() const
@@ -45,4 +77,25 @@ void GameModel::setFireOffset(int value)
 {
     if(this->fire_offset > MIN_FIRE_POS)
         this->fire_offset = value;
+}
+
+list<Chunk *> GameModel::getVisibleChunks() const
+{
+    std::list<Chunk *> visible_chunks;
+    std::list<Chunk *>::const_iterator it = this->chunks.begin();
+
+    int i;
+    for(i = 0; i < 4 && it != this->chunks.end(); i++, ++it)
+        visible_chunks.push_back(*it);
+
+    return visible_chunks;
+}
+
+Chunk* GameModel::randomChunk() const
+{
+    switch(rand()%2)
+    {
+        case 1: return new ChunkSaw();
+        default: return new Chunk();
+    }
 }

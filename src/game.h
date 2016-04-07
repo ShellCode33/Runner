@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <map>
 #include "player.h"
 #include "game_model.h"
 #include "game_view.h"
@@ -36,6 +37,8 @@ private:
     GameView *game_view;
 
     bool game_over;
+
+    std::list<Chunk*> chunks;
 
 };
 

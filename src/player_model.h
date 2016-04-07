@@ -23,7 +23,6 @@ class PlayerModel : public Movable
 public:
     PlayerModel(const std::string username="unknown");
     ~PlayerModel();
-    std::string getUsername();
 
     unsigned int getScore() const;
     void setScore(unsigned int value);

@@ -1,7 +1,6 @@
 #ifndef MOVABLE_H
 #define MOVABLE_H
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
 #include "const.h"
@@ -9,7 +8,7 @@
 class Movable
 {
 public:
-    Movable(int x = 0, int y = 0, int w = 0, int h = 0);
+    Movable(int x, int y, int w, int h);
     ~Movable();
 
 

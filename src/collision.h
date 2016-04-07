@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-struct AABB
+struct Rect
 {
     int x;
     int y;
@@ -21,11 +21,11 @@ struct Circle
 class Collision
 {
 public:
-    static bool pointIntersectAABB(int x, int y, AABB box);
-    static bool AABBintersectAABB(AABB box1, AABB box2);
+    static bool pointIntersectAABB(int x, int y, Rect box);
+    static bool AABBintersectAABB(Rect box1, Rect box2);
     static bool pointIntersectCircle(int x, int y, Circle c);
     static bool circleIntersectCircle(Circle c1, Circle c2);
-    static bool AABBintersectCircle(AABB boxCircle, AABB box, Circle c);
+    static bool AABBintersectCircle(Rect boxCircle, Rect box, Circle c);
     static bool segmentProjectionPoint(int Cx,int Cy,int Ax,int Ay,int Bx,int By);
 };
 

@@ -50,10 +50,10 @@ void Config::readConfig()
         createConfig();
 }
 
-string Config::getSetting(const string key)
+string Config::getSetting(const string key) const
 {
     if(this->config_map.find(key) != this->config_map.end())
-        return this->config_map[key];
+        return this->config_map.at(key);
 
     return "";
 }

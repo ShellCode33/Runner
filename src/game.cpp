@@ -8,9 +8,14 @@ Game::Game(WindowRunner &window) : window(window), game_over(false)
 
 Game::~Game()
 {
-    delete this->game_view;
-    delete this->game_model;
-    delete this->player;
+    if(this->game_view != nullptr)
+        delete this->game_view;
+
+    if(this->game_model != nullptr)
+        delete this->game_model;
+
+    if(this->player != nullptr)
+        delete this->player;
 }
 
 void Game::update()
@@ -29,8 +34,8 @@ void Game::update()
 
         if(!this->player->getModel()->isDead())
         {
-            for(Chunk* c : this->game_view->getVisibleChunks())
-                for(Obstacle* o : c->getObstacles())
+            for(Chunk* c : this->game_model->getVisibleChunks())
+                for(Obstacle* o : c->getModel()->getObstacles())
                     if(o->checkCollision(*this->player->getModel()))
                         o->action(*this->player);
         }
@@ -43,10 +48,15 @@ void Game::update()
     {
         window.setState(GAME_OVER);
 
-        Utils::log("delete game");
         delete this->game_view;
         delete this->game_model;
         delete this->player;
+
+        this->game_view = nullptr;
+        this->game_model = nullptr;
+        this->player = nullptr;
+
+        this->chunks.clear();
     }
 }
 
@@ -58,7 +68,7 @@ GameView* Game::getView()
 void Game::create()
 {
     this->player = new Player();
-    this->game_model = new GameModel();
-    this->game_view = new GameView(window, *this->game_model, *this->player);
+    this->game_model = new GameModel(*this->player, this->chunks);
+    this->game_view = new GameView(this->window, *this->game_model, *this->player, this->chunks);
     this->game_over = false;
 }

@@ -22,7 +22,7 @@ public:
     Utils();
     ~Utils();
 
-    float frand_a_b(float a, float b) const;
+    static float randRange(float a, float b);
 
     /*!
      * \brief Fonction de log permettant un suivi de l'execution

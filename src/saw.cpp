@@ -1,13 +1,8 @@
 #include "saw.h"
 
-using namespace sf;
-using namespace std;
-
-Saw::Saw()
+Saw::Saw(int relat_x, int relat_y, int width, int height) : model(relat_x, relat_y, width, height), view(model)
 {
-    assert(this->texture.loadFromFile(SAW_IMG));
-    this->setTexture(texture);
-    this->setOrigin(this->getLocalBounds().width / 2, this->getLocalBounds().height / 2);
+
 }
 
 Saw::~Saw()
@@ -15,35 +10,18 @@ Saw::~Saw()
 
 }
 
+SawModel* Saw::getModel()
+{
+    return &this->model;
+}
+
+SawView* Saw::getView()
+{
+    return &this->view;
+}
+
 void Saw::update()
 {
-    this->rotate(4);
-}
-
-bool Saw::checkCollision(Movable &m)
-{
-    AABB rCircle, r;
-    Circle c;
-
-    rCircle.w = this->getLocalBounds().width;
-    rCircle.h = this->getLocalBounds().height;
-    rCircle.x = this->Sprite::getPosition().x - rCircle.w / 2;
-    rCircle.y = this->Sprite::getPosition().y - rCircle.h / 2;
-
-    r.w = m.getWidth();
-    r.h = m.getHeight();
-    r.x = m.getX();
-    r.y = m.getY();
-
-    c.x = this->Sprite::getPosition().x;
-    c.y = this->Sprite::getPosition().y;
-    c.radius = rCircle.w / 2;
-
-    return Collision::AABBintersectCircle(rCircle, r, c);
-}
-
-void Saw::action(Player &player)
-{
-    Utils::log("Player died");
-    player.kill();
+    this->model.update();
+    this->view.update();
 }

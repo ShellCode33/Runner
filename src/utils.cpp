@@ -12,7 +12,7 @@ Utils::~Utils()
 
 }
 
-float Utils::frand_a_b(float a, float b) const
+float Utils::randRange(float a, float b)
 {
     return ( rand()/(float)RAND_MAX ) * (b-a) + a;
 }

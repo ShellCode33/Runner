@@ -36,7 +36,7 @@ public:
      * \param key : Le paramètre souhaité
      * \return La valeur du paramètre
      */
-    std::string getSetting(const std::string key);
+    std::string getSetting(const std::string key) const;
 };
 
 #endif // CONFIG_H

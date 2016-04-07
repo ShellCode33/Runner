@@ -53,8 +53,6 @@
 #define DEAD_LINE_DEFAULT 100
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 //Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur
-#define SAW_WIDTH 130
-#define SAW_RADIUS (SAW_WIDTH / 2)
 
 
 #endif // CONST_H

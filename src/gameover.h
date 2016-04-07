@@ -2,12 +2,12 @@
 #define GAMEOVER_H
 
 #include <cassert>
-#include <chrono>
 #include <SFML/Graphics.hpp>
 #include "button.h"
 #include "screenwait.h"
 #include "const.h"
 #include "gamestate.h"
+#include "timer.h"
 
 class WindowRunner;
 
@@ -22,7 +22,7 @@ public:
     virtual void processEvent(sf::Event &event, State & state) override;
 private:
     WindowRunner *window;
-    std::chrono::high_resolution_clock::time_point timer; /*!< Utilisé pour l'apparation progressive du "tableau" de score/username etc... */
+    Timer timer; /*!< Utilisé pour l'apparation progressive du "tableau" de score/username etc... */
     sf::Texture board_texture;
     sf::Sprite board;
     std::string input_username;

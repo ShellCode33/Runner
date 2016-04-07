@@ -3,31 +3,26 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "chunk_model.h"
+#include "chunk_view.h"
 #include "obstacle.h"
-#include <list>
-#include "utils.h"
-#include "const.h"
 
-class Chunk : public sf::Drawable
+class Chunk
 {
 public:
     Chunk();
     virtual ~Chunk();
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     virtual void update();
-    int pos_x;
-    void setPosition(int x);
+    ChunkModel* getModel();
+    ChunkView* getView();
+    void addObstacle(Obstacle* obstacle);
 
-    std::list<Obstacle *> getObstacles() const;
+    /*! Cett methode ne dessine pas directement les éléments graphiques mais ordonne à la vue de le faire */
+    virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-protected:
-    sf::Texture texture_ground;
-    sf::Sprite sprite_ground;
-
-    sf::Texture texture_background;
-    sf::Sprite sprite_background;
-
-    std::list<Obstacle*> obstacles;
+private:
+    ChunkModel model;
+    ChunkView view;
 
 };
 

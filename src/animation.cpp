@@ -5,9 +5,9 @@
 using namespace sf;
 using namespace std;
 
-Animation::Animation(const long ms) : speed_ms(ms), current_clip_i(0), x_offset(0), y_offset(0), anim_enabled(true)
+Animation::Animation(const unsigned long ms) : speed_ms(ms), current_clip_i(0), timer(speed_ms), x_offset(0), y_offset(0), anim_enabled(true)
 {
-    this->timer = chrono::system_clock::now();
+    timer.begin();
 }
 
 Animation::~Animation()
@@ -16,7 +16,7 @@ Animation::~Animation()
         delete p_clip;
 }
 
-Animation::Animation(const Animation &copy) : Sprite(copy), speed_ms(copy.speed_ms)
+Animation::Animation(const Animation &copy) : Sprite(copy), speed_ms(copy.speed_ms), timer(speed_ms)
 {
     this->operator=(copy); // Same job here
 }
@@ -25,12 +25,9 @@ void Animation::update()
 {
     if(this->anim_enabled)
     {
-        auto diff = chrono::system_clock::now() - this->timer;
-        auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
-
-        if(msec.count() > this->speed_ms)
+        if(this->timer.isFinish())
         {
-            this->timer = chrono::system_clock::now();
+            this->timer.reset();
             this->current_clip_i = (this->current_clip_i + 1) % this->clips.size(); //On passe au clip suivant
             IntRect offset_rect = *this->clips[this->current_clip_i];
             offset_rect.top += y_offset;
@@ -43,7 +40,7 @@ void Animation::update()
 Animation& Animation::operator=(const Animation &other)
 {
     this->current_clip_i = other.current_clip_i;
-    this->timer = chrono::system_clock::now();
+    this->timer.reset();
     this->setTexture(*other.getTexture());
 
     int i;
@@ -89,12 +86,9 @@ bool Animation::playOneTime()
     if(this->current_clip_i >= this->clips.size())
         return false;
 
-    auto diff = chrono::system_clock::now() - this->timer;
-    auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
-
-    if(msec.count() > this->speed_ms)
+    if(this->timer.isFinish())
     {
-        this->timer = chrono::system_clock::now();
+        this->timer.reset();
         this->setTextureRect(*this->clips[this->current_clip_i]);
         this->current_clip_i = (this->current_clip_i + 1); //On passe au clip suivant
     }
