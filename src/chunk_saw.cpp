@@ -13,8 +13,8 @@ ChunkSaw::ChunkSaw()
         this->addObstacle(this->saw[i]->getModel());
     }
 
-    int saw_w = this->saw[0]->getModel()->getSize().first;
-    int saw_h = this->saw[0]->getModel()->getSize().second;
+    int saw_w = this->saw[0]->getModel()->getWidth();
+    int saw_h = this->saw[0]->getModel()->getHeight();
 
     switch(this->nb_saw)
     {
@@ -67,7 +67,7 @@ void ChunkSaw::update()
     int i;
     for(i = 0; i < this->nb_saw; i++)
     {
-        this->saw[i]->getModel()->setAbsolutePos(make_pair(this->getModel()->pos_x + this->saw[i]->getModel()->getRelatPosition().first, this->saw[i]->getModel()->getRelatPosition().second));
+        this->saw[i]->getModel()->setPosition(make_pair(this->getModel()->pos_x + this->saw[i]->getModel()->getRelatPosition().first, this->saw[i]->getModel()->getRelatPosition().second));
         this->saw[i]->update();
     }
 }

@@ -12,8 +12,8 @@ public:
     ~Movable();
 
 
-    std::pair<float, float> getPos() const;
-    void setPos(const std::pair<float, float> &value);
+    std::pair<float, float> getPosition() const;
+    void setPosition(const std::pair<float, float> &value);
 
     int getX() const;
     int getY() const;

@@ -5,7 +5,7 @@ using namespace std;
 ChunkSpecial::ChunkSpecial(Player &player)
 {
     this->missile = new MissileSeeker(player);
-    this->missile->setPos(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, 100));
+    this->missile->Movable::setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, 100));
     this->missile->setPosition(this->getModel()->pos_x + CHUNK_WIDTH / 2, 100);
 }
 

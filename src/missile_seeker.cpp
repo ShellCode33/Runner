@@ -16,7 +16,7 @@ MissileSeeker::~MissileSeeker()
 
 void MissileSeeker::update()
 {
-    pair<float, float> player_pos = this->player.getModel()->getPos();
+    pair<float, float> player_pos = this->player.getModel()->getPosition();
     pair<float, float> direction(player_pos.first - this->getX(), player_pos.second - this->getY());
     Utils::log("x: " + to_string(direction.first) + " - y: " + to_string(direction.second));
 
@@ -24,9 +24,9 @@ void MissileSeeker::update()
     int y = abs(direction.second);
 
     float angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
-    this->setPos(make_pair(this->getX() + direction.first / 100, this->getY() + direction.second / 100));
+    this->Movable::setPosition(make_pair(this->getX() + direction.first / 100, this->getY() + direction.second / 100));
 
-    this->missile.setRotation(this->player.getModel()->getPos().first < this->missile.getPosition().x ? angle : -angle-180);
+    this->missile.setRotation(this->player.getModel()->getPosition().first < this->missile.getPosition().x ? angle : -angle-180);
     this->missile.setPosition(this->getX(), this->getY());
 }
 

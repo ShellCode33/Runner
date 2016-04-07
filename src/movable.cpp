@@ -13,12 +13,12 @@ Movable::~Movable()
 
 }
 
-std::pair<float, float> Movable::getPos() const
+std::pair<float, float> Movable::getPosition() const
 {
     return this->pos;
 }
 
-void Movable::setPos(const std::pair<float, float> &value)
+void Movable::setPosition(const std::pair<float, float> &value)
 {
     this->pos = value;
 }

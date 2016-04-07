@@ -17,11 +17,11 @@ bool SawModel::checkCollision(Movable &m)
 
     rCircle.w = this->width;
     rCircle.h = this->height;
-    rCircle.x = this->absolute_pos.first - rCircle.w / 2;
-    rCircle.y = this->absolute_pos.second - rCircle.h / 2;
+    rCircle.x = this->getPosition().first - rCircle.w / 2;
+    rCircle.y = this->getPosition().second - rCircle.h / 2;
 
-    c.x = this->absolute_pos.first;
-    c.y = this->absolute_pos.second;
+    c.x = this->getPosition().first;
+    c.y = this->getPosition().second;
     c.radius = rCircle.w / 2;
 
     r.w = m.getWidth();

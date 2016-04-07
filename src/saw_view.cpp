@@ -17,6 +17,6 @@ SawView::~SawView()
 
 void SawView::update()
 {
-    this->setPosition(this->model.getAbsolutePos().first, this->model.getAbsolutePos().second);
+    this->setPosition(this->model.getPosition().first, this->model.getPosition().second);
     this->rotate(4);
 }
