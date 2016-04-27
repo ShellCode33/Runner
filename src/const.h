@@ -35,7 +35,7 @@
 #define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"
 #define ILLUMINATI_IMG "img/illuminati.png"
 #define GROUND_IMG "img/ground_chunk2.png"
-#define BACKGROUND_IMG "img/background_chunk2.png"
+#define BACKGROUND_IMG "img/background_chunk.png"
 #define FIRE_ANIM "img/fire.png"
 #define SAW_IMG "img/saw.png"
 #define DEAD_ANIM "img/smoke.png"
@@ -43,6 +43,7 @@
 #define GAME_OVER_BOARD "img/gameover_board.png"
 #define LAVA_IMG "img/lava.png"
 #define MISSILE_IMG "img/missile.png"
+#define BASE_MISSILE_IMG "img/missile_base.png"
 
 //GAME
 #define GROUND_DEFAULT 100
@@ -53,6 +54,8 @@
 #define DEAD_LINE_DEFAULT 100
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 //Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur
-
+#define MISSILE_DEFAULT_Y 100
+#define MISSILE_DETECTION 300 //Distance à laquelle le missile detecte le joueur
+#define MISSILE_SPEED 5
 
 #endif // CONST_H

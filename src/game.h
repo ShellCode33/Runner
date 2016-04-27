@@ -39,6 +39,7 @@ private:
     bool game_over;
 
     std::list<Chunk*> chunks;
+    std::list<Entity *> entities; //Liste qui stoque des objets qui doivent être dessinés en dernier!! (ex: missile) Afin d'apparaitre quelle que soit sa position sur l'écran
 
 };
 

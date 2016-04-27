@@ -3,21 +3,19 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks)
 {
-    Chunk *c = new Chunk();
-    c->getModel()->pos_x = 0;
+    Chunk *c = new Chunk(0);
     this->chunks.push_back(c);
 
-    c = new Chunk();
-    c->getModel()->pos_x = CHUNK_WIDTH;
+    c = new Chunk(CHUNK_WIDTH);
     this->chunks.push_back(c);
 
     int i;
     for(i = 2; i < CHUNK_PRELOAD; i++)
     {
-        c = randomChunk();
-        c->getModel()->pos_x = i * CHUNK_WIDTH;
+        //c = randomChunk();
+        c = new ChunkSpecial(i * CHUNK_WIDTH, player, entities);
         this->chunks.push_back(c);
     }
 
@@ -45,10 +43,10 @@ void GameModel::update()
     //On vérifie que le 1er chunk est visible, si ce n'est pas le cas on le supprime pour un ré-allouer un nouveau
     if((*this->chunks.begin())->getModel()->pos_x + CHUNK_WIDTH < 0)
     {
+        list<ChunkSpecial*> draw_later;
         delete *this->chunks.begin();
         this->chunks.pop_front();
-        Chunk *c = randomChunk();
-        c->getModel()->pos_x = (*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH; //On met le nouveau chunk à coté du dernier dans la liste
+        Chunk *c = randomChunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);//On met le nouveau chunk à coté du dernier dans la liste
         this->chunks.push_back(c);
     }
 
@@ -91,11 +89,11 @@ list<Chunk *> GameModel::getVisibleChunks() const
     return visible_chunks;
 }
 
-Chunk* GameModel::randomChunk() const
+Chunk* GameModel::randomChunk(int pos_x_default) const
 {
     switch(rand()%2)
     {
-        case 1: return new ChunkSaw();
-        default: return new Chunk();
+        case 1: return new ChunkSaw(pos_x_default);
+        default: return new Chunk(pos_x_default);
     }
 }

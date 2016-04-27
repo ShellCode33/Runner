@@ -23,7 +23,7 @@ Animation::Animation(const Animation &copy) : Sprite(copy), speed_ms(copy.speed_
 
 void Animation::update()
 {
-    if(this->anim_enabled)
+    if(this->anim_enabled && this->clips.size() > 0)
     {
         if(this->timer.isFinish())
         {

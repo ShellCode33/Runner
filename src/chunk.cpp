@@ -3,7 +3,7 @@
 using namespace sf;
 using namespace std;
 
-Chunk::Chunk() : view(model)
+Chunk::Chunk(int pos_x_default) : model(pos_x_default), view(model)
 {
 
 }

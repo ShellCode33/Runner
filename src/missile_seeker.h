@@ -5,9 +5,11 @@
 #include <cassert>
 #include "obstacle.h"
 #include "const.h"
+#include "missile_model.h"
+#include "missile_view.h"
+#include "entity.h"
 
-//L'heritage movable est pour le missile lui meme, pas la base
-class MissileSeeker : public Movable
+class MissileSeeker : public Entity
 {
 public:
     /*!
@@ -16,21 +18,18 @@ public:
      */
     MissileSeeker(Player &player);
     ~MissileSeeker();
+
     void update();
+    MissileModel* getModel();
+    MissileView* getView();
+    void draw(sf::RenderTarget &target, sf::RenderStates states);
     void action(Player &player);
     bool checkCollision(Movable &m);
-    Animation getMissileDraw() const;
-    sf::Sprite getBaseDraw() const;
-
-    //Get et set position pour la base
-    void setPosition(int pos_x, int pos_y);
-    std::pair<int, int> getPosition() const;
 
 private:
     Player &player;
-    sf::Texture texture_missile, texture_base;
-    sf::Sprite base_missile;
-    Animation missile;
+    MissileModel model;
+    MissileView view;
 
 
 };

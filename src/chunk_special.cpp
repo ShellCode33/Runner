@@ -2,28 +2,41 @@
 
 using namespace std;
 
-ChunkSpecial::ChunkSpecial(Player &player)
+ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *> &entities) : Chunk(pos_x_default), player(player), entities(entities)
 {
+    assert(this->texture_base.loadFromFile(BASE_MISSILE_IMG));
+    this->base_missile.setTexture(this->texture_base);
+    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, MISSILE_DEFAULT_Y);
+
     this->missile = new MissileSeeker(player);
-    this->missile->Movable::setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, 100));
-    this->missile->setPosition(this->getModel()->pos_x + CHUNK_WIDTH / 2, 100);
+    this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, MISSILE_DEFAULT_Y + this->base_missile.getLocalBounds().height / 2));
+    entities.push_back(this->missile);
 }
 
 ChunkSpecial::~ChunkSpecial()
 {
-
+    this->entities.remove(this->missile);
+    delete this->missile;
 }
 
 void ChunkSpecial::update()
 {
     Chunk::update();
+    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, MISSILE_DEFAULT_Y);
+
     this->missile->update();
-    this->missile->setPosition(this->getModel()->pos_x + this->missile->getPosition().first, this->missile->getPosition().second);
+
+    //TODO : missile en fonction du background
+    if(this->player.getModel()->needMoveBackground())
+        this->missile->getModel()->setPosition(make_pair(this->missile->getModel()->getX() - this->player.getBackgroundShift(), this->missile->getModel()->getY()));
+    //this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, MISSILE_DEFAULT_Y + this->base_missile.getLocalBounds().height / 2)); //Gestion position du missile IMMOBILE
 }
 
 void ChunkSpecial::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    this->draw(target, states); //On dessine le background des chunks
-    target.draw(missile->getBaseDraw(), states);
-    target.draw(missile->getMissileDraw(), states);
+    Chunk::draw(target, states); //On dessine le background des chunks
+    target.draw(this->base_missile, states);
+
+    //Le missile est une entity qui sera dessinée après le chunk afin que cette entité soit au dessus de TOUS les chunks et non pas seulement le courant
+    //target.draw(*this->missile->getView(), states);
 }

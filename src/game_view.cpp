@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities)
 {
     assert(this->fire_texture.loadFromFile(FIRE_ANIM));
     this->fire.setTexture(this->fire_texture);
@@ -48,7 +48,10 @@ GameView::~GameView()
 void GameView::draw(RenderTarget& target, RenderStates states) const
 {
     for(Chunk *c : this->chunks)
-            c->draw(target, states);
+        c->draw(target, states);
+
+    for(Entity* c : this->entities)
+        c->draw(target, states);
 
     if(!this->player.getModel()->isDead())
         target.draw(*this->player.getView(), states);

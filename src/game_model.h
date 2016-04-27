@@ -4,6 +4,7 @@
 #include "utils.h"
 #include "timer.h"
 #include "chunk.h"
+#include "entity.h"
 
 class GameModel
 {
@@ -16,10 +17,10 @@ private:
     Timer timer;
     Player &player;
     std::list<Chunk *> &chunks;
-    Chunk *randomChunk() const;
+    Chunk *randomChunk(int pos_x_default) const;
 
 public:
-    GameModel(Player &player, std::list<Chunk *> &chunks);
+    GameModel(Player &player, std::list<Chunk *> &chunks, std::list<Entity *> &entities);
     ~GameModel();
 
     void update();

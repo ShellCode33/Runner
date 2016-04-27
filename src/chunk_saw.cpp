@@ -2,7 +2,7 @@
 
 using namespace std;
 
-ChunkSaw::ChunkSaw()
+ChunkSaw::ChunkSaw(int pos_x_default) : Chunk(pos_x_default)
 {
     this->nb_saw = (rand() % (MAX_SAW_COUNT-1)) + 1;
 

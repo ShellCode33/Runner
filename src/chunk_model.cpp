@@ -1,19 +1,19 @@
 #include "chunk_model.h"
 
-ChunkModel::ChunkModel() : pos_x(0)
+ChunkModel::ChunkModel(int pos_x_default) : pos_x(pos_x_default)
 {
 
 }
 
 ChunkModel::~ChunkModel()
 {
-    for(Obstacle* o : obstacles)
+    for(Obstacle* o : this->obstacles)
         delete o;
 }
 
 std::list<Obstacle *> ChunkModel::getObstacles() const
 {
-    return obstacles;
+    return this->obstacles;
 }
 
 void ChunkModel::addObstacle(Obstacle *obstacle)

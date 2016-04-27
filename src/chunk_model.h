@@ -7,7 +7,7 @@
 class ChunkModel
 {
 public:
-    ChunkModel();
+    ChunkModel(int pos_x_default);
     ~ChunkModel();
     std::list<Obstacle *> getObstacles() const;
     void addObstacle(Obstacle* obstacle);
@@ -15,7 +15,6 @@ public:
 
 private:
     std::list<Obstacle*> obstacles;
-
 };
 
 #endif // CHUNK_MODEL_H

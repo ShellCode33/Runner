@@ -10,7 +10,7 @@
 class Chunk
 {
 public:
-    Chunk();
+    Chunk(int pos_x_default);
     virtual ~Chunk();
     virtual void update();
     ChunkModel* getModel();

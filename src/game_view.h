@@ -17,7 +17,7 @@ class WindowRunner;
 class GameView : public sf::Drawable
 {
 public:
-    GameView(WindowRunner& window, GameModel& model, Player &player, std::list<Chunk *> &chunks);
+    GameView(WindowRunner& window, GameModel& model, Player &player, std::list<Chunk *> &chunks, std::list<Entity *> &entities);
     ~GameView();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::Event & event);
@@ -48,6 +48,7 @@ private:
     Chunk *randomChunk() const;
 
     std::list<Chunk *> &chunks;
+    std::list<Entity *> &entities;
 };
 
 #endif //GAMEVIEW_H

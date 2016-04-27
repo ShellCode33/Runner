@@ -16,6 +16,9 @@ Game::~Game()
 
     if(this->player != nullptr)
         delete this->player;
+
+    for(Chunk* c : this->chunks)
+        delete c;
 }
 
 void Game::update()
@@ -38,6 +41,10 @@ void Game::update()
                 for(Obstacle* o : c->getModel()->getObstacles())
                     if(o->checkCollision(*this->player->getModel()))
                         o->action(*this->player);
+
+            for(Entity* e : this->entities)
+                if(e->checkCollision(*this->player->getModel()))
+                    e->action(*this->player);
         }
 
         else
@@ -56,7 +63,11 @@ void Game::update()
         this->game_model = nullptr;
         this->player = nullptr;
 
-        this->chunks.clear();
+        for(Chunk* c : this->chunks)
+            delete c;
+
+        for(Entity* e : this->entities)
+            delete e;
     }
 }
 
@@ -67,8 +78,11 @@ GameView* Game::getView()
 
 void Game::create()
 {
+    this->chunks.clear();
+    this->entities.clear();
+
     this->player = new Player();
-    this->game_model = new GameModel(*this->player, this->chunks);
-    this->game_view = new GameView(this->window, *this->game_model, *this->player, this->chunks);
+    this->game_model = new GameModel(*this->player, this->chunks, this->entities);
+    this->game_view = new GameView(this->window, *this->game_model, *this->player, this->chunks, this->entities);
     this->game_over = false;
 }
