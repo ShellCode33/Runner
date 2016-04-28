@@ -20,6 +20,7 @@ private:
     Timer timer;
     Player &player;
     std::list<Chunk *> &chunks;
+    std::list<Entity *> &entities;
     Chunk *randomChunk(int pos_x_default) const;
 
 public:
