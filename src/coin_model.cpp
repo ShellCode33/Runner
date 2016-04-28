@@ -13,6 +13,7 @@ CoinModel::~CoinModel()
 void CoinModel::action(Player &player)
 {
     Utils::log("Earned 1 coin !");
+    player.getModel()->setScore(player.getModel()->getScore() + 100);
 }
 
 void CoinModel::update()
