@@ -15,6 +15,8 @@
 #include "collision.h"
 #include "movable.h"
 
+class GameModel;
+
 class Obstacle : public Movable
 {
 public:
@@ -28,7 +30,7 @@ public:
     /*!
      * \brief action que doit effectuer l'obstacle (ex : tuer le joueur)
      */
-    virtual void action(Player &player) = 0;
+    virtual void action(GameModel &game) = 0;
 
 protected:
     //Les coordonnées absolues sont dans Movable

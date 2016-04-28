@@ -9,7 +9,7 @@ public:
     SawModel(int relat_x, int relat_y, int width, int height);
     ~SawModel();
 
-    void action(Player &player);
+    void action(GameModel &game);
     bool checkCollision(Movable &m) const;
     void update();
 

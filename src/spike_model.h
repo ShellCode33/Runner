@@ -10,7 +10,7 @@ public:
     ~SpikeModel();
     void update();
     bool checkCollision(Movable &m) const;
-    void action(Player &player);
+    void action(GameModel &game);
 
 private:
 

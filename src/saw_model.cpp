@@ -1,4 +1,5 @@
 #include "saw_model.h"
+#include "game_model.h"
 
 SawModel::SawModel(int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height)
 {
@@ -37,8 +38,8 @@ void SawModel::update()
 
 }
 
-void SawModel::action(Player &player)
+void SawModel::action(GameModel &game)
 {
     Utils::log("Player died");
-    player.kill();
+    game.kill();
 }

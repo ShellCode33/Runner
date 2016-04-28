@@ -32,6 +32,8 @@ public:
     int getFireOffset() const;
     void setFireOffset(int value);
     std::list<Chunk *> getVisibleChunks() const;
+    void setScore(unsigned long value);
+    void kill();
 };
 
 #endif // GAMEMODEL_H

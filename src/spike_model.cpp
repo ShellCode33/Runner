@@ -1,4 +1,5 @@
 #include "spike_model.h"
+#include "game_model.h"
 
 SpikeModel::SpikeModel(int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height)
 {
@@ -32,7 +33,7 @@ bool SpikeModel::checkCollision(Movable &m) const
     return Collision::AABBintersectAABB(playerRect, spikeRect);
 }
 
-void SpikeModel::action(Player &player)
+void SpikeModel::action(GameModel &game)
 {
-    player.kill();
+    game.kill();
 }

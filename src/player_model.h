@@ -24,9 +24,6 @@ public:
     PlayerModel(const std::string username="unknown");
     ~PlayerModel();
 
-    unsigned int getScore() const;
-    void setScore(unsigned int value);
-
     unsigned short getLife() const;
     void setLife(unsigned short value);
 

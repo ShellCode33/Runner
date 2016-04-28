@@ -65,6 +65,16 @@ unsigned long GameModel::getScore() const
     return this->score;
 }
 
+void GameModel::setScore(unsigned long value)
+{
+    this->score = value;
+}
+
+void GameModel::kill()
+{
+    this->player.kill();
+}
+
 int GameModel::getFireOffset() const
 {
     return this->fire_offset;
