@@ -26,7 +26,6 @@ void MissileModel::update()
     if(player_pos.first >= this->getPosition().first)
         this->angle = -angle-180;
 
-
     int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
     int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
 
@@ -39,7 +38,7 @@ void MissileModel::update()
 
 void MissileModel::action(Player &player)
 {
-    player.kill();
+    player.getModel()->setLife(player.getModel()->getLife() - 40);
 }
 
 bool MissileModel::checkCollision(Movable &m)

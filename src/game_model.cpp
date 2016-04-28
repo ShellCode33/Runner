@@ -15,7 +15,7 @@ GameModel::GameModel(Player &player, list<Chunk *> &chunks, std::list<Entity *> 
     for(i = 2; i < CHUNK_PRELOAD; i++)
     {
         //c = randomChunk();
-        c = new ChunkSpecial(i * CHUNK_WIDTH, player, entities);
+        c = new ChunkSpike(i * CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
 

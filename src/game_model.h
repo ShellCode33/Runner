@@ -5,6 +5,9 @@
 #include "timer.h"
 #include "chunk.h"
 #include "entity.h"
+#include "chunk_saw.h"
+#include "chunk_special.h"
+#include "chunk_spike.h"
 
 class GameModel
 {

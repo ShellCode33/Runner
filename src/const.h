@@ -44,6 +44,7 @@
 #define LAVA_IMG "img/lava.png"
 #define MISSILE_IMG "img/missile.png"
 #define BASE_MISSILE_IMG "img/missile_base.png"
+#define SPIKE_IMG "img/spikes.png"
 
 //GAME
 #define GROUND_DEFAULT 100

@@ -49,3 +49,4 @@ void Player::kill()
 {
     this->player_model.setLife(0);
 }
+
