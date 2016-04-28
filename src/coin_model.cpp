@@ -13,7 +13,6 @@ CoinModel::~CoinModel()
 void CoinModel::action(Player &player)
 {
     Utils::log("Earned 1 coin !");
-
 }
 
 void CoinModel::update()
@@ -23,5 +22,17 @@ void CoinModel::update()
 
 bool CoinModel::checkCollision(Movable &m) const
 {
-    return true;
+    AABB playerRect, coinRect;
+
+    playerRect.x = m.getX();
+    playerRect.y = m.getY();
+    playerRect.w = m.getWidth();
+    playerRect.h = m.getHeight();
+
+    coinRect.x = this->getX();
+    coinRect.y = this->getY();
+    coinRect.w = this->getWidth();
+    coinRect.h = this->getHeight();
+
+    return Collision::AABBintersectAABB(playerRect, coinRect);
 }
