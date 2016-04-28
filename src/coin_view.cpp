@@ -1,12 +1,12 @@
-#include "piece_view.h"
+#include "coin_view.h"
 
 using namespace std;
 using namespace sf;
 
-PieceView::PieceView(PieceModel &model) : Animation(100.0), model(model)
+CoinView::CoinView(CoinModel &model) : Animation(100.0), model(model)
 {
-    assert(this->piece_texture.loadFromFile("PIECE_IMG"));
-    this->setTexture(this->piece_texture);
+    assert(this->coin_texture.loadFromFile("Coin_IMG"));
+    this->setTexture(this->coin_texture);
 
     this->model.setWidth(30);
     this->model.setHeight(35);
@@ -16,12 +16,12 @@ PieceView::PieceView(PieceModel &model) : Animation(100.0), model(model)
     this->setAnimEnabled(true);
 }
 
-PieceView::~PieceView()
+CoinView::~CoinView()
 {
 
 }
 
-void PieceView::update()
+void CoinView::update()
 {
 
 }

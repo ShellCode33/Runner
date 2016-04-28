@@ -1,5 +1,5 @@
-#ifndef PIECE_VIEW_H
-#define PIECE_VIEW_H
+#ifndef COIN_VIEW_H
+#define COIN_VIEW_H
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
@@ -7,22 +7,22 @@
 #include "const.h"
 #include "utils.h"
 #include "player.h"
-#include "piece_model.h"
+#include "coin_model.h"
 #include "animation.h"
 #include "movable.h"
 #include <algorithm>
 #include <utility>
 
-class PieceView : public Animation
+class CoinView : public Animation
 {
 public:
-    PieceView(PieceModel &model);
-    ~PieceView();
+    CoinView(CoinModel &model);
+    ~CoinView();
     void update();
 
 private:
-    sf::Texture piece_texture;
-    PieceModel& model;
+    sf::Texture coin_texture;
+    CoinModel& model;
 };
 
-#endif // PIECE_VIEW_H
+#endif // COIN_VIEW_H
