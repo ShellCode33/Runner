@@ -20,8 +20,8 @@ public:
     void update();
 
 private:
-    Saw *saw[MAX_SAW_COUNT];
-    unsigned short nb_saw;
+    Saw *saw[MAX_SAW_COUNT]; /*!< Tableau de scies (pas toujours entièrement plein) */
+    unsigned short nb_saw; /*!< Nombre réel de scies dans le tableau */
 
 };
 

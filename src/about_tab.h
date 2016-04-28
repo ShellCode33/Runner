@@ -1,3 +1,10 @@
+/*!
+ * \file about_tab.h
+ * \class AboutTab
+ * \brief Onglet à propos dans le menu
+ * \author Clément
+ */
+
 #ifndef ABOUT_TAB_H
 #define ABOUT_TAB_H
 
@@ -20,7 +27,7 @@ public:
 
 
 private:
-    sf::Texture *snoop_texture, *snoop_texture_reverse; //grosse image, on va l'allouer sur le heap ;)
+    sf::Texture *snoop_texture, *snoop_texture_reverse;
     Animation first_snoop, second_snoop;
 
     sf::Texture illu_texture;

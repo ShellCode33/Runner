@@ -18,6 +18,7 @@ private:
     int time_per_move; /*!< Vitesse d'approche du feu, évolue avec le temps */
     Timer game_begin;
     Timer timer;
+    Timer difficulty_timer;
     Player &player;
     std::list<Chunk *> &chunks;
     std::list<Entity *> &entities;

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MissileModel::MissileModel(Player &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), velocity(make_pair(0, 0)), moving(false)
+MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), velocity(make_pair(0, 0)), moving(false)
 {
 
 }
@@ -14,8 +14,8 @@ MissileModel::~MissileModel()
 
 void MissileModel::update()
 {
-    pair<float, float> player_pos = this->player.getModel()->getPosition();
-    pair<float, float> direction(player_pos.first + this->player.getModel()->getWidth() / 2 - this->getX(), player_pos.second + this->player.getModel()->getHeight() / 2 - this->getY());
+    pair<float, float> player_pos = this->player.getPosition();
+    pair<float, float> direction(player_pos.first + this->player.getWidth() / 2 - this->getX(), player_pos.second + this->player.getHeight() / 2 - this->getY());
 
     //Utils::log("x: " + to_string(direction.first) + " - y: " + to_string(direction.second));
 

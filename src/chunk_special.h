@@ -8,6 +8,12 @@
 class ChunkSpecial : public Chunk
 {
 public:
+    /*!
+     * \brief ChunkSpecial
+     * \param pos_x_default
+     * \param player permet au chunk d'intéragir avec le joueur, c'est ce qui rend ce Chunk "Special"
+     * \param entities est une référence vers la liste des entités de Game
+     */
     ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *> &entities);
     ~ChunkSpecial();
     void update();

@@ -1,3 +1,10 @@
+/*!
+ * \file chunk.h
+ * \class Chunk
+ * \brief Classe permettant un découpage de l'écran afin de faciliter la génération aléatoire de Chunks prédéfinis
+ * \author Clément
+ */
+
 #ifndef CHUNK_H
 #define CHUNK_H
 
@@ -15,9 +22,13 @@ public:
     virtual void update();
     ChunkModel* getModel();
     ChunkView* getView();
+    /*!
+     * \brief Permet d'ajouter un obstacle au modèle
+     */
     void addObstacle(Obstacle* obstacle);
-
-    /*! Cett methode ne dessine pas directement les éléments graphiques mais ordonne à la vue de le faire */
+    /*!
+     * \brief Permet de dessiner la vue
+     */
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 private:

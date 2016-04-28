@@ -8,7 +8,7 @@
 class MissileModel : public Movable
 {
 public:
-    MissileModel(Player &player);
+    MissileModel(PlayerModel &player);
     ~MissileModel();
     void update();
     void action(Player &player);
@@ -17,7 +17,7 @@ public:
     float getAngle() const;
 
 private:
-    Player &player;
+    PlayerModel &player;
     float angle;
     std::pair<int, int> velocity;
     bool moving;

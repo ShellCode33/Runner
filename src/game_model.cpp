@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks), entities(entities)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), player(player), chunks(chunks), entities(entities), difficulty_timer(3000)
 {
     Chunk *c = new Chunk(0);
     this->chunks.push_back(c);
@@ -20,6 +20,7 @@ GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &enti
 
     this->game_begin.begin();
     this->timer.begin();
+    this->difficulty_timer.begin();
 }
 
 GameModel::~GameModel()
@@ -35,6 +36,13 @@ void GameModel::update()
     {
         this->fire_offset += this->fire_speed;
         this->timer.reset();
+    }
+
+    if(this->fire_speed < MAX_FIRE_DIFFICULTY && this->difficulty_timer.isFinish())
+    {
+        Utils::log("increase difficulty");
+        this->fire_speed++;
+        this->difficulty_timer.reset();
     }
 
     bool need_move_background = this->player.needMoveBackground();

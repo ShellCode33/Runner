@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MissileSeeker::MissileSeeker(Player &player) : player(player), model(player), view(model)
+MissileSeeker::MissileSeeker(Player &player) : player(player), model(*player.getModel()), view(model)
 {
 
 }

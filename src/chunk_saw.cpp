@@ -4,7 +4,7 @@ using namespace std;
 
 ChunkSaw::ChunkSaw(int pos_x_default) : Chunk(pos_x_default)
 {
-    this->nb_saw = (rand() % (MAX_SAW_COUNT-1)) + 1;
+    this->nb_saw = rand() % MAX_SAW_COUNT + 1;
 
     int i;
     for(i = 0; i < this->nb_saw; i++)
@@ -30,11 +30,8 @@ ChunkSaw::ChunkSaw(int pos_x_default) : Chunk(pos_x_default)
         case 3:
             this->saw[0]->getModel()->setPositionRelat(saw_w / 2, CHUNK_HEIGHT - GROUND_DEFAULT);
             this->saw[1]->getModel()->setPositionRelat(saw_w * 1.5, CHUNK_HEIGHT - GROUND_DEFAULT);
+            this->saw[2]->getModel()->setPositionRelat(rand()%2 ? saw_w / 2 : saw_w * 1.5, CHUNK_HEIGHT - GROUND_DEFAULT - 1.8*saw_h);
 
-            if(rand()%2)
-                this->saw[2]->getModel()->setPositionRelat(rand()%2 ? saw_w / 2 : saw_w * 1.5, CHUNK_HEIGHT - GROUND_DEFAULT - 1.8*saw_h);
-            else
-                this->saw[2]->getModel()->setPositionRelat(saw_w*2.5, CHUNK_HEIGHT - GROUND_DEFAULT);
             break;
 
         case 4:

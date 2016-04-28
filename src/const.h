@@ -58,5 +58,6 @@
 #define MISSILE_DEFAULT_Y 100
 #define MISSILE_DETECTION 300 //Distance à laquelle le missile detecte le joueur
 #define MISSILE_SPEED 5
+#define MAX_FIRE_DIFFICULTY 18
 
 #endif // CONST_H
