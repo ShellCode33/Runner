@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks), entities(entities)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(3), time_per_move(30), timer(time_per_move), player(player), chunks(chunks), entities(entities)
 {
     Chunk *c = new Chunk(0);
     this->chunks.push_back(c);
@@ -42,7 +42,6 @@ void GameModel::update()
     //On vérifie que le 1er chunk est visible, si ce n'est pas le cas on le supprime pour un ré-allouer un nouveau
     if((*this->chunks.begin())->getModel()->pos_x + CHUNK_WIDTH < 0)
     {
-        list<ChunkSpecial*> draw_later;
         delete *this->chunks.begin();
         this->chunks.pop_front();
         Chunk *c = randomChunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);//On met le nouveau chunk à coté du dernier dans la liste

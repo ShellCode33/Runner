@@ -16,7 +16,8 @@ void MissileModel::update()
 {
     pair<float, float> player_pos = this->player.getModel()->getPosition();
     pair<float, float> direction(player_pos.first + this->player.getModel()->getWidth() / 2 - this->getX(), player_pos.second + this->player.getModel()->getHeight() / 2 - this->getY());
-    Utils::log("x: " + to_string(direction.first) + " - y: " + to_string(direction.second));
+
+    //Utils::log("x: " + to_string(direction.first) + " - y: " + to_string(direction.second));
 
     int x = abs(direction.first);
     int y = abs(direction.second);
@@ -38,7 +39,8 @@ void MissileModel::update()
 
 void MissileModel::action(Player &player)
 {
-    player.getModel()->setLife(player.getModel()->getLife() - 40);
+    player.kill();
+    //player.getModel()->setLife(player.getModel()->getLife() - 40);
 }
 
 bool MissileModel::checkCollision(Movable &m)
