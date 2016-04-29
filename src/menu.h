@@ -2,7 +2,6 @@
  * \file menu.h
  * \brief Menu qui sera affiché et avec lequel l'utilisateur pourra interagir
  * \author Jérémie, Clément
- *
  */
 
 #ifndef MENU_H

@@ -23,12 +23,18 @@ private:
     int fire_offset; /*!< correspond à l'avancement du feu dans la partie */
     int fire_speed; /*!< Nombre de pixel d'avancement du feu */
     int time_per_move; /*!< Vitesse d'approche du feu, évolue avec le temps */
-    Timer game_begin;
-    Timer timer;
-    Timer difficulty_timer;
+    Timer game_begin; /*!< Mesure le temps depuis le début du jeu afin de calculer le score */
+    Timer timer; /*!< Timer utilisé pour l'avancement du feu */
+    Timer difficulty_timer; /*! Timer utilisé pour la vitesse du jeu au fil du temps */
     Player &player;
     std::list<Chunk *> &chunks;
     std::list<Entity *> &entities;
+
+    /*!
+     * \brief randomChunk
+     * \param pos_x_default
+     * \return un Chunk aléatoire
+     */
     Chunk *randomChunk(int pos_x_default) const;
 
 public:
@@ -39,8 +45,17 @@ public:
     unsigned long getScore() const;
     int getFireOffset() const;
     void setFireOffset(int value);
+
+    /*!
+     * \brief getVisibleChunks
+     * \return une liste de chunks qui sont actuellement visibles à l'ecran
+     */
     std::list<Chunk *> getVisibleChunks() const;
     void setScore(unsigned long value);
+
+    /*!
+     * \brief kill tue le joueur
+     */
     void kill();
 };
 

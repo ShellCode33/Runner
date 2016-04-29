@@ -1,3 +1,11 @@
+/*!
+ * \file missile_model.h
+ * \class MissileModel
+ * \brief Modèle du missile suiveur
+ * \author Clément
+ *
+ */
+
 #ifndef MISSILE_MODEL
 #define MISSILE_MODEL
 
@@ -8,9 +16,22 @@
 class MissileModel : public Movable
 {
 public:
+    /*!
+     * \brief MissileModel
+     * \param player passé en paramètre car le missile doit suivre le joueur
+     */
     MissileModel(PlayerModel &player);
     ~MissileModel();
+
+    /*!
+     * \brief update gère la direction la vitesse et le déplacement du missile
+     */
     void update();
+
+    /*!
+     * \brief action enlève de la vie au joueur
+     * \param player
+     */
     void action(Player &player);
     bool checkCollision(Movable &m);
 
@@ -18,9 +39,8 @@ public:
 
 private:
     PlayerModel &player;
-    float angle;
-    std::pair<int, int> velocity;
-    bool moving;
+    float angle; /*!< Angle entre le missile et le joueur */
+    bool moving; /*!< état dépend de si le missile est en mouvement ou non */
 
 };
 

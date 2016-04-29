@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), velocity(make_pair(0, 0)), moving(false)
+MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), moving(false)
 {
 
 }
