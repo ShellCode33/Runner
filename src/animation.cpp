@@ -12,8 +12,7 @@ Animation::Animation(const unsigned long ms) : speed_ms(ms), current_clip_i(0), 
 
 Animation::~Animation()
 {
-    for(IntRect *p_clip : this->clips)
-        delete p_clip;
+    removeClips();
 }
 
 Animation::Animation(const Animation &copy) : Sprite(copy), speed_ms(copy.speed_ms), timer(speed_ms)

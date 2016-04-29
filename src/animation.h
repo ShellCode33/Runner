@@ -24,20 +24,47 @@ private:
 
 
 public:
+    /*!
+     * \brief Animation
+     * \param ms temps entre 2 images
+     */
     Animation(const unsigned long ms);
     Animation(const Animation &copy);
     ~Animation();
+
+    /*!
+     * \brief addClip permet d'ajouter un rectangle de lecture bien précis à l'animation
+     * \param clip rectangle de lecture en question
+     */
     void addClip(const sf::IntRect& clip);
+
+    /*!
+     * \brief Se charge de mettre à jour le sprite, doit être appelé à chaque tour de boucle
+     */
     void update();
-    Animation& operator=(const Animation &other);
+
+    /*!
+     * \brief setOffset permet de définir un espace entre les rectangles de lecture
+     */
     void setOffset(const int x, const int y);
+
+    /*!
+     * \brief setAnimEnabled permet de desactiver l'animation (temporairement ou pas)
+     */
     void setAnimEnabled(bool value);
+
+    /*!
+     * \brief removeClips supprime tous les éléments qui composent l'animation
+     */
     void removeClips();
+
     /*!
      * \brief playOneTime se charge de lire l'animation qu'une seule fois
      * \return false si l'animation est terminée et true si l'animation est en cours
      */
     bool playOneTime();
+
+    Animation& operator=(const Animation &other);
 
 };
 

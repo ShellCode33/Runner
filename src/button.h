@@ -33,7 +33,12 @@ private :
 public :
     Button(const std::string &text, const State action, const int pos_x=0, const int pos_y=0, const int width=500, const int height=80);
     ~Button();
-    void setBoundaries(const int pos_x, const int pos_y, const int width, const int height); /*!< Applique un filtre sur l'image afin de "découper" une certaine zone */
+
+    /*!
+     * \brief setBoundaries Applique un filtre sur l'image afin de "découper" une certaine zone
+     */
+    void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
+
     void setImage(const std::string filename); /*!< Permet de définir une image sur le bouton */
     void processEvent(WindowRunner &window, sf::Event & event); /*!< Gère les évenements du bouton */
 };
