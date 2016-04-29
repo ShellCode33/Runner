@@ -1,3 +1,10 @@
+/*!
+ * \file collision.h
+ * \class Collision
+ * \brief Classe gérant toutes les collisions
+ * \author Jérémie
+ */
+
 #ifndef COLLISION_H
 #define COLLISION_H
 
