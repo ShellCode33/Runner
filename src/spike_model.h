@@ -1,3 +1,10 @@
+/*!
+ * \file spike_model.h
+ * \class SpikeModel
+ * \brief Modèle des pics
+ * \author Clément
+ */
+
 #ifndef SPIKE_MODEL_H
 #define SPIKE_MODEL_H
 

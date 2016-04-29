@@ -1,3 +1,10 @@
+/*!
+ * \file timer.h
+ * \class Timer
+ * \brief Classe permettant de créer un chrono simplement
+ * \author Clément
+ */
+
 #ifndef TIMER_H
 #define TIMER_H
 

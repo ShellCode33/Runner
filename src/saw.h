@@ -1,3 +1,10 @@
+/*!
+ * \file saw.h
+ * \class Saw
+ * \brief Scie circulaire au sol qui tue le joueur
+ * \author Clément
+ */
+
 #ifndef SAW_H
 #define SAW_H
 

@@ -48,11 +48,11 @@
 
 //GAME
 #define GROUND_DEFAULT 100
-#define NB_CHUNK 4
-#define CHUNK_WIDTH (VIEW_WIDTH / NB_CHUNK) /*!< 4 chunks visibles en meme temps */
+#define NB_CHUNK 4 /*!< 4 chunks visibles en meme temps */
+#define CHUNK_WIDTH (VIEW_WIDTH / NB_CHUNK)
 #define CHUNK_HEIGHT VIEW_HEIGHT
 #define CHUNK_PRELOAD 6 /*!< charge X chunks en mémoire */
-#define DEAD_LINE_DEFAULT 100
+#define DEAD_LINE_DEFAULT 100 /*!< Zone à partir de laquelle le joueur meurt par defaut */
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 /*!< Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur */
 #define MISSILE_DEFAULT_Y 100

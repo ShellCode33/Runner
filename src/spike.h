@@ -1,3 +1,10 @@
+/*!
+ * \file spike.h
+ * \class Spike
+ * \brief Pointes au sol qui tue le joueur
+ * \author Clément
+ */
+
 #ifndef SPIKE_H
 #define SPIKE_H
 

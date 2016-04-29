@@ -1,3 +1,10 @@
+/*!
+ * \file game_model.h
+ * \class GameModel
+ * \brief Classe chargée de répartir les taches, de gérer le fonctionnement logique du jeu
+ * \author Jérémie, Clément
+ */
+
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
 
