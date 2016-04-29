@@ -21,6 +21,10 @@ enum Direction
 class PlayerModel : public Movable
 {
 public:
+    /*!
+     * \brief constructeur de PlayerModel
+     * \param string nom du PlayerModel
+     */
     PlayerModel(const std::string username="unknown");
     ~PlayerModel();
 
@@ -33,9 +37,19 @@ public:
     std::pair<int, int> getVelocity() const;
     void setVelocity(std::pair<int, int> v);
 
+    /*!
+     * \brief eventHandler s'occupe de la gestion des déplacement à droite et à gauche en incrémentant la vélocité
+     */
     void eventHandler();
 
+    /*!
+     * \brief chekCollision verifie les collisions avec l'environnement(sol, limite pour avancement du chunk..).
+     */
     void checkCollision();
+
+    /*!
+     * \brief applyForces applique la velocité et la gravité au playerModel à chaque tour de boucle
+     */
     void applyForces();
 
     bool leftPressed, rightPressed, spacePressed, shiftPressed;
@@ -56,28 +70,31 @@ public:
     void setDeadLine(int value);
 
 private:
-    std::string username;
-    unsigned short life;
+    std::string username;/*!< Chaîne de caractère conservant le nom du joueur*/
+    unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
 
-    float walk_acc;
-    float run_acc;
-    float max_walk;
-    float max_run;
-    float jump_acc;
-    float max_fall;
+    float walk_acc;/*!< Vitesse d'accéleration du playerModel losqu'il marche*/
+    float run_acc;/*!< Vitesse d'accéleration du playerModel lorqu'il court*/
+    float max_walk;/*!< Vitesse maximale du playerModel en mode marche*/
+    float max_run;/*!< Vitesse maximale du playerModel en mode course*/
+    float jump_acc;/*!< Vitesse d'accéleration du playerModel pour le saut*/
+    float max_fall;/*!< Vitesse maximale du playerModel pour le saut*/
 
-    float decelaration;
+    float decelaration;/*!< Valeur qui assure la deceleration du playerModel*/
 
-    int jumpframe;
-    int jump_counter;
+    int jumpframe;/*!< Nombre de frame max durant lequel le joueur peut sauter*/
+    int jump_counter;/*!< Permet de compter le nombre de frame afin de ne pas depasser la valeur de jumpframe*/
 
-    std::pair<float, float> gravity;
-    std::pair<float, float> velocity;
+    std::pair<float, float> gravity;/*!< pair representant une gravité(non réaliste) qui s'applique à chaque tour de boucle au playerModel*/
+    std::pair<float, float> velocity;/*!< pair representant la velocité du joueur, c'est elle qui incrémente la position du playerModel a chaque tour de boucle et permet donc le déplacement*/
 
     bool move_background; /*!< utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background */
     int dead_line; /*!< Utilisé pour savoir où se situe le feu et tuer le joueur si celui-ci est dedans */
 };
-
+/*!
+ * \brief Surchage de l'opérateur += de pair afin d'additionner plus facilement les pairs que nous utilisons
+ * \param les 2 pairs que l'on veut additionner
+ */
 std::pair<float, float> operator+=(std::pair<float, float>& a, const std::pair<float, float>& b);
 
 #endif // PLAYERMODEL_H
