@@ -56,8 +56,8 @@
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 //Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur
 #define MISSILE_DEFAULT_Y 100
-#define MISSILE_DETECTION 300 //Distance à laquelle le missile detecte le joueur
-#define MISSILE_SPEED 5
+#define MISSILE_DETECTION 800 //Distance à laquelle le missile detecte le joueur
+#define MISSILE_SPEED 10
 #define MAX_FIRE_DIFFICULTY 18
 
 #endif // CONST_H
