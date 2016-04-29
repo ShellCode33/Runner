@@ -17,6 +17,9 @@
 class Chunk
 {
 public:
+    /*!
+     * \param pos_x_default permet de définir la position par défaut du chunk sur l'écran (cette position peut-être exterieur à l'écran et le chunk peut donc ne pas être visible
+     */
     Chunk(int pos_x_default);
     virtual ~Chunk();
     virtual void update();

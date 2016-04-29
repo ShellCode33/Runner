@@ -1,3 +1,10 @@
+/*!
+ * \file chunk_special.h
+ * \class ChunkSpecial
+ * \brief Chunk utilisé pour les missiles
+ * \author Clément
+ */
+
 #ifndef CHUNK_SPECIAL_H
 #define CHUNK_SPECIAL_H
 
@@ -9,8 +16,6 @@ class ChunkSpecial : public Chunk
 {
 public:
     /*!
-     * \brief ChunkSpecial
-     * \param pos_x_default
      * \param player permet au chunk d'intéragir avec le joueur, c'est ce qui rend ce Chunk "Special"
      * \param entities est une référence vers la liste des entités de Game
      */
