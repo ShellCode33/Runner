@@ -31,6 +31,11 @@ private :
     int width, height; /*!< Largeur et hauteur du bouton */
 
 public :
+    /*!
+     * \brief Button permet de créer un bouton graphique avec la SFML
+     * \param text Texte affiché sur le bouton
+     * \param action Action effectuée par le bouton (voir enum State)
+     */
     Button(const std::string &text, const State action, const int pos_x=0, const int pos_y=0, const int width=500, const int height=80);
     ~Button();
 
@@ -39,8 +44,16 @@ public :
      */
     void setBoundaries(const int pos_x, const int pos_y, const int width, const int height);
 
-    void setImage(const std::string filename); /*!< Permet de définir une image sur le bouton */
-    void processEvent(WindowRunner &window, sf::Event & event); /*!< Gère les évenements du bouton */
+    /*!
+     * \brief setImage Permet de définir une image sur le bouton
+     * \param filename Chemin d'accès vers le fichier
+     */
+    void setImage(const std::string filename);
+
+    /*!
+     * \brief processEvent Gère les évenements des boutons
+     */
+    void processEvent(WindowRunner &window, sf::Event & event);
 };
 
 #endif // BUTTON_H

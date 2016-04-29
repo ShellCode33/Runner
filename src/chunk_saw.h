@@ -1,3 +1,10 @@
+/*!
+ * \file chunk_saw.h
+ * \class ChunkSaw
+ * \brief Chunk contenant les scies circulaires avec différentes positions définies aléatoirement
+ * \author Clément
+ */
+
 #ifndef CHUNKSAW_H
 #define CHUNKSAW_H
 
