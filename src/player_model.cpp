@@ -2,9 +2,8 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel(const string username) : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT)
+PlayerModel::PlayerModel() : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT)
 {
-    this->username = username;
     this->setVelocity(make_pair(0, 0));
     this->setGravity(make_pair(0, .5f));
 }
@@ -22,11 +21,6 @@ unsigned short PlayerModel::getLife() const
 void PlayerModel::setLife(unsigned short value)
 {
     this->life = value;
-}
-
-void PlayerModel::setUsername(string value)
-{
-    this->username = value;
 }
 
 pair<int, int> PlayerModel::getVelocity() const

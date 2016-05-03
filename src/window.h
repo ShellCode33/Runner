@@ -31,8 +31,9 @@ private:
 
     Menu menu;
     ScreenWait splash_screen;
-    GameOver game_over;
+
     Game game;
+    GameOver game_over;
 
     State state; /*!< Enumeration des différents états du jeu*/
     AboutTab about_tab;

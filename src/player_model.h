@@ -25,14 +25,11 @@ public:
      * \brief constructeur de PlayerModel
      * \param string nom du PlayerModel
      */
-    PlayerModel(const std::string username="unknown");
+    PlayerModel();
     ~PlayerModel();
 
     unsigned short getLife() const;
     void setLife(unsigned short value);
-
-    std::string getUsername() const;
-    void setUsername(std::string value);
 
     std::pair<int, int> getVelocity() const;
     void setVelocity(std::pair<int, int> v);
@@ -70,7 +67,6 @@ public:
     void setDeadLine(int value);
 
 private:
-    std::string username;/*!< Chaîne de caractère conservant le nom du joueur*/
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
 
     float walk_acc;/*!< Vitesse d'accéleration du playerModel losqu'il marche*/

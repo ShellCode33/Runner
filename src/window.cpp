@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game_over(this), game(*this)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -29,7 +29,7 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     this->desktop = VideoMode::getDesktopMode();
 
-    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
+    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Close);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
     this->state = SPLASH;

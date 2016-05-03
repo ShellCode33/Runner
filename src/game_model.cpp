@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), chunks(chunks), entities(entities)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo("Unknown"), chunks(chunks), entities(entities)
 {
     Chunk *c = new Chunk(0);
     this->chunks.push_back(c);
@@ -105,11 +105,21 @@ list<Chunk *> GameModel::getVisibleChunks() const
     return visible_chunks;
 }
 
+std::string GameModel::getPseudo() const
+{
+    return pseudo;
+}
+
+void GameModel::setPseudo(const std::string &value)
+{
+    pseudo = value;
+}
+
 Chunk* GameModel::randomChunk(int pos_x_default) const
 {
     switch(rand()%4)
     {
-        case 1: return new ChunkSaw(pos_x_default);
+    case 1: return new ChunkSaw(pos_x_default);
         case 2: return new ChunkSpecial(pos_x_default, this->player, this->entities);
         case 3: return new ChunkSpike(pos_x_default);
         default: return new Chunk(pos_x_default);

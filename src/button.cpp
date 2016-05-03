@@ -68,3 +68,21 @@ void Button::processEvent(WindowRunner &window, Event &event)
             window.setState(this->action);
     }
 }
+
+void Button::setPosition(int x, int y)
+{
+    this->pos_x = x;
+    this->pos_y = y;
+    this->sprite->setPosition(this->pos_x, this->pos_y);
+    this->text.setPosition(this->pos_x + this->width / 2, this->pos_y + this->height / 2);
+}
+
+std::pair<int, int> Button::getPosition() const
+{
+    return make_pair(this->pos_x, this->pos_y);
+}
+
+std::pair<int, int> Button::getSize() const
+{
+    return make_pair(this->width, this->height);
+}

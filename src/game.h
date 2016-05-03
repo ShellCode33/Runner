@@ -16,6 +16,7 @@ public:
     ~Game();
     void update();
     GameView* getView();
+    GameModel* getModel();
 
     void create();
 private:

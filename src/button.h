@@ -54,6 +54,12 @@ public :
      * \brief processEvent Gère les évenements des boutons
      */
     void processEvent(WindowRunner &window, sf::Event & event);
+
+
+    void setPosition(int x, int y);
+    std::pair<int, int> getPosition() const;
+
+    std::pair<int, int> getSize() const;
 };
 
 #endif // BUTTON_H

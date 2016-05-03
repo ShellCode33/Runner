@@ -27,6 +27,7 @@ private:
     Timer timer; /*!< Timer utilisé pour l'avancement du feu */
     Timer difficulty_timer; /*! Timer utilisé pour la vitesse du jeu au fil du temps */
     Player &player;
+    std::string pseudo; /*! Pseudo utilisé lors du gameover */
     std::list<Chunk *> &chunks;
     std::list<Entity *> &entities;
 
@@ -57,6 +58,8 @@ public:
      * \brief kill tue le joueur
      */
     void kill();
+    std::string getPseudo() const;
+    void setPseudo(const std::string &value);
 };
 
 #endif // GAMEMODEL_H

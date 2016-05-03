@@ -1,7 +1,7 @@
 #include "game.h"
 #include "window.h"
 
-Game::Game(WindowRunner &window) : window(window), game_over(false)
+Game::Game(WindowRunner &window) : window(window), player(nullptr), game_model(nullptr), game_view(nullptr), game_over(false)
 {
     srand(time(NULL));
 }
@@ -19,6 +19,9 @@ Game::~Game()
 
     for(Chunk* c : this->chunks)
         delete c;
+
+    for(Entity* e : this->entities)
+        delete e;
 }
 
 void Game::update()
@@ -54,20 +57,6 @@ void Game::update()
     else
     {
         window.setState(GAME_OVER);
-
-        delete this->game_view;
-        delete this->game_model;
-        delete this->player;
-
-        this->game_view = nullptr;
-        this->game_model = nullptr;
-        this->player = nullptr;
-
-        for(Chunk* c : this->chunks)
-            delete c;
-
-        for(Entity* e : this->entities)
-            delete e;
     }
 }
 
@@ -76,8 +65,28 @@ GameView* Game::getView()
     return this->game_view;
 }
 
+GameModel *Game::getModel()
+{
+    return this->game_model;
+}
+
 void Game::create()
 {
+    if(this->game_view != nullptr)
+        delete this->game_view;
+
+    if(this->game_model != nullptr)
+        delete this->game_model;
+
+    if(this->player != nullptr)
+        delete this->player;
+
+    for(Chunk* c : this->chunks)
+        delete c;
+
+    for(Entity* e : this->entities)
+        delete e;
+
     this->chunks.clear();
     this->entities.clear();
 
