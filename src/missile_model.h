@@ -37,10 +37,13 @@ public:
 
     float getAngle() const;
 
+    bool getExploded() const;
+
 private:
     PlayerModel &player;
     float angle; /*!< Angle entre le missile et le joueur */
     bool moving; /*!< état dépend de si le missile est en mouvement ou non */
+    bool exploded;
 
 };
 

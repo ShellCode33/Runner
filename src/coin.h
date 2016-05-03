@@ -11,8 +11,8 @@ public:
     ~Coin();
 
 private:
-    CoinView view;
     CoinModel model;
+    CoinView view;    
 };
 
 #endif // COIN_H

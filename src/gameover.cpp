@@ -49,4 +49,5 @@ void GameOver::processEvent(sf::Event &event, State &state)
 
     else if(state == GAME_OVER && event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
         this->window->setState(MENU);
+
 }

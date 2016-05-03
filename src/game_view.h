@@ -41,8 +41,15 @@ private:
 
     Player &player;
 
-    sf::Font score_font;
+    sf::Font font;
+
+    sf::Texture texture_score;
+    sf::Sprite score_background;
     sf::Text score_display;
+
+    sf::Texture texture_life;
+    sf::Sprite life_heart;
+    sf::Text life_display;
 
     std::vector<Animation> lava_sprites;
     Chunk *randomChunk() const;

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), player(player), chunks(chunks), entities(entities), difficulty_timer(3000)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), chunks(chunks), entities(entities)
 {
     Chunk *c = new Chunk(0);
     this->chunks.push_back(c);

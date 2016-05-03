@@ -6,6 +6,8 @@ using namespace sf;
 
 GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities)
 {
+    assert(this->font.loadFromFile(ONTHEMOVE_TTF));
+
     assert(this->fire_texture.loadFromFile(FIRE_ANIM));
     this->fire.setTexture(this->fire_texture);
 
@@ -21,12 +23,27 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
     this->fire2.setPosition(FIRE_DEFAULT_POS, this->fire.getLocalBounds().width*2);
     this->fire2.setRotation(90);
 
-    assert(this->score_font.loadFromFile(ONTHEMOVE_TTF));
-    this->score_display.setFont(this->score_font);
+    assert(this->texture_score.loadFromFile(SCORE_BG));
+    this->score_background.setTexture(this->texture_score);
+    this->score_background.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_background.getLocalBounds().height) / 2);//-20 pour l'espace depuis l'écran
+
+    this->score_display.setFont(this->font);
     this->score_display.setCharacterSize(50);
     this->score_display.setString("Score: 0");
-    this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100); //-20 pour l'espace depuis l'écran
+    this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
 
+
+    assert(this->texture_life.loadFromFile(HEART_IMG));
+    this->life_heart.setTexture(this->texture_life);
+
+    this->life_display.setFont(this->font);
+    this->life_display.setCharacterSize(30);
+    this->life_display.setColor(Color(0, 0, 0, 255));
+    this->life_display.setStyle(Text::Bold);
+    this->life_display.setString("100 %");
+
+    this->life_heart.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50, VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2); //-20 espace écran -50 espace entre le score et le coeur de vie
+    this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
 
     assert(this->lava_texture.loadFromFile(LAVA_IMG));
     this->lava.setTexture(this->lava_texture);
@@ -61,10 +78,22 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
 
     target.draw(this->fire, states);
     target.draw(this->fire2, states);
+
+    target.draw(this->score_background, states);
     target.draw(this->score_display, states);
+
+    target.draw(this->life_heart, states);
+    target.draw(this->life_display, states);
 
     for(const Sprite& s : this->lava_sprites)
         target.draw(s, states);
+
+    //On dessine un rectangle rouge transparent sur tout l'écran pour donner l'impression que le joueur saigne
+    RectangleShape rect;
+    rect.setFillColor(Color(255, 0, 0, 100 - this->player.getModel()->getLife())); //100 est la vita de base
+    rect.setPosition(0, 0);
+    rect.setSize(Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
+    target.draw(rect);
 }
 
 void GameView::processEvent(Event &event)
@@ -89,8 +118,12 @@ void GameView::update()
 
     //On met à jour l'affichage du score
     this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
-    this->score_display.setPosition(VIEW_WIDTH - this->score_display.getLocalBounds().width - 20, VIEW_HEIGHT - 100);
+    this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
 
+
+    //On met à jour l'affichage de la vie
+    this->life_display.setString(to_string(this->player.getModel()->getLife()) + " %");
+    this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
 
     //Lave
     this->lava.update();

@@ -45,6 +45,8 @@
 #define MISSILE_IMG "img/missile.png"
 #define BASE_MISSILE_IMG "img/missile_base.png"
 #define SPIKE_IMG "img/spikes.png"
+#define SCORE_BG "img/score_background.png"
+#define HEART_IMG "img/heart.png"
 
 //GAME
 #define GROUND_DEFAULT 100

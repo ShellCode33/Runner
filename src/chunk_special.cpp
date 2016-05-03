@@ -15,20 +15,27 @@ ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *
 
 ChunkSpecial::~ChunkSpecial()
 {
-    this->entities.remove(this->missile);
-    delete this->missile;
+    this->entities.remove(this->missile); //appelle le destructeur de l'entity
 }
 
 void ChunkSpecial::update()
 {
     Chunk::update();
+    MissileModel *missile_model = this->missile->getModel();
+
     this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, MISSILE_DEFAULT_Y);
 
-    this->missile->update();
+    if(!missile_model->getExploded())
+    {
+        this->missile->update();
 
-    //TODO : missile en fonction du background
-    if(this->player.getModel()->needMoveBackground())
-        this->missile->getModel()->setPosition(make_pair(this->missile->getModel()->getX() - this->player.getBackgroundShift(), this->missile->getModel()->getY()));
+        if(this->player.getModel()->needMoveBackground())
+            missile_model->setPosition(make_pair(missile_model->getX() - this->player.getBackgroundShift(), missile_model->getY()));
+    }
+
+    else
+        this->entities.remove(this->missile);
+
     //this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, MISSILE_DEFAULT_Y + this->base_missile.getLocalBounds().height / 2)); //Gestion position du missile IMMOBILE
 }
 

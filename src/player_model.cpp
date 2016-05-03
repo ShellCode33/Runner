@@ -16,7 +16,7 @@ PlayerModel::~PlayerModel()
 
 unsigned short PlayerModel::getLife() const
 {
-    return this->life;
+    return this->life > 100 ? 0 : this->life; //unsigned short
 }
 
 void PlayerModel::setLife(unsigned short value)
@@ -41,7 +41,7 @@ void PlayerModel::setVelocity(pair<int, int> v)
 
 bool PlayerModel::isDead() const
 {
-    return this->life <= 0 || this->life > 100;
+    return !this->life || this->life > 100; //life est un unsigned int, donc si life vaut + de 100, c'est que le joueur est mort
 }
 
 int PlayerModel::getDeadLine() const

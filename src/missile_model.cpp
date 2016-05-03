@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), moving(false)
+MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), moving(false), exploded(false)
 {
 
 }
@@ -25,7 +25,7 @@ void MissileModel::update()
     this->angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
 
     if(player_pos.first >= this->getPosition().first)
-        this->angle = -angle-180;
+        this->angle = -this->angle-180;
 
     int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
     int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
@@ -39,8 +39,8 @@ void MissileModel::update()
 
 void MissileModel::action(Player &player)
 {
-    player.kill();
-    //player.getModel()->setLife(player.getModel()->getLife() - 40);
+    this->exploded = true;
+    player.getModel()->setLife(player.getModel()->getLife() - 40);
 }
 
 bool MissileModel::checkCollision(Movable &m)
@@ -62,5 +62,9 @@ bool MissileModel::checkCollision(Movable &m)
 
 float MissileModel::getAngle() const
 {
-    return angle;
+    return this->angle;
+}
+bool MissileModel::getExploded() const
+{
+    return this->exploded;
 }
