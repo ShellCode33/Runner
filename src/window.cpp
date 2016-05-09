@@ -150,6 +150,12 @@ State WindowRunner::getState() const
 
 void WindowRunner::setState(const State &value)
 {
+    if(this->state == GAME_OVER)
+    {
+        //Si c'était un game_over d'où on vient, alors on écrit le score
+        Utils::addScore(this->game.getModel()->getScore(), this->game.getModel()->getPseudo());
+    }
+
     if(value == SURVIVAL || value == CAMPAIGN)
     {
         Utils::log("Launch game");

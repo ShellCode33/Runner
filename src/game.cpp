@@ -1,6 +1,8 @@
 #include "game.h"
 #include "window.h"
 
+using namespace std;
+
 Game::Game(WindowRunner &window) : window(window), player(nullptr), game_model(nullptr), game_view(nullptr), game_over(false)
 {
     srand(time(NULL));
@@ -72,11 +74,16 @@ GameModel *Game::getModel()
 
 void Game::create()
 {
+    string previous_pseudo = "";
+
     if(this->game_view != nullptr)
         delete this->game_view;
 
     if(this->game_model != nullptr)
+    {
+        previous_pseudo = this->game_model->getPseudo();
         delete this->game_model;
+    }
 
     if(this->player != nullptr)
         delete this->player;
@@ -92,6 +99,10 @@ void Game::create()
 
     this->player = new Player();
     this->game_model = new GameModel(*this->player, this->chunks, this->entities);
+
+    if(previous_pseudo != "")
+        this->game_model->setPseudo(previous_pseudo);
+
     this->game_view = new GameView(this->window, *this->game_model, *this->player, this->chunks, this->entities);
     this->game_over = false;
 }

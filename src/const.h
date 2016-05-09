@@ -61,5 +61,6 @@
 #define MISSILE_DETECTION 800 /*!< Distance à laquelle le missile detecte le joueur */
 #define MISSILE_SPEED 10
 #define MAX_FIRE_DIFFICULTY 18
+#define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
 
 #endif // CONST_H

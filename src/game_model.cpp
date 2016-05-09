@@ -107,12 +107,12 @@ list<Chunk *> GameModel::getVisibleChunks() const
 
 std::string GameModel::getPseudo() const
 {
-    return pseudo;
+    return this->pseudo;
 }
 
 void GameModel::setPseudo(const std::string &value)
 {
-    pseudo = value;
+    this->pseudo = value;
 }
 
 Chunk* GameModel::randomChunk(int pos_x_default) const
