@@ -26,6 +26,7 @@
 #define CURSOR_IMG "img/cursor.png"
 #define BUTTON_MENU_IMG "img/button5.png"
 #define MENU_BG "img/menu_bg.png"
+#define HIGHSCORES_BG "img/highscores_bg.jpeg"
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
 #define PIXEL_TTF "fonts/I-pixel-u.ttf"
 #define SPLASH_IMG "img/splash4.png"

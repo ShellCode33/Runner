@@ -14,6 +14,7 @@ enum State
     MENU,       /*!< Menu après le splash screen */
     CAMPAIGN,   /*!< Mode Campagne avec des niveaux */
     SURVIVAL,   /*!< Mode Survival infini */
+    HIGH_SCORES, /*!< Page des high scores */
     OPTIONS,    /*!< Options du jeu */
     ABOUT,      /*!< A propos */
     GAME_OVER,  /*!< Le joueur a perdu, écran de défaite */

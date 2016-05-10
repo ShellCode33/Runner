@@ -63,7 +63,7 @@ void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void ScreenWait::processEvent(Event & event, State & state)
 {
-    if(state == SPLASH && event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
+    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
         this->window->setState(MENU);
 
 }

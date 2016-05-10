@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game), high_scores_tab(this)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -66,6 +66,10 @@ void WindowRunner::create()
                 game.update();
                 break;
 
+            case HIGH_SCORES:
+                this->window->draw(this->high_scores_tab);
+                break;
+
             case OPTIONS:
                 this->window->draw(this->option_tab);
                 this->window->draw(this->cursor);
@@ -119,6 +123,10 @@ void WindowRunner::dispatchEvents()
                 game.getView()->processEvent(event);
                 break;
 
+            case HIGH_SCORES:
+                this->high_scores_tab.processEvent(event, this->state);
+                break;
+
             case OPTIONS:
 
                 break;
@@ -131,7 +139,7 @@ void WindowRunner::dispatchEvents()
                 this->about_tab.processEvent(*this, event);
                 break;
 
-        default: break;
+            default: break;
         }
 
         if(event.type == Event::MouseMoved)
@@ -154,6 +162,11 @@ void WindowRunner::setState(const State &value)
     {
         //Si c'était un game_over d'où on vient, alors on écrit le score
         Utils::addScore(this->game.getModel()->getScore(), this->game.getModel()->getPseudo());
+    }
+
+    if(value == HIGH_SCORES)
+    {
+        this->high_scores_tab.update();
     }
 
     if(value == SURVIVAL || value == CAMPAIGN)

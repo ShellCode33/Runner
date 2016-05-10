@@ -19,6 +19,7 @@
 #include "option_tab.h"
 #include "game.h"
 #include "gameover.h"
+#include "high_scores_tab.h"
 
 class WindowRunner : sf::View
 {
@@ -38,6 +39,8 @@ private:
     State state; /*!< Enumeration des différents états du jeu*/
     AboutTab about_tab;
     OptionTab option_tab;
+
+    HighScoresTab high_scores_tab;
 
     void dispatchEvents(); /*!< Se charge de répartir les évênements entre les différents éléments graphiques*/
 

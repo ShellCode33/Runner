@@ -25,6 +25,8 @@ void Utils::log(const string text)
     cout << "[" << current_time->tm_hour << ":" << current_time->tm_min << ":" << current_time->tm_sec << "] " << text << endl;
 }
 
+
+
 void Utils::addScore(unsigned long score, string pseudo)
 {
     if(score == 0 || pseudo.size() <= 0)
@@ -39,7 +41,6 @@ void Utils::addScore(unsigned long score, string pseudo)
 
     if(file.is_open())
     {
-        cout << "Le fichier existe, lecture..." << endl;
         content_size = file.tellg(); //file size
         content = new char[content_size+1]; //On prévoit un octet pour un \0
         content[content_size] = '\0';
@@ -143,7 +144,53 @@ void Utils::addScore(unsigned long score, string pseudo)
     fout.write(content, content_size);
     fout.close();
 
-    cout << "Contenu écrit." << endl;
-
     delete [] content;
+}
+
+std::pair<unsigned long, string>* Utils::getScores() //ATTENTION A BIEN DELETE CE QUE RETOURNE CETTE FONCTION
+{
+    std::pair<unsigned long, std::string> *scores = new std::pair<unsigned long, std::string>[MAX_BEST_SCORES];
+    ifstream file("scores", ios::binary | ios::ate);
+    char *content;
+    int content_size = 0;
+
+    if(file.is_open())
+    {
+        content_size = file.tellg(); //file size
+        content = new char[content_size+1]; //On prévoit un octet pour un \0
+        content[content_size] = '\0';
+        file.seekg(0, ios::beg); //reset cursor pos
+        file.read(content, content_size);
+        file.close();
+
+        //déchiffre
+        int i;
+        for(i = 0; i < content_size; i++)
+            content[i] ^= 42;
+
+        i = 0;
+        int num_score = 0;
+
+        while(content[i] != '\0')
+        {
+            string line = "";
+
+            while(content[i] != '\n')
+                line += content[i++];
+
+            i++; //skip \n
+
+            string line_score_str = line.substr(0, line.find(":")); //split sur :
+            scores[num_score].first = strtoul(line_score_str.c_str(), NULL, 0); // string -> unsigned long
+            scores[num_score].second = line.substr(line.find(":")+1, line.size()-line.find(":")); //split sur :
+
+            num_score++;
+        }
+
+        delete [] content;
+        return scores;
+    }
+
+    else
+        return nullptr;
 }

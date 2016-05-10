@@ -19,7 +19,7 @@ private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::Texture menubg_texture;
     sf::Sprite *menu_bg;
-    Button campaign, survival, options, about, leave;
+    Button campaign, survival, high_score, options, about, leave;
 
 public:
     Menu(WindowRunner &window);
