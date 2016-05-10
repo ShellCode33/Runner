@@ -20,10 +20,11 @@
 class Utils
 {
 private:
-
-public:
     Utils();
     ~Utils();
+
+public:
+
 
     static float randRange(float a, float b);
 
@@ -33,7 +34,7 @@ public:
      */
     static void log(const std::string text);
     static void addScore(unsigned long score, std::string pseudo);
-    static std::pair<unsigned long, std::string>* getScores();
+    static std::vector<std::pair<unsigned long, std::string> > getScores();
 
 
 };

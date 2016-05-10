@@ -147,9 +147,9 @@ void Utils::addScore(unsigned long score, string pseudo)
     delete [] content;
 }
 
-std::pair<unsigned long, string>* Utils::getScores() //ATTENTION A BIEN DELETE CE QUE RETOURNE CETTE FONCTION
+vector<pair<unsigned long, string> > Utils::getScores() //ATTENTION A BIEN DELETE CE QUE RETOURNE CETTE FONCTION
 {
-    std::pair<unsigned long, std::string> *scores = new std::pair<unsigned long, std::string>[MAX_BEST_SCORES];
+    vector<pair<unsigned long, std::string> > scores;
     ifstream file("scores", ios::binary | ios::ate);
     char *content;
     int content_size = 0;
@@ -181,16 +181,17 @@ std::pair<unsigned long, string>* Utils::getScores() //ATTENTION A BIEN DELETE C
             i++; //skip \n
 
             string line_score_str = line.substr(0, line.find(":")); //split sur :
-            scores[num_score].first = strtoul(line_score_str.c_str(), NULL, 0); // string -> unsigned long
-            scores[num_score].second = line.substr(line.find(":")+1, line.size()-line.find(":")); //split sur :
+            pair<unsigned long, std::string> score;
+            score.first = strtoul(line_score_str.c_str(), NULL, 0); // string -> unsigned long
+            score.second = line.substr(line.find(":")+1, line.size()-line.find(":")); //split sur :
+            scores.push_back(score);
 
             num_score++;
         }
 
         delete [] content;
-        return scores;
+
     }
 
-    else
-        return nullptr;
+    return scores;
 }

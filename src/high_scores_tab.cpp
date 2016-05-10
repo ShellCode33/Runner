@@ -18,15 +18,16 @@ HighScoresTab::HighScoresTab(WindowRunner *window) : ScreenWait(window, HIGHSCOR
         this->scores_text[i].setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 50, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 20 + i*60);
     }
 
+    this->scores_text[0].setFont(this->font);
     this->scores_text[0].setCharacterSize(60);
     this->scores_text[0].setStyle(Text::Bold);
     this->scores_text[0].setString("Rank        Score - Pseudo");
-    this->scores_text[i].setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 50, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 5);
+    this->scores_text[0].setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 50, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 5);
 }
 
 HighScoresTab::~HighScoresTab()
 {
-    delete [] this->scores;
+
 }
 
 void HighScoresTab::processEvent(sf::Event &event, State &state)

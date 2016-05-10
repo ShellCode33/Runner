@@ -16,6 +16,7 @@ ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *
 ChunkSpecial::~ChunkSpecial()
 {
     this->entities.remove(this->missile); //appelle le destructeur de l'entity
+    delete this->missile;
 }
 
 void ChunkSpecial::update()

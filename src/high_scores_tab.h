@@ -17,7 +17,7 @@ public:
 private:
     WindowRunner *window;
     sf::RectangleShape board;
-    std::pair<unsigned long, std::string>* scores;
+    std::vector<std::pair<unsigned long, std::string> > scores;
     sf::Font font;
     sf::Text scores_text[MAX_BEST_SCORES+1];
 
