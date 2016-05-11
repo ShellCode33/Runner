@@ -28,6 +28,9 @@ public:
     std::list<Chunk *> getChunks() const;
     std::list<Chunk *> getVisibleChunks() const;
 
+    bool isPaused() const;
+    void setPause(bool value);
+
 private:
     WindowRunner& window;
     GameModel &game_model;
@@ -56,6 +59,14 @@ private:
 
     std::list<Chunk *> &chunks;
     std::list<Entity *> &entities;
+
+    bool pause;
+
+    sf::Texture texture_pause;
+    sf::Shader blur;
+    sf::Image pause_img;
+    sf::Sprite sprite_pause;
+    sf::Text pause_text;
 };
 
 #endif //GAMEVIEW_H

@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(this, SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game), high_scores_tab(this)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -128,7 +128,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case OPTIONS:
-
+                this->option_tab.processEvent(event, this->state);
                 break;
 
             case GAME_OVER:
@@ -144,10 +144,6 @@ void WindowRunner::dispatchEvents()
 
         if(event.type == Event::MouseMoved)
             this->cursor.setPosition(event.mouseMove.x, event.mouseMove.y);
-
-        //Permet de revenir au MENU avec escape quoi qu'il arrive, mais devra être enlevé à l'avenir (juste pratique le temps de développer)
-        else if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-            this->state = MENU;
     }
 }
 

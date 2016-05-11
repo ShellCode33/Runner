@@ -8,14 +8,13 @@
 class HighScoresTab : public ScreenWait
 {
 public:
-    HighScoresTab(WindowRunner *window);
+    HighScoresTab();
     virtual ~HighScoresTab();
     virtual void processEvent(sf::Event &event, State &state);
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
     void update();
 
 private:
-    WindowRunner *window;
     sf::RectangleShape board;
     std::vector<std::pair<unsigned long, std::string> > scores;
     sf::Font font;

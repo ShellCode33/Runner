@@ -1,9 +1,10 @@
 #include "high_scores_tab.h"
+#include "window.h"
 
 using namespace sf;
 using namespace std;
 
-HighScoresTab::HighScoresTab(WindowRunner *window) : ScreenWait(window, HIGHSCORES_BG, ""), window(window)
+HighScoresTab::HighScoresTab() : ScreenWait(HIGHSCORES_BG, "")
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));
@@ -32,7 +33,10 @@ HighScoresTab::~HighScoresTab()
 
 void HighScoresTab::processEvent(sf::Event &event, State &state)
 {
-
+    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
+    {
+        state = MENU;
+    }
 }
 
 void HighScoresTab::draw(sf::RenderTarget &target, sf::RenderStates states) const

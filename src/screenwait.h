@@ -18,14 +18,13 @@ class WindowRunner;
 class ScreenWait : public sf::Drawable
 {
 private:
-    WindowRunner* window;
     sf::Sprite *background;
     sf::Texture *background_texture;
     sf::Text *text;
     sf::Font *font;
 
 public:
-    ScreenWait(WindowRunner* window, const std::string filename, const std::string text);
+    ScreenWait(const std::string filename, const std::string text);
     ~ScreenWait();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 

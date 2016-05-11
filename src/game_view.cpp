@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities), pause(false)
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
 
@@ -55,6 +55,18 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
         this->lava.addClip(IntRect(130*i, 114+128, 128, 128));
 
     this->lava.setOffset(2, 2);
+
+    this->pause_text.setFont(this->font);
+    this->pause_text.setCharacterSize(80);
+    this->pause_text.setColor(Color(255, 255, 255, 255));
+    this->pause_text.setString("PAUSE");
+    this->pause_text.setPosition(Vector2f((VIEW_WIDTH - this->pause_text.getLocalBounds().width) / 2, VIEW_HEIGHT / 3));
+
+    assert(this->blur.loadFromFile(BLUR_EFFECT_PATH, Shader::Fragment));
+    this->blur.setParameter("texture", sf::Shader::CurrentTexture);
+    this->blur.setParameter("blur_radius", 0.003f);
+
+    this->texture_pause.loadFromImage(this->window.getRender().capture());
 }
 
 GameView::~GameView()
@@ -89,58 +101,94 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
         target.draw(s, states);
 
     //On dessine un rectangle rouge transparent sur tout l'écran pour donner l'impression que le joueur saigne
-    RectangleShape rect;
-    rect.setFillColor(Color(255, 0, 0, 100 - this->player.getModel()->getLife())); //100 est la vita de base
-    rect.setPosition(0, 0);
-    rect.setSize(Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
-    target.draw(rect);
+    if(this->player.getModel()->getLife() < 100)
+    {
+        RectangleShape rect;
+        rect.setFillColor(Color(255, 0, 0, 100 - this->player.getModel()->getLife())); //100 est la vita de base
+        rect.setPosition(0, 0);
+        rect.setSize(Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
+        target.draw(rect);
+    }
+
+    if(this->pause)
+    {
+        states.shader = &this->blur;
+        target.draw(this->sprite_pause, states);
+
+        RectangleShape rect;
+        rect.setFillColor(Color(0, 0, 0, 100));
+        rect.setPosition(0, 0);
+        rect.setSize(Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
+        target.draw(rect);
+
+        target.draw(this->pause_text);
+    }
 }
 
 void GameView::processEvent(Event &event)
 {
-    if(this->window.getState() == SURVIVAL || this->window.getState() == CAMPAIGN)
+    if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
     {
-        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-            this->window.setState(MENU);
+        this->pause = !this->pause;
 
-        this->player.getView()->processEvents(this->window, event);
+        if(this->pause)
+        {
+            this->texture_pause.update(this->window.getRender());
+            this->sprite_pause.setTexture(this->texture_pause);
+        }
     }
+
+    if(!this->pause)
+        this->player.getView()->processEvents(this->window, event);
 }
 
 void GameView::update()
 {
-    this->player.getView()->update(); //On met à jouer l'affichage du joueur
-    this->fire.update(); //On met l'animation du feu à jour
-    this->fire2.update();
-
-    this->fire.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire.getPosition().y);
-    this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
-
-    //On met à jour l'affichage du score
-    this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
-    this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
-
-
-    //On met à jour l'affichage de la vie
-    this->life_display.setString(to_string(this->player.getModel()->getLife()) + " %");
-    this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
-
-    //Lave
-    this->lava.update();
-    this->lava_sprites.clear();
-    int lava_w = this->lava.getLocalBounds().width;
-    int lava_h = this->lava.getLocalBounds().height;
-    int nb_lava_x = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
-    int nb_lava_y = VIEW_HEIGHT / lava_h + 1;
-
-    int i, j;
-    for(i = 0; i < nb_lava_x; i++)
+    if(!this->pause)
     {
-        for(j = 0; j < nb_lava_y; j++)
+        this->player.getView()->update(); //On met à jouer l'affichage du joueur
+        this->fire.update(); //On met l'animation du feu à jour
+        this->fire2.update();
+        this->lava.update();
+
+        this->fire.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire.getPosition().y);
+        this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
+
+        //On met à jour l'affichage du score
+        this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
+        this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
+
+
+        //On met à jour l'affichage de la vie
+        this->life_display.setString(to_string(this->player.getModel()->getLife()) + " %");
+        this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
+
+        //Lave
+        this->lava_sprites.clear(); //TROP LOURD, A MODIFIER POUR OPTI
+        int lava_w = this->lava.getLocalBounds().width;
+        int lava_h = this->lava.getLocalBounds().height;
+        int nb_lava_x = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
+        int nb_lava_y = VIEW_HEIGHT / lava_h + 1;
+
+        int i, j;
+        for(i = 0; i < nb_lava_x; i++)
         {
-            this->lava.setRotation(90);
-            this->lava.setPosition(this->game_model.getFireOffset()-i*lava_w, j*lava_h);
-            this->lava_sprites.push_back(this->lava);
+            for(j = 0; j < nb_lava_y; j++)
+            {
+                this->lava.setRotation(90);
+                this->lava.setPosition(this->game_model.getFireOffset()-i*lava_w, j*lava_h);
+                this->lava_sprites.push_back(this->lava);
+            }
         }
     }
 }
+bool GameView::isPaused() const
+{
+    return this->pause;
+}
+
+void GameView::setPause(bool value)
+{
+    this->pause = value;
+}
+

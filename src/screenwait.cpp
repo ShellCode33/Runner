@@ -4,13 +4,14 @@
 using namespace std;
 using namespace sf;
 
-ScreenWait::ScreenWait(WindowRunner* window, const string filename, const string text)
+ScreenWait::ScreenWait(const string filename, const string text)
 {
-    this->window = window;
     this->background_texture = new Texture();
 
     this->background = new Sprite();
-    this->setBackground(filename);
+
+    if(filename.size() > 0)
+        this->setBackground(filename);
 
     this->font = new Font();
     assert(this->font->loadFromFile(ONTHEMOVE_TTF)); //ttf par défaut
@@ -64,6 +65,5 @@ void ScreenWait::draw(sf::RenderTarget& target, sf::RenderStates states) const
 void ScreenWait::processEvent(Event & event, State & state)
 {
     if(event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
-        this->window->setState(MENU);
-
+        state = MENU;
 }

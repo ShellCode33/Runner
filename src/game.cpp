@@ -28,37 +28,41 @@ Game::~Game()
 
 void Game::update()
 {
-    if(!this->game_over)
+    this->game_view->update(); //On update la view que le jeu soit en pause ou non
+
+    if(!this->game_view->isPaused())
     {
-        this->game_model->update();
-        this->game_view->update();
-        this->player->update();
-
-        if(this->player->getModel()->needMoveBackground())
-            this->game_model->setFireOffset(this->game_model->getFireOffset() - this->player->getBackgroundShift());
-
-        this->player->getModel()->setDeadLine(this->game_model->getFireOffset());
-
-
-        if(!this->player->getModel()->isDead())
+        if(!this->game_over)
         {
-            for(Chunk* c : this->game_model->getVisibleChunks())
-                for(Obstacle* o : c->getModel()->getObstacles())
-                    if(o->checkCollision(*this->player->getModel()))
-                        o->action(*this->game_model);
+            this->game_model->update();
+            this->player->update();
 
-            for(Entity* e : this->entities)
-                if(e->checkCollision(*this->player->getModel()))
-                    e->action(*this->player);
+            if(this->player->getModel()->needMoveBackground())
+                this->game_model->setFireOffset(this->game_model->getFireOffset() - this->player->getBackgroundShift());
+
+            this->player->getModel()->setDeadLine(this->game_model->getFireOffset());
+
+
+            if(!this->player->getModel()->isDead())
+            {
+                for(Chunk* c : this->game_model->getVisibleChunks())
+                    for(Obstacle* o : c->getModel()->getObstacles())
+                        if(o->checkCollision(*this->player->getModel()))
+                            o->action(*this->game_model);
+
+                for(Entity* e : this->entities)
+                    if(e->checkCollision(*this->player->getModel()))
+                        e->action(*this->player);
+            }
+
+            else
+                this->game_over = !this->player->getView()->getDeadAnim()->playOneTime();
         }
 
         else
-            this->game_over = !this->player->getView()->getDeadAnim()->playOneTime();
-    }
-
-    else
-    {
-        window.setState(GAME_OVER);
+        {
+            window.setState(GAME_OVER);
+        }
     }
 }
 
