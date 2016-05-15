@@ -40,6 +40,11 @@ public:
      * \return true ou false suivant si la collision a lieu ou pas
      */
     bool checkCollision(Movable &m) const;
+
+    bool getTaken() const;
+
+private:
+    bool taken;
 };
 
 #endif // COIN_MODEL_H

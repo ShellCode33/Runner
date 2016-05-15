@@ -49,6 +49,7 @@
 #define SCORE_BG "img/score_background.png"
 #define HEART_IMG "img/heart.png"
 #define BLUR_EFFECT_PATH "src/blur.frag"
+#define COIN_IMG "img/coin.png"
 
 //GAME
 #define GROUND_DEFAULT 100

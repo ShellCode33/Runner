@@ -9,3 +9,24 @@ Coin::~Coin()
 {
 
 }
+
+CoinModel *Coin::getModel()
+{
+    return &this->model;
+}
+
+CoinView *Coin::getView()
+{
+    return &this->view;
+}
+
+void Coin::update()
+{
+    this->model.update();
+    this->view.update();
+}
+
+void Coin::action(GameModel &game)
+{
+    this->model.action(game);
+}

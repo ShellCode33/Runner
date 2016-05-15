@@ -33,6 +33,11 @@ void Chunk::addObstacle(Obstacle *obstacle)
     this->model.addObstacle(obstacle);
 }
 
+void Chunk::removeObstacle(Obstacle *obstacle)
+{
+    this->model.removeObstacle(obstacle);
+}
+
 void Chunk::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(this->view, states);

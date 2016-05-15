@@ -10,6 +10,12 @@ public:
     Coin(int relat_x, int relat_y, int width, int height);
     ~Coin();
 
+    CoinModel *getModel();
+    CoinView *getView();
+
+    void update();
+    void action(GameModel &game);
+
 private:
     CoinModel model;
     CoinView view;    

@@ -29,6 +29,7 @@ public:
      * \brief Permet d'ajouter un obstacle au modèle
      */
     void addObstacle(Obstacle* obstacle);
+    void removeObstacle(Obstacle* obstacle);
     /*!
      * \brief Permet de dessiner la vue
      */

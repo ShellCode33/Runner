@@ -20,3 +20,8 @@ void ChunkModel::addObstacle(Obstacle *obstacle)
 {
     this->obstacles.push_back(obstacle);
 }
+
+void ChunkModel::removeObstacle(Obstacle *obstacle)
+{
+    this->obstacles.remove(obstacle);
+}

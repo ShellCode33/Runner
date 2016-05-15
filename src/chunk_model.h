@@ -18,6 +18,7 @@ public:
     ~ChunkModel();
     std::list<Obstacle *> getObstacles() const; /*!< Retourne la liste d'obstacles */
     void addObstacle(Obstacle* obstacle); /*!< Ajouter un obstacle au chunk */
+    void removeObstacle(Obstacle* obstacle);
     int pos_x; /*!< Position du chunk sur l'écran, un chunk prend toute la place selon y */
 
 private:

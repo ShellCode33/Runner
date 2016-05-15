@@ -11,6 +11,7 @@
 #include <utility>
 #include "chunk.h"
 #include "missile_seeker.h"
+#include "coin.h"
 
 class ChunkSpecial : public Chunk
 {

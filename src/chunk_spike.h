@@ -10,6 +10,9 @@
 
 #include "chunk.h"
 #include "spike.h"
+#include "coin.h"
+
+#define COIN_COUNT 4
 
 class ChunkSpike : public Chunk
 {
@@ -21,6 +24,7 @@ public:
 
 private:
     Spike *spike;
+    Coin *coins[COIN_COUNT];
 
 };
 
