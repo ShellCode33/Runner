@@ -151,8 +151,6 @@ void GameModel::setPseudo(const std::string &value)
 
 Chunk* GameModel::randomChunk(int pos_x_default) const
 {
-    //REMOVE
-    return new ChunkSpike(pos_x_default);
     switch(rand()%4)
     {
     case 1: return new ChunkSaw(pos_x_default);

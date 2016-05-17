@@ -6,10 +6,13 @@ ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *
 {
     assert(this->texture_base.loadFromFile(BASE_MISSILE_IMG));
     this->base_missile.setTexture(this->texture_base);
-    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, MISSILE_DEFAULT_Y);
+
+    int rand_pos_missile = rand() % (VIEW_HEIGHT - GROUND_DEFAULT*2 - MISSILE_DEFAULT_Y) + MISSILE_DEFAULT_Y;
+
+    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, rand_pos_missile);
 
     this->missile = new MissileSeeker(player);
-    this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, MISSILE_DEFAULT_Y + this->base_missile.getLocalBounds().height / 2));
+    this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, rand_pos_missile + this->base_missile.getLocalBounds().height / 2));
     entities.push_back(this->missile);
 }
 
@@ -24,7 +27,7 @@ void ChunkSpecial::update()
     Chunk::update();
     MissileModel *missile_model = this->missile->getModel();
 
-    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, MISSILE_DEFAULT_Y);
+    this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, this->base_missile.getPosition().y);
 
     if(!missile_model->getExploded())
     {

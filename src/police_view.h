@@ -5,6 +5,7 @@
 #include <cassert>
 #include "police_model.h"
 #include "const.h"
+#include "timer.h"
 
 class PoliceView : public sf::Drawable
 {
@@ -22,6 +23,11 @@ private:
 
     sf::Texture wheel_texture;
     sf::Sprite wheels[2];
+
+    sf::CircleShape circle1, circle2;
+    bool circle1_visible, circle2_visible;
+    Timer timer1, timer2; //Un timer par cercle afin de créer un effet de décalage
+
 
 };
 

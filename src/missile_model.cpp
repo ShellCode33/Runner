@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), moving(false), exploded(false)
+MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), angle(-1.f), moving(false), exploded(false)
 {
 
 }
@@ -28,6 +28,7 @@ void MissileModel::update()
         this->angle = -this->angle-180;
 
     int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
+
     int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
 
     if(!moving && x < MISSILE_DETECTION)
