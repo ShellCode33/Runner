@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo("Unknown"), chunks(chunks), entities(entities)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), bonus_score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo("Unknown"), chunks(chunks), entities(entities), police(nullptr)
 {
     Chunk *c = new Chunk(0);
     this->chunks.push_back(c);
@@ -30,7 +30,7 @@ GameModel::~GameModel()
 
 void GameModel::update()
 {
-    this->score = this->game_begin.getDuration() / 100;
+    this->score = this->game_begin.getDuration() / 10;
 
     if(this->timer.isFinish())
     {
@@ -52,8 +52,31 @@ void GameModel::update()
     {
         delete *this->chunks.begin();
         this->chunks.pop_front();
-        Chunk *c = randomChunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);//On met le nouveau chunk à coté du dernier dans la liste
-        this->chunks.push_back(c);
+
+        if(this->chunks.size() <= CHUNK_PRELOAD)
+        {
+            if(this->police == nullptr && !(rand() % 6)) //La police arrive 1 fois sur 6
+            {
+                cout << "POLICE IS COMING" << endl;
+                this->police = new Police();
+                this->entities.push_back(this->police);
+
+                int i;
+                for(i = 0; i < 3; i++) // On prévoit 3 chunks vides (potentiellement avec des pièces) pour laisser passer la police
+                {
+                    Chunk *c = new Chunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);
+                    this->chunks.push_back(c);
+                }
+
+                this->police->getModel()->setPosition(make_pair((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH*2, this->police->getModel()->getY()));
+            }
+
+            else
+            {
+                Chunk *c = randomChunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);//On met le nouveau chunk à coté du dernier dans la liste
+                this->chunks.push_back(c);
+            }
+        }
     }
 
     for(Chunk *c : this->chunks)
@@ -65,16 +88,27 @@ void GameModel::update()
     }
 
     this->player.setMoveBackground(false);
+
+    if(this->police != nullptr)
+    {
+        this->police->update();
+
+        if(need_move_background)
+            this->police->getModel()->setPosition(make_pair(this->police->getModel()->getX() - this->player.getBackgroundShift(), this->police->getModel()->getY()));
+
+        if(this->police->getModel()->getX() + this->police->getModel()->getWidth() < 0)
+        {
+            this->entities.remove(this->police);
+            delete this->police;
+            this->police = nullptr;
+            cout << "Police is gone" << endl;
+        }
+    }
 }
 
 unsigned long GameModel::getScore() const
 {
-    return this->score;
-}
-
-void GameModel::setScore(unsigned long value)
-{
-    this->score = value;
+    return this->score + this->bonus_score;
 }
 
 void GameModel::kill()
@@ -117,6 +151,8 @@ void GameModel::setPseudo(const std::string &value)
 
 Chunk* GameModel::randomChunk(int pos_x_default) const
 {
+    //REMOVE
+    return new ChunkSpike(pos_x_default);
     switch(rand()%4)
     {
     case 1: return new ChunkSaw(pos_x_default);
@@ -124,4 +160,14 @@ Chunk* GameModel::randomChunk(int pos_x_default) const
         case 3: return new ChunkSpike(pos_x_default);
         default: return new Chunk(pos_x_default);
     }
+}
+
+Police *GameModel::getPolice() const
+{
+    return this->police;
+}
+
+void GameModel::addBonusScore(unsigned long value)
+{
+    this->bonus_score += value;
 }

@@ -67,6 +67,14 @@ private:
     sf::Image pause_img;
     sf::Sprite sprite_pause;
     sf::Text pause_text;
+
+    /*!
+     * \brief timer_police_circle1 et timer_police_circle2 permettent de faire clignoter la sirenne de la police et il y a 2 timers afin de créer un décalage entre les 2
+     */
+    Timer timer_police_circle1;
+    Timer timer_police_circle2;
+    bool display_police_alarm1;
+    bool display_police_alarm2;
 };
 
 #endif //GAMEVIEW_H

@@ -13,6 +13,7 @@
 #include "chunk_model.h"
 #include "chunk_view.h"
 #include "obstacle.h"
+#include "coin.h"
 
 class Chunk
 {
@@ -38,6 +39,9 @@ public:
 private:
     ChunkModel model;
     ChunkView view;
+
+protected:
+    std::list<Coin*> coins;
 
 };
 

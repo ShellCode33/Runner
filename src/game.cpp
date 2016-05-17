@@ -50,7 +50,7 @@ void Game::update()
                         if(o->checkCollision(*this->player->getModel()))
                             o->action(*this->game_model);
 
-                for(Entity* e : this->entities)
+                for( Entity* e : this->entities)
                     if(e->checkCollision(*this->player->getModel()))
                         e->action(*this->player);
             }

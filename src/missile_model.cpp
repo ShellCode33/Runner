@@ -43,7 +43,7 @@ void MissileModel::action(Player &player)
     player.getModel()->setLife(player.getModel()->getLife() - 40);
 }
 
-bool MissileModel::checkCollision(Movable &m)
+bool MissileModel::checkCollision(Movable &m) const
 {
     AABB playerRect, missileRect;
 

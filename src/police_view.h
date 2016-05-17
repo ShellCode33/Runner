@@ -1,0 +1,28 @@
+#ifndef POLICE_VIEW_H
+#define POLICE_VIEW_H
+
+#include <SFML/Graphics.hpp>
+#include <cassert>
+#include "police_model.h"
+#include "const.h"
+
+class PoliceView : public sf::Drawable
+{
+public:
+    PoliceView(PoliceModel &model);
+    ~PoliceView();
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+    void update();
+
+private:
+    PoliceModel &model;
+
+    sf::Texture car_texture;
+    sf::Sprite car;
+
+    sf::Texture wheel_texture;
+    sf::Sprite wheels[2];
+
+};
+
+#endif

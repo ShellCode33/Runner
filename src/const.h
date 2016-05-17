@@ -50,6 +50,9 @@
 #define HEART_IMG "img/heart.png"
 #define BLUR_EFFECT_PATH "src/blur.frag"
 #define COIN_IMG "img/coin.png"
+#define POLICE_CAR_IMG "img/police_car.png"
+#define WHEEL_CAR_IMG "img/wheel.png"
+
 
 //GAME
 #define GROUND_DEFAULT 100
@@ -65,5 +68,6 @@
 #define MISSILE_SPEED 10
 #define MAX_FIRE_DIFFICULTY 18
 #define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
+#define POLICE_SPEED 10
 
 #endif // CONST_H

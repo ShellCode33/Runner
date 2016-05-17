@@ -22,9 +22,9 @@ public:
     void update();
     MissileModel* getModel();
     MissileView* getView();
-    void draw(sf::RenderTarget &target, sf::RenderStates states);
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const;
     void action(Player &player);
-    bool checkCollision(Movable &m);
+    bool checkCollision(Movable &m) const;
 
 private:
     Player &player;

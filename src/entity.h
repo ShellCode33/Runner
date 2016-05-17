@@ -14,9 +14,9 @@ class Entity
 public:
     Entity() = default;
     virtual ~Entity() = default;
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void action(Player &player) = 0;
-    virtual bool checkCollision(Movable &m) = 0;
+    virtual bool checkCollision(Movable &m) const = 0;
 
 };
 

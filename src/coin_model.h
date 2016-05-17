@@ -41,7 +41,7 @@ public:
      */
     bool checkCollision(Movable &m) const;
 
-    bool getTaken() const;
+    bool isTaken() const;
 
 private:
     bool taken;

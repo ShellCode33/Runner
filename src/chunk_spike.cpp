@@ -9,11 +9,20 @@ ChunkSpike::ChunkSpike(int pos_x_default) : Chunk(pos_x_default)
     this->addObstacle(this->spike->getModel());
 
 
-    for(unsigned int i = 0; i < COIN_COUNT; i++)
+    for(int i = -2; i <= 2; i++) //5pièces en tout
     {
-        this->coins[i] = new Coin(0, 0, 32, 32);
-        this->addObstacle(this->coins[i]->getModel());
-        this->coins[i]->getModel()->setPositionRelat(((CHUNK_WIDTH - this->spike->getView()->getLocalBounds().width) / 2) + 32 * i, CHUNK_HEIGHT - GROUND_DEFAULT - this->spike->getView()->getLocalBounds().height * 2);
+        int pos_y;
+
+        if(i == -2 || i == 2) //Décalage des pièces aux extremitées
+            pos_y = CHUNK_HEIGHT - GROUND_DEFAULT - this->spike->getView()->getLocalBounds().height * 2;
+
+        else
+            pos_y = CHUNK_HEIGHT - GROUND_DEFAULT - this->spike->getView()->getLocalBounds().height * 3;
+
+        Coin *coin = new Coin(CHUNK_WIDTH / 2 + 32 * i, pos_y, 32, 32);
+        coin->getView()->setOrigin(coin->getModel()->getWidth() / 2, coin->getModel()->getHeight() / 2);
+        this->coins.push_back(coin);
+        this->addObstacle(coin->getModel());
     }
 }
 
@@ -27,10 +36,8 @@ void ChunkSpike::draw(sf::RenderTarget &target, sf::RenderStates states) const
     Chunk::draw(target, states);
     target.draw(*this->spike->getView(), states);
 
-    for(unsigned int i = 0; i < COIN_COUNT; i++)
-    {
-        target.draw(*this->coins[i]->getView(), states);
-    }
+    for(Coin *c : this->coins)
+        target.draw(*c->getView(), states);
 }
 
 void ChunkSpike::update()
@@ -39,14 +46,24 @@ void ChunkSpike::update()
     this->spike->getModel()->setPosition(make_pair(this->getModel()->pos_x + this->spike->getModel()->getRelatPosition().first, this->spike->getModel()->getRelatPosition().second));
     this->spike->update();
 
-    for(unsigned int i = 0; i < COIN_COUNT; i++)
+    list<Coin*> to_remove;
+
+    for(Coin *c : this->coins)
     {
-        if(!this->coins[i]->getModel()->getTaken())
+        if(!c->getModel()->isTaken())
         {
-            this->coins[i]->getModel()->setPosition((make_pair(this->getModel()->pos_x + this->coins[i]->getModel()->getRelatPosition().first, this->coins[i]->getModel()->getRelatPosition().second)));
-            this->coins[i]->update();
+            c->getModel()->setPosition((make_pair(this->getModel()->pos_x + c->getModel()->getRelatPosition().first, c->getModel()->getRelatPosition().second)));
+            c->update();
         }
+
         else
-            this->removeObstacle(this->coins[i]->getModel());
+            to_remove.push_back(c);
+    }
+
+    for(Coin *c : to_remove)
+    {
+        this->removeObstacle(c->getModel());
+        this->coins.remove(c);
+        delete c;
     }
 }

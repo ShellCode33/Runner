@@ -15,7 +15,7 @@ void CoinModel::action(GameModel &game)
 {
     Utils::log("Earned 1 coin !");
     this->taken = true;
-    game.setScore(game.getScore() + 100);
+    game.addBonusScore(100);
 }
 
 void CoinModel::update()
@@ -40,7 +40,7 @@ bool CoinModel::checkCollision(Movable &m) const
     return Collision::AABBintersectAABB(playerRect, coinRect);
 }
 
-bool CoinModel::getTaken() const
+bool CoinModel::isTaken() const
 {
     return this->taken;
 }

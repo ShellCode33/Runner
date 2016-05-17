@@ -54,7 +54,7 @@ void HighScoresTab::update()
     cout << "update high scores" << endl;
     this->scores = Utils::getScores();
 
-    int i;
+    unsigned int i;
     for(i = 0; i < this->scores.size(); i++)
     {
         this->scores_text[i+1].setString(to_string(i+1) + "                   " + to_string(this->scores[i].first) + " - " + this->scores[i].second);

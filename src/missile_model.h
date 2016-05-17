@@ -33,7 +33,7 @@ public:
      * \param player
      */
     void action(Player &player);
-    bool checkCollision(Movable &m);
+    bool checkCollision(Movable &m) const;
 
     float getAngle() const;
 

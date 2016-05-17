@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities), pause(false)
+GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<Chunk *> &chunks, std::list<Entity *> &entities) : window(window), game_model(model), fire(20.0), fire2(20.0), lava(20.0), player(player), chunks(chunks), entities(entities), pause(false), timer_police_circle1(80.), timer_police_circle2(50.), display_police_alarm1(false), display_police_alarm2(false)
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
 
@@ -100,6 +100,32 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
     for(const Sprite& s : this->lava_sprites)
         target.draw(s, states);
 
+    if(this->game_model.getPolice() != nullptr)
+    {
+        PoliceModel *police = this->game_model.getPolice()->getModel();
+
+        if(police->getPosition().first > VIEW_WIDTH)
+        {
+            CircleShape circle;
+            circle.setOrigin(50, 50);
+            circle.setRadius(50);
+
+            if(this->display_police_alarm1)
+            {
+                circle.setFillColor(Color(255, 0, 0, 100));
+                circle.setPosition(VIEW_WIDTH + 20, police->getY());
+                target.draw(circle);
+            }
+
+            if(this->display_police_alarm2)
+            {
+                circle.setFillColor(Color(0, 0, 255, 150));
+                circle.setPosition(VIEW_WIDTH + 20, police->getY() + 50); //10 valeur arbitraire afin de créer un décalage entre les 2 rectangles
+                target.draw(circle);
+            }
+        }
+    }
+
     //On dessine un rectangle rouge transparent sur tout l'écran pour donner l'impression que le joueur saigne
     if(this->player.getModel()->getLife() < 100)
     {
@@ -179,6 +205,20 @@ void GameView::update()
                 this->lava.setPosition(this->game_model.getFireOffset()-i*lava_w, j*lava_h);
                 this->lava_sprites.push_back(this->lava);
             }
+        }
+
+
+        //On fait clignoter l'alarme de la police
+        if(this->timer_police_circle1.isFinish())
+        {
+            this->display_police_alarm1 = !this->display_police_alarm1;
+            this->timer_police_circle1.reset();
+        }
+
+        if(this->timer_police_circle2.isFinish())
+        {
+            this->display_police_alarm2 = !this->display_police_alarm2;
+            this->timer_police_circle2.reset();
         }
     }
 }

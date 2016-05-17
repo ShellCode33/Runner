@@ -28,7 +28,7 @@ MissileView *MissileSeeker::getView()
     return &this->view;
 }
 
-void MissileSeeker::draw(sf::RenderTarget &target, sf::RenderStates states)
+void MissileSeeker::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(this->view, states);
 }
@@ -38,7 +38,7 @@ void MissileSeeker::action(Player &player)
     this->model.action(player);
 }
 
-bool MissileSeeker::checkCollision(Movable &m)
+bool MissileSeeker::checkCollision(Movable &m) const
 {
     return this->model.checkCollision(m);
 }

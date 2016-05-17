@@ -15,11 +15,13 @@
 #include "chunk_saw.h"
 #include "chunk_special.h"
 #include "chunk_spike.h"
+#include "police.h"
 
 class GameModel
 {
 private:
     unsigned long score;
+    unsigned long bonus_score; /*!< Pièces ou autre... */
     int fire_offset; /*!< correspond à l'avancement du feu dans la partie */
     int fire_speed; /*!< Nombre de pixel d'avancement du feu */
     int time_per_move; /*!< Vitesse d'approche du feu, évolue avec le temps */
@@ -37,6 +39,8 @@ private:
      * \return un Chunk aléatoire
      */
     Chunk *randomChunk(int pos_x_default) const;
+    Police *police;
+
 
 public:
     GameModel(Player &player, std::list<Chunk *> &chunks, std::list<Entity *> &entities);
@@ -60,6 +64,8 @@ public:
     void kill();
     std::string getPseudo() const;
     void setPseudo(const std::string &value);
+    Police *getPolice() const;
+    void addBonusScore(unsigned long value);
 };
 
 #endif // GAMEMODEL_H
