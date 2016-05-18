@@ -161,7 +161,6 @@ void GameView::processEvent(Event &event)
         {
             this->texture_pause.update(this->window.getRender());
             this->sprite_pause.setTexture(this->texture_pause);
-            cout << "VIEW_WIDTH: " << VIEW_WIDTH << " window->viewport: " << this->window.getViewport().width << endl;
             this->sprite_pause.setScale(VIEW_WIDTH / this->sprite_pause.getLocalBounds().width, VIEW_HEIGHT / this->sprite_pause.getLocalBounds().height);
         }
     }
