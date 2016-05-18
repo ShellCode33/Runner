@@ -4,6 +4,7 @@ using namespace std;
 
 ChunkSpike::ChunkSpike(int pos_x_default) : Chunk(pos_x_default)
 {
+    this->heart_can_spawn = false;
     this->spike = new Spike(0, 0, 240, 50);
     this->spike->getModel()->setPositionRelat((CHUNK_WIDTH - this->spike->getView()->getLocalBounds().width) / 2, CHUNK_HEIGHT - GROUND_DEFAULT - this->spike->getView()->getLocalBounds().height);
     this->addObstacle(this->spike->getModel());

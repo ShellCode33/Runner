@@ -58,14 +58,11 @@ public:
     std::list<Chunk *> getVisibleChunks() const;
     void setScore(unsigned long value);
 
-    /*!
-     * \brief kill tue le joueur
-     */
-    void kill();
     std::string getPseudo() const;
     void setPseudo(const std::string &value);
     Police *getPolice() const;
     void addBonusScore(unsigned long value);
+    Player &getPlayer() const;
 };
 
 #endif // GAMEMODEL_H

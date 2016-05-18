@@ -13,6 +13,7 @@ CoinView::CoinView(CoinModel &model) : Animation(100.0), model(model)
 
     for(unsigned int i = 0; i < 6; i++)
         this->addClip(IntRect(model.getWidth() * i, 0, model.getWidth(), model.getHeight()));
+
     this->setAnimEnabled(true);
 }
 

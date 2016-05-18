@@ -14,6 +14,7 @@
 #include "chunk_view.h"
 #include "obstacle.h"
 #include "coin.h"
+#include "heart.h"
 
 class Chunk
 {
@@ -39,9 +40,12 @@ public:
 private:
     ChunkModel model;
     ChunkView view;
+    Heart *bonus_heart;
+
 
 protected:
     std::list<Coin*> coins;
+    bool heart_can_spawn;
 
 };
 

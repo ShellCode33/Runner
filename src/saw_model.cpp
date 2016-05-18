@@ -41,5 +41,5 @@ void SawModel::update()
 void SawModel::action(GameModel &game)
 {
     Utils::log("Player died");
-    game.kill();
+    game.getPlayer().kill();
 }

@@ -111,11 +111,6 @@ unsigned long GameModel::getScore() const
     return this->score + this->bonus_score;
 }
 
-void GameModel::kill()
-{
-    this->player.kill();
-}
-
 int GameModel::getFireOffset() const
 {
     return this->fire_offset;
@@ -149,11 +144,17 @@ void GameModel::setPseudo(const std::string &value)
     this->pseudo = value;
 }
 
+
+Player &GameModel::getPlayer() const
+{
+    return player;
+}
+
 Chunk* GameModel::randomChunk(int pos_x_default) const
 {
     switch(rand()%4)
     {
-    case 1: return new ChunkSaw(pos_x_default);
+        case 1: return new ChunkSaw(pos_x_default);
         case 2: return new ChunkSpecial(pos_x_default, this->player, this->entities);
         case 3: return new ChunkSpike(pos_x_default);
         default: return new Chunk(pos_x_default);

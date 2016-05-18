@@ -35,5 +35,5 @@ bool SpikeModel::checkCollision(Movable &m) const
 
 void SpikeModel::action(GameModel &game)
 {
-    game.kill();
+    game.getPlayer().kill();
 }
