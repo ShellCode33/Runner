@@ -145,7 +145,7 @@ void WindowRunner::dispatchEvents()
         if(event.type == Event::MouseMoved)
         {
             Vector2i window_mouse_pos = Mouse::getPosition(*this->window);
-            Vector2i mouse_pos = this->window->mapPixelToCoords(Vector2i(event.mouseMove.x, event.mouseMove.y));
+            Vector2f mouse_pos = this->window->mapPixelToCoords(Vector2i(event.mouseMove.x, event.mouseMove.y));
             this->cursor.setPosition(mouse_pos.x, mouse_pos.y);
         }
     }

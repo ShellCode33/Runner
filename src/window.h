@@ -21,7 +21,7 @@
 #include "gameover.h"
 #include "high_scores_tab.h"
 
-class WindowRunner : sf::View
+class WindowRunner : public sf::View
 {
 private:
     sf::RenderWindow *window;
