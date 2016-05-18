@@ -22,14 +22,23 @@ void MissileModel::update()
     int x = abs(direction.first);
     int y = abs(direction.second);
 
-    this->angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
+    if(!this->moving)
+    {
+        this->angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
 
-    if(player_pos.first >= this->getPosition().first)
-        this->angle = -this->angle-180;
+        if(player_pos.first >= this->getPosition().first)
+            this->angle = -this->angle-180;
 
-    int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
+        int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
 
-    int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
+        int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
+    }
+
+    else
+    {
+
+        this->angle -= 5; //reduction progressive de l'angle entre le joueur et le missile
+    }
 
     if(!moving && x < MISSILE_DETECTION)
         moving = true;
