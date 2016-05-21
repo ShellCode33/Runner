@@ -15,6 +15,7 @@
 #include "obstacle.h"
 #include "coin.h"
 #include "heart.h"
+#include "moon.h"
 
 class Chunk
 {
@@ -41,6 +42,7 @@ private:
     ChunkModel model;
     ChunkView view;
     Heart *bonus_heart;
+    Moon *bonus_moon;
 
 
 protected:

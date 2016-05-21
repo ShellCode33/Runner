@@ -97,6 +97,7 @@ void GameOver::processEvent(sf::Event &event, State &state)
     {
         switch(event.key.code)
         {
+            case Keyboard::Return:
             case Keyboard::Space:
                 this->window->setState(SURVIVAL);
                 break;

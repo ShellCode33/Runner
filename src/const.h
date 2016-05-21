@@ -52,6 +52,7 @@
 #define COIN_IMG "img/coin.png"
 #define POLICE_CAR_IMG "img/police_car.png"
 #define WHEEL_CAR_IMG "img/wheel.png"
+#define MOON_IMG "img/moon.png"
 
 
 //GAME

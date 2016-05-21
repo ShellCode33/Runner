@@ -38,7 +38,7 @@ void WindowRunner::create()
     this->game_over.setTextPosition(Vector2f((this->getSize().x / 15), (this->getSize().y / 2)));
 
     this->window->setFramerateLimit(FRAMERATE);
-    //this->window->setVerticalSyncEnabled(false); //Performance issues
+    this->window->setVerticalSyncEnabled(false); //Performance issues
 
     this->window->setMouseCursorVisible(false);
 
