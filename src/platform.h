@@ -1,24 +1,24 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
-#include "entity.h"
 #include "platform_model.h"
 #include "platform_view.h"
 
 
-class Platform : public Entity
+class Platform
 {
 public:
-    Platform();
+    Platform(int relat_x, int relat_y, int width, int height);
     ~Platform();
 
-    void draw(sf::RenderTarget& target, sf::RenderStates states);
-    void action(Player &player);
-    bool checkCollision(Movable &m);
+    void action(GameModel &game);
+    bool checkCollision(Movable &m) const;
+    void update();
+
+    PlatformModel *getModel();
+    PlatformView *getView();
 
 private:
-
-    //Player & player;
     PlatformModel model;
     PlatformView view;
 

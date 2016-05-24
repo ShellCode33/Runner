@@ -16,6 +16,7 @@
 #include "chunk_special.h"
 #include "chunk_spike.h"
 #include "police.h"
+#include "platform.h"
 
 class GameModel
 {

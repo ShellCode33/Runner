@@ -2,7 +2,7 @@
 
 PlatformView::PlatformView(PlatformModel &model) : model(model)
 {
-    assert(this->texture_platform.loadFromFile("PLATFORM_IMG"));
+    assert(this->texture_platform.loadFromFile(PLATFORM_IMG));
     this->setTexture(this->texture_platform);
     this->setPosition(this->model.getX(), this->model.getY());
 }

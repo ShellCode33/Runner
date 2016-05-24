@@ -16,6 +16,7 @@
 #include "coin.h"
 #include "heart.h"
 #include "moon.h"
+#include "platform.h"
 
 class Chunk
 {
@@ -47,6 +48,7 @@ private:
 
 protected:
     std::list<Coin*> coins;
+    std::list<Platform*> platforms;
     bool heart_can_spawn;
 
 };
