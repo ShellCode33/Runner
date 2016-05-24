@@ -73,17 +73,20 @@ public:
     bool getOnPlatform() const;
     void setOnPlatform(bool value);
 
+    int getGround() const;
+    void setGround(int value);
+
 private:
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
 
-    float walk_acc;/*!< Vitesse d'accéleration du playerModel losqu'il marche*/
-    float run_acc;/*!< Vitesse d'accéleration du playerModel lorqu'il court*/
-    float max_walk;/*!< Vitesse maximale du playerModel en mode marche*/
-    float max_run;/*!< Vitesse maximale du playerModel en mode course*/
-    float jump_acc;/*!< Vitesse d'accéleration du playerModel pour le saut*/
-    float max_fall;/*!< Vitesse maximale du playerModel pour le saut*/
+    const float walk_acc;/*!< Vitesse d'accéleration du playerModel losqu'il marche*/
+    const float run_acc;/*!< Vitesse d'accéleration du playerModel lorqu'il court*/
+    const float max_walk;/*!< Vitesse maximale du playerModel en mode marche*/
+    const float max_run;/*!< Vitesse maximale du playerModel en mode course*/
+    const float jump_acc;/*!< Vitesse d'accéleration du playerModel pour le saut*/
+    const float max_fall;/*!< Vitesse maximale du playerModel en chute*/
 
-    float decelaration;/*!< Valeur qui assure la deceleration du playerModel*/
+    const float decelaration;/*!< Valeur qui assure la deceleration du playerModel*/
 
     int jumpframe;/*!< Nombre de frame max durant lequel le joueur peut sauter*/
     int jump_counter;/*!< Permet de compter le nombre de frame afin de ne pas depasser la valeur de jumpframe*/

@@ -174,7 +174,6 @@ void Chunk::update()
 
                     assert(abs(x_speed) + abs(y_speed) <= COIN_SPEED_MAGNET);
 
-                    cout << "x_coin_speed: " << x_speed << "y_coin_speed: " << y_speed << endl;
                     c->getModel()->setPositionRelat(c->getModel()->getRelatPosition().first + x_speed, c->getModel()->getRelatPosition().second + y_speed);
                 }
             }
