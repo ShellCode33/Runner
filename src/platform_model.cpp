@@ -3,7 +3,7 @@
 
 using namespace std;
 
-PlatformModel::PlatformModel(int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height), player_on_platform(false)
+PlatformModel::PlatformModel(int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height)
 {}
 
 PlatformModel::~PlatformModel()
@@ -11,7 +11,7 @@ PlatformModel::~PlatformModel()
 
 bool PlatformModel::checkCollision(Movable &m) const
 {
-    if(this->getPosition().second <= m.getPosition().second + m.getHeight())
+    if(this->getPosition().second + this->getHeight() > m.getPosition().second + m.getHeight())
     {
         AABB platformRect, playerRect;
 
@@ -27,21 +27,18 @@ bool PlatformModel::checkCollision(Movable &m) const
 
         return Collision::AABBintersectAABB(platformRect, playerRect);
     }
+
     return false;
 }
 
 void PlatformModel::action(GameModel &game)
 {
-    cout << "player on platform" << endl;
+    game.getPlayer().getModel()->setOnPlatform(true);
+    game.getPlayer().getModel()->setVelocityY(0.f);
     game.getPlayer().getModel()->setPosition(make_pair(game.getPlayer().getModel()->getX(), this->getY() - game.getPlayer().getModel()->getHeight()));
 }
 
 void PlatformModel::update()
 {
 
-}
-
-bool PlatformModel::getPlayer_on_platform() const
-{
-    return this->player_on_platform;
 }

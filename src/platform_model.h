@@ -15,11 +15,6 @@ public:
     void action(GameModel &game);
     void update();
 
-    bool getPlayer_on_platform() const;
-
-private:
-    bool player_on_platform;
-
 };
 
 #endif //PLATFORM_MODEL_H

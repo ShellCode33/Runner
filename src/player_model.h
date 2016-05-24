@@ -68,8 +68,10 @@ public:
     void processEffects();
 
     void setAttractCoins(bool value);
-
     bool getAttractCoins() const;
+
+    bool getOnPlatform() const;
+    void setOnPlatform(bool value);
 
 private:
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
@@ -96,6 +98,7 @@ private:
     std::vector<Timer> timer_effects; /*!< Timer pour chacun des effets */
 
     bool attractCoins;
+    bool on_platform;
 };
 /*!
  * \brief Surchage de l'opérateur += de pair afin d'additionner plus facilement les pairs que nous utilisons
