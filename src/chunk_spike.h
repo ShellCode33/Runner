@@ -15,7 +15,7 @@
 class ChunkSpike : public Chunk
 {
 public:
-    ChunkSpike(int pos_x_default);
+    ChunkSpike(int pos_x_default, Player &player);
     ~ChunkSpike();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();

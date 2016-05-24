@@ -20,7 +20,7 @@
 class ChunkSaw : public Chunk
 {
 public:
-    ChunkSaw(int pos_x_default);
+    ChunkSaw(int pos_x_default, Player &player);
     ~ChunkSaw();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void update();

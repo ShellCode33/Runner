@@ -48,6 +48,36 @@ void PlayerModel::setDeadLine(int value)
     this->dead_line = value;
 }
 
+void PlayerModel::addEffect(Effect *effect, unsigned long time_effect)
+{
+    this->active_effects.push_back(effect);
+    this->timer_effects.push_back(Timer(time_effect));
+    (*this->timer_effects.rbegin()).begin();
+    effect->start(*this);
+}
+
+void PlayerModel::processEffects()
+{
+    int i;
+    for(i = 0; i < (int)this->timer_effects.size(); i++)
+        if(this->timer_effects.at(i).isFinish())
+        {
+            cout << "Delete effect" << endl;
+            vector<Effect*>::iterator it = this->active_effects.begin();
+            vector<Timer>::iterator it2 = this->timer_effects.begin();
+
+            int j;
+            for(j = 0; j < i; j++, ++it, ++it2); //On se déplace dans le vecteur
+
+            (*it)->stop(*this);
+
+            Utils::log("test2:");
+            this->active_effects.erase(it);
+            this->timer_effects.erase(it2);
+            Utils::log("removed?");
+        }
+}
+
 void PlayerModel::eventHandler()
 {
     const bool onGround = this->pos.second > (VIEW_HEIGHT - this->height - GROUND_DEFAULT);

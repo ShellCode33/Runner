@@ -11,12 +11,10 @@
 #include <iostream>
 #include "movable.h"
 #include "utils.h"
+#include "timer.h"
+#include "effect.h"
+#include <list>
 
-enum Direction
-{
-    LEFT,
-    RIGHT
-};
 
 class PlayerModel : public Movable
 {
@@ -66,6 +64,9 @@ public:
     int getDeadLine() const;
     void setDeadLine(int value);
 
+    void addEffect(Effect *effect, unsigned long time_effect);
+    void processEffects();
+
 private:
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
 
@@ -86,6 +87,9 @@ private:
 
     bool move_background; /*!< utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background */
     int dead_line; /*!< Utilisé pour savoir où se situe le feu et tuer le joueur si celui-ci est dedans */
+
+    std::vector<Effect *> active_effects;
+    std::vector<Timer> timer_effects; /*!< Timer pour chacun des effets */
 };
 /*!
  * \brief Surchage de l'opérateur += de pair afin d'additionner plus facilement les pairs que nous utilisons

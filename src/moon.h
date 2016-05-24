@@ -3,17 +3,21 @@
 
 #include "moon_model.h"
 #include "moon_view.h"
+#include "effect.h"
 
-class Moon
+class Moon : public Effect
 {
 public:
-    Moon(int relat_x, int relat_y, int width, int height);
+    Moon(PlayerModel &player, int relat_x, int relat_y, int width, int height);
     ~Moon();
 
     void update();
 
     MoonView * getView();
     MoonModel * getModel();
+
+    void start(PlayerModel &player);
+    void stop(PlayerModel &player);
 
 
 private:

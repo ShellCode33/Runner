@@ -5,16 +5,17 @@ using namespace std;
 
 GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), bonus_score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo("Unknown"), chunks(chunks), entities(entities), police(nullptr)
 {
-    Chunk *c = new Chunk(0);
+    Chunk *c = new Chunk(0, player);
     this->chunks.push_back(c);
 
-    c = new Chunk(CHUNK_WIDTH);
+    c = new Chunk(CHUNK_WIDTH, player);
     this->chunks.push_back(c);
 
     int i;
     for(i = 2; i < CHUNK_PRELOAD; i++)
     {
-        c = randomChunk(i * CHUNK_WIDTH);
+        //c = randomChunk(i * CHUNK_WIDTH);
+        c = new ChunkSpecial(i * CHUNK_WIDTH, player, entities);
         this->chunks.push_back(c);
     }
 
@@ -64,7 +65,7 @@ void GameModel::update()
                 int i;
                 for(i = 0; i < 3; i++) // On prévoit 3 chunks vides (potentiellement avec des pièces) pour laisser passer la police
                 {
-                    Chunk *c = new Chunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH);
+                    Chunk *c = new Chunk((*this->chunks.rbegin())->getModel()->pos_x + CHUNK_WIDTH, this->player);
                     this->chunks.push_back(c);
                 }
 
@@ -154,10 +155,13 @@ Chunk* GameModel::randomChunk(int pos_x_default) const
 {
     switch(rand()%4)
     {
-        case 1: return new ChunkSaw(pos_x_default);
+        case 1: return new ChunkSaw(pos_x_default, this->player);
         case 2: return new ChunkSpecial(pos_x_default, this->player, this->entities);
-        case 3: return new ChunkSpike(pos_x_default);
-        default: return new Chunk(pos_x_default);
+        case 3: return new ChunkSpike(pos_x_default, this->player);
+        default:
+            Chunk *c = new Chunk(pos_x_default, this->player);
+            c->spawnBonusRandom();
+            return c;
     }
 }
 

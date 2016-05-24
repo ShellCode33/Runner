@@ -13,9 +13,16 @@ public:
     ~MissileView();
     void update();
 
+    bool isDeadAnimFinished();
 private:
     sf::Texture texture_missile;
     MissileModel &model;
+
+    sf::Texture smoke_texture;
+    Animation smoke;
+
+    bool anim_updated;
+    bool anim_ended;
 
 };
 

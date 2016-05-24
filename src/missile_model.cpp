@@ -2,9 +2,9 @@
 
 using namespace std;
 
-MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), angle(-1.f), moving(false), exploded(false)
+MissileModel::MissileModel(PlayerModel &player) : Movable(CHUNK_WIDTH / 2, 75, 74, 24), player(player), angle(0), moving(false), exploded(false), update_timer(10.)
 {
-
+    this->update_timer.begin();
 }
 
 MissileModel::~MissileModel()
@@ -14,36 +14,97 @@ MissileModel::~MissileModel()
 
 void MissileModel::update()
 {
-    pair<float, float> player_pos = this->player.getPosition();
-    pair<float, float> direction(player_pos.first + this->player.getWidth() / 2 - this->getX(), player_pos.second + this->player.getHeight() / 2 - this->getY());
-
-    //Utils::log("x: " + to_string(direction.first) + " - y: " + to_string(direction.second));
-
-    int x = abs(direction.first);
-    int y = abs(direction.second);
-
-    int x_speed = (direction.first * MISSILE_SPEED) / (x + y);
-
-    int y_speed = (direction.second * MISSILE_SPEED) / (x + y);
-
-    if(!this->moving)
+    if(!this->exploded)
     {
-        this->angle = (float)atan((float)x/y) * 180.0 / 3.141592 + 90;
+        pair<float, float> player_pos = this->player.getPosition();
+        pair<float, float> direction(player_pos.first + this->player.getWidth() / 2 - this->getX(), player_pos.second + this->player.getHeight() / 2 - this->getY());
 
-        if(player_pos.first >= this->getPosition().first)
-            this->angle = -this->angle-180;
+        int new_angle = atan2(direction.second, direction.first) * 180 / 3.14159;
+
+        if(new_angle < 0)
+            new_angle += 360;
+
+        //cout << "angle: " << new_angle << endl;
+
+        if(!this->moving)
+            this->angle = new_angle;
+
+        else if(this->update_timer.isFinish())
+        {
+            this->update_timer.reset();
+
+            if(new_angle > angle || abs(new_angle - angle) > 180)
+                this->angle += 1;
+
+            else
+                this->angle -= 1;
+
+            if(this->angle < 0)
+                this->angle += 360;
+
+            else if(this->angle >= 360)
+                this->angle -= 360;
+
+            int x_speed, y_speed; //Le déplacement selon x et y doit se faire en fonction de l'angle actuel (this->angle)
+
+            /* On sépare en 4 cas différents :
+             * - Lorsque le joueur est en haut à gauche du missile
+             * - Lorsque le joueur est en bas à gauche du missile
+             * - Lorsque le joueur est en bas à droite du missile
+             * - Lorsque le joueur est en haut à droite du missile
+             */
+
+            if(this->angle > 270 && this->angle <= 360)
+            {
+                //cout << "angle en haut à droite : " << this->angle << endl;
+                x_speed = (this->angle - 270) * MISSILE_SPEED / 90;
+                y_speed = x_speed - MISSILE_SPEED;
+
+                //cout << "x_speed: " << x_speed << " y_speed: " << y_speed << endl;
+            }
+
+            else if(this->angle > 180 && this->angle <= 270)
+            {
+                //cout << "angle en haut à gauche : " << this->angle << endl;
+                y_speed = -(this->angle - 180) * MISSILE_SPEED / 90;
+                x_speed = -(y_speed + MISSILE_SPEED);
+
+                //cout << "x_speed: " << x_speed << " y_speed: " << y_speed << endl;
+            }
+
+            else if(this->angle > 90 && this->angle <= 180)
+            {
+                //cout << "angle en bas à gauche : " << this->angle << endl;
+                x_speed = -(this->angle - 90) * MISSILE_SPEED / 90;
+                y_speed = (MISSILE_SPEED + x_speed);
+
+                //cout << "x_speed: " << x_speed << " y_speed: " << y_speed << endl;
+            }
+
+            else
+            {
+                //cout << "angle en bas à droite : " << this->angle << endl;
+                y_speed = this->angle * MISSILE_SPEED / 90;
+                x_speed = MISSILE_SPEED - y_speed;
+
+                //cout << "x_speed: " << x_speed << " y_speed: " << y_speed << endl;
+            }
+
+            assert(abs(x_speed) + abs(y_speed) <= MISSILE_SPEED);
+
+            this->setPosition(make_pair(this->getX() + x_speed, this->getY() + y_speed));
+
+            //Collisions environnement du missile
+            if(this->getX() < 0 || this->getY() <  0 || this->getY() > VIEW_HEIGHT - GROUND_DEFAULT)
+            {
+                this->exploded = true;
+                return;
+            }
+        }
+
+        if(!moving && abs(direction.first) < MISSILE_DETECTION)
+            moving = true;
     }
-
-    else
-    {
-        this->angle -= 10; //reduction progressive de l'angle entre le joueur et le missile
-    }
-
-    if(!moving && x < MISSILE_DETECTION)
-        moving = true;
-
-    if(moving)
-        this->setPosition(make_pair(this->getX() + x_speed, this->getY() + y_speed));
 }
 
 void MissileModel::action(Player &player)
@@ -54,6 +115,9 @@ void MissileModel::action(Player &player)
 
 bool MissileModel::checkCollision(Movable &m) const
 {
+    if(this->exploded)
+        return false;
+
     AABB playerRect, missileRect;
 
     playerRect.x = m.getX();

@@ -15,9 +15,7 @@
 class Animation : public sf::Sprite
 {
 private:
-    std::vector<sf::IntRect*> clips; /*!< Contient les differentes zones de la texture qui formeront les animations du sprite */
-    const unsigned long speed_ms; /*!< temps entre 2 sprites (en millisecondes) */
-    unsigned int current_clip_i; /*!< Zone courante de la texture */
+    unsigned long speed_ms; /*!< temps entre 2 sprites (en millisecondes) */
     Timer timer; /*!< Timer utilisé pour gérer le temps entre 2 zones de la texture */
     int x_offset, y_offset; /*!< Utilisé pour pouvoir créer un décalage des rectangles de lecture (ex: passer d'une ligne de sprites à une autre) */
     bool anim_enabled;  /*!< Permet de faire des pauses ou d'arrêter l'animation d'un sprite */
@@ -65,7 +63,17 @@ public:
     bool playOneTime();
 
     Animation& operator=(const Animation &other);
+    bool operator==(const Animation &second);
+    bool operator!=(const Animation &second);
 
+    void setSpeed(unsigned long value);
+    unsigned long getSpeed() const;
+
+    std::vector<sf::IntRect*> getClips() const;
+
+protected:
+    std::vector<sf::IntRect*> clips; /*!< Contient les differentes zones de la texture qui formeront les animations du sprite */
+    unsigned int current_clip_i; /*!< Zone courante de la texture */
 };
 
 #endif // ANIMATION_H

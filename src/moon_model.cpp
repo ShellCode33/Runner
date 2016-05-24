@@ -36,7 +36,6 @@ bool MoonModel::checkCollision(Movable &m) const
 void MoonModel::action(GameModel &game)
 {
     this->taken = true;
-    game.getPlayer().getModel()->setGravity(make_pair(0, .2f));
 }
 
 bool MoonModel::isTaken() const

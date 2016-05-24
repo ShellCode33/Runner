@@ -2,9 +2,9 @@
 
 using namespace std;
 
-ChunkSpike::ChunkSpike(int pos_x_default) : Chunk(pos_x_default)
+ChunkSpike::ChunkSpike(int pos_x_default, Player &player) : Chunk(pos_x_default, player)
 {
-    this->heart_can_spawn = false;
+    spawnBonusRandom();
     this->spike = new Spike(0, 0, 240, 50);
     this->spike->getModel()->setPositionRelat((CHUNK_WIDTH - this->spike->getView()->getLocalBounds().width) / 2, CHUNK_HEIGHT - GROUND_DEFAULT - this->spike->getView()->getLocalBounds().height);
     this->addObstacle(this->spike->getModel());
@@ -29,7 +29,10 @@ ChunkSpike::ChunkSpike(int pos_x_default) : Chunk(pos_x_default)
 
 ChunkSpike::~ChunkSpike()
 {
+    delete this->spike;
 
+    for(Coin *c : this->coins)
+        delete c;
 }
 
 void ChunkSpike::draw(sf::RenderTarget &target, sf::RenderStates states) const

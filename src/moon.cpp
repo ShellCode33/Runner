@@ -1,6 +1,8 @@
 #include "moon.h"
 
-Moon::Moon(int relat_x, int relat_y, int width, int height) : model(relat_x, relat_y, width, height), view(model)
+using namespace std;
+
+Moon::Moon(PlayerModel &player, int relat_x, int relat_y, int width, int height) : Effect(player), model(relat_x, relat_y, width, height), view(model)
 {}
 
 Moon::~Moon()
@@ -20,4 +22,14 @@ MoonView *Moon::getView()
 MoonModel *Moon::getModel()
 {
     return &this->model;
+}
+
+void Moon::start(PlayerModel &player)
+{
+    player.setGravity(make_pair(0, .2f));
+}
+
+void Moon::stop(PlayerModel &player)
+{
+    player.setGravity(make_pair(0, .5f));
 }

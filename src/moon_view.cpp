@@ -13,6 +13,9 @@ MoonView::~MoonView()
 
 void MoonView::update()
 {
-    Animation::update();
-    this->setPosition(this->model.getX(), this->model.getY());
+    if(!this->model.isTaken())
+    {
+        Animation::update();
+        this->setPosition(this->model.getX(), this->model.getY());
+    }
 }

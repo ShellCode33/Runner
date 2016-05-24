@@ -38,6 +38,11 @@ void Animation::update()
 
 Animation& Animation::operator=(const Animation &other)
 {
+    for(IntRect* r : this->clips)
+        delete r;
+
+    this->clips.clear();
+
     this->current_clip_i = other.current_clip_i;
     this->timer.reset();
     this->setTexture(*other.getTexture());
@@ -51,6 +56,29 @@ Animation& Animation::operator=(const Animation &other)
     }
 
     return *this;
+}
+
+bool Animation::operator==(const Animation &second)
+{
+    bool equals = true;
+
+    if(this->clips.size() != second.clips.size())
+        equals = false;
+
+    else
+    {
+        int i;
+        for(i = 0; equals && i < this->clips.size(); i++)
+            if(this->clips.at(i) != second.clips.at(i))
+                equals = false;
+    }
+
+    return equals;
+}
+
+bool Animation::operator!=(const Animation &second)
+{
+    return !this->operator ==(second);
 }
 
 void Animation::setOffset(const int x, const int y)
@@ -93,4 +121,20 @@ bool Animation::playOneTime()
     }
 
     return true;
+}
+
+void Animation::setSpeed(unsigned long value)
+{
+    this->speed_ms = value;
+    this->timer.changeTimer(value);
+}
+
+unsigned long Animation::getSpeed() const
+{
+    return this->speed_ms;
+}
+
+std::vector<IntRect *> Animation::getClips() const
+{
+    return this->clips;
 }

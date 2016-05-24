@@ -2,8 +2,9 @@
 
 using namespace std;
 
-ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *> &entities) : Chunk(pos_x_default), player(player), entities(entities)
+ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *> &entities) : Chunk(pos_x_default, player), player(player), entities(entities)
 {
+    spawnBonusRandom();
     assert(this->texture_base.loadFromFile(BASE_MISSILE_IMG));
     this->base_missile.setTexture(this->texture_base);
 
@@ -18,29 +19,37 @@ ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *
 
 ChunkSpecial::~ChunkSpecial()
 {
-    this->entities.remove(this->missile); //appelle le destructeur de l'entity
-    delete this->missile;
+    if(this->missile != nullptr)
+    {
+        this->entities.remove(this->missile);
+        delete this->missile;
+    }
 }
 
 void ChunkSpecial::update()
 {
     Chunk::update();
-    MissileModel *missile_model = this->missile->getModel();
-
     this->base_missile.setPosition(this->getModel()->pos_x + (CHUNK_WIDTH - this->base_missile.getLocalBounds().width) / 2, this->base_missile.getPosition().y);
 
-    if(!missile_model->getExploded())
+    if(this->missile != nullptr)
     {
-        this->missile->update();
+        MissileModel *missile_model = this->missile->getModel();
 
-        if(this->player.getModel()->needMoveBackground())
-            missile_model->setPosition(make_pair(missile_model->getX() - this->player.getBackgroundShift(), missile_model->getY()));
+        if(!missile_model->getExploded() || !this->missile->getView()->isDeadAnimFinished())
+        {
+            this->missile->update();
+
+            if(this->player.getModel()->needMoveBackground())
+                missile_model->setPosition(make_pair(missile_model->getX() - this->player.getBackgroundShift(), missile_model->getY()));
+        }
+
+        else
+        {
+            this->entities.remove(this->missile);
+            delete this->missile;
+            this->missile = nullptr;
+        }
     }
-
-    else
-        this->entities.remove(this->missile);
-
-    //this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, MISSILE_DEFAULT_Y + this->base_missile.getLocalBounds().height / 2)); //Gestion position du missile IMMOBILE
 }
 
 void ChunkSpecial::draw(sf::RenderTarget &target, sf::RenderStates states) const

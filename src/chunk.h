@@ -23,7 +23,7 @@ public:
     /*!
      * \param pos_x_default permet de définir la position par défaut du chunk sur l'écran (cette position peut-être exterieur à l'écran et le chunk peut donc ne pas être visible
      */
-    Chunk(int pos_x_default);
+    Chunk(int pos_x_default, Player &player);
     virtual ~Chunk();
     virtual void update();
     ChunkModel* getModel();
@@ -38,16 +38,20 @@ public:
      */
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
+    void spawnBonusRandom();
+
 private:
     ChunkModel model;
     ChunkView view;
+
     Heart *bonus_heart;
     Moon *bonus_moon;
+
+    Player &player;
 
 
 protected:
     std::list<Coin*> coins;
-    bool heart_can_spawn;
 
 };
 

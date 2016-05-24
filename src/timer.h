@@ -19,9 +19,10 @@ public:
     void reset(); /*!< Alias de begin() */
     bool isFinish() const;
     unsigned long getDuration() const;
+    void changeTimer(unsigned long ms);
 
 private:
-    const unsigned long ms;
+    unsigned long ms;
     std::chrono::high_resolution_clock::time_point begin_time;
 
 };

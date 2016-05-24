@@ -14,6 +14,7 @@ void Player::update()
 {
     if(!this->player_model.isDead())
     {
+        this->player_model.processEffects();
         this->player_model.applyForces();
         this->player_model.eventHandler();
         this->player_model.checkCollision();
@@ -48,5 +49,11 @@ void Player::setMoveBackground(bool value)
 void Player::kill()
 {
     this->player_model.setLife(0);
+}
+
+void Player::addEffect(Effect *effect, unsigned long time)
+{
+    Utils::log("add effect");
+    this->player_model.addEffect(effect, time);
 }
 

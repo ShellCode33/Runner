@@ -9,6 +9,7 @@
 #ifndef MISSILE_MODEL
 #define MISSILE_MODEL
 
+#include <cassert>
 #include "movable.h"
 #include "player.h"
 #include "collision.h"
@@ -41,9 +42,12 @@ public:
 
 private:
     PlayerModel &player;
-    float angle; /*!< Angle entre le missile et le joueur */
+    int angle; /*!< Angle entre le missile et le joueur */
     bool moving; /*!< état dépend de si le missile est en mouvement ou non */
     bool exploded;
+    int x_when_detected;
+    int y_when_detected;
+    Timer update_timer;
 
 };
 

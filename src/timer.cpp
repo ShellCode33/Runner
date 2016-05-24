@@ -38,3 +38,8 @@ unsigned long Timer::getDuration() const
     auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
     return msec.count();
 }
+
+void Timer::changeTimer(unsigned long ms)
+{
+    this->ms = ms;
+}

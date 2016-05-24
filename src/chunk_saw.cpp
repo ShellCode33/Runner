@@ -2,10 +2,9 @@
 
 using namespace std;
 
-ChunkSaw::ChunkSaw(int pos_x_default) : Chunk(pos_x_default)
+ChunkSaw::ChunkSaw(int pos_x_default, Player &player) : Chunk(pos_x_default, player)
 {
-    this->heart_can_spawn = false;
-
+    spawnBonusRandom();
     this->nb_saw = rand() % MAX_SAW_COUNT + 1;
 
     int i;
@@ -46,7 +45,9 @@ ChunkSaw::ChunkSaw(int pos_x_default) : Chunk(pos_x_default)
 
 ChunkSaw::~ChunkSaw()
 {
-
+    int i;
+    for(i = 0; i < this->nb_saw; i++)
+        delete this->saw[i];
 }
 
 void ChunkSaw::draw(sf::RenderTarget &target, sf::RenderStates states) const

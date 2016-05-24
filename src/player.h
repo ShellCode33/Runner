@@ -19,9 +19,12 @@ public:
     void update();
 
     void kill();
+    void addEffect(Effect *effect, unsigned long time);
+
 private:
     PlayerModel player_model;
     PlayerView player_view;
+
 
 };
 
