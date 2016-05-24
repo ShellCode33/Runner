@@ -67,6 +67,9 @@ public:
     void addEffect(Effect *effect, unsigned long time_effect);
     void processEffects();
 
+    bool getOnPlatform() const;
+    void setOnPlatform(bool value);
+
 private:
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
 
@@ -90,6 +93,8 @@ private:
 
     std::vector<Effect *> active_effects;
     std::vector<Timer> timer_effects; /*!< Timer pour chacun des effets */
+
+    bool on_platform;
 };
 /*!
  * \brief Surchage de l'opérateur += de pair afin d'additionner plus facilement les pairs que nous utilisons

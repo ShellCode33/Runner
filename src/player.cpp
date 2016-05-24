@@ -15,9 +15,9 @@ void Player::update()
     if(!this->player_model.isDead())
     {
         this->player_model.processEffects();
-        this->player_model.applyForces();
         this->player_model.eventHandler();
         this->player_model.checkCollision();
+        this->player_model.applyForces();
     }
 }
 

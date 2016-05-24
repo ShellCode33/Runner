@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlayerModel::PlayerModel() : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT)
+PlayerModel::PlayerModel() : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT), on_platform(false)
 {
     this->setVelocity(make_pair(0, 0));
     this->setGravity(make_pair(0, .5f));
@@ -77,6 +77,16 @@ void PlayerModel::processEffects()
             Utils::log("removed?");
         }
 }
+bool PlayerModel::getOnPlatform() const
+{
+    return on_platform;
+}
+
+void PlayerModel::setOnPlatform(bool value)
+{
+    on_platform = value;
+}
+
 
 void PlayerModel::eventHandler()
 {
@@ -132,10 +142,14 @@ void PlayerModel::eventHandler()
 
     if(this->spacePressed)
     {
-        if(onGround)
+        if(onGround || this->on_platform)
         {
+            if(this->on_platform)
+                Utils::log("test");
+
             this->velocity.second += this->jump_acc * 2;
             this->jump_counter = this->jumpframe;
+            this->on_platform = false;
         }
 
         else if(this->jump_counter > 0)
@@ -143,9 +157,7 @@ void PlayerModel::eventHandler()
             this->velocity.second += this->jump_acc;
             this->jump_counter--;
         }
-
     }
-
     else
         this->jump_counter = 0;
 
@@ -177,7 +189,7 @@ void PlayerModel::applyForces()
 {
     this->pos += this->velocity;
 
-    if(this->velocity.second < this->max_fall)
+    if(this->velocity.second > -this->max_fall)
         this->velocity += this->gravity;
 }
 
