@@ -44,9 +44,6 @@ void ChunkSpike::draw(sf::RenderTarget &target, sf::RenderStates states) const
     Chunk::draw(target, states);
     target.draw(*this->spike->getView(), states);
 
-    for(Coin *c : this->coins)
-        target.draw(*c->getView(), states);
-
     for(Platform *p : this->platforms)
         target.draw(*p->getView(), states);
 }
@@ -61,26 +58,5 @@ void ChunkSpike::update()
     {
         p->getModel()->setPosition((make_pair(this->getModel()->pos_x + p->getModel()->getRelatPosition().first, p->getModel()->getRelatPosition().second)));
         p->update();
-    }
-
-    list<Coin*> to_remove;
-
-    for(Coin *c : this->coins)
-    {
-        if(!c->getModel()->isTaken())
-        {
-            c->getModel()->setPosition((make_pair(this->getModel()->pos_x + c->getModel()->getRelatPosition().first, c->getModel()->getRelatPosition().second)));
-            c->update();
-        }
-
-        else
-            to_remove.push_back(c);
-    }
-
-    for(Coin *c : to_remove)
-    {
-        this->removeObstacle(c->getModel());
-        this->coins.remove(c);
-        delete c;
     }
 }

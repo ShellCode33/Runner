@@ -80,6 +80,27 @@ void Chunk::update()
             this->bonus_moon->update();
         }
     }
+
+    list<Coin*> to_remove;
+
+    for(Coin *c : this->coins)
+    {
+        if(!c->getModel()->isTaken())
+        {
+            c->getModel()->setPosition((make_pair(this->getModel()->pos_x + c->getModel()->getRelatPosition().first, c->getModel()->getRelatPosition().second)));
+            c->update();
+        }
+
+        else
+            to_remove.push_back(c);
+    }
+
+    for(Coin *c : to_remove)
+    {
+        this->removeObstacle(c->getModel());
+        this->coins.remove(c);
+        delete c;
+    }
 }
 
 ChunkModel* Chunk::getModel()
@@ -111,4 +132,7 @@ void Chunk::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
     if(this->bonus_moon != nullptr)
         target.draw(*this->bonus_moon->getView(), states);
+
+    for(Coin *c : this->coins)
+        target.draw(*c->getView(), states);
 }

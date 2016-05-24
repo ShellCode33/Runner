@@ -41,6 +41,22 @@ ChunkSaw::ChunkSaw(int pos_x_default, Player &player) : Chunk(pos_x_default, pla
             this->saw[3]->getModel()->setPositionRelat(saw_w * 1.5, CHUNK_HEIGHT - GROUND_DEFAULT - 2*saw_h);
             break;
     }
+
+    for(int i = -2; i <= 2; i++) //5pièces en tout
+    {
+        int pos_y;
+
+        if(i == -2 || i == 2) //Décalage des pièces aux extremitées
+            pos_y = CHUNK_HEIGHT - GROUND_DEFAULT - this->saw[0]->getView()->getLocalBounds().height * 1.5;
+
+        else
+            pos_y = CHUNK_HEIGHT - GROUND_DEFAULT - this->saw[0]->getView()->getLocalBounds().height * 1.8;
+
+        Coin *coin = new Coin(CHUNK_WIDTH / 2 + 32 * i, pos_y, 32, 32);
+        coin->getView()->setOrigin(coin->getModel()->getWidth() / 2, coin->getModel()->getHeight() / 2);
+        this->coins.push_back(coin);
+        this->addObstacle(coin->getModel());
+    }
 }
 
 ChunkSaw::~ChunkSaw()
