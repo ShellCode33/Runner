@@ -30,7 +30,7 @@
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
 #define PIXEL_TTF "fonts/I-pixel-u.ttf"
 #define SPLASH_IMG "img/splash4.png"
-#define PLAYER_IMG "img/player6.png"
+#define PLAYER_IMG "img/player5.png"
 #define PLAYER_RUNNING_IMG "img/player_running.png"
 #define SNOOP_DOGG_ANIM "img/snoop.png"
 #define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"
@@ -53,6 +53,7 @@
 #define POLICE_CAR_IMG "img/police_car.png"
 #define WHEEL_CAR_IMG "img/wheel.png"
 #define MOON_IMG "img/moon.png"
+#define PLATFORM_IMG "img/platform.png"
 
 
 //GAME
