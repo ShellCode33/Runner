@@ -7,6 +7,7 @@ class Effect
 {
 public:
     Effect(PlayerModel &player) : player(player) {  }
+    virtual ~Effect() = default;
     virtual void start(PlayerModel& player) = 0;
     virtual void stop(PlayerModel& player) = 0;
 

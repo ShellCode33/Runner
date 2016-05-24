@@ -20,6 +20,7 @@ public:
     void addObstacle(Obstacle* obstacle); /*!< Ajouter un obstacle au chunk */
     void removeObstacle(Obstacle* obstacle);
     int pos_x; /*!< Position du chunk sur l'écran, un chunk prend toute la place selon y */
+    bool isInChunk(Movable &m) const;
 
 private:
     std::list<Obstacle*> obstacles; /*!< Contient les différents obstacles appartenant au chunk */

@@ -130,7 +130,7 @@ void GameView::draw(RenderTarget& target, RenderStates states) const
     if(this->player.getModel()->getLife() < 100)
     {
         RectangleShape rect;
-        rect.setFillColor(Color(255, 0, 0, 100 - this->player.getModel()->getLife())); //100 est la vita de base
+        rect.setFillColor(Color(255, 0, 0, 50 - 50 * this->player.getModel()->getLife() / 100)); //100 est la vita de base
         rect.setPosition(0, 0);
         rect.setSize(Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
         target.draw(rect);

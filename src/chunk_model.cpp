@@ -33,3 +33,8 @@ void ChunkModel::removeObstacle(Obstacle *obstacle)
 
     this->obstacles.remove(obstacle);
 }
+
+bool ChunkModel::isInChunk(Movable &m) const
+{
+    return m.getX() + m.getWidth() > pos_x && m.getX() < pos_x + CHUNK_WIDTH;
+}

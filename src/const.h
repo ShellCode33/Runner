@@ -54,6 +54,7 @@
 #define WHEEL_CAR_IMG "img/wheel.png"
 #define MOON_IMG "img/moon.png"
 #define PLATFORM_IMG "img/platform.png"
+#define MAGNET_IMG "img/magnet.png"
 
 
 //GAME
@@ -71,5 +72,6 @@
 #define MAX_FIRE_DIFFICULTY 18
 #define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
 #define POLICE_SPEED 10
+#define COIN_SPEED_MAGNET 2
 
 #endif // CONST_H

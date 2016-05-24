@@ -17,6 +17,7 @@
 #include "heart.h"
 #include "moon.h"
 #include "platform.h"
+#include "magnet.h"
 
 class Chunk
 {
@@ -47,6 +48,8 @@ private:
 
     Heart *bonus_heart;
     Moon *bonus_moon;
+    Magnet *bonus_magnet;
+
 
     Player &player;
 

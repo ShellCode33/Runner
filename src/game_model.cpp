@@ -14,8 +14,7 @@ GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &enti
     int i;
     for(i = 2; i < CHUNK_PRELOAD; i++)
     {
-        //c = randomChunk(i * CHUNK_WIDTH);
-        c = new ChunkSpecial(i * CHUNK_WIDTH, player, entities);
+        c = randomChunk(i * CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
 
