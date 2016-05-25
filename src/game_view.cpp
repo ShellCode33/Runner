@@ -191,7 +191,7 @@ void GameView::update()
         this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
 
         //Lave
-        this->lava_sprites.clear(); //TROP LOURD, A MODIFIER POUR OPTI
+        this->lava_sprites.clear();
         int lava_w = this->lava.getLocalBounds().width;
         int lava_h = this->lava.getLocalBounds().height;
         int nb_lava_x = (DEAD_LINE_DEFAULT + this->game_model.getFireOffset()) / lava_w + 1; //+1 car il c'est une division entière et il y aura des demi-blocs de lave
