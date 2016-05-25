@@ -24,6 +24,7 @@ OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, "")
         Texture *texture = new Texture();
         Sprite *sprite = new Sprite();
 
+
         if(texture->loadFromFile("img/images/" + this->available_langages.at(i) + ".png"))
         {
             this->flags_texture.push_back(texture);
