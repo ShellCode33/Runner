@@ -13,6 +13,7 @@
 #include "const.h"
 #include "gamestate.h"
 #include <cassert>
+#include "audio.h"
 
 class WindowRunner;
 
@@ -25,8 +26,8 @@ private :
     sf::Sprite *sprite;
     sf::Text text; /*!< Texte du bouton */
     sf::Font font; /*!< Police du bouton */
+    Audio audio;
     const State action; /*!< Action que va effectuer le bouton (ex: MENU, GAME_OVER etc...) */
-
     int pos_x, pos_y; /*!< Position x et y du bouton */
     int width, height; /*!< Largeur et hauteur du bouton */
 

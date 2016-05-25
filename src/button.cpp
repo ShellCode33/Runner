@@ -6,6 +6,8 @@ using namespace sf;
 
 Button::Button(const string & text, const State action, const int pos_x, const int pos_y, const int width, const int height) : action(action), pos_x(pos_x), pos_y(pos_y), width(width), height(height)
 {
+    this->audio.load(CLICK_BUTTON_SNG);
+    this->audio.setPlayingOffset(sf::milliseconds(320));
 
     assert(this->font.loadFromFile(PIXEL_TTF));
     this->text.setFont(this->font);
@@ -65,7 +67,10 @@ void Button::processEvent(WindowRunner &window, Event &event)
     if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
     {
         if((mouse_pos.y > this->pos_y && mouse_pos.y < this->pos_y + this->height) && (mouse_pos.x > this->pos_x && mouse_pos.x < this->pos_x + this->width) )
+        {
+            this->audio.play();
             window.setState(this->action);
+        }
     }
 }
 
