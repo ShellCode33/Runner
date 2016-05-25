@@ -11,7 +11,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-//WINDOW
+/**WINDOW**/
+
 #define VIEW_WIDTH 1920
 #define VIEW_HEIGHT 1080
 #define VIEW_RATIO ((float) VIEW_WIDTH / (float) VIEW_HEIGHT)
@@ -21,7 +22,7 @@
 
 #define TITLE_WINDOW "Super Weed Boy"
 #define SPLASH_TEXT "Press <Space>"
-#define GAME_OVER_TEXT " "
+#define GAME_OVER_TEXT "FUCK YOU"
 
 /*####################  PATH  ###################*/
 
@@ -84,6 +85,27 @@
 
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
 #define PIXEL_TTF "fonts/I-pixel-u.ttf"
+
+/**MUSIC**/
+
+#define MENU_MSC "musics/menu.wav"
+#define CHUNK1_MSC "musics/chunk1.mp3"
+#define CHUNK2_MSC "musics/chunk2.mp3"
+#define ABOUT_MSC "musics/about.mp3"
+#define HIGHSCORES_MSC "musics/highscores.mp3"
+
+/**SONG**/
+
+#define SUPERWEEDBOY_SNG "songs/superweedboy.mp3"
+#define CLICK_BUTTON_SNG "songs/click_button.wav"
+#define COIN_TAKEN_SNG "songs/coin_taken.wav"
+#define BONUS_TAKEN_SNG "songs/bonus_taken.wav"
+#define EXPLOSION_SNG "songs/explosion.wav"
+#define POLICE_SNG "songs/police.wav"
+
+#define PLAYER_WALKING_SNG "songs/player_walking.mp3"
+#define PLAYER_RUNNING_SNG "songs/player_running.mp3"
+#define PLAYER_JUMPING_SNG "songs/player_jumping.mp3"
 
 /*###############################################*/
 

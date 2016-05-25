@@ -20,6 +20,7 @@ private:
     sf::Texture menubg_texture;
     sf::Sprite *menu_bg;
     Button survival, high_score, options, about, leave;
+    Audio audio;
 
 public:
     Menu(WindowRunner &window);
@@ -30,6 +31,7 @@ public:
      * \param event : Evenements SFML
      */
     void processEvents(sf::Event & event);
+    Audio *getAudio();
     void update();
 };
 
