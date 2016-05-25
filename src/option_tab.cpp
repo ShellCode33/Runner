@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), settingsChanged(false)
+OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, "")
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));
@@ -128,29 +128,48 @@ void OptionTab::processEvent(RenderWindow &window, Event &event, State &state)
     {
         Vector2f mouse_pos = window.mapPixelToCoords(Vector2i(event.mouseButton.x, event.mouseButton.y));
 
-        //APPUI DRAPEAUX
-        int lang;
         int i = 0;
 
+        //APPUI DRAPEAUX
         for(i = 0; i < (int)this->available_langages.size(); i++)
         {
             if(mouse_pos.x > this->flags_sprites.at(i)->getPosition().x && mouse_pos.x < this->flags_sprites.at(i)->getPosition().x + this->flags_sprites.at(i)->getLocalBounds().width && mouse_pos.y > this->flags_sprites.at(i)->getPosition().y && mouse_pos.y < this->flags_sprites.at(i)->getPosition().y + this->flags_sprites.at(i)->getLocalBounds().height)
             {
-                lang = i;
+                WindowRunner::writeSetting("lang", this->available_langages.at(i));
+                this->chooseLang.setString(Utils::translate(WindowRunner::getSetting("lang"), "lang.option"));
+                this->chooseVolume.setString(Utils::translate(WindowRunner::getSetting("lang"), "volume.option"));
+                this->chooseDifficulty.setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty.option"));
+
+                int j;
+                for(j = 0; j < 3; j++)
+                    this->difficulties_text[j].setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty." + to_string(j+1)));
+
                 break;
             }
-
-            else
-                lang = -1;
         }
 
-        if(lang != -1)
+        //APPUI VOLUME
+        for(i = 0; i < 10; i++)
         {
-            this->settingsChanged = true;
-            WindowRunner::writeSetting("lang", this->available_langages.at(lang));
+            if(mouse_pos.x > (VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 40 + i*15 && mouse_pos.x < (VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 40 + i*15 + 3 && mouse_pos.y > (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 250 - 30 && mouse_pos.y < (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 250)
+            {
+                this->volume = (i+1) * 10;
+                this->volume_text.setString(to_string(volume));
+                WindowRunner::writeSetting("volume", to_string(this->volume));
+            }
         }
 
-        else
-            Utils::log("Language not found");
+        //APPUI DIFFICULTE
+        for(i = 0; i < 3; i++)
+        {
+            if(mouse_pos.x > difficulties_text[i].getPosition().x && mouse_pos.x < difficulties_text[i].getPosition().x + difficulties_text[i].getLocalBounds().width && mouse_pos.y > difficulties_text[i].getPosition().y && mouse_pos.y < difficulties_text[i].getPosition().y + difficulties_text[i].getLocalBounds().height)
+            {
+                this->difficulty = i+1;
+                this->difficulties_text[i].setColor(Color(255, 255, 255, 255));
+                this->difficulties_text[(i+1)%3].setColor(Color(153, 153, 102, 255));
+                this->difficulties_text[(i+2)%3].setColor(Color(153, 153, 102, 255));
+                WindowRunner::writeSetting("difficulty", to_string(this->difficulty));
+            }
+        }
     }
 }

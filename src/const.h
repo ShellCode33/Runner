@@ -17,48 +17,79 @@
 #define VIEW_RATIO ((float) VIEW_WIDTH / (float) VIEW_HEIGHT)
 #define FRAMERATE 60
 
-//STRING
+/**STRING**/
+
 #define TITLE_WINDOW "Super Weed Boy"
-#define SPLASH_TEXT " "
+#define SPLASH_TEXT "Press <Space>"
 #define GAME_OVER_TEXT " "
 
-//PATH
-#define CURSOR_IMG "img/cursor.png"
-#define BUTTON_MENU_IMG "img/button5.png"
-#define MENU_BG "img/menu_bg.png"
-#define HIGHSCORES_BG "img/highscores_bg.jpeg"
-#define OPTIONS_BG "img/options_bg.png"
+/*####################  PATH  ###################*/
+
+/**BONUS**/
+
+#define COIN_IMG "img/bonus/coin.png"
+#define HEART_IMG "img/bonus/heart.png"
+#define MAGNET_IMG "img/bonus/magnet.png"
+#define MOON_IMG "img/bonus/moon.png"
+
+/**CHUNKS**/
+
+#define BACKGROUND_CHUNK_IMG "img/chunk/background_chunk.png"
+#define BACKGROUND_CHUNK_IMG2 "img/chunk/background_chunk2.png"
+#define GROUND_CHUNK_IMG "img/chunk/ground_chunk.png"
+#define GROUND_CHUNK_IMG2 "img/chunk/ground_chunk2.png"
+
+/**EFFECTS / ANIMATION**/
+
+#define CURSOR_IMG "img/effects/cursor.png"
+#define FIRE_IMG "img/effects/fire.png"
+#define LAVA_IMG "img/effects/lava.png"
+#define SMOKE_IMG "img/effects/smoke.png"
+#define SNOOP_DOGG_IMG "img/effects/snoop.png"
+#define SNOOP_DOGG_REVERSE_IMG "img/effects/snoop_reverse.png"
+#define BLUR_EFFECT_PATH "img/effects/blur.frag"
+
+/**IMAGES**/
+
+#define BUTTON_IMG "img/images/button.png"
+#define GAMEOVER_BACKGROUND_IMG "img/images/gameover_background.png"
+#define GAMEOVER_BOARD_IMG "img/images/gameover_board.png"
+#define HIGHSCORES_BACKGROUND_IMG "img/images/highscores_background.png"
+#define ILLUMINATI_IMG "img/images/illuminati.png"
+#define MENU_BACKGROUND_IMG "img/images/menu_background.png"
+#define SCORE_BOARD_IMG "img/images/score_background.png"
+#define SPLASH_BACKGROUND_IMG "img/images/splash_background.png"
+#define OPTION_BACKGROUND_IMG "img/images/option_background.png"
+#define FLAG_FR_IMG "img/images/fr.png"
+#define FLAG_EN_IMG "img/images/en.png"
+#define FLAG_ES_IMG "img/images/es.png"
+
+/**OBSTACLES**/
+
+#define MISSILE_IMG "img/obstacles/missile.png"
+#define MISSILE_BASE_IMG "img/obstacles/missile_base.png"
+#define PLATFORM_IMG "img/obstacles/platform.png"
+#define POLICE_CAR_IMG "img/obstacles/police_car.png"
+#define SAW_IMG "img/obstacles/saw.png"
+#define SPIKE_IMG "img/obstacles/spikes.png"
+#define WHEEL_IMG "img/obstacles/wheel.png"
+
+/**PLAYER**/
+
+#define PLAYER_WALKING_IMG "img/player/player_walking.png"
+#define PLAYER_RUNNING_IMG "img/player/player_running.png"
+#define PLAYER_JUMPING_IMG "img/player/player_jumping.png"
+
+/**FONT**/
+
 #define ONTHEMOVE_TTF "fonts/onthemove.ttf"
 #define PIXEL_TTF "fonts/I-pixel-u.ttf"
-#define SPLASH_IMG "img/splash4.png"
-#define PLAYER_IMG "img/player6.png"
-#define PLAYER_RUNNING_IMG "img/player_running.png"
-#define SNOOP_DOGG_ANIM "img/snoop.png"
-#define SNOOP_DOGG_ANIM_REVERSE "img/snoop_reverse.png"
-#define ILLUMINATI_IMG "img/illuminati.png"
-#define GROUND_IMG "img/background_chunk3.png"
-#define BACKGROUND_IMG "img/background_chunk.png"
-#define FIRE_ANIM "img/fire.png"
-#define SAW_IMG "img/saw.png"
-#define DEAD_ANIM "img/smoke.png"
-#define GAME_OVER_BG "img/gameover2.png"
-#define GAME_OVER_BOARD "img/gameover_board.png"
-#define LAVA_IMG "img/lava.png"
-#define MISSILE_IMG "img/missile.png"
-#define BASE_MISSILE_IMG "img/missile_base.png"
-#define SPIKE_IMG "img/spikes.png"
-#define SCORE_BG "img/score_background.png"
-#define HEART_IMG "img/heart.png"
-#define BLUR_EFFECT_PATH "src/blur.frag"
-#define COIN_IMG "img/coin.png"
-#define POLICE_CAR_IMG "img/police_car.png"
-#define WHEEL_CAR_IMG "img/wheel.png"
-#define MOON_IMG "img/moon.png"
-#define PLATFORM_IMG "img/platform.png"
-#define MAGNET_IMG "img/magnet.png"
+
+/*###############################################*/
 
 
-//GAME
+/**GAME CONST**/
+
 #define GROUND_DEFAULT 100
 #define NB_CHUNK 4 /*!< 4 chunks visibles en meme temps */
 #define CHUNK_WIDTH (VIEW_WIDTH / NB_CHUNK)

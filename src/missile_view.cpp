@@ -9,7 +9,7 @@ MissileView::MissileView(MissileModel &model) : Animation(20.0), model(model), s
     this->setOrigin(this->getLocalBounds().width / 2, this->getLocalBounds().height / 2);
     this->setPosition(this->model.getX(), this->model.getY());
 
-    assert(this->smoke_texture.loadFromFile(DEAD_ANIM));
+    assert(this->smoke_texture.loadFromFile(SMOKE_IMG));
     this->smoke.setTexture(this->smoke_texture);
 
     int i, j;

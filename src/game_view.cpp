@@ -8,7 +8,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
 
-    assert(this->fire_texture.loadFromFile(FIRE_ANIM));
+    assert(this->fire_texture.loadFromFile(FIRE_IMG));
     this->fire.setTexture(this->fire_texture);
 
     int i, j;
@@ -23,7 +23,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
     this->fire2.setPosition(FIRE_DEFAULT_POS, this->fire.getLocalBounds().width*2);
     this->fire2.setRotation(90);
 
-    assert(this->texture_score.loadFromFile(SCORE_BG));
+    assert(this->texture_score.loadFromFile(SCORE_BOARD_IMG));
     this->score_background.setTexture(this->texture_score);
     this->score_background.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_background.getLocalBounds().height) / 2);//-20 pour l'espace depuis l'écran
 
@@ -182,7 +182,7 @@ void GameView::update()
         this->fire2.setPosition(FIRE_DEFAULT_POS + this->game_model.getFireOffset(), this->fire2.getPosition().y);
 
         //On met à jour l'affichage du score
-        this->score_display.setString("Score: " + to_string(this->game_model.getScore()));
+        this->score_display.setString(Utils::translate(WindowRunner::getSetting("lang"), "score.game") + ": " + to_string(this->game_model.getScore()));
         this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
 
 

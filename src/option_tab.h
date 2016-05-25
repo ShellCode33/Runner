@@ -29,8 +29,6 @@ private:
     int difficulty;
     sf::Text difficulties_text[3]; //3difficultés
 
-    bool settingsChanged;
-
 
 };
 

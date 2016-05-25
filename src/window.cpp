@@ -6,7 +6,7 @@ using namespace std;
 
 Config WindowRunner::config("config");
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_BACKGROUND_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -58,6 +58,7 @@ void WindowRunner::create()
                 break;
 
             case MENU:
+                this->menu.update();
                 this->window->draw(this->menu);
                 this->window->draw(this->cursor);
                 break;

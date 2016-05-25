@@ -30,7 +30,7 @@ public:
      * \param event : Evenements SFML
      */
     void processEvents(sf::Event & event);
-
+    void update();
 };
 
 #endif // MENU_H
