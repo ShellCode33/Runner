@@ -2,9 +2,10 @@
 
 using namespace std;
 
-Timer::Timer(const unsigned long ms) : ms(ms)
+Timer::Timer(const unsigned long ms, bool start) : ms(ms)
 {
-
+    if(start)
+        begin();
 }
 
 Timer::~Timer()

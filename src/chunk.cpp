@@ -64,6 +64,7 @@ void Chunk::spawnBonusRandom()
 
 void Chunk::update()
 {
+    this->model.update();
     this->view.update();
 
     if(this->bonus_heart != nullptr)

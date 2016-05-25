@@ -13,7 +13,7 @@
 class Timer
 {
 public:
-    Timer(const unsigned long ms=0);
+    Timer(const unsigned long ms=0, bool start=false);
     ~Timer();
     void begin();
     void reset(); /*!< Alias de begin() */

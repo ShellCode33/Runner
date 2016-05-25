@@ -32,10 +32,10 @@ bool CoinModel::checkCollision(Movable &m) const
     playerRect.w = m.getWidth();
     playerRect.h = m.getHeight();
 
-    coinRect.x = this->getX();
-    coinRect.y = this->getY();
     coinRect.w = this->getWidth();
     coinRect.h = this->getHeight();
+    coinRect.x = this->getX() - coinRect.w / 2;
+    coinRect.y = this->getY() - coinRect.h / 2;
 
     return Collision::AABBintersectAABB(playerRect, coinRect);
 }

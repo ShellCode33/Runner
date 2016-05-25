@@ -105,5 +105,5 @@
 #define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
 #define POLICE_SPEED 10
 #define COIN_SPEED_MAGNET 2
-
+#define NB_THEMES 2
 #endif // CONST_H

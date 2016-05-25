@@ -18,6 +18,8 @@ GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &enti
         this->chunks.push_back(c);
     }
 
+    this->difficulty_level = atoi(WindowRunner::getSetting("difficulty").c_str());
+
     this->game_begin.begin();
     this->timer.begin();
     this->difficulty_timer.begin();
@@ -41,7 +43,11 @@ void GameModel::update()
     if(this->fire_speed < MAX_FIRE_DIFFICULTY && this->difficulty_timer.isFinish())
     {
         Utils::log("increase difficulty");
-        this->fire_speed++;
+
+
+        this->fire_speed += this->difficulty_level;
+
+
         this->difficulty_timer.reset();
     }
 
