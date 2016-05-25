@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), available_langages(3), flags_texture(3), flags_sprites(3)
+OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), settingsChanged(false)
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));
@@ -21,16 +21,15 @@ OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), available_langages(3), flag
     int i;
     for(i = 0; i < (int)this->available_langages.size(); i++)
     {
-        Texture texture;
-        Sprite sprite;
+        Texture *texture = new Texture();
+        Sprite *sprite = new Sprite();
 
-        if(texture.loadFromFile("img/" + this->available_langages.at(i) + ".png"))
+        if(texture->loadFromFile("img/" + this->available_langages.at(i) + ".png"))
         {
             this->flags_texture.push_back(texture);
-            sprite.setTexture(*this->flags_texture.rbegin());
+            sprite->setTexture(*texture);
+            sprite->setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 30 *(i+1) + 50 * i, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 100);
             this->flags_sprites.push_back(sprite);
-            this->flags_sprites.rbegin()->setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 30 *(i+1) + 50 * i, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 100);
-
         }
     }
 
@@ -65,7 +64,8 @@ OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), available_langages(3), flag
 
 OptionTab::~OptionTab()
 {
-
+    for(Sprite *s : this->flags_sprites)
+        delete s;
 }
 
 void OptionTab::draw(RenderTarget &target, RenderStates states) const
@@ -74,8 +74,8 @@ void OptionTab::draw(RenderTarget &target, RenderStates states) const
     target.draw(this->board);
     target.draw(this->chooseLang);
 
-    for(const Sprite & s : this->flags_sprites)
-        target.draw(s);
+    for(Sprite * s : this->flags_sprites)
+        target.draw(*s);
 
     target.draw(this->chooseVolume);
 
@@ -116,7 +116,7 @@ void OptionTab::draw(RenderTarget &target, RenderStates states) const
     }
 }
 
-void OptionTab::processEvent(Event &event, State &state)
+void OptionTab::processEvent(RenderWindow &window, Event &event, State &state)
 {
     if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
     {
@@ -126,16 +126,31 @@ void OptionTab::processEvent(Event &event, State &state)
 
     else if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
     {
-        int x_clic = event.mouseButton.x;
-        int y_clic = event.mouseButton.y;
+        Vector2f mouse_pos = window.mapPixelToCoords(Vector2i(event.mouseButton.x, event.mouseButton.y));
 
         //APPUI DRAPEAUX
-        int i;
+        int lang;
+        int i = 0;
 
         for(i = 0; i < (int)this->available_langages.size(); i++)
-            if(x_clic > this->flags_sprites.at(i).getPosition().x && x_clic < this->flags_sprites.at(i).getPosition().x + this->flags_sprites.at(i).getLocalBounds().width && y_clic > this->flags_sprites.at(i).getPosition().y && y_clic < this->flags_sprites.at(i).getPosition().y + this->flags_sprites.at(i).getLocalBounds().height)
+        {
+            if(mouse_pos.x > this->flags_sprites.at(i)->getPosition().x && mouse_pos.x < this->flags_sprites.at(i)->getPosition().x + this->flags_sprites.at(i)->getLocalBounds().width && mouse_pos.y > this->flags_sprites.at(i)->getPosition().y && mouse_pos.y < this->flags_sprites.at(i)->getPosition().y + this->flags_sprites.at(i)->getLocalBounds().height)
+            {
+                lang = i;
                 break;
+            }
 
-        WindowRunner::writeSetting("lang", this->available_langages.at(i));
+            else
+                lang = -1;
+        }
+
+        if(lang != -1)
+        {
+            this->settingsChanged = true;
+            WindowRunner::writeSetting("lang", this->available_langages.at(lang));
+        }
+
+        else
+            Utils::log("Language not found");
     }
 }

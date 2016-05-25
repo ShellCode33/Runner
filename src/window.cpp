@@ -31,7 +31,7 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     this->desktop = VideoMode::getDesktopMode();
 
-    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Close);
+    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
     this->state = SPLASH;
@@ -130,7 +130,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case OPTIONS:
-                this->option_tab.processEvent(event, this->state);
+                this->option_tab.processEvent(*this->window, event, this->state);
                 break;
 
             case GAME_OVER:

@@ -40,7 +40,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
     this->life_display.setCharacterSize(30);
     this->life_display.setColor(Color(0, 0, 0, 255));
     this->life_display.setStyle(Text::Bold);
-    this->life_display.setString("100 %");
+    this->life_display.setString("100");
 
     this->life_heart.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50, VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2); //-20 espace écran -50 espace entre le score et le coeur de vie
     this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
@@ -187,7 +187,7 @@ void GameView::update()
 
 
         //On met à jour l'affichage de la vie
-        this->life_display.setString(to_string(this->player.getModel()->getLife()) + " %");
+        this->life_display.setString(to_string(this->player.getModel()->getLife()));
         this->life_display.setPosition(VIEW_WIDTH - this->score_background.getLocalBounds().width - 20 - this->life_heart.getLocalBounds().width - 50 + (this->life_heart.getLocalBounds().width - this->life_display.getLocalBounds().width) / 2 , VIEW_HEIGHT - (GROUND_DEFAULT + this->life_heart.getGlobalBounds().height) / 2 + this->life_display.getLocalBounds().height / 2);
 
         //Lave

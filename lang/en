@@ -1,0 +1,12 @@
+splash.text=Press Space
+survival.button=Survival
+options.button=Options
+about.button=About
+exit.button=Exit
+score.button=High Scores
+lang.option=Available Languages
+volume.option=Volume
+difficulty.option=Difficulty
+difficulty.1=Easy
+difficulty.2=Medium
+difficulty.3=Hard

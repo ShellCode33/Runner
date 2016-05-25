@@ -54,6 +54,7 @@ AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
     this->text[2].setString(String("&"));
     this->text[3].setString(String(L"Clément Fleury"));
 
+
     for(i = 0; i < (int)(sizeof(this->text)/sizeof(Text)); i++)
     {
         this->text[i].setFont(font);
