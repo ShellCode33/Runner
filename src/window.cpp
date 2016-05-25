@@ -58,6 +58,7 @@ void WindowRunner::create()
                 break;
 
             case MENU:
+                this->menu.update();
                 this->window->draw(this->menu);
                 this->window->draw(this->cursor);
                 break;
@@ -130,7 +131,7 @@ void WindowRunner::dispatchEvents()
                 break;
 
             case OPTIONS:
-                this->option_tab.processEvent(event, this->state);
+                this->option_tab.processEvent(*this->window, event, this->state);
                 break;
 
             case GAME_OVER:

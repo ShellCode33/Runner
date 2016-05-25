@@ -23,12 +23,14 @@ class GameModel
 private:
     unsigned long score;
     unsigned long bonus_score; /*!< Pièces ou autre... */
+    int difficulty_level; /*!< Utilisé pour incrémenter fire_speed en fonction de la difficulté choisie dans les options */
     int fire_offset; /*!< correspond à l'avancement du feu dans la partie */
     int fire_speed; /*!< Nombre de pixel d'avancement du feu */
     int time_per_move; /*!< Vitesse d'approche du feu, évolue avec le temps */
     Timer game_begin; /*!< Mesure le temps depuis le début du jeu afin de calculer le score */
     Timer timer; /*!< Timer utilisé pour l'avancement du feu */
-    Timer difficulty_timer; /*! Timer utilisé pour la vitesse du jeu au fil du temps */
+    Timer difficulty_timer; /*!< Timer utilisé pour la vitesse du jeu au fil du temps */
+
     Player &player;
     std::string pseudo; /*! Pseudo utilisé lors du gameover */
     std::list<Chunk *> &chunks;

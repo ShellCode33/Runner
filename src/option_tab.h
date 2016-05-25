@@ -10,12 +10,12 @@ public:
     OptionTab();
     ~OptionTab();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    void processEvent(sf::Event &event, State &state);
+    void processEvent(sf::RenderWindow &window, sf::Event &event, State &state);
 
 private:
     std::vector<std::string> available_langages;
-    std::vector<sf::Texture> flags_texture;
-    std::vector<sf::Sprite> flags_sprites;
+    std::vector<sf::Texture*> flags_texture;
+    std::vector<sf::Sprite*> flags_sprites;
     sf::RectangleShape board;
 
     sf::Font font;

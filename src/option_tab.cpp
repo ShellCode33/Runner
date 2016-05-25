@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, ""), available_langages(3), flags_texture(3), flags_sprites(3)
+OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, "")
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));
@@ -21,16 +21,15 @@ OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, ""), available_langag
     int i;
     for(i = 0; i < (int)this->available_langages.size(); i++)
     {
-        Texture texture;
-        Sprite sprite;
+        Texture *texture = new Texture();
+        Sprite *sprite = new Sprite();
 
-        if(texture.loadFromFile("img/" + this->available_langages.at(i) + ".png"))
+        if(texture->loadFromFile("img/images/" + this->available_langages.at(i) + ".png"))
         {
             this->flags_texture.push_back(texture);
-            sprite.setTexture(*this->flags_texture.rbegin());
+            sprite->setTexture(*texture);
+            sprite->setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 30 *(i+1) + 50 * i, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 100);
             this->flags_sprites.push_back(sprite);
-            this->flags_sprites.rbegin()->setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 30 *(i+1) + 50 * i, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 100);
-
         }
     }
 
@@ -65,7 +64,8 @@ OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, ""), available_langag
 
 OptionTab::~OptionTab()
 {
-
+    for(Sprite *s : this->flags_sprites)
+        delete s;
 }
 
 void OptionTab::draw(RenderTarget &target, RenderStates states) const
@@ -74,8 +74,8 @@ void OptionTab::draw(RenderTarget &target, RenderStates states) const
     target.draw(this->board);
     target.draw(this->chooseLang);
 
-    for(const Sprite & s : this->flags_sprites)
-        target.draw(s);
+    for(Sprite * s : this->flags_sprites)
+        target.draw(*s);
 
     target.draw(this->chooseVolume);
 
@@ -116,7 +116,7 @@ void OptionTab::draw(RenderTarget &target, RenderStates states) const
     }
 }
 
-void OptionTab::processEvent(Event &event, State &state)
+void OptionTab::processEvent(RenderWindow &window, Event &event, State &state)
 {
     if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
     {
@@ -126,16 +126,50 @@ void OptionTab::processEvent(Event &event, State &state)
 
     else if(event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
     {
-        int x_clic = event.mouseButton.x;
-        int y_clic = event.mouseButton.y;
+        Vector2f mouse_pos = window.mapPixelToCoords(Vector2i(event.mouseButton.x, event.mouseButton.y));
+
+        int i = 0;
 
         //APPUI DRAPEAUX
-        int i;
-
         for(i = 0; i < (int)this->available_langages.size(); i++)
-            if(x_clic > this->flags_sprites.at(i).getPosition().x && x_clic < this->flags_sprites.at(i).getPosition().x + this->flags_sprites.at(i).getLocalBounds().width && y_clic > this->flags_sprites.at(i).getPosition().y && y_clic < this->flags_sprites.at(i).getPosition().y + this->flags_sprites.at(i).getLocalBounds().height)
-                break;
+        {
+            if(mouse_pos.x > this->flags_sprites.at(i)->getPosition().x && mouse_pos.x < this->flags_sprites.at(i)->getPosition().x + this->flags_sprites.at(i)->getLocalBounds().width && mouse_pos.y > this->flags_sprites.at(i)->getPosition().y && mouse_pos.y < this->flags_sprites.at(i)->getPosition().y + this->flags_sprites.at(i)->getLocalBounds().height)
+            {
+                WindowRunner::writeSetting("lang", this->available_langages.at(i));
+                this->chooseLang.setString(Utils::translate(WindowRunner::getSetting("lang"), "lang.option"));
+                this->chooseVolume.setString(Utils::translate(WindowRunner::getSetting("lang"), "volume.option"));
+                this->chooseDifficulty.setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty.option"));
 
-        WindowRunner::writeSetting("lang", this->available_langages.at(i));
+                int j;
+                for(j = 0; j < 3; j++)
+                    this->difficulties_text[j].setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty." + to_string(j+1)));
+
+                break;
+            }
+        }
+
+        //APPUI VOLUME
+        for(i = 0; i < 10; i++)
+        {
+            if(mouse_pos.x > (VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 40 + i*15 && mouse_pos.x < (VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 40 + i*15 + 3 && mouse_pos.y > (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 250 - 30 && mouse_pos.y < (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 250)
+            {
+                this->volume = (i+1) * 10;
+                this->volume_text.setString(to_string(volume));
+                WindowRunner::writeSetting("volume", to_string(this->volume));
+            }
+        }
+
+        //APPUI DIFFICULTE
+        for(i = 0; i < 3; i++)
+        {
+            if(mouse_pos.x > difficulties_text[i].getPosition().x && mouse_pos.x < difficulties_text[i].getPosition().x + difficulties_text[i].getLocalBounds().width && mouse_pos.y > difficulties_text[i].getPosition().y && mouse_pos.y < difficulties_text[i].getPosition().y + difficulties_text[i].getLocalBounds().height)
+            {
+                this->difficulty = i+1;
+                this->difficulties_text[i].setColor(Color(255, 255, 255, 255));
+                this->difficulties_text[(i+1)%3].setColor(Color(153, 153, 102, 255));
+                this->difficulties_text[(i+2)%3].setColor(Color(153, 153, 102, 255));
+                WindowRunner::writeSetting("difficulty", to_string(this->difficulty));
+            }
+        }
     }
 }

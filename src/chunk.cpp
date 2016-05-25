@@ -64,6 +64,7 @@ void Chunk::spawnBonusRandom()
 
 void Chunk::update()
 {
+    this->model.update();
     this->view.update();
 
     if(this->bonus_heart != nullptr)
@@ -191,6 +192,12 @@ void Chunk::update()
         this->coins.remove(c);
         delete c;
     }
+
+    for(Platform *p : this->platforms)
+    {
+        p->getModel()->setPosition((make_pair(this->getModel()->pos_x + p->getModel()->getRelatPosition().first, p->getModel()->getRelatPosition().second)));
+        p->update();
+    }
 }
 
 ChunkModel* Chunk::getModel()
@@ -228,4 +235,7 @@ void Chunk::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
     for(Coin *c : this->coins)
         target.draw(*c->getView(), states);
+
+    for(Platform *p : this->platforms)
+        target.draw(*p->getView(), states);
 }

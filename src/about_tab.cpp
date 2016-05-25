@@ -49,10 +49,11 @@ AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
     assert(font.loadFromFile(ONTHEMOVE_TTF));
 
     //Pas très propre mais necessaire car la SFML n'est pas capable de centrer horizontalement du texte multi-ligne
-    this->text[0].setString(String("Developped By"));
+    this->text[0].setString(Utils::translate(WindowRunner::getSetting("lang"), "about.dev"));
     this->text[1].setString(String(L"Jérémie Pereyrol"));
     this->text[2].setString(String("&"));
     this->text[3].setString(String(L"Clément Fleury"));
+
 
     for(i = 0; i < (int)(sizeof(this->text)/sizeof(Text)); i++)
     {
@@ -86,6 +87,7 @@ void AboutTab::update()
 {
     this->first_snoop.update();
     this->second_snoop.update();
+    this->text[0].setString(Utils::translate(WindowRunner::getSetting("lang"), "about.dev"));
 }
 
 void AboutTab::processEvent(WindowRunner & window, Event & event)

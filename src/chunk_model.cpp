@@ -2,6 +2,9 @@
 
 #include "moon_model.h"
 
+Timer ChunkModel::change_background_timer(30000.f, true);
+unsigned short ChunkModel::num_theme = 0;
+
 ChunkModel::ChunkModel(int pos_x_default) : pos_x(pos_x_default)
 {
 
@@ -28,13 +31,24 @@ void ChunkModel::addObstacle(Obstacle *obstacle)
 
 void ChunkModel::removeObstacle(Obstacle *obstacle)
 {
-    if(dynamic_cast<MoonModel*>(obstacle) != nullptr)
-        Utils::log("une moon va etre enlevée des obstacles");
-
     this->obstacles.remove(obstacle);
 }
 
 bool ChunkModel::isInChunk(Movable &m) const
 {
     return m.getX() + m.getWidth() > pos_x && m.getX() < pos_x + CHUNK_WIDTH;
+}
+
+unsigned int ChunkModel::getTheme() const
+{
+    return this->num_theme;
+}
+
+void ChunkModel::update()
+{
+    if(this->change_background_timer.isFinish())
+    {
+        this->change_background_timer.reset();
+        this->num_theme = (this->num_theme + 1) % NB_THEMES;
+    }
 }

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), bonus_score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo("Unknown"), chunks(chunks), entities(entities), police(nullptr)
+GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &entities) : score(0), bonus_score(0), fire_offset(0), fire_speed(8), time_per_move(30), timer(time_per_move), difficulty_timer(3000), player(player), pseudo(Utils::translate(WindowRunner::getSetting("lang"), "pseudo.default")), chunks(chunks), entities(entities), police(nullptr)
 {
     Chunk *c = new Chunk(0, player);
     this->chunks.push_back(c);
@@ -17,6 +17,8 @@ GameModel::GameModel(Player &player, list<Chunk *> &chunks, list<Entity *> &enti
         c = randomChunk(i * CHUNK_WIDTH);
         this->chunks.push_back(c);
     }
+
+    this->difficulty_level = atoi(WindowRunner::getSetting("difficulty").c_str());
 
     this->game_begin.begin();
     this->timer.begin();
@@ -41,7 +43,11 @@ void GameModel::update()
     if(this->fire_speed < MAX_FIRE_DIFFICULTY && this->difficulty_timer.isFinish())
     {
         Utils::log("increase difficulty");
-        this->fire_speed++;
+
+
+        this->fire_speed += this->difficulty_level;
+
+
         this->difficulty_timer.reset();
     }
 

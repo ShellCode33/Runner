@@ -22,7 +22,12 @@ HighScoresTab::HighScoresTab() : ScreenWait(HIGHSCORES_BACKGROUND_IMG, "")
     this->scores_text[0].setFont(this->font);
     this->scores_text[0].setCharacterSize(60);
     this->scores_text[0].setStyle(Text::Bold);
-    this->scores_text[0].setString("Rank        Score - Pseudo");
+
+    string tmp_1 = Utils::translate(WindowRunner::getSetting("lang"), "rank.game");
+    string tmp_2 = Utils::translate(WindowRunner::getSetting("lang"), "score.game");
+    string tmp_3 = Utils::translate(WindowRunner::getSetting("lang"), "pseudo.game");
+
+    this->scores_text[0].setString(tmp_1 + "        " + tmp_2 + " - " + tmp_3);
     this->scores_text[0].setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 50, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 5);
 }
 
@@ -51,6 +56,12 @@ void HighScoresTab::draw(sf::RenderTarget &target, sf::RenderStates states) cons
 
 void HighScoresTab::update()
 {
+    string tmp_1 = Utils::translate(WindowRunner::getSetting("lang"), "rank.game");
+    string tmp_2 = Utils::translate(WindowRunner::getSetting("lang"), "score.game");
+    string tmp_3 = Utils::translate(WindowRunner::getSetting("lang"), "pseudo.game");
+
+    this->scores_text[0].setString(tmp_1 + "        " + tmp_2 + " - " + tmp_3);
+
     cout << "update high scores" << endl;
     this->scores = Utils::getScores();
 

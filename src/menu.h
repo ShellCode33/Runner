@@ -31,8 +31,8 @@ public:
      * \param event : Evenements SFML
      */
     void processEvents(sf::Event & event);
-
     Audio *getAudio();
+    void update();
 };
 
 #endif // MENU_H

@@ -40,3 +40,12 @@ void Menu::processEvents(Event & event)
     this->about.processEvent(this->window, event);
     this->leave.processEvent(this->window, event);
 }
+
+void Menu::update()
+{
+    this->survival.setText(Utils::translate(WindowRunner::getSetting("lang"), "survival.button"));
+    this->high_score.setText(Utils::translate(WindowRunner::getSetting("lang"), "score.button"));
+    this->options.setText(Utils::translate(WindowRunner::getSetting("lang"), "options.button"));
+    this->about.setText(Utils::translate(WindowRunner::getSetting("lang"), "about.button"));
+    this->leave.setText(Utils::translate(WindowRunner::getSetting("lang"), "exit.button"));
+}

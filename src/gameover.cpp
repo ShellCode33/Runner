@@ -51,6 +51,8 @@ void GameOver::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void GameOver::update()
 {
+    this->button_menu.setText(Utils::translate(WindowRunner::getSetting("lang"), "menu.button"));
+    this->button_playagain.setText(Utils::translate(WindowRunner::getSetting("lang"), "playagain.button"));
     this->pseudo.setString(game.getModel()->getPseudo());
     this->score.setString(to_string(game.getModel()->getScore()));
 

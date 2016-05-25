@@ -16,11 +16,14 @@ public:
 
 private:
     ChunkModel &model;
-    sf::Texture texture_ground;
+    sf::Texture texture_ground[NB_THEMES];
     sf::Sprite sprite_ground;
 
-    sf::Texture texture_background;
+    sf::Texture texture_background[NB_THEMES];
     sf::Sprite sprite_background;
+
+    unsigned short actual_theme;
+
 
 };
 

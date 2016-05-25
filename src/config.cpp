@@ -22,6 +22,7 @@ void Config::createConfig()
         config_file << "resolution=1920x1080" << endl;
         config_file << "volume=100" << endl;
         config_file << "lang=en" << endl;
+        config_file << "difficulty=2" << endl;
         config_file.close();
     }
 

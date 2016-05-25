@@ -91,3 +91,20 @@ std::pair<int, int> Button::getSize() const
 {
     return make_pair(this->width, this->height);
 }
+
+void Button::setText(string text)
+{
+    this->text.setString(toUpper(text));
+    this->text.setOrigin(this->text.getLocalBounds().width / 2.1, this->text.getLocalBounds().height); // divisé par 2.1 car la taille du Text est plus grande que la taille de la police
+    this->text.setPosition(this->pos_x + this->width / 2, this->pos_y + this->height / 2);
+}
+
+string Button::toUpper(string str) const
+{
+    string tmp = "";
+
+    for(char c : str)
+        tmp += toupper(c);
+
+    return tmp;
+}

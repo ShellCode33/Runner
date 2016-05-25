@@ -61,6 +61,10 @@ public :
     std::pair<int, int> getPosition() const;
 
     std::pair<int, int> getSize() const;
+
+    void setText(std::string text);
+
+    std::string toUpper(std::string str) const;
 };
 
 #endif // BUTTON_H

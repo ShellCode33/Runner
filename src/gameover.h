@@ -29,8 +29,6 @@ private:
     sf::Texture board_texture;
     sf::Sprite board;
 
-    std::string input_username;
-
     sf::Font font;
     sf::Text pseudo;
     sf::Text score;

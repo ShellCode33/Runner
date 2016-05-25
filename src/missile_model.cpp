@@ -125,10 +125,10 @@ bool MissileModel::checkCollision(Movable &m) const
     playerRect.w = m.getWidth();
     playerRect.h = m.getHeight();
 
-    missileRect.x = this->getX();
-    missileRect.y = this->getY();
     missileRect.w = this->getWidth();
     missileRect.h = this->getHeight();
+    missileRect.x = this->getX() - missileRect.w / 2;
+    missileRect.y = this->getY() - missileRect.h / 2;
 
     return Collision::AABBintersectAABB(playerRect, missileRect);
 }
