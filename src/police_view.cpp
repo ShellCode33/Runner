@@ -8,7 +8,7 @@ PoliceView::PoliceView(PoliceModel &model) : model(model), circle1(50), circle2(
     assert(this->car_texture.loadFromFile(POLICE_CAR_IMG));
     this->car.setTexture(this->car_texture);
 
-    assert(this->wheel_texture.loadFromFile(WHEEL_CAR_IMG));
+    assert(this->wheel_texture.loadFromFile(WHEEL_IMG));
     this->wheels[0].setTexture(this->wheel_texture);
     this->wheels[1].setTexture(this->wheel_texture);
     this->wheels[0].setOrigin(this->wheels[0].getLocalBounds().width / 2, this->wheels[0].getLocalBounds().height / 2);

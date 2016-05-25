@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-OptionTab::OptionTab() : ScreenWait(OPTIONS_BG, ""), available_langages(3), flags_texture(3), flags_sprites(3)
+OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, ""), available_langages(3), flags_texture(3), flags_sprites(3)
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));

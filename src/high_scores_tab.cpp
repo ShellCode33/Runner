@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-HighScoresTab::HighScoresTab() : ScreenWait(HIGHSCORES_BG, "")
+HighScoresTab::HighScoresTab() : ScreenWait(HIGHSCORES_BACKGROUND_IMG, "")
 {
     assert(this->font.loadFromFile(ONTHEMOVE_TTF));
     this->board.setSize(Vector2f(VIEW_WIDTH / 3, VIEW_HEIGHT - VIEW_HEIGHT / 3));

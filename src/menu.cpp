@@ -7,7 +7,7 @@ using namespace std;
 Menu::Menu(WindowRunner &window) :  window(window), survival("SURVIVAL", SURVIVAL, 150, 450), high_score("HIGH SCORES", HIGH_SCORES, 150, 560),
                                     options("OPTIONS", OPTIONS, 150, 670), about("ABOUT", ABOUT, 150, 780), leave("EXIT", EXIT, 150, 890)
 {
-    assert(this->menubg_texture.loadFromFile(MENU_BG));
+    assert(this->menubg_texture.loadFromFile(MENU_BACKGROUND_IMG));
     this->menu_bg = new Sprite(this->menubg_texture);
 }
 

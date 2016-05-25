@@ -4,10 +4,10 @@ using namespace sf;
 
 ChunkView::ChunkView(ChunkModel &model) : model(model)
 {
-    assert(this->texture_ground.loadFromFile(GROUND_IMG));
+    assert(this->texture_ground.loadFromFile(GROUND_CHUNK_IMG));
     this->sprite_ground.setTexture(this->texture_ground);
 
-    assert(this->texture_background.loadFromFile(BACKGROUND_IMG));
+    assert(this->texture_background.loadFromFile(BACKGROUND_CHUNK_IMG));
     this->sprite_background.setTexture(this->texture_background);
 }
 

@@ -6,7 +6,7 @@ using namespace std;
 
 Config WindowRunner::config("config");
 
-WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
+WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_BACKGROUND_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
     this->reset(FloatRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT));
@@ -31,7 +31,7 @@ void WindowRunner::create()
     // Récupère la résolution du bureau
     this->desktop = VideoMode::getDesktopMode();
 
-    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Close);
+    this->window = new RenderWindow(this->desktop, TITLE_WINDOW, Style::Fullscreen);
     this->setViewport(FloatRect(0.f, 0.f, 1.f, 1.f));
     this->window->setView(*this);
     this->state = SPLASH;

@@ -14,11 +14,11 @@ AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
 
 
     this->snoop_texture = new Texture();
-    this->snoop_texture->loadFromFile(SNOOP_DOGG_ANIM);
+    this->snoop_texture->loadFromFile(SNOOP_DOGG_IMG);
     this->first_snoop.setTexture(*this->snoop_texture);
 
     this->snoop_texture_reverse = new Texture();
-    this->snoop_texture_reverse->loadFromFile(SNOOP_DOGG_ANIM_REVERSE);
+    this->snoop_texture_reverse->loadFromFile(SNOOP_DOGG_REVERSE_IMG);
 
     int j, i;
     for(j = 0; j < 5; j++)

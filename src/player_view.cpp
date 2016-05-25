@@ -6,7 +6,7 @@ using namespace sf;
 
 PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(model), smoke(50.0)
 {
-    assert(this->player_texture.loadFromFile(PLAYER_IMG));
+    assert(this->player_texture.loadFromFile(PLAYER_WALKING_IMG));
     this->setTexture(this->player_texture);
 
     //Liste d'initialisation impossible car sinon, bug avec les getWidth et getHeight qui suivent
@@ -18,7 +18,7 @@ PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(mode
     this->setAnimEnabled(false);
 
 
-    assert(this->smoke_texture.loadFromFile(DEAD_ANIM));
+    assert(this->smoke_texture.loadFromFile(SMOKE_IMG));
     this->smoke.setTexture(this->smoke_texture);
 
     int i, j;

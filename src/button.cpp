@@ -13,7 +13,7 @@ Button::Button(const string & text, const State action, const int pos_x, const i
     this->text.setColor(Color::Black);
     this->text.setCharacterSize(40);
 
-    assert(this->texture.loadFromFile(BUTTON_MENU_IMG));
+    assert(this->texture.loadFromFile(BUTTON_IMG));
     this->texture_hover = texture; //par défaut la texture hover est la meme que la texture de base du bouton
 
     this->sprite = new Sprite(texture);

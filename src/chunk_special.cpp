@@ -5,7 +5,7 @@ using namespace std;
 ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *> &entities) : Chunk(pos_x_default, player), player(player), entities(entities)
 {
     spawnBonusRandom();
-    assert(this->texture_base.loadFromFile(BASE_MISSILE_IMG));
+    assert(this->texture_base.loadFromFile(MISSILE_BASE_IMG));
     this->base_missile.setTexture(this->texture_base);
 
     int rand_pos_missile = rand() % (VIEW_HEIGHT - GROUND_DEFAULT*2 - MISSILE_DEFAULT_Y) + MISSILE_DEFAULT_Y;

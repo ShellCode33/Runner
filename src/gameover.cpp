@@ -4,9 +4,9 @@
 using namespace std;
 using namespace sf;
 
-GameOver::GameOver(WindowRunner *window, Game &game) : ScreenWait(GAME_OVER_BG, GAME_OVER_TEXT), window(window), game(game), timer(20), cursor_blink(500), cursor_visible(false), button_menu("MENU", MENU, 0, 0), button_playagain("PLAY AGAIN", SURVIVAL, 0, 0)
+GameOver::GameOver(WindowRunner *window, Game &game) : ScreenWait(GAMEOVER_BACKGROUND_IMG, GAME_OVER_TEXT), window(window), game(game), timer(20), cursor_blink(500), cursor_visible(false), button_menu("MENU", MENU, 0, 0), button_playagain("PLAY AGAIN", SURVIVAL, 0, 0)
 {
-    assert(this->board_texture.loadFromFile(GAME_OVER_BOARD));
+    assert(this->board_texture.loadFromFile(GAMEOVER_BOARD_IMG));
     this->board.setTexture(this->board_texture);
     this->board.setPosition((VIEW_WIDTH - this->board.getLocalBounds().width) / 2, VIEW_HEIGHT);
 
