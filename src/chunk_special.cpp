@@ -15,6 +15,25 @@ ChunkSpecial::ChunkSpecial(int pos_x_default, Player &player, std::list<Entity *
     this->missile = new MissileSeeker(player);
     this->missile->getModel()->setPosition(make_pair(this->getModel()->pos_x + CHUNK_WIDTH / 2, rand_pos_missile + this->base_missile.getLocalBounds().height / 2));
     entities.push_back(this->missile);
+
+
+    Platform *platform = new Platform(0, CHUNK_HEIGHT - GROUND_DEFAULT - player.getModel()->getHeight()*2, 192, 20);
+    this->platforms.push_back(platform);
+    this->addObstacle(platform->getModel());
+
+    if(rand()%2) // 1 chance sur 2
+    {
+        Platform *platform = new Platform(0, CHUNK_HEIGHT - GROUND_DEFAULT - player.getModel()->getHeight()*2, 192, 20);
+        this->platforms.push_back(platform);
+        this->addObstacle(platform->getModel());
+
+        if(rand()%2)
+        {
+            platform = new Platform(200, CHUNK_HEIGHT - GROUND_DEFAULT - player.getModel()->getHeight() * 4, 192, 20);
+            this->platforms.push_back(platform);
+            this->addObstacle(platform->getModel());
+        }
+    }
 }
 
 ChunkSpecial::~ChunkSpecial()

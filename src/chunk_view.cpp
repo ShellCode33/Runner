@@ -35,4 +35,5 @@ void ChunkView::draw(RenderTarget &target, RenderStates states) const
 {
     target.draw(this->sprite_ground, states);
     target.draw(this->sprite_background, states);
+
 }
