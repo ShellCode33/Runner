@@ -57,6 +57,7 @@ OptionTab::OptionTab() : ScreenWait(OPTION_BACKGROUND_IMG, "")
     {
         this->difficulties_text[i].setFont(this->font);
         this->difficulties_text[i].setCharacterSize(50);
+
         this->difficulties_text[i].setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty." + to_string(i+1)));
         this->difficulties_text[i].setPosition((VIEW_WIDTH - VIEW_WIDTH / 3) / 2 + 30 + 230*i, (VIEW_HEIGHT - (VIEW_HEIGHT - VIEW_HEIGHT / 3)) / 2 + 340);
     }

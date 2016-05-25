@@ -54,7 +54,7 @@
 #define BUTTON_IMG "img/images/button.png"
 #define GAMEOVER_BACKGROUND_IMG "img/images/gameover_background.png"
 #define GAMEOVER_BOARD_IMG "img/images/gameover_board.png"
-#define HIGHSCORES_BACKGROUND_IMG "img/images/highscores_background.png"
+#define HIGHSCORES_BACKGROUND_IMG "img/images/highscores_bg.jpg"
 #define ILLUMINATI_IMG "img/images/illuminati.png"
 #define MENU_BACKGROUND_IMG "img/images/menu_background.png"
 #define SCORE_BOARD_IMG "img/images/score_background.png"
@@ -99,7 +99,7 @@
 #define FIRE_DEFAULT_POS 337
 #define MIN_FIRE_POS -150 /*!< Lorsque le joueur avance, le feu recule mais ne va jamais plus loin que cette valeur */
 #define MISSILE_DEFAULT_Y 100
-#define MISSILE_DETECTION 1500 /*!< Distance à laquelle le missile detecte le joueur */
+#define MISSILE_DETECTION 800 /*!< Distance à laquelle le missile detecte le joueur */
 #define MISSILE_SPEED 10
 #define MAX_FIRE_DIFFICULTY 18
 #define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
