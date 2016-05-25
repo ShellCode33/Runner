@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-PlayerModel::PlayerModel() : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT), on_platform(false), attractCoins(false)
+PlayerModel::PlayerModel() : Movable(VIEW_WIDTH / 6, 0, 63, 49), leftPressed(false), rightPressed(false), spacePressed(false), shiftPressed(false), life(100), walk_acc(.10f), run_acc(.35f), max_walk(8.f), max_run(12), jump_acc(-4), max_fall(19), decelaration(0.7), jumpframe(3), jump_counter(0), move_background(false), dead_line(DEAD_LINE_DEFAULT), attractCoins(false), on_platform(false)
 {
     this->setVelocity(make_pair(0, 0));
     this->setGravity(make_pair(0, .5f));
@@ -201,7 +201,6 @@ void PlayerModel::checkCollision()
 
 void PlayerModel::applyForces()
 {
-
     this->pos += this->velocity;
     this->velocity += this->gravity;
 }

@@ -20,6 +20,7 @@
 #include "game.h"
 #include "gameover.h"
 #include "high_scores_tab.h"
+#include "config.h"
 
 class WindowRunner : public sf::View
 {
@@ -45,6 +46,9 @@ private:
     void dispatchEvents(); /*!< Se charge de répartir les évênements entre les différents éléments graphiques*/
 
 
+    static Config config;
+
+
 public:
     WindowRunner();
     ~WindowRunner();
@@ -54,6 +58,8 @@ public:
     void setState(const State &value);
     sf::RenderWindow & getRender() const;
     void launchGame();
+    static std::string getSetting(std::string name);
+    static void writeSetting(std::string key, std::string value);
 };
 
 #endif //WINDOW_H

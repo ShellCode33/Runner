@@ -195,3 +195,57 @@ vector<pair<unsigned long, string> > Utils::getScores() //ATTENTION A BIEN DELET
 
     return scores;
 }
+
+vector<string> Utils::getAvailableLanguages()
+{
+    vector<string> lang;
+    #ifdef linux
+    //POSIX Standard
+    struct dirent *ep;
+    DIR* dp = opendir ("lang/");
+
+    if(dp != NULL)
+    {
+        while(ep = readdir (dp))
+            lang.push_back(string(ep->d_name));
+
+        closedir(dp);
+    }
+
+    #else
+        lang.push_back("fr");
+        lang.push_back("en");
+        lang.push_back("es");
+    #endif
+
+    return lang;
+}
+
+string Utils::translate(string lang, string code)
+{
+    ifstream file("lang/" + lang);
+    string traduction = code;
+
+    if(file.is_open())
+    {
+        Utils::log("INSIDE FILE");
+        string current_line;
+
+        while(getline(file, current_line))
+        {
+            Utils::log("line: " + current_line);
+            if(current_line.substr(0, current_line.find('=')) == code)
+            {
+                traduction = current_line.substr(current_line.find('=')+1, current_line.size() - 1);
+                break;
+            }
+        }
+
+        file.close();
+    }
+
+    else
+        Utils::log("Error while opening lang file");
+
+    return traduction; //Si on a pas trouvé on retourne le code demandé
+}

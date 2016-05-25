@@ -13,6 +13,22 @@ public:
     void processEvent(sf::Event &event, State &state);
 
 private:
+    std::vector<std::string> available_langages;
+    std::vector<sf::Texture> flags_texture;
+    std::vector<sf::Sprite> flags_sprites;
+    sf::RectangleShape board;
+
+    sf::Font font;
+    sf::Text chooseLang;
+    sf::Text chooseVolume;
+
+    int volume;
+    sf::Text volume_text;
+
+    sf::Text chooseDifficulty;
+    int difficulty;
+    sf::Text difficulties_text[3]; //3difficultés
+
 
 };
 

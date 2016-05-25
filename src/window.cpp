@@ -4,6 +4,8 @@
 using namespace sf;
 using namespace std;
 
+Config WindowRunner::config("config");
+
 WindowRunner::WindowRunner() : window(NULL), cursor(20.f), menu(*this), splash_screen(SPLASH_IMG, SPLASH_TEXT), game(*this), game_over(this, game)
 {
     //On définit une view qui s'ajustera automatiquement à toutes les tailles d'écran
@@ -148,6 +150,16 @@ void WindowRunner::dispatchEvents()
             this->cursor.setPosition(mouse_pos.x, mouse_pos.y);
         }
     }
+}
+
+std::string WindowRunner::getSetting(string name)
+{
+    return config.getSetting(name);
+}
+
+void WindowRunner::writeSetting(string key, string value)
+{
+    config.writeSetting(key, value);
 }
 
 State WindowRunner::getState() const

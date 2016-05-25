@@ -37,6 +37,8 @@ public:
      * \return La valeur du paramètre
      */
     std::string getSetting(const std::string key) const;
+
+    void writeSetting(const std::string key, const std::string value);
 };
 
 #endif // CONFIG_H
