@@ -8,16 +8,7 @@ Ce logiciel est un programme informatique servant à jouer à un jeu-vidéo nomm
 
 Nous autorisons toute exploitation de l’œuvre originale à des fins non commerciales, ainsi que la création d’œuvres dérivées, à condition qu’elles soient distribuées sous une licence identique à celle qui régit l’œuvre originale.
 
-Images nons propriétaires utilisées :
-
-img/smoke.png :  
-img/snoop.png  & img/snoop_reverse.png :
-img/cursor.png :
-img/fire.png :
-img/lava.png :
-img/splash_background.png : FanArt réalisé sous license Creative Commons
-
-Toutes les autres images présentes dans le jeu sont soit des créations des contributeurs soit des réexploitations d'images libres de droit.
+Toutes les images présentent dans SuperWeedBoy sont soit des créations des contributeurs soit des réexploitations d'images libres de droit ou appartenant au domaine public.
 
 Le fait que vous puissiez accéder à cet en-tête signifie que vous avez 
 pris connaissance de la licence Creative Commons, et que vous en avez accepté les termes.

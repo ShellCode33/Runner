@@ -73,6 +73,10 @@ void GameOver::update()
     this->pseudo.setString(game.getModel()->getPseudo());
     this->score.setString(to_string(game.getModel()->getScore()));
     this->setText(Utils::translate(WindowRunner::getSetting("lang"), "game.over"));
+
+    this->pseudo_label.setString(Utils::translate(WindowRunner::getSetting("lang"), "pseudo.game"));
+    this->score_label.setString(Utils::translate(WindowRunner::getSetting("lang"), "score.game"));
+
     this->setTextPosition(Vector2f((VIEW_WIDTH - this->getTextWidth()) / 2, VIEW_HEIGHT - this->getTextHeight() - 100));
 
     if(this->board.getPosition().y > (VIEW_HEIGHT - this->board.getLocalBounds().height) / 2)
