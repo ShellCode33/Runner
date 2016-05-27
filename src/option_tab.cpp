@@ -175,3 +175,19 @@ void OptionTab::processEvent(RenderWindow &window, Event &event, State &state)
         }
     }
 }
+
+void OptionTab::update()
+{
+    this->chooseLang.setString(Utils::translate(WindowRunner::getSetting("lang"), "lang.option"));
+
+    this->chooseVolume.setString(Utils::translate(WindowRunner::getSetting("lang"), "volume.option"));
+    this->chooseDifficulty.setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty.option"));
+
+    int i;
+    for(i = 0; i < 3; i++)
+        this->difficulties_text[i].setString(Utils::translate(WindowRunner::getSetting("lang"), "difficulty." + to_string(i+1)));
+
+    this->difficulty = atoi(WindowRunner::getSetting("difficulty").c_str());
+    this->volume = atoi(WindowRunner::getSetting("volume").c_str());
+    this->volume_text.setString(to_string(volume));
+}
