@@ -1,3 +1,10 @@
+/*!
+ * \file coin_view.h
+ * \class CoinView
+ * \brief Partie vue de Coin
+ * \author Jérémie
+ */
+
 #ifndef COIN_VIEW_H
 #define COIN_VIEW_H
 

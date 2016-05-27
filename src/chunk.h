@@ -40,6 +40,9 @@ public:
      */
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
+    /*!
+     * \brief permet de gèrer l'apparition pseudo-aléatoire des bonus
+     */
     void spawnBonusRandom();
 
 private:

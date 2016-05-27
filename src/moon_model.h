@@ -1,3 +1,11 @@
+/*!
+ * \file moon_model.h
+ * \class MoonModel
+ * \brief Partie modèle du bonus Moon
+ * \author Jérémie
+ *
+ */
+
 #ifndef MOON_MODEL_H
 #define MOON_MODEL_H
 

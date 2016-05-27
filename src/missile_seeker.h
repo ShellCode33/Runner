@@ -1,3 +1,10 @@
+/*!
+ * \file missile_seeker.h
+ * \class MissileSeeker
+ * \brief classe
+ * \author Clément
+ */
+
 #ifndef MISSILE_SEEKER_H
 #define MISSILE_SEEKER_H
 

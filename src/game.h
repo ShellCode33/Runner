@@ -1,3 +1,9 @@
+/*!
+ * \file game.h
+ * \class Game
+ * \author Clément
+ */
+
 #ifndef GAME_H
 #define GAME_H
 

@@ -1,3 +1,10 @@
+/*!
+ * \file game_over.h
+ * \class GameOver
+ * \brief classe permettant de gérer l'écran de GameOver
+ * \author Clément & Jérémie
+ */
+
 #ifndef GAMEOVER_H
 #define GAMEOVER_H
 

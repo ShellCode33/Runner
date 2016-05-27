@@ -1,3 +1,11 @@
+/*!
+ * \file moon.h
+ * \class Moon
+ * \brief Bonus appliquant une gravité différent au player
+ * \author Jérémie
+ *
+ */
+
 #ifndef MOON_H
 #define MOON_H
 

@@ -1,3 +1,11 @@
+/*!
+ * \file movable.h
+ * \class Movable
+ * \brief classe modèle "primaire"
+ * \author Jérémie & Clément
+ *
+ */
+
 #ifndef MOVABLE_H
 #define MOVABLE_H
 

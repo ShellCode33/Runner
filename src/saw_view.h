@@ -1,8 +1,7 @@
 /*!
- * \file saw.h
- * \brief Obstacle scie circulaire
+ * \file saw_view.h
+ * \brief Partie vue de l'obstacle scie circulaire
  * \author Clément
- *
  */
 
 #ifndef SAW_VIEW_H

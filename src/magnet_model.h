@@ -1,3 +1,10 @@
+/*!
+ * \file magnet_model.h
+ * \class MagnetModel
+ * \brief Partie modèle du bonus Magnet
+ * \author Clément
+ */
+
 #ifndef MAGNET_MODEL_H
 #define MAGNET_MODEL_H
 

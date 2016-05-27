@@ -1,3 +1,10 @@
+/*!
+ * \file chunk_view.h
+ * \class ChunkView
+ * \brief Partie vue des Chunk
+ * \author Clément
+ */
+
 #ifndef CHUNK_VIEW_H
 #define CHUNK_VIEW_H
 

@@ -1,3 +1,11 @@
+/*!
+ * \file player_view.h
+ * \class PlayerView
+ * \brief Partie vue du player
+ * \author Jérémie
+ *
+ */
+
 #ifndef PLAYERVIEW_H
 #define PLAYERVIEW_H
 

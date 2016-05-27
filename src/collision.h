@@ -34,44 +34,50 @@ struct Circle
 class Collision
 {
 public:
+
     /*!
      * \brief pointIntersectAABB
      * \param x
      * \param y
      * \param box
-     * \return
+     * \return vrai si collision, faux sinon
      */
     static bool pointIntersectAABB(int x, int y, AABB box);
+
     /*!
      * \brief AABBintersectAABB
      * \param box1
      * \param box2
-     * \return
+     * \return vrai si collision, faux sinon
      */
     static bool AABBintersectAABB(AABB box1, AABB box2);
+
     /*!
      * \brief pointIntersectCircle
      * \param x
      * \param y
      * \param c
-     * \return
+     * \return vrai si collision, faux sinon
      */
     static bool pointIntersectCircle(int x, int y, Circle c);
+
     /*!
      * \brief circleIntersectCircle
      * \param c1
      * \param c2
-     * \return
+     * \return vrai si collision, faux sinon
      */
     static bool circleIntersectCircle(Circle c1, Circle c2);
+
     /*!
      * \brief AABBintersectCircle
      * \param boxCircle
      * \param box
      * \param c
-     * \return
+     * \return vrai si collision, faux sinon
      */
     static bool AABBintersectCircle(AABB boxCircle, AABB box, Circle c);
+
     /*!
      * \brief segmentProjectionPoint
      * \param Cx
@@ -80,7 +86,7 @@ public:
      * \param Ay
      * \param Bx
      * \param By
-     * \return
+     * \return vrai si la projection
      */
     static bool segmentProjectionPoint(int Cx,int Cy,int Ax,int Ay,int Bx,int By);
 };

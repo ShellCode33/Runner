@@ -1,3 +1,10 @@
+/*!
+ * \file coin.h
+ * \class Coin
+ * \brief Bonus permettant d'augmenter son score
+ * \author Jérémie
+ */
+
 #ifndef COIN_H
 #define COIN_H
 

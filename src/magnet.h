@@ -1,3 +1,11 @@
+/*!
+ * \file magnet.h
+ * \class Magnet
+ * \brief Bonus permettant d'attirer les pièces
+ * \author Clément
+ */
+
+
 #ifndef MAGNET_H
 #define MAGNET_H
 

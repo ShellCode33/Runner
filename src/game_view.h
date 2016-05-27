@@ -1,3 +1,10 @@
+/*!
+ * \file game_view.h
+ * \class GameView
+ * \brief
+ * \author Jérémie, Clément
+ */
+
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 

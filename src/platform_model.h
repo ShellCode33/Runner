@@ -1,3 +1,11 @@
+/*!
+ * \file platform_model.h
+ * \class PlatformModel
+ * \brief Partie modèle de l'obstacle Platform
+ * \author Jérémie
+ *
+ */
+
 #ifndef PLATFORM_MODEL_H
 #define PLATFORM_MODEL_H
 

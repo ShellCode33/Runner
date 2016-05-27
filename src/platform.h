@@ -1,3 +1,11 @@
+/*!
+ * \file platform.h
+ * \class Platform
+ * \brief obstacle générique de type plateforme
+ * \author Jérémie
+ *
+ */
+
 #ifndef PLATFORM_H
 #define PLATFORM_H
 

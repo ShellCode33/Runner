@@ -1,3 +1,10 @@
+/*!
+ * \file high_score_tab.h
+ * \class HighScoreTab
+ * \brief classe s'occupant de l'écran de meilleurs scores
+ * \author Clément
+ */
+
 #ifndef HIGH_SCORES_H
 #define HIGH_SCORES_H
 

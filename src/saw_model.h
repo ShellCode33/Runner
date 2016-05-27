@@ -1,3 +1,9 @@
+/*!
+ * \file saw_model.h
+ * \class SawModel
+ * \brief Partie modèle de l'obstacle scie circulaire
+ * \author Clément
+ */
 
 #ifndef SAW_MODEL_H
 #define SAW_MODEL_H

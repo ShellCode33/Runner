@@ -19,10 +19,29 @@ class WindowRunner;
 class AboutTab : public sf::Drawable
 {
 public:
+    /*!
+     * \brief AboutTab constructeur
+     */
     AboutTab();
     ~AboutTab();
+
+    /*!
+     * \brief draw est une fonction virtuelle qui permet de dessiner AboutTab
+     * \param target
+     * \param states
+     */
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+    /*!
+     * \brief update permet de mettre a jour AboutTab ainsi que ses animations
+     */
     void update();
+
+    /*!
+     * \brief processEvent gère les conséquences suivant l'evenement
+     * \param window
+     * \param event
+     */
     void processEvent(WindowRunner & window, sf::Event & event);
 
 

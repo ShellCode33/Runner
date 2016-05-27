@@ -1,3 +1,11 @@
+/*!
+ * \file missile_view.h
+ * \class MissileView
+ * \brief Vue du missile suiveur
+ * \author Clément
+ *
+ */
+
 #ifndef MISSILE_VIEW
 #define MISSILE_VIEW
 

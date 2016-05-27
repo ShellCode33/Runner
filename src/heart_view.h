@@ -1,3 +1,10 @@
+/*!
+ * \file heart_view.h
+ * \class HeartView
+ * \brief Partie vue du bonus Heart
+ * \author Clément
+ */
+
 #ifndef HEART_VIEW_H
 #define HEART_VIEW_H
 

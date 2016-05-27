@@ -1,3 +1,10 @@
+/*!
+ * \file heart.h
+ * \class Heart
+ * \brief Bonus permettant de remettre la vie du joueur a 100
+ * \author Clément
+ */
+
 #ifndef HEART_H
 #define HEART_H
 

@@ -1,3 +1,11 @@
+/*!
+ * \file moon_view.h
+ * \class MoonView
+ * \brief Partie vue du bonus Moon
+ * \author Jérémie
+ *
+ */
+
 #ifndef MOON_VIEW_H
 #define MOON_VIEW_H
 

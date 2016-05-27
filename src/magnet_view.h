@@ -1,3 +1,10 @@
+/*!
+ * \file magnet_view.h
+ * \class MagnetView
+ * \brief Partie vue du bonus Magnet
+ * \author Clément
+ */
+
 #ifndef MAGNET_VIEW_H
 #define MAGNET_VIEW_H
 

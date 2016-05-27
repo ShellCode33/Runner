@@ -42,12 +42,6 @@ bool Collision::AABBintersectCircle(AABB boxCircle, AABB box, Circle c)
         return true;
     }
 
-    //on test si le centre du cercle est dans le rectangle (cas impossible pour le moment mais bon j'suis un ouf)
-    if(pointIntersectAABB(c.x, c.y, box))
-    {
-        return true;
-    }
-
     //On va maintenant tester la collision de chacun des segment du rectangle avec le centre du cercle sur les 2 axes : verticale et horizontale
     if(segmentProjectionPoint(c.x, c.y, box.x, box.y, box.x, box.y + box.h) || segmentProjectionPoint(c.x, c.y, box.x, box.y, box.x + box.w, box.y))
     {

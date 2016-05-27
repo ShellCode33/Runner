@@ -1,3 +1,11 @@
+/*!
+ * \file option_tab.h
+ * \class OptionTab
+ * \brief classe pour la gestion de l'écran d'option
+ * \author Jérémie
+ *
+ */
+
 #ifndef OPTION_TAB_H
 #define OPTION_TAB_H
 

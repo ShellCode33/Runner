@@ -1,13 +1,16 @@
+/*!
+ * \file entity.h
+ * \class Entity
+ * \brief classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l'écran (cf: game_view)
+ * \author Clément
+ */
+
 #ifndef ENTITY_H
 #define ENTITY_H
 
 #include <SFML/Graphics.hpp>
 #include "player.h"
 #include "movable.h"
-
-/*!
- * \brief Entity est une classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l'écran (cf: game_view)
- */
 
 class Entity
 {

@@ -1,3 +1,10 @@
+/*!
+ * \file spike_view.h
+ * \class SpikeView
+ * \brief Vue des pics
+ * \author Clément
+ */
+
 #ifndef SPIKE_VIEW_H
 #define SPIKE_VIEW_H
 

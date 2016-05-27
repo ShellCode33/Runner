@@ -1,3 +1,11 @@
+/*!
+ * \file platform_view.h
+ * \class PlatformView
+ * \brief Partie vue de l'obstacle
+ * \author Jérémie
+ *
+ */
+
 #ifndef PLATFORM_VIEW_H
 #define PLATFORM_VIEW_H
 

@@ -1,7 +1,7 @@
 /*!
  * \file button.h
  * \class Button
- * \author Clément
+ * \author Clément & Jérémie
  */
 
 #ifndef BUTTON_H

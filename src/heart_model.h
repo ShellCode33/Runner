@@ -1,3 +1,11 @@
+/*!
+ * \file heart_model.h
+ * \class HeartModel
+ * \brief Partie modèle du bonus Heart
+ * \author Clément
+ */
+
+
 #ifndef HEART_MODEL_H
 #define HEART_MODEL_H
 
