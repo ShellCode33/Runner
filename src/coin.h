@@ -3,6 +3,8 @@
 
 #include "coin_model.h"
 #include "coin_view.h"
+#include "audio.h"
+#include <iostream>
 
 class Coin
 {
@@ -17,7 +19,8 @@ public:
 
 private:
     CoinModel model;
-    CoinView view;    
+    CoinView view;
+
 };
 
 #endif // COIN_H

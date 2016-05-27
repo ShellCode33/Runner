@@ -21,12 +21,12 @@ public:
     ~CoinView();
     void update();
 
-    void playSound();
 private:
     sf::Texture coin_texture;
     CoinModel& model;
     Audio sound;
     bool sound_played;
+
 };
 
 #endif // COIN_VIEW_H

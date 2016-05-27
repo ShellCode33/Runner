@@ -7,6 +7,7 @@
 #include "movable.h"
 #include "animation.h"
 #include "player_model.h"
+#include "audio.h"
 
 class WindowRunner;
 
@@ -19,12 +20,15 @@ public:
     void update();
     Animation *getDeadAnim();
 
+    Audio getDead_song() const;
+
 private:
     sf::Texture player_texture;
     PlayerModel& player_model;
 
     sf::Texture smoke_texture;
     Animation smoke;
+    Audio dead_song;
 
 
 };

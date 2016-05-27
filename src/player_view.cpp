@@ -27,6 +27,8 @@ PlayerView::PlayerView(PlayerModel &model) : Animation(100.0), player_model(mode
             this->smoke.addClip(IntRect(256*j, 256*i, 256, 256));
 
     this->smoke.setOrigin(this->smoke.getLocalBounds().width / 2, this->smoke.getLocalBounds().height / 2);
+
+    this->dead_song.load(EXPLOSION_SNG);
 }
 
 PlayerView::~PlayerView()
@@ -47,6 +49,11 @@ void PlayerView::update()
 Animation* PlayerView::getDeadAnim()
 {
     return &this->smoke;
+}
+
+Audio PlayerView::getDead_song() const
+{
+    return dead_song;
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)
