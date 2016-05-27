@@ -68,6 +68,9 @@ OptionTab::~OptionTab()
 {
     for(Sprite *s : this->flags_sprites)
         delete s;
+
+    for(Texture *t : this->flags_texture)
+        delete t;
 }
 
 void OptionTab::draw(RenderTarget &target, RenderStates states) const
