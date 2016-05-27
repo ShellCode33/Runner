@@ -1,0 +1,170 @@
+\hypertarget{class_animation}{\section{Référence de la classe Animation}
+\label{class_animation}\index{Animation@{Animation}}
+}
+
+
+Classe permettant de faire un sprite animé de plusieurs séquences.  
+
+
+
+
+{\ttfamily \#include $<$animation.\+h$>$}
+
+Graphe d'héritage de Animation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_animation}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_animation_ac63043b48932c071fc99e47f7a2eed46}{Animation} (const unsigned long ms)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_animation}{Animation}. \end{DoxyCompactList}\item 
+\hypertarget{class_animation_ae9b63e2f6124b1bffaea0d4ccb9644dd}{{\bfseries Animation} (const \hyperlink{class_animation}{Animation} \&copy)}\label{class_animation_ae9b63e2f6124b1bffaea0d4ccb9644dd}
+
+\item 
+void \hyperlink{class_animation_a52a17d646d9009a42c830b3172dbcafd}{add\+Clip} (const sf\+::\+Int\+Rect \&clip)
+\begin{DoxyCompactList}\small\item\em add\+Clip permet d'ajouter un rectangle de lecture bien précis à l'animation \end{DoxyCompactList}\item 
+\hypertarget{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}{void \hyperlink{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}{update} ()}\label{class_animation_a4318baf0b0735e7da87b2c6d3d3a2705}
+
+\begin{DoxyCompactList}\small\item\em Se charge de mettre à jour le sprite, doit être appelé à chaque tour de boucle. \end{DoxyCompactList}\item 
+\hypertarget{class_animation_acb9fc2c5f63aa1dbe17c35841531c1e7}{void \hyperlink{class_animation_acb9fc2c5f63aa1dbe17c35841531c1e7}{set\+Offset} (const int x, const int y)}\label{class_animation_acb9fc2c5f63aa1dbe17c35841531c1e7}
+
+\begin{DoxyCompactList}\small\item\em set\+Offset permet de définir un espace entre les rectangles de lecture \end{DoxyCompactList}\item 
+\hypertarget{class_animation_a001598cc4fd8456ee4f23c5ff3fb31f4}{void \hyperlink{class_animation_a001598cc4fd8456ee4f23c5ff3fb31f4}{set\+Anim\+Enabled} (bool value)}\label{class_animation_a001598cc4fd8456ee4f23c5ff3fb31f4}
+
+\begin{DoxyCompactList}\small\item\em set\+Anim\+Enabled permet de desactiver l'animation (temporairement ou pas) \end{DoxyCompactList}\item 
+\hypertarget{class_animation_ab9b96707a3a9d6d37a08f6c3a3b6672b}{void \hyperlink{class_animation_ab9b96707a3a9d6d37a08f6c3a3b6672b}{remove\+Clips} ()}\label{class_animation_ab9b96707a3a9d6d37a08f6c3a3b6672b}
+
+\begin{DoxyCompactList}\small\item\em remove\+Clips supprime tous les éléments qui composent l'animation \end{DoxyCompactList}\item 
+bool \hyperlink{class_animation_a8cddc695676ba0ed87f35f9e7cbe933a}{play\+One\+Time} ()
+\begin{DoxyCompactList}\small\item\em play\+One\+Time se charge de lire l'animation qu'une seule fois \end{DoxyCompactList}\item 
+\hypertarget{class_animation_ae4faccf59e6ddc957bc3f6acf65672f7}{\hyperlink{class_animation}{Animation} \& {\bfseries operator=} (const \hyperlink{class_animation}{Animation} \&other)}\label{class_animation_ae4faccf59e6ddc957bc3f6acf65672f7}
+
+\item 
+\hypertarget{class_animation_aac64678cc05194bb086b185980f2e45f}{bool {\bfseries operator==} (const \hyperlink{class_animation}{Animation} \&second)}\label{class_animation_aac64678cc05194bb086b185980f2e45f}
+
+\item 
+\hypertarget{class_animation_a8adc5a4825eac58390ca8d933f9c57c9}{bool {\bfseries operator!=} (const \hyperlink{class_animation}{Animation} \&second)}\label{class_animation_a8adc5a4825eac58390ca8d933f9c57c9}
+
+\item 
+void \hyperlink{class_animation_abce52c50e52ca5d9eba39ab840650c31}{set\+Speed} (unsigned long value)
+\begin{DoxyCompactList}\small\item\em set\+Speed permet de changer la vitesse entre 2 animations \end{DoxyCompactList}\item 
+\hypertarget{class_animation_ac10342a9268250102aec182f4f29eb5e}{unsigned long {\bfseries get\+Speed} () const }\label{class_animation_ac10342a9268250102aec182f4f29eb5e}
+
+\item 
+std\+::vector$<$ sf\+::\+Int\+Rect $\ast$ $>$ \hyperlink{class_animation_a61a4c0512dd9fe244a32ff089027832b}{get\+Clips} () const 
+\begin{DoxyCompactList}\small\item\em get\+Clips \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ sf\+::\+Int\+Rect $\ast$ $>$ \hyperlink{class_animation_ac0d3fda2efad8b0fb735ec91630fd298}{clips}
+\item 
+unsigned int \hyperlink{class_animation_a20db3ec79637b08198679b634886ba38}{current\+\_\+clip\+\_\+i}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe permettant de faire un sprite animé de plusieurs séquences. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_animation_ac63043b48932c071fc99e47f7a2eed46}{\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\subsubsection[{Animation}]{\setlength{\rightskip}{0pt plus 5cm}Animation\+::\+Animation (
+\begin{DoxyParamCaption}
+\item[{const unsigned long}]{ms}
+\end{DoxyParamCaption}
+)}}\label{class_animation_ac63043b48932c071fc99e47f7a2eed46}
+
+
+\hyperlink{class_animation}{Animation}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ms} & temps entre 2 images \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_animation_a52a17d646d9009a42c830b3172dbcafd}{\index{Animation@{Animation}!add\+Clip@{add\+Clip}}
+\index{add\+Clip@{add\+Clip}!Animation@{Animation}}
+\subsubsection[{add\+Clip}]{\setlength{\rightskip}{0pt plus 5cm}void Animation\+::add\+Clip (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Int\+Rect \&}]{clip}
+\end{DoxyParamCaption}
+)}}\label{class_animation_a52a17d646d9009a42c830b3172dbcafd}
+
+
+add\+Clip permet d'ajouter un rectangle de lecture bien précis à l'animation 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em clip} & rectangle de lecture en question \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_animation_a61a4c0512dd9fe244a32ff089027832b}{\index{Animation@{Animation}!get\+Clips@{get\+Clips}}
+\index{get\+Clips@{get\+Clips}!Animation@{Animation}}
+\subsubsection[{get\+Clips}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ Int\+Rect $\ast$ $>$ Animation\+::get\+Clips (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_animation_a61a4c0512dd9fe244a32ff089027832b}
+
+
+get\+Clips 
+
+\begin{DoxyReturn}{Renvoie}
+un vecteur contenant un pointeur vers l'ensemble des clips 
+\end{DoxyReturn}
+\hypertarget{class_animation_a8cddc695676ba0ed87f35f9e7cbe933a}{\index{Animation@{Animation}!play\+One\+Time@{play\+One\+Time}}
+\index{play\+One\+Time@{play\+One\+Time}!Animation@{Animation}}
+\subsubsection[{play\+One\+Time}]{\setlength{\rightskip}{0pt plus 5cm}bool Animation\+::play\+One\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_animation_a8cddc695676ba0ed87f35f9e7cbe933a}
+
+
+play\+One\+Time se charge de lire l'animation qu'une seule fois 
+
+\begin{DoxyReturn}{Renvoie}
+false si l'animation est terminée et true si l'animation est en cours 
+\end{DoxyReturn}
+\hypertarget{class_animation_abce52c50e52ca5d9eba39ab840650c31}{\index{Animation@{Animation}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!Animation@{Animation}}
+\subsubsection[{set\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}void Animation\+::set\+Speed (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_animation_abce52c50e52ca5d9eba39ab840650c31}
+
+
+set\+Speed permet de changer la vitesse entre 2 animations 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{class_animation_ac0d3fda2efad8b0fb735ec91630fd298}{\index{Animation@{Animation}!clips@{clips}}
+\index{clips@{clips}!Animation@{Animation}}
+\subsubsection[{clips}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$sf\+::\+Int\+Rect$\ast$$>$ Animation\+::clips\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_animation_ac0d3fda2efad8b0fb735ec91630fd298}
+Contient les differentes zones de la texture qui formeront les animations du sprite \hypertarget{class_animation_a20db3ec79637b08198679b634886ba38}{\index{Animation@{Animation}!current\+\_\+clip\+\_\+i@{current\+\_\+clip\+\_\+i}}
+\index{current\+\_\+clip\+\_\+i@{current\+\_\+clip\+\_\+i}!Animation@{Animation}}
+\subsubsection[{current\+\_\+clip\+\_\+i}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Animation\+::current\+\_\+clip\+\_\+i\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_animation_a20db3ec79637b08198679b634886ba38}
+Zone courante de la texture 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{animation_8h}{animation.\+h}\item 
+src/animation.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+digraph "Graphe hiérarchique des classes"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="HighScoreTab",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_high_score_tab.html",tooltip="classe s&#39;occupant de l&#39;écran de meilleurs scores "];
+}

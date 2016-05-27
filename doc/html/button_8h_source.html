@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Super Weed Boy:  Fichier source de src/button.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Super Weed Boy
+   </div>
+   <div id="projectbrief">Projet IUT 2015 2016</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('button_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">button.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="button_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef BUTTON_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define BUTTON_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics/RenderTarget.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML/Window/Mouse.hpp&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="const_8h.html">const.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gamestate_8h.html">gamestate.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="audio_8h.html">audio.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="class_window_runner.html">WindowRunner</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_button.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_button.html">Button</a> : <span class="keyword">public</span> sf::Drawable</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span> :</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    sf::Texture texture; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    sf::Texture texture_hover; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    sf::Sprite *sprite;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    sf::Text text; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    sf::Font font; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_audio.html">Audio</a> audio; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> <a class="code" href="gamestate_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8">State</a> action; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> pos_x, pos_y; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> width, height; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span> :</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_button.html#ad8dae1505b6418a5f81829503e3b9dc7">Button</a>(<span class="keyword">const</span> std::string &amp;text, <span class="keyword">const</span> <a class="code" href="gamestate_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8">State</a> action, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_x=0, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y=0, <span class="keyword">const</span> <span class="keywordtype">int</span> width=500, <span class="keyword">const</span> <span class="keywordtype">int</span> height=80);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="class_button.html">Button</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_button.html#a9ee0da19612c994fd4f92a88311a9d90">setBoundaries</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> pos_x, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y, <span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keyword">const</span> <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_button.html#a71c5cc7c8916f46949c427771f45feab">setImage</a>(<span class="keyword">const</span> std::string filename);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_button.html#a1730b67ffa2c2b179b47c206770247f3">processEvent</a>(<a class="code" href="class_window_runner.html">WindowRunner</a> &amp;window, sf::Event &amp; event);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setPosition(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::pair&lt;int, int&gt; getPosition() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::pair&lt;int, int&gt; getSize() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> setText(std::string text);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::string <a class="code" href="class_button.html#a45a4f1f33bf80e057ac24fbcd9192edb">toUpper</a>(std::string str) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // BUTTON_H</span></div>
+<div class="ttc" id="audio_8h_html"><div class="ttname"><a href="audio_8h.html">audio.h</a></div></div>
+<div class="ttc" id="gamestate_8h_html_a5d74787dedbc4e11c1ab15bf487e61f8"><div class="ttname"><a href="gamestate_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8">State</a></div><div class="ttdeci">State</div><div class="ttdef"><b>Definition:</b> gamestate.h:11</div></div>
+<div class="ttc" id="gamestate_8h_html"><div class="ttname"><a href="gamestate_8h.html">gamestate.h</a></div><div class="ttdoc">Enumeration des différents états du jeu. </div></div>
+<div class="ttc" id="class_button_html_a9ee0da19612c994fd4f92a88311a9d90"><div class="ttname"><a href="class_button.html#a9ee0da19612c994fd4f92a88311a9d90">Button::setBoundaries</a></div><div class="ttdeci">void setBoundaries(const int pos_x, const int pos_y, const int width, const int height)</div><div class="ttdoc">setBoundaries Applique un filtre sur l&#39;image afin de "découper" une certaine zone ...</div><div class="ttdef"><b>Definition:</b> button.cpp:41</div></div>
+<div class="ttc" id="class_button_html_a71c5cc7c8916f46949c427771f45feab"><div class="ttname"><a href="class_button.html#a71c5cc7c8916f46949c427771f45feab">Button::setImage</a></div><div class="ttdeci">void setImage(const std::string filename)</div><div class="ttdoc">setImage Permet de définir une image sur le bouton </div><div class="ttdef"><b>Definition:</b> button.cpp:35</div></div>
+<div class="ttc" id="class_window_runner_html"><div class="ttname"><a href="class_window_runner.html">WindowRunner</a></div><div class="ttdoc">Début de l&#39;application, chargé de répartir les évênements et mettre à jour les composants graphiques...</div><div class="ttdef"><b>Definition:</b> window.h:25</div></div>
+<div class="ttc" id="class_button_html_a45a4f1f33bf80e057ac24fbcd9192edb"><div class="ttname"><a href="class_button.html#a45a4f1f33bf80e057ac24fbcd9192edb">Button::toUpper</a></div><div class="ttdeci">std::string toUpper(std::string str) const </div><div class="ttdoc">toUpper met la chaine passée en paramètre en majuscules </div><div class="ttdef"><b>Definition:</b> button.cpp:102</div></div>
+<div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">Fichier contenant toutes les constantes utiles au jeu. </div></div>
+<div class="ttc" id="class_button_html_a1730b67ffa2c2b179b47c206770247f3"><div class="ttname"><a href="class_button.html#a1730b67ffa2c2b179b47c206770247f3">Button::processEvent</a></div><div class="ttdeci">void processEvent(WindowRunner &amp;window, sf::Event &amp;event)</div><div class="ttdoc">processEvent Gère les évenements des boutons </div><div class="ttdef"><b>Definition:</b> button.cpp:52</div></div>
+<div class="ttc" id="class_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:20</div></div>
+<div class="ttc" id="class_button_html_ad8dae1505b6418a5f81829503e3b9dc7"><div class="ttname"><a href="class_button.html#ad8dae1505b6418a5f81829503e3b9dc7">Button::Button</a></div><div class="ttdeci">Button(const std::string &amp;text, const State action, const int pos_x=0, const int pos_y=0, const int width=500, const int height=80)</div><div class="ttdoc">Button permet de créer un bouton graphique avec la SFML. </div><div class="ttdef"><b>Definition:</b> button.cpp:7</div></div>
+<div class="ttc" id="class_audio_html"><div class="ttname"><a href="class_audio.html">Audio</a></div><div class="ttdoc">Gestion des sons. </div><div class="ttdef"><b>Definition:</b> audio.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="button_8h.html">button.h</a></li>
+    <li class="footer">Généré le Vendredi 27 Mai 2016 21:53:12 pour Super Weed Boy par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

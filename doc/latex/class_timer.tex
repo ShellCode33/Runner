@@ -1,0 +1,80 @@
+\hypertarget{class_timer}{\section{Référence de la classe Timer}
+\label{class_timer}\index{Timer@{Timer}}
+}
+
+
+Classe permettant de créer un chrono simplement.  
+
+
+
+
+{\ttfamily \#include $<$timer.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_timer_ae3971c7588db2242134c6d347f4807b5}{{\bfseries Timer} (const unsigned long ms=0, bool start=false)}\label{class_timer_ae3971c7588db2242134c6d347f4807b5}
+
+\item 
+void \hyperlink{class_timer_a4359ac544d52c5811bc94a9b786b8ebd}{begin} ()
+\item 
+void \hyperlink{class_timer_a9020542d73357a4eef512eefaf57524b}{reset} ()
+\item 
+bool \hyperlink{class_timer_aca3cd60fd9e4230c15df739b198314ca}{is\+Finish} () const 
+\item 
+unsigned long \hyperlink{class_timer_ab8948606e831ba658600356a95122b66}{get\+Duration} () const 
+\item 
+void \hyperlink{class_timer_a9f19059b50d7158881176a452bd2e70f}{change\+Timer} (unsigned long ms)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe permettant de créer un chrono simplement. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_timer_a4359ac544d52c5811bc94a9b786b8ebd}{\index{Timer@{Timer}!begin@{begin}}
+\index{begin@{begin}!Timer@{Timer}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_timer_a4359ac544d52c5811bc94a9b786b8ebd}
+Lance le chrono \hypertarget{class_timer_a9f19059b50d7158881176a452bd2e70f}{\index{Timer@{Timer}!change\+Timer@{change\+Timer}}
+\index{change\+Timer@{change\+Timer}!Timer@{Timer}}
+\subsubsection[{change\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+::change\+Timer (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{ms}
+\end{DoxyParamCaption}
+)}}\label{class_timer_a9f19059b50d7158881176a452bd2e70f}
+Permet de changer le temps du chrono \hypertarget{class_timer_ab8948606e831ba658600356a95122b66}{\index{Timer@{Timer}!get\+Duration@{get\+Duration}}
+\index{get\+Duration@{get\+Duration}!Timer@{Timer}}
+\subsubsection[{get\+Duration}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Timer\+::get\+Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_timer_ab8948606e831ba658600356a95122b66}
+Récupère depuis combien de temps le chrono a été lancé \hypertarget{class_timer_aca3cd60fd9e4230c15df739b198314ca}{\index{Timer@{Timer}!is\+Finish@{is\+Finish}}
+\index{is\+Finish@{is\+Finish}!Timer@{Timer}}
+\subsubsection[{is\+Finish}]{\setlength{\rightskip}{0pt plus 5cm}bool Timer\+::is\+Finish (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_timer_aca3cd60fd9e4230c15df739b198314ca}
+true -\/$>$ timer terminé \hypertarget{class_timer_a9020542d73357a4eef512eefaf57524b}{\index{Timer@{Timer}!reset@{reset}}
+\index{reset@{reset}!Timer@{Timer}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_timer_a9020542d73357a4eef512eefaf57524b}
+Alias de \hyperlink{class_timer_a4359ac544d52c5811bc94a9b786b8ebd}{begin()} 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{timer_8h}{timer.\+h}\item 
+src/timer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,83 @@
+\hypertarget{class_chunk}{\section{Référence de la classe Chunk}
+\label{class_chunk}\index{Chunk@{Chunk}}
+}
+
+
+Classe permettant un découpage de l'écran afin de faciliter la génération aléatoire de Chunks prédéfinis.  
+
+
+
+
+{\ttfamily \#include $<$chunk.\+h$>$}
+
+Graphe d'héritage de Chunk\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chunk}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_chunk_abac8488478b3c47c2b505a9d7f2ce52e}{Chunk} (int pos\+\_\+x\+\_\+default, \hyperlink{class_player}{Player} \&player)
+\item 
+\hypertarget{class_chunk_a1cbe00cb7683d46b86908f29fe066f5b}{virtual void {\bfseries update} ()}\label{class_chunk_a1cbe00cb7683d46b86908f29fe066f5b}
+
+\item 
+\hypertarget{class_chunk_a916fe2a951062f79ab213644339f7957}{\hyperlink{class_chunk_model}{Chunk\+Model} $\ast$ {\bfseries get\+Model} ()}\label{class_chunk_a916fe2a951062f79ab213644339f7957}
+
+\item 
+\hypertarget{class_chunk_a7fc977657d1bcd189e771a76f3feebf6}{\hyperlink{class_chunk_view}{Chunk\+View} $\ast$ {\bfseries get\+View} ()}\label{class_chunk_a7fc977657d1bcd189e771a76f3feebf6}
+
+\item 
+\hypertarget{class_chunk_a2db13ffca428e9fc8c9244bbf56f64ed}{void \hyperlink{class_chunk_a2db13ffca428e9fc8c9244bbf56f64ed}{add\+Obstacle} (\hyperlink{class_obstacle}{Obstacle} $\ast$obstacle)}\label{class_chunk_a2db13ffca428e9fc8c9244bbf56f64ed}
+
+\begin{DoxyCompactList}\small\item\em Permet d'ajouter un obstacle au modèle. \end{DoxyCompactList}\item 
+\hypertarget{class_chunk_a0740835a46c5566a07757cd8840f6526}{void {\bfseries remove\+Obstacle} (\hyperlink{class_obstacle}{Obstacle} $\ast$obstacle)}\label{class_chunk_a0740835a46c5566a07757cd8840f6526}
+
+\item 
+\hypertarget{class_chunk_a9bde8c3d43d03b3739e2f7417bb22648}{virtual void \hyperlink{class_chunk_a9bde8c3d43d03b3739e2f7417bb22648}{draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const }\label{class_chunk_a9bde8c3d43d03b3739e2f7417bb22648}
+
+\begin{DoxyCompactList}\small\item\em Permet de dessiner la vue. \end{DoxyCompactList}\item 
+\hypertarget{class_chunk_af9510e63d0aa06ed26566367b9655f0a}{void \hyperlink{class_chunk_af9510e63d0aa06ed26566367b9655f0a}{spawn\+Bonus\+Random} ()}\label{class_chunk_af9510e63d0aa06ed26566367b9655f0a}
+
+\begin{DoxyCompactList}\small\item\em permet de gèrer l'apparition pseudo-\/aléatoire des bonus \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_chunk_a9681d0d6dc903e4b6fe58547b2806b8f}{std\+::list$<$ \hyperlink{class_coin}{Coin} $\ast$ $>$ \hyperlink{class_chunk_a9681d0d6dc903e4b6fe58547b2806b8f}{coins}}\label{class_chunk_a9681d0d6dc903e4b6fe58547b2806b8f}
+
+\begin{DoxyCompactList}\small\item\em contient des pointeurs vers les pièces du chunk \end{DoxyCompactList}\item 
+\hypertarget{class_chunk_a9237330b36d8d1dedfe3cac66806c0bb}{std\+::list$<$ \hyperlink{class_platform}{Platform} $\ast$ $>$ \hyperlink{class_chunk_a9237330b36d8d1dedfe3cac66806c0bb}{platforms}}\label{class_chunk_a9237330b36d8d1dedfe3cac66806c0bb}
+
+\begin{DoxyCompactList}\small\item\em contient des pointeurs vers les plateformes du chunk \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe permettant un découpage de l'écran afin de faciliter la génération aléatoire de Chunks prédéfinis. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_chunk_abac8488478b3c47c2b505a9d7f2ce52e}{\index{Chunk@{Chunk}!Chunk@{Chunk}}
+\index{Chunk@{Chunk}!Chunk@{Chunk}}
+\subsubsection[{Chunk}]{\setlength{\rightskip}{0pt plus 5cm}Chunk\+::\+Chunk (
+\begin{DoxyParamCaption}
+\item[{int}]{pos\+\_\+x\+\_\+default, }
+\item[{{\bf Player} \&}]{player}
+\end{DoxyParamCaption}
+)}}\label{class_chunk_abac8488478b3c47c2b505a9d7f2ce52e}
+
+\begin{DoxyParams}{Paramètres}
+{\em pos\+\_\+x\+\_\+default} & permet de définir la position par défaut du chunk sur l'écran (cette position peut-\/être exterieur à l'écran et le chunk peut donc ne pas être visible \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{chunk_8h}{chunk.\+h}\item 
+src/chunk.\+cpp\end{DoxyCompactItemize}

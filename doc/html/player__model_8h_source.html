@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Super Weed Boy:  Fichier source de src/player_model.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Super Weed Boy
+   </div>
+   <div id="projectbrief">Projet IUT 2015 2016</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('player__model_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">player_model.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="player__model_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef PLAYERMODEL_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define PLAYERMODEL_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="movable_8h.html">movable.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="effect_8h.html">effect.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_player_model.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_model.html">PlayerModel</a> : <span class="keyword">public</span> <a class="code" href="class_movable.html">Movable</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_player_model.html#a10b23d720ce628b505b259d268f54d80">PlayerModel</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="class_player_model.html">PlayerModel</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> getLife() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> setLife(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> value);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::pair&lt;int, int&gt; getVelocity() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setVelocity(std::pair&lt;int, int&gt; v);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#a2d5888a16c98c37e739d2785a6895672">eventHandler</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#aaa594348007aff887dde9056c69117ac">checkCollision</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#ae3aa552eaddf24f71e0ee34571809d8b">applyForces</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_player_model.html#a56d7cbdab15a24e05566f08a586ee844">   53</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_player_model.html#a56d7cbdab15a24e05566f08a586ee844">leftPressed</a>, rightPressed, spacePressed, shiftPressed;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::pair&lt;float, float&gt; getGravity() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> setGravity(<span class="keyword">const</span> std::pair&lt;float, float&gt; &amp;value);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> needMoveBackground() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setMoveBackground(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> getSavedVelocityX() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setVelocityX(<span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> setVelocityY(<span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> isDead() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> getDeadLine() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> setDeadLine(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#a47b3f3b6092b7af84e89dbfff86c674a">addEffect</a>(<a class="code" href="class_effect.html">Effect</a> *effect, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time_effect);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#a055b6e208b1e0bdcbf3c10956dbe3aeb">processEffects</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player_model.html#a1245be23eaab122437f1fcef4a9f1ad1">setAttractCoins</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">bool</span> getAttractCoins() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_player_model.html#a231f5950a3989ae05746129b8edd2dcf">getOnPlatform</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> setOnPlatform(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> life;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> walk_acc;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> run_acc;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> max_walk;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> max_run;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> jump_acc;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> max_fall;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> decelaration;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">int</span> jumpframe;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> jump_counter;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::pair&lt;float, float&gt; gravity;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    std::pair&lt;float, float&gt; velocity;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> move_background; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> dead_line; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::vector&lt;Effect *&gt; active_effects; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    std::vector&lt;Timer&gt; timer_effects; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> attract_coins; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> on_platform; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;std::pair&lt;float, float&gt; <a class="code" href="player__model_8h.html#aeaa9c3de87f6198a98c7496454910b46">operator+=</a>(std::pair&lt;float, float&gt;&amp; a, <span class="keyword">const</span> std::pair&lt;float, float&gt;&amp; b);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // PLAYERMODEL_H</span></div>
+<div class="ttc" id="class_player_model_html_a10b23d720ce628b505b259d268f54d80"><div class="ttname"><a href="class_player_model.html#a10b23d720ce628b505b259d268f54d80">PlayerModel::PlayerModel</a></div><div class="ttdeci">PlayerModel()</div><div class="ttdoc">constructeur de PlayerModel </div><div class="ttdef"><b>Definition:</b> player_model.cpp:7</div></div>
+<div class="ttc" id="class_player_model_html_ae3aa552eaddf24f71e0ee34571809d8b"><div class="ttname"><a href="class_player_model.html#ae3aa552eaddf24f71e0ee34571809d8b">PlayerModel::applyForces</a></div><div class="ttdeci">void applyForces()</div><div class="ttdoc">applyForces applique la velocité et la gravité au playerModel à chaque tour de boucle ...</div><div class="ttdef"><b>Definition:</b> player_model.cpp:202</div></div>
+<div class="ttc" id="class_player_model_html_a2d5888a16c98c37e739d2785a6895672"><div class="ttname"><a href="class_player_model.html#a2d5888a16c98c37e739d2785a6895672">PlayerModel::eventHandler</a></div><div class="ttdeci">void eventHandler()</div><div class="ttdoc">eventHandler s&#39;occupe de la gestion des déplacement à droite et à gauche en incrémentant la vélocité ...</div><div class="ttdef"><b>Definition:</b> player_model.cpp:101</div></div>
+<div class="ttc" id="class_effect_html"><div class="ttname"><a href="class_effect.html">Effect</a></div><div class="ttdoc">classe abstraite qui permet de gérer la durée d&#39;action des bonus </div><div class="ttdef"><b>Definition:</b> effect.h:13</div></div>
+<div class="ttc" id="effect_8h_html"><div class="ttname"><a href="effect_8h.html">effect.h</a></div></div>
+<div class="ttc" id="class_player_model_html_aaa594348007aff887dde9056c69117ac"><div class="ttname"><a href="class_player_model.html#aaa594348007aff887dde9056c69117ac">PlayerModel::checkCollision</a></div><div class="ttdeci">void checkCollision()</div><div class="ttdoc">chekCollision verifie les collisions avec l&#39;environnement(sol, limite pour avancement du chunk...</div><div class="ttdef"><b>Definition:</b> player_model.cpp:180</div></div>
+<div class="ttc" id="class_player_model_html_a56d7cbdab15a24e05566f08a586ee844"><div class="ttname"><a href="class_player_model.html#a56d7cbdab15a24e05566f08a586ee844">PlayerModel::leftPressed</a></div><div class="ttdeci">bool leftPressed</div><div class="ttdoc">booleens publics définis pas la vue (pour la SFML) </div><div class="ttdef"><b>Definition:</b> player_model.h:53</div></div>
+<div class="ttc" id="timer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
+<div class="ttc" id="class_movable_html"><div class="ttname"><a href="class_movable.html">Movable</a></div><div class="ttdoc">classe modèle "primaire" </div><div class="ttdef"><b>Definition:</b> movable.h:16</div></div>
+<div class="ttc" id="utils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
+<div class="ttc" id="class_player_model_html_a055b6e208b1e0bdcbf3c10956dbe3aeb"><div class="ttname"><a href="class_player_model.html#a055b6e208b1e0bdcbf3c10956dbe3aeb">PlayerModel::processEffects</a></div><div class="ttdeci">void processEffects()</div><div class="ttdoc">processEffects détermine si les effets ont toujours besoin d&#39;être actifs à l&#39;aide de timers...</div><div class="ttdef"><b>Definition:</b> player_model.cpp:61</div></div>
+<div class="ttc" id="class_player_model_html_a1245be23eaab122437f1fcef4a9f1ad1"><div class="ttname"><a href="class_player_model.html#a1245be23eaab122437f1fcef4a9f1ad1">PlayerModel::setAttractCoins</a></div><div class="ttdeci">void setAttractCoins(bool value)</div><div class="ttdoc">setAttractCoins permet de déclancher l&#39;attraction des pièces lors de la récupération du bonus aimant ...</div><div class="ttdef"><b>Definition:</b> player_model.cpp:90</div></div>
+<div class="ttc" id="class_player_model_html_a231f5950a3989ae05746129b8edd2dcf"><div class="ttname"><a href="class_player_model.html#a231f5950a3989ae05746129b8edd2dcf">PlayerModel::getOnPlatform</a></div><div class="ttdeci">bool getOnPlatform() const </div><div class="ttdoc">getOnPlatform permet de déterminer si le joueur est sur une plate forme </div><div class="ttdef"><b>Definition:</b> player_model.cpp:80</div></div>
+<div class="ttc" id="movable_8h_html"><div class="ttname"><a href="movable_8h.html">movable.h</a></div></div>
+<div class="ttc" id="class_player_model_html"><div class="ttname"><a href="class_player_model.html">PlayerModel</a></div><div class="ttdoc">Partie modele du joueur, contient l&#39;ensemble des calculs le concernant. </div><div class="ttdef"><b>Definition:</b> player_model.h:19</div></div>
+<div class="ttc" id="player__model_8h_html_aeaa9c3de87f6198a98c7496454910b46"><div class="ttname"><a href="player__model_8h.html#aeaa9c3de87f6198a98c7496454910b46">operator+=</a></div><div class="ttdeci">std::pair&lt; float, float &gt; operator+=(std::pair&lt; float, float &gt; &amp;a, const std::pair&lt; float, float &gt; &amp;b)</div><div class="ttdoc">Surchage de l&#39;opérateur += de pair afin d&#39;additionner plus facilement les pairs que nous utilisons...</div></div>
+<div class="ttc" id="class_player_model_html_a47b3f3b6092b7af84e89dbfff86c674a"><div class="ttname"><a href="class_player_model.html#a47b3f3b6092b7af84e89dbfff86c674a">PlayerModel::addEffect</a></div><div class="ttdeci">void addEffect(Effect *effect, unsigned long time_effect)</div><div class="ttdoc">addEffect ajoute l&#39;effet au joueur (ex: aimant, moon jump....) </div><div class="ttdef"><b>Definition:</b> player_model.cpp:53</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="player__model_8h.html">player_model.h</a></li>
+    <li class="footer">Généré le Vendredi 27 Mai 2016 21:53:12 pour Super Weed Boy par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

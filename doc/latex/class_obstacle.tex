@@ -1,0 +1,52 @@
+\hypertarget{class_obstacle}{\section{Référence de la classe Obstacle}
+\label{class_obstacle}\index{Obstacle@{Obstacle}}
+}
+Graphe d'héritage de Obstacle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.376238cm]{class_obstacle}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_obstacle_a68f97d72f34b3ea31ebf1fcec6d988cc}{{\bfseries Obstacle} (int \hyperlink{class_obstacle_a37056563c8469b38aa240c7c423d7280}{relat\+\_\+x}, int \hyperlink{class_obstacle_a754f463db00e74fd5d66a758e4458c26}{relat\+\_\+y}, int \hyperlink{class_movable_a7e4607cccfcc96d2007c2e39c44cab54}{width}, int \hyperlink{class_movable_a192073065bc62d054f259c3b1522c09e}{height})}\label{class_obstacle_a68f97d72f34b3ea31ebf1fcec6d988cc}
+
+\item 
+\hypertarget{class_obstacle_a1afc602bb15c81ec47fac3b300f69e18}{void {\bfseries set\+Position\+Relat} (const int x, const int y)}\label{class_obstacle_a1afc602bb15c81ec47fac3b300f69e18}
+
+\item 
+\hypertarget{class_obstacle_a48ac0fd66bc7ad139ad442ac30d8de4b}{std\+::pair$<$ int, int $>$ {\bfseries get\+Relat\+Position} () const }\label{class_obstacle_a48ac0fd66bc7ad139ad442ac30d8de4b}
+
+\item 
+\hypertarget{class_obstacle_a7596b666ccd08cd6b0655b1aa4b922ed}{virtual void {\bfseries update} ()=0}\label{class_obstacle_a7596b666ccd08cd6b0655b1aa4b922ed}
+
+\item 
+\hypertarget{class_obstacle_adcc769692b2ca8fe081645c86bbb0a81}{virtual bool {\bfseries check\+Collision} (\hyperlink{class_movable}{Movable} \&m) const =0}\label{class_obstacle_adcc769692b2ca8fe081645c86bbb0a81}
+
+\item 
+\hypertarget{class_obstacle_a26321906015b3cb1c62fa9e90ea51727}{virtual void \hyperlink{class_obstacle_a26321906015b3cb1c62fa9e90ea51727}{action} (\hyperlink{class_game_model}{Game\+Model} \&game)=0}\label{class_obstacle_a26321906015b3cb1c62fa9e90ea51727}
+
+\begin{DoxyCompactList}\small\item\em action que doit effectuer l'obstacle (ex \+: tuer le joueur) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_obstacle_a37056563c8469b38aa240c7c423d7280}{relat\+\_\+x}
+\item 
+int \hyperlink{class_obstacle_a754f463db00e74fd5d66a758e4458c26}{relat\+\_\+y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{class_obstacle_a37056563c8469b38aa240c7c423d7280}{\index{Obstacle@{Obstacle}!relat\+\_\+x@{relat\+\_\+x}}
+\index{relat\+\_\+x@{relat\+\_\+x}!Obstacle@{Obstacle}}
+\subsubsection[{relat\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}int Obstacle\+::relat\+\_\+x\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_obstacle_a37056563c8469b38aa240c7c423d7280}
+Position relative au chunk de l'axe X \hypertarget{class_obstacle_a754f463db00e74fd5d66a758e4458c26}{\index{Obstacle@{Obstacle}!relat\+\_\+y@{relat\+\_\+y}}
+\index{relat\+\_\+y@{relat\+\_\+y}!Obstacle@{Obstacle}}
+\subsubsection[{relat\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}int Obstacle\+::relat\+\_\+y\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_obstacle_a754f463db00e74fd5d66a758e4458c26}
+Position relative au chunk de l'axe Y 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{obstacle_8h}{obstacle.\+h}\item 
+src/obstacle.\+cpp\end{DoxyCompactItemize}

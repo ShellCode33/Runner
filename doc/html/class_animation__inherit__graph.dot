@@ -1,0 +1,16 @@
+digraph "Animation"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Animation",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="sf::Sprite",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="CoinView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coin_view.html",tooltip="Partie vue de Coin. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="HeartView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_heart_view.html",tooltip="Partie vue du bonus Heart. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MissileView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_missile_view.html",tooltip="Vue du missile suiveur. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="PlayerView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_view.html",tooltip="Partie vue du player. "];
+}

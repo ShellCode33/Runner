@@ -1,0 +1,70 @@
+\hypertarget{class_game_over}{\section{Référence de la classe Game\+Over}
+\label{class_game_over}\index{Game\+Over@{Game\+Over}}
+}
+
+
+classe permettant de gérer l'écran de \hyperlink{class_game_over}{Game\+Over}  
+
+
+
+
+{\ttfamily \#include $<$gameover.\+h$>$}
+
+Graphe d'héritage de Game\+Over\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_game_over}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_game_over_add968900f96ba0ea2ab37b6edf51178c}{{\bfseries Game\+Over} (\hyperlink{class_window_runner}{Window\+Runner} $\ast$window, \hyperlink{class_game}{Game} \&game)}\label{class_game_over_add968900f96ba0ea2ab37b6edf51178c}
+
+\item 
+\hypertarget{class_game_over_a761ac69c03c3b7c13b3192984a2e4645}{void {\bfseries draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const }\label{class_game_over_a761ac69c03c3b7c13b3192984a2e4645}
+
+\item 
+\hypertarget{class_game_over_a69f9e1364ff7caa8b17184441474c8b7}{void {\bfseries update} ()}\label{class_game_over_a69f9e1364ff7caa8b17184441474c8b7}
+
+\item 
+virtual void \hyperlink{class_game_over_a199d913ab7b86f03920d3d1c8ad97419}{process\+Event} (sf\+::\+Event \&event, \hyperlink{gamestate_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} \&state) override
+\begin{DoxyCompactList}\small\item\em Gère les évenements qui le concerne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+classe permettant de gérer l'écran de \hyperlink{class_game_over}{Game\+Over} 
+
+\begin{DoxyAuthor}{Auteur}
+Clément \& Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_game_over_a199d913ab7b86f03920d3d1c8ad97419}{\index{Game\+Over@{Game\+Over}!process\+Event@{process\+Event}}
+\index{process\+Event@{process\+Event}!Game\+Over@{Game\+Over}}
+\subsubsection[{process\+Event}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Over\+::process\+Event (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Event \&}]{event, }
+\item[{{\bf State} \&}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{class_game_over_a199d913ab7b86f03920d3d1c8ad97419}
+
+
+Gère les évenements qui le concerne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & \+: Evenements S\+F\+M\+L \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{class_screen_wait_afe115910cee5cb031ba0d968cbd9d548}{Screen\+Wait}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/gameover.\+h\item 
+src/gameover.\+cpp\end{DoxyCompactItemize}

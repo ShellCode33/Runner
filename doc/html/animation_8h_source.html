@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Super Weed Boy:  Fichier source de src/animation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Super Weed Boy
+   </div>
+   <div id="projectbrief">Projet IUT 2015 2016</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('animation_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">animation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="animation_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef ANIMATION_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define ANIMATION_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_animation.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_animation.html">Animation</a> : <span class="keyword">public</span> sf::Sprite</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> speed_ms; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_timer.html">Timer</a> timer; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> x_offset, y_offset; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> anim_enabled;  </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_animation.html#ac63043b48932c071fc99e47f7a2eed46">Animation</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> ms);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_animation.html#ac63043b48932c071fc99e47f7a2eed46">Animation</a>(<span class="keyword">const</span> <a class="code" href="class_animation.html">Animation</a> &amp;copy);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="class_animation.html">Animation</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#a52a17d646d9009a42c830b3172dbcafd">addClip</a>(<span class="keyword">const</span> sf::IntRect&amp; clip);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#a4318baf0b0735e7da87b2c6d3d3a2705">update</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#acb9fc2c5f63aa1dbe17c35841531c1e7">setOffset</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#a001598cc4fd8456ee4f23c5ff3fb31f4">setAnimEnabled</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#ab9b96707a3a9d6d37a08f6c3a3b6672b">removeClips</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_animation.html#a8cddc695676ba0ed87f35f9e7cbe933a">playOneTime</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_animation.html">Animation</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_animation.html">Animation</a> &amp;other);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="class_animation.html">Animation</a> &amp;second);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_animation.html">Animation</a> &amp;second);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_animation.html#abce52c50e52ca5d9eba39ab840650c31">setSpeed</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> value);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> getSpeed() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::vector&lt;sf::IntRect*&gt; <a class="code" href="class_animation.html#a61a4c0512dd9fe244a32ff089027832b">getClips</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_animation.html#ac0d3fda2efad8b0fb735ec91630fd298">   84</a></span>&#160;    std::vector&lt;sf::IntRect*&gt; <a class="code" href="class_animation.html#ac0d3fda2efad8b0fb735ec91630fd298">clips</a>; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_animation.html#a20db3ec79637b08198679b634886ba38">   85</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_animation.html#a20db3ec79637b08198679b634886ba38">current_clip_i</a>; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // ANIMATION_H</span></div>
+<div class="ttc" id="class_animation_html_ac63043b48932c071fc99e47f7a2eed46"><div class="ttname"><a href="class_animation.html#ac63043b48932c071fc99e47f7a2eed46">Animation::Animation</a></div><div class="ttdeci">Animation(const unsigned long ms)</div><div class="ttdoc">Animation. </div><div class="ttdef"><b>Definition:</b> animation.cpp:8</div></div>
+<div class="ttc" id="class_animation_html_ac0d3fda2efad8b0fb735ec91630fd298"><div class="ttname"><a href="class_animation.html#ac0d3fda2efad8b0fb735ec91630fd298">Animation::clips</a></div><div class="ttdeci">std::vector&lt; sf::IntRect * &gt; clips</div><div class="ttdef"><b>Definition:</b> animation.h:84</div></div>
+<div class="ttc" id="class_animation_html"><div class="ttname"><a href="class_animation.html">Animation</a></div><div class="ttdoc">Classe permettant de faire un sprite animé de plusieurs séquences. </div><div class="ttdef"><b>Definition:</b> animation.h:15</div></div>
+<div class="ttc" id="class_animation_html_acb9fc2c5f63aa1dbe17c35841531c1e7"><div class="ttname"><a href="class_animation.html#acb9fc2c5f63aa1dbe17c35841531c1e7">Animation::setOffset</a></div><div class="ttdeci">void setOffset(const int x, const int y)</div><div class="ttdoc">setOffset permet de définir un espace entre les rectangles de lecture </div><div class="ttdef"><b>Definition:</b> animation.cpp:84</div></div>
+<div class="ttc" id="class_timer_html"><div class="ttname"><a href="class_timer.html">Timer</a></div><div class="ttdoc">Classe permettant de créer un chrono simplement. </div><div class="ttdef"><b>Definition:</b> timer.h:13</div></div>
+<div class="ttc" id="class_animation_html_ab9b96707a3a9d6d37a08f6c3a3b6672b"><div class="ttname"><a href="class_animation.html#ab9b96707a3a9d6d37a08f6c3a3b6672b">Animation::removeClips</a></div><div class="ttdeci">void removeClips()</div><div class="ttdoc">removeClips supprime tous les éléments qui composent l&#39;animation </div><div class="ttdef"><b>Definition:</b> animation.cpp:103</div></div>
+<div class="ttc" id="class_animation_html_a61a4c0512dd9fe244a32ff089027832b"><div class="ttname"><a href="class_animation.html#a61a4c0512dd9fe244a32ff089027832b">Animation::getClips</a></div><div class="ttdeci">std::vector&lt; sf::IntRect * &gt; getClips() const </div><div class="ttdoc">getClips </div><div class="ttdef"><b>Definition:</b> animation.cpp:137</div></div>
+<div class="ttc" id="timer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
+<div class="ttc" id="class_animation_html_a001598cc4fd8456ee4f23c5ff3fb31f4"><div class="ttname"><a href="class_animation.html#a001598cc4fd8456ee4f23c5ff3fb31f4">Animation::setAnimEnabled</a></div><div class="ttdeci">void setAnimEnabled(bool value)</div><div class="ttdoc">setAnimEnabled permet de desactiver l&#39;animation (temporairement ou pas) </div><div class="ttdef"><b>Definition:</b> animation.cpp:98</div></div>
+<div class="ttc" id="class_animation_html_a8cddc695676ba0ed87f35f9e7cbe933a"><div class="ttname"><a href="class_animation.html#a8cddc695676ba0ed87f35f9e7cbe933a">Animation::playOneTime</a></div><div class="ttdeci">bool playOneTime()</div><div class="ttdoc">playOneTime se charge de lire l&#39;animation qu&#39;une seule fois </div><div class="ttdef"><b>Definition:</b> animation.cpp:111</div></div>
+<div class="ttc" id="class_animation_html_a20db3ec79637b08198679b634886ba38"><div class="ttname"><a href="class_animation.html#a20db3ec79637b08198679b634886ba38">Animation::current_clip_i</a></div><div class="ttdeci">unsigned int current_clip_i</div><div class="ttdef"><b>Definition:</b> animation.h:85</div></div>
+<div class="ttc" id="class_animation_html_a52a17d646d9009a42c830b3172dbcafd"><div class="ttname"><a href="class_animation.html#a52a17d646d9009a42c830b3172dbcafd">Animation::addClip</a></div><div class="ttdeci">void addClip(const sf::IntRect &amp;clip)</div><div class="ttdoc">addClip permet d&#39;ajouter un rectangle de lecture bien précis à l&#39;animation </div><div class="ttdef"><b>Definition:</b> animation.cpp:90</div></div>
+<div class="ttc" id="class_animation_html_abce52c50e52ca5d9eba39ab840650c31"><div class="ttname"><a href="class_animation.html#abce52c50e52ca5d9eba39ab840650c31">Animation::setSpeed</a></div><div class="ttdeci">void setSpeed(unsigned long value)</div><div class="ttdoc">setSpeed permet de changer la vitesse entre 2 animations </div><div class="ttdef"><b>Definition:</b> animation.cpp:126</div></div>
+<div class="ttc" id="class_animation_html_a4318baf0b0735e7da87b2c6d3d3a2705"><div class="ttname"><a href="class_animation.html#a4318baf0b0735e7da87b2c6d3d3a2705">Animation::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Se charge de mettre à jour le sprite, doit être appelé à chaque tour de boucle. </div><div class="ttdef"><b>Definition:</b> animation.cpp:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="animation_8h.html">animation.h</a></li>
+    <li class="footer">Généré le Vendredi 27 Mai 2016 21:53:12 pour Super Weed Boy par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+\hypertarget{class_player_model}{\section{Référence de la classe Player\+Model}
+\label{class_player_model}\index{Player\+Model@{Player\+Model}}
+}
+
+
+Partie modele du joueur, contient l'ensemble des calculs le concernant.  
+
+
+
+
+{\ttfamily \#include $<$player\+\_\+model.\+h$>$}
+
+Graphe d'héritage de Player\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_model}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_player_model_a10b23d720ce628b505b259d268f54d80}{Player\+Model} ()
+\begin{DoxyCompactList}\small\item\em constructeur de \hyperlink{class_player_model}{Player\+Model} \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_a9937451bb701d0840cfb76b5ae20ccb5}{unsigned short {\bfseries get\+Life} () const }\label{class_player_model_a9937451bb701d0840cfb76b5ae20ccb5}
+
+\item 
+\hypertarget{class_player_model_aba8af8580b750937a429043d73318266}{void {\bfseries set\+Life} (unsigned short value)}\label{class_player_model_aba8af8580b750937a429043d73318266}
+
+\item 
+\hypertarget{class_player_model_af8d1309ae3399c58f3b18f67f3988b6a}{std\+::pair$<$ int, int $>$ {\bfseries get\+Velocity} () const }\label{class_player_model_af8d1309ae3399c58f3b18f67f3988b6a}
+
+\item 
+\hypertarget{class_player_model_a690686ebf5c13228b1a0c989916fbebe}{void {\bfseries set\+Velocity} (std\+::pair$<$ int, int $>$ v)}\label{class_player_model_a690686ebf5c13228b1a0c989916fbebe}
+
+\item 
+\hypertarget{class_player_model_a2d5888a16c98c37e739d2785a6895672}{void \hyperlink{class_player_model_a2d5888a16c98c37e739d2785a6895672}{event\+Handler} ()}\label{class_player_model_a2d5888a16c98c37e739d2785a6895672}
+
+\begin{DoxyCompactList}\small\item\em event\+Handler s'occupe de la gestion des déplacement à droite et à gauche en incrémentant la vélocité \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_aaa594348007aff887dde9056c69117ac}{void \hyperlink{class_player_model_aaa594348007aff887dde9056c69117ac}{check\+Collision} ()}\label{class_player_model_aaa594348007aff887dde9056c69117ac}
+
+\begin{DoxyCompactList}\small\item\em chek\+Collision verifie les collisions avec l'environnement(sol, limite pour avancement du chunk..). \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_ae3aa552eaddf24f71e0ee34571809d8b}{void \hyperlink{class_player_model_ae3aa552eaddf24f71e0ee34571809d8b}{apply\+Forces} ()}\label{class_player_model_ae3aa552eaddf24f71e0ee34571809d8b}
+
+\begin{DoxyCompactList}\small\item\em apply\+Forces applique la velocité et la gravité au player\+Model à chaque tour de boucle \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_a71102e396908deafad7b12f49723d988}{std\+::pair$<$ float, float $>$ {\bfseries get\+Gravity} () const }\label{class_player_model_a71102e396908deafad7b12f49723d988}
+
+\item 
+\hypertarget{class_player_model_a01ae6ec96c356f1570f819aba2e44395}{void {\bfseries set\+Gravity} (const std\+::pair$<$ float, float $>$ \&value)}\label{class_player_model_a01ae6ec96c356f1570f819aba2e44395}
+
+\item 
+\hypertarget{class_player_model_a520ad09f7fed3938e569c5407bf40b98}{bool {\bfseries need\+Move\+Background} () const }\label{class_player_model_a520ad09f7fed3938e569c5407bf40b98}
+
+\item 
+\hypertarget{class_player_model_a89e0a3515e816c504b5ebc9d6987275c}{void {\bfseries set\+Move\+Background} (bool value)}\label{class_player_model_a89e0a3515e816c504b5ebc9d6987275c}
+
+\item 
+\hypertarget{class_player_model_a32a8d0c9b0cd8d5331c7e8b9b33fe018}{int {\bfseries get\+Saved\+Velocity\+X} () const }\label{class_player_model_a32a8d0c9b0cd8d5331c7e8b9b33fe018}
+
+\item 
+\hypertarget{class_player_model_a753f27d349d9aad8377006c0b985dd87}{void {\bfseries set\+Velocity\+X} (float value)}\label{class_player_model_a753f27d349d9aad8377006c0b985dd87}
+
+\item 
+\hypertarget{class_player_model_a02150563ba3ea615f70ccad6eb0197f8}{void {\bfseries set\+Velocity\+Y} (float value)}\label{class_player_model_a02150563ba3ea615f70ccad6eb0197f8}
+
+\item 
+\hypertarget{class_player_model_acbf778cb90ceb16805b7570e2b729967}{bool {\bfseries is\+Dead} () const }\label{class_player_model_acbf778cb90ceb16805b7570e2b729967}
+
+\item 
+\hypertarget{class_player_model_aabec9a64736d7d968ee6bab4921c63a5}{int {\bfseries get\+Dead\+Line} () const }\label{class_player_model_aabec9a64736d7d968ee6bab4921c63a5}
+
+\item 
+\hypertarget{class_player_model_a1aa7d6d458729ca40dc0288c38ab08b3}{void {\bfseries set\+Dead\+Line} (int value)}\label{class_player_model_a1aa7d6d458729ca40dc0288c38ab08b3}
+
+\item 
+void \hyperlink{class_player_model_a47b3f3b6092b7af84e89dbfff86c674a}{add\+Effect} (\hyperlink{class_effect}{Effect} $\ast$effect, unsigned long time\+\_\+effect)
+\begin{DoxyCompactList}\small\item\em add\+Effect ajoute l'effet au joueur (ex\+: aimant, moon jump....) \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_a055b6e208b1e0bdcbf3c10956dbe3aeb}{void \hyperlink{class_player_model_a055b6e208b1e0bdcbf3c10956dbe3aeb}{process\+Effects} ()}\label{class_player_model_a055b6e208b1e0bdcbf3c10956dbe3aeb}
+
+\begin{DoxyCompactList}\small\item\em process\+Effects détermine si les effets ont toujours besoin d'être actifs à l'aide de timers. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_model_a1245be23eaab122437f1fcef4a9f1ad1}{set\+Attract\+Coins} (bool value)
+\begin{DoxyCompactList}\small\item\em set\+Attract\+Coins permet de déclancher l'attraction des pièces lors de la récupération du bonus aimant \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_a431e7e78454d9c7ec5b0efd40df079bb}{bool {\bfseries get\+Attract\+Coins} () const }\label{class_player_model_a431e7e78454d9c7ec5b0efd40df079bb}
+
+\item 
+bool \hyperlink{class_player_model_a231f5950a3989ae05746129b8edd2dcf}{get\+On\+Platform} () const 
+\begin{DoxyCompactList}\small\item\em get\+On\+Platform permet de déterminer si le joueur est sur une plate forme \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_a6888d2f5eecd34dda17b9ba6c37bacdc}{void {\bfseries set\+On\+Platform} (bool value)}\label{class_player_model_a6888d2f5eecd34dda17b9ba6c37bacdc}
+
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_player_model_a56d7cbdab15a24e05566f08a586ee844}{bool \hyperlink{class_player_model_a56d7cbdab15a24e05566f08a586ee844}{left\+Pressed}}\label{class_player_model_a56d7cbdab15a24e05566f08a586ee844}
+
+\begin{DoxyCompactList}\small\item\em booleens publics définis pas la vue (pour la S\+F\+M\+L) \end{DoxyCompactList}\item 
+\hypertarget{class_player_model_aab1ea796a7c9ab08ac0276f4c205db56}{bool {\bfseries right\+Pressed}}\label{class_player_model_aab1ea796a7c9ab08ac0276f4c205db56}
+
+\item 
+\hypertarget{class_player_model_a16c1ac1868a56bacb1bc0238fd508da4}{bool {\bfseries space\+Pressed}}\label{class_player_model_a16c1ac1868a56bacb1bc0238fd508da4}
+
+\item 
+\hypertarget{class_player_model_ac82b09a77b4ece54acb8791fb889cf43}{bool {\bfseries shift\+Pressed}}\label{class_player_model_ac82b09a77b4ece54acb8791fb889cf43}
+
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Partie modele du joueur, contient l'ensemble des calculs le concernant. 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_player_model_a10b23d720ce628b505b259d268f54d80}{\index{Player\+Model@{Player\+Model}!Player\+Model@{Player\+Model}}
+\index{Player\+Model@{Player\+Model}!Player\+Model@{Player\+Model}}
+\subsubsection[{Player\+Model}]{\setlength{\rightskip}{0pt plus 5cm}Player\+Model\+::\+Player\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_model_a10b23d720ce628b505b259d268f54d80}
+
+
+constructeur de \hyperlink{class_player_model}{Player\+Model} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em string} & nom du \hyperlink{class_player_model}{Player\+Model} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_player_model_a47b3f3b6092b7af84e89dbfff86c674a}{\index{Player\+Model@{Player\+Model}!add\+Effect@{add\+Effect}}
+\index{add\+Effect@{add\+Effect}!Player\+Model@{Player\+Model}}
+\subsubsection[{add\+Effect}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+Model\+::add\+Effect (
+\begin{DoxyParamCaption}
+\item[{{\bf Effect} $\ast$}]{effect, }
+\item[{unsigned long}]{time\+\_\+effect}
+\end{DoxyParamCaption}
+)}}\label{class_player_model_a47b3f3b6092b7af84e89dbfff86c674a}
+
+
+add\+Effect ajoute l'effet au joueur (ex\+: aimant, moon jump....) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em effect} & \\
+\hline
+{\em time\+\_\+effect} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_player_model_a231f5950a3989ae05746129b8edd2dcf}{\index{Player\+Model@{Player\+Model}!get\+On\+Platform@{get\+On\+Platform}}
+\index{get\+On\+Platform@{get\+On\+Platform}!Player\+Model@{Player\+Model}}
+\subsubsection[{get\+On\+Platform}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+Model\+::get\+On\+Platform (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_player_model_a231f5950a3989ae05746129b8edd2dcf}
+
+
+get\+On\+Platform permet de déterminer si le joueur est sur une plate forme 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\hypertarget{class_player_model_a1245be23eaab122437f1fcef4a9f1ad1}{\index{Player\+Model@{Player\+Model}!set\+Attract\+Coins@{set\+Attract\+Coins}}
+\index{set\+Attract\+Coins@{set\+Attract\+Coins}!Player\+Model@{Player\+Model}}
+\subsubsection[{set\+Attract\+Coins}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+Model\+::set\+Attract\+Coins (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_player_model_a1245be23eaab122437f1fcef4a9f1ad1}
+
+
+set\+Attract\+Coins permet de déclancher l'attraction des pièces lors de la récupération du bonus aimant 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{player__model_8h}{player\+\_\+model.\+h}\item 
+src/player\+\_\+model.\+cpp\end{DoxyCompactItemize}

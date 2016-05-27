@@ -1,0 +1,122 @@
+\hypertarget{class_coin_model}{\section{Référence de la classe Coin\+Model}
+\label{class_coin_model}\index{Coin\+Model@{Coin\+Model}}
+}
+
+
+Partie modèle des pièces.  
+
+
+
+
+{\ttfamily \#include $<$coin\+\_\+model.\+h$>$}
+
+Graphe d'héritage de Coin\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_coin_model}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_coin_model_ab044e491e7cee8e6abe2ac15c1fee57e}{Coin\+Model} (int \hyperlink{class_obstacle_a37056563c8469b38aa240c7c423d7280}{relat\+\_\+x}, int \hyperlink{class_obstacle_a754f463db00e74fd5d66a758e4458c26}{relat\+\_\+y}, int \hyperlink{class_movable_a7e4607cccfcc96d2007c2e39c44cab54}{width}, int \hyperlink{class_movable_a192073065bc62d054f259c3b1522c09e}{height})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_coin_model}{Coin\+Model} construceur. \end{DoxyCompactList}\item 
+void \hyperlink{class_coin_model_aaa2e117d4a7cb137443c65c483111a21}{action} (\hyperlink{class_game_model}{Game\+Model} \&game)
+\begin{DoxyCompactList}\small\item\em action qui s'applique lorsque le player\+Model entre en collision avec la pièce \end{DoxyCompactList}\item 
+\hypertarget{class_coin_model_a683b01673b509acd9eebe16780d2fae7}{void \hyperlink{class_coin_model_a683b01673b509acd9eebe16780d2fae7}{update} ()}\label{class_coin_model_a683b01673b509acd9eebe16780d2fae7}
+
+\begin{DoxyCompactList}\small\item\em update \end{DoxyCompactList}\item 
+bool \hyperlink{class_coin_model_a48879b62108c8d9830e9e3e059b10fb3}{check\+Collision} (\hyperlink{class_movable}{Movable} \&m) const 
+\begin{DoxyCompactList}\small\item\em check\+Collision \end{DoxyCompactList}\item 
+\hypertarget{class_coin_model_a1fd0cba3278a91ddf4abe36456a99390}{bool {\bfseries is\+Taken} () const }\label{class_coin_model_a1fd0cba3278a91ddf4abe36456a99390}
+
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Partie modèle des pièces. 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_coin_model_ab044e491e7cee8e6abe2ac15c1fee57e}{\index{Coin\+Model@{Coin\+Model}!Coin\+Model@{Coin\+Model}}
+\index{Coin\+Model@{Coin\+Model}!Coin\+Model@{Coin\+Model}}
+\subsubsection[{Coin\+Model}]{\setlength{\rightskip}{0pt plus 5cm}Coin\+Model\+::\+Coin\+Model (
+\begin{DoxyParamCaption}
+\item[{int}]{relat\+\_\+x, }
+\item[{int}]{relat\+\_\+y, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}}\label{class_coin_model_ab044e491e7cee8e6abe2ac15c1fee57e}
+
+
+\hyperlink{class_coin_model}{Coin\+Model} construceur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em relat\+\_\+x} & \\
+\hline
+{\em relat\+\_\+y} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_coin_model_aaa2e117d4a7cb137443c65c483111a21}{\index{Coin\+Model@{Coin\+Model}!action@{action}}
+\index{action@{action}!Coin\+Model@{Coin\+Model}}
+\subsubsection[{action}]{\setlength{\rightskip}{0pt plus 5cm}void Coin\+Model\+::action (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Model} \&}]{game}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_coin_model_aaa2e117d4a7cb137443c65c483111a21}
+
+
+action qui s'applique lorsque le player\+Model entre en collision avec la pièce 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{class_obstacle_a26321906015b3cb1c62fa9e90ea51727}{Obstacle}.
+
+\hypertarget{class_coin_model_a48879b62108c8d9830e9e3e059b10fb3}{\index{Coin\+Model@{Coin\+Model}!check\+Collision@{check\+Collision}}
+\index{check\+Collision@{check\+Collision}!Coin\+Model@{Coin\+Model}}
+\subsubsection[{check\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}bool Coin\+Model\+::check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Movable} \&}]{m}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_coin_model_a48879b62108c8d9830e9e3e059b10fb3}
+
+
+check\+Collision 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true ou false suivant si la collision a lieu ou pas 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{class_obstacle}{Obstacle}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{coin__model_8h}{coin\+\_\+model.\+h}\item 
+src/coin\+\_\+model.\+cpp\end{DoxyCompactItemize}

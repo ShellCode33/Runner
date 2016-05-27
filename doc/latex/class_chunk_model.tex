@@ -1,0 +1,82 @@
+\hypertarget{class_chunk_model}{\section{Référence de la classe Chunk\+Model}
+\label{class_chunk_model}\index{Chunk\+Model@{Chunk\+Model}}
+}
+
+
+Modele de \hyperlink{class_chunk}{Chunk}.  
+
+
+
+
+{\ttfamily \#include $<$chunk\+\_\+model.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_chunk_model_ad0f9adf9a9f681a0204c6fd2fb113896}{{\bfseries Chunk\+Model} (int pos\+\_\+x\+\_\+default)}\label{class_chunk_model_ad0f9adf9a9f681a0204c6fd2fb113896}
+
+\item 
+std\+::list$<$ \hyperlink{class_obstacle}{Obstacle} $\ast$ $>$ \hyperlink{class_chunk_model_aec712a5ac3633889c8acbaebc21bd77e}{get\+Obstacles} () const 
+\item 
+void \hyperlink{class_chunk_model_a5732db0c1f3d060d2a40972fd58d6db1}{add\+Obstacle} (\hyperlink{class_obstacle}{Obstacle} $\ast$obstacle)
+\item 
+\hypertarget{class_chunk_model_a5f40b2b3fd557a733f55bf8ada7a25c2}{void {\bfseries remove\+Obstacle} (\hyperlink{class_obstacle}{Obstacle} $\ast$obstacle)}\label{class_chunk_model_a5f40b2b3fd557a733f55bf8ada7a25c2}
+
+\item 
+bool \hyperlink{class_chunk_model_a9ab1e4450f60b429c0abe43bbc56a327}{is\+In\+Chunk} (\hyperlink{class_movable}{Movable} \&m) const 
+\item 
+\hypertarget{class_chunk_model_a0ab3fa47bf41e063974018aca1b9750d}{unsigned int {\bfseries get\+Theme} () const }\label{class_chunk_model_a0ab3fa47bf41e063974018aca1b9750d}
+
+\item 
+\hypertarget{class_chunk_model_a31d36f471f44a5083e31c281258db44d}{void {\bfseries update} ()}\label{class_chunk_model_a31d36f471f44a5083e31c281258db44d}
+
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_chunk_model_a6b6f83cac17128250d32dddb026b4792}{pos\+\_\+x}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Modele de \hyperlink{class_chunk}{Chunk}. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_chunk_model_a5732db0c1f3d060d2a40972fd58d6db1}{\index{Chunk\+Model@{Chunk\+Model}!add\+Obstacle@{add\+Obstacle}}
+\index{add\+Obstacle@{add\+Obstacle}!Chunk\+Model@{Chunk\+Model}}
+\subsubsection[{add\+Obstacle}]{\setlength{\rightskip}{0pt plus 5cm}void Chunk\+Model\+::add\+Obstacle (
+\begin{DoxyParamCaption}
+\item[{{\bf Obstacle} $\ast$}]{obstacle}
+\end{DoxyParamCaption}
+)}}\label{class_chunk_model_a5732db0c1f3d060d2a40972fd58d6db1}
+Ajouter un obstacle au chunk \hypertarget{class_chunk_model_aec712a5ac3633889c8acbaebc21bd77e}{\index{Chunk\+Model@{Chunk\+Model}!get\+Obstacles@{get\+Obstacles}}
+\index{get\+Obstacles@{get\+Obstacles}!Chunk\+Model@{Chunk\+Model}}
+\subsubsection[{get\+Obstacles}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Obstacle} $\ast$ $>$ Chunk\+Model\+::get\+Obstacles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_chunk_model_aec712a5ac3633889c8acbaebc21bd77e}
+Retourne la liste d'obstacles \hypertarget{class_chunk_model_a9ab1e4450f60b429c0abe43bbc56a327}{\index{Chunk\+Model@{Chunk\+Model}!is\+In\+Chunk@{is\+In\+Chunk}}
+\index{is\+In\+Chunk@{is\+In\+Chunk}!Chunk\+Model@{Chunk\+Model}}
+\subsubsection[{is\+In\+Chunk}]{\setlength{\rightskip}{0pt plus 5cm}bool Chunk\+Model\+::is\+In\+Chunk (
+\begin{DoxyParamCaption}
+\item[{{\bf Movable} \&}]{m}
+\end{DoxyParamCaption}
+) const}}\label{class_chunk_model_a9ab1e4450f60b429c0abe43bbc56a327}
+Retourne vrai ou faux selon si \hyperlink{class_movable}{Movable} est dans ce chunk 
+
+\subsection{Documentation des données membres}
+\hypertarget{class_chunk_model_a6b6f83cac17128250d32dddb026b4792}{\index{Chunk\+Model@{Chunk\+Model}!pos\+\_\+x@{pos\+\_\+x}}
+\index{pos\+\_\+x@{pos\+\_\+x}!Chunk\+Model@{Chunk\+Model}}
+\subsubsection[{pos\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}int Chunk\+Model\+::pos\+\_\+x}}\label{class_chunk_model_a6b6f83cac17128250d32dddb026b4792}
+Position du chunk sur l'écran, un chunk prend toute la place selon y 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{chunk__model_8h}{chunk\+\_\+model.\+h}\item 
+src/chunk\+\_\+model.\+cpp\end{DoxyCompactItemize}

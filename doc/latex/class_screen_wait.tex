@@ -1,0 +1,127 @@
+\hypertarget{class_screen_wait}{\section{Référence de la classe Screen\+Wait}
+\label{class_screen_wait}\index{Screen\+Wait@{Screen\+Wait}}
+}
+
+
+Classe utilisée afin de mettre une image en fond ainsi qu'un texte et attend que la touche espace soit pressée.  
+
+
+
+
+{\ttfamily \#include $<$screenwait.\+h$>$}
+
+Graphe d'héritage de Screen\+Wait\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_screen_wait}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_screen_wait_af02e6acabec3f434336bdb890f5d0854}{{\bfseries Screen\+Wait} (const std\+::string filename, const std\+::string text)}\label{class_screen_wait_af02e6acabec3f434336bdb890f5d0854}
+
+\item 
+\hypertarget{class_screen_wait_ac861b769eb48ff335463505eea594d0f}{virtual void {\bfseries draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const }\label{class_screen_wait_ac861b769eb48ff335463505eea594d0f}
+
+\item 
+void \hyperlink{class_screen_wait_a0ea23f910b91933bc3c0aad0908b3b52}{set\+Background} (const std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Change l'image de fond. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_wait_a713936eb00c1198d1ab9a0192aaa8ec7}{set\+Text} (const std\+::string value)
+\begin{DoxyCompactList}\small\item\em Change le texte qui sera au dessus de l'image. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_wait_afcfc72227d36a8b9c45bb37205dd4663}{set\+Text\+Position} (const sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Change la position du texte. \end{DoxyCompactList}\item 
+\hypertarget{class_screen_wait_ad7afbbbdf3ad78afc1d7990274aa4bfc}{float {\bfseries get\+Text\+Width} () const }\label{class_screen_wait_ad7afbbbdf3ad78afc1d7990274aa4bfc}
+
+\item 
+\hypertarget{class_screen_wait_a725b129bc47b6aa921ad4f7056f44235}{float {\bfseries get\+Text\+Height} () const }\label{class_screen_wait_a725b129bc47b6aa921ad4f7056f44235}
+
+\item 
+virtual void \hyperlink{class_screen_wait_afe115910cee5cb031ba0d968cbd9d548}{process\+Event} (sf\+::\+Event \&event, \hyperlink{gamestate_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} \&state)
+\begin{DoxyCompactList}\small\item\em Gère les évenements qui le concerne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe utilisée afin de mettre une image en fond ainsi qu'un texte et attend que la touche espace soit pressée. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_screen_wait_afe115910cee5cb031ba0d968cbd9d548}{\index{Screen\+Wait@{Screen\+Wait}!process\+Event@{process\+Event}}
+\index{process\+Event@{process\+Event}!Screen\+Wait@{Screen\+Wait}}
+\subsubsection[{process\+Event}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\+Wait\+::process\+Event (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Event \&}]{event, }
+\item[{{\bf State} \&}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_screen_wait_afe115910cee5cb031ba0d968cbd9d548}
+
+
+Gère les évenements qui le concerne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & \+: Evenements S\+F\+M\+L \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \hyperlink{class_game_over_a199d913ab7b86f03920d3d1c8ad97419}{Game\+Over}, et \hyperlink{class_high_scores_tab_aac7540750a5ca1d063d5d71967e5d5aa}{High\+Scores\+Tab}.
+
+\hypertarget{class_screen_wait_a0ea23f910b91933bc3c0aad0908b3b52}{\index{Screen\+Wait@{Screen\+Wait}!set\+Background@{set\+Background}}
+\index{set\+Background@{set\+Background}!Screen\+Wait@{Screen\+Wait}}
+\subsubsection[{set\+Background}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\+Wait\+::set\+Background (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{class_screen_wait_a0ea23f910b91933bc3c0aad0908b3b52}
+
+
+Change l'image de fond. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & \+: chemin d'accès de l'image \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_screen_wait_a713936eb00c1198d1ab9a0192aaa8ec7}{\index{Screen\+Wait@{Screen\+Wait}!set\+Text@{set\+Text}}
+\index{set\+Text@{set\+Text}!Screen\+Wait@{Screen\+Wait}}
+\subsubsection[{set\+Text}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\+Wait\+::set\+Text (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_screen_wait_a713936eb00c1198d1ab9a0192aaa8ec7}
+
+
+Change le texte qui sera au dessus de l'image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \+: Texte affiché \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_screen_wait_afcfc72227d36a8b9c45bb37205dd4663}{\index{Screen\+Wait@{Screen\+Wait}!set\+Text\+Position@{set\+Text\+Position}}
+\index{set\+Text\+Position@{set\+Text\+Position}!Screen\+Wait@{Screen\+Wait}}
+\subsubsection[{set\+Text\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\+Wait\+::set\+Text\+Position (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Vector2f}]{pos}
+\end{DoxyParamCaption}
+)}}\label{class_screen_wait_afcfc72227d36a8b9c45bb37205dd4663}
+
+
+Change la position du texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pos} & \+: Vecteur de position \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/screenwait.\+h\item 
+src/screenwait.\+cpp\end{DoxyCompactItemize}

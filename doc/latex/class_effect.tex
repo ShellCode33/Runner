@@ -1,0 +1,102 @@
+\hypertarget{class_effect}{\section{Référence de la classe Effect}
+\label{class_effect}\index{Effect@{Effect}}
+}
+
+
+classe abstraite qui permet de gérer la durée d'action des bonus  
+
+
+
+
+{\ttfamily \#include $<$effect.\+h$>$}
+
+Graphe d'héritage de Effect\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_effect}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_effect_ae779bc72f0627ad4f0d9f059b632930b}{Effect} (\hyperlink{class_player_model}{Player\+Model} \&player)
+\begin{DoxyCompactList}\small\item\em contructeur \hyperlink{class_effect}{Effect} \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_effect_adb5fb4b0bfa4099ce418783ff74dfa1a}{start} (\hyperlink{class_player_model}{Player\+Model} \&player)=0
+\begin{DoxyCompactList}\small\item\em start permet de déterminer quel sera l'effet appliqué sur le joueur \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_effect_ac8b826d884bfdfc41a2286bcbb4c7dab}{stop} (\hyperlink{class_player_model}{Player\+Model} \&player)=0
+\begin{DoxyCompactList}\small\item\em stop permet d'arrêter cet l'effet \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+classe abstraite qui permet de gérer la durée d'action des bonus 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_effect_ae779bc72f0627ad4f0d9f059b632930b}{\index{Effect@{Effect}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect@{Effect}}
+\subsubsection[{Effect}]{\setlength{\rightskip}{0pt plus 5cm}Effect\+::\+Effect (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+Model} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_effect_ae779bc72f0627ad4f0d9f059b632930b}
+
+
+contructeur \hyperlink{class_effect}{Effect} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_effect_adb5fb4b0bfa4099ce418783ff74dfa1a}{\index{Effect@{Effect}!start@{start}}
+\index{start@{start}!Effect@{Effect}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Effect\+::start (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+Model} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_effect_adb5fb4b0bfa4099ce418783ff74dfa1a}
+
+
+start permet de déterminer quel sera l'effet appliqué sur le joueur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_moon_a6970aae5c81e3f98666e36da618b513f}{Moon}, et \hyperlink{class_magnet_af912cb148885faaf5281f80dbd3725df}{Magnet}.
+
+\hypertarget{class_effect_ac8b826d884bfdfc41a2286bcbb4c7dab}{\index{Effect@{Effect}!stop@{stop}}
+\index{stop@{stop}!Effect@{Effect}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Effect\+::stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+Model} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_effect_ac8b826d884bfdfc41a2286bcbb4c7dab}
+
+
+stop permet d'arrêter cet l'effet 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_moon_a9eb4ffd52d8bb525d07b2a7407900786}{Moon}, et \hyperlink{class_magnet_aa387ca561e4de8706ec7bf92ff51e009}{Magnet}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{effect_8h}{effect.\+h}\end{DoxyCompactItemize}

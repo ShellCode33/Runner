@@ -1,0 +1,81 @@
+\hypertarget{class_game_model}{\section{Référence de la classe Game\+Model}
+\label{class_game_model}\index{Game\+Model@{Game\+Model}}
+}
+
+
+Classe chargée de répartir les taches, de gérer le fonctionnement logique du jeu.  
+
+
+
+
+{\ttfamily \#include $<$game\+\_\+model.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_game_model_ab73bf8f197964f52e0b9557721021ad4}{{\bfseries Game\+Model} (\hyperlink{class_player}{Player} \&player, std\+::list$<$ \hyperlink{class_chunk}{Chunk} $\ast$ $>$ \&chunks, std\+::list$<$ \hyperlink{class_entity}{Entity} $\ast$ $>$ \&entities)}\label{class_game_model_ab73bf8f197964f52e0b9557721021ad4}
+
+\item 
+\hypertarget{class_game_model_a26c53e2bba15cfbc615579ffdd713358}{void {\bfseries update} ()}\label{class_game_model_a26c53e2bba15cfbc615579ffdd713358}
+
+\item 
+\hypertarget{class_game_model_a7be2ff8b9d15a790d5c463a6a9545dbf}{unsigned long {\bfseries get\+Score} () const }\label{class_game_model_a7be2ff8b9d15a790d5c463a6a9545dbf}
+
+\item 
+\hypertarget{class_game_model_a24941d3fe8a10ce5dd2c1f7df362e43d}{int {\bfseries get\+Fire\+Offset} () const }\label{class_game_model_a24941d3fe8a10ce5dd2c1f7df362e43d}
+
+\item 
+\hypertarget{class_game_model_a9628401361e24f1d0e4b53689a6559b6}{void {\bfseries set\+Fire\+Offset} (int value)}\label{class_game_model_a9628401361e24f1d0e4b53689a6559b6}
+
+\item 
+std\+::list$<$ \hyperlink{class_chunk}{Chunk} $\ast$ $>$ \hyperlink{class_game_model_a20185bd5c5c79e5d1d663600fb35e7e9}{get\+Visible\+Chunks} () const 
+\begin{DoxyCompactList}\small\item\em get\+Visible\+Chunks \end{DoxyCompactList}\item 
+\hypertarget{class_game_model_adeccbd3824ba761f672565c2e387292b}{void {\bfseries set\+Score} (unsigned long value)}\label{class_game_model_adeccbd3824ba761f672565c2e387292b}
+
+\item 
+\hypertarget{class_game_model_ac35172d6b42732191074f5d42fb24432}{std\+::string {\bfseries get\+Pseudo} () const }\label{class_game_model_ac35172d6b42732191074f5d42fb24432}
+
+\item 
+\hypertarget{class_game_model_aee5bf04985c1cde084c286ec734178d1}{void {\bfseries set\+Pseudo} (const std\+::string \&value)}\label{class_game_model_aee5bf04985c1cde084c286ec734178d1}
+
+\item 
+\hypertarget{class_game_model_a4afb30e3b8c466f1c4cdccee5466370b}{\hyperlink{class_police}{Police} $\ast$ {\bfseries get\+Police} () const }\label{class_game_model_a4afb30e3b8c466f1c4cdccee5466370b}
+
+\item 
+\hypertarget{class_game_model_a48f36aaf42d9164f624e712c6304f483}{void {\bfseries add\+Bonus\+Score} (unsigned long value)}\label{class_game_model_a48f36aaf42d9164f624e712c6304f483}
+
+\item 
+\hypertarget{class_game_model_ac4bc5c49399494ed245b7e2c5ba1985a}{\hyperlink{class_player}{Player} \& {\bfseries get\+Player} () const }\label{class_game_model_ac4bc5c49399494ed245b7e2c5ba1985a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe chargée de répartir les taches, de gérer le fonctionnement logique du jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie, Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_game_model_a20185bd5c5c79e5d1d663600fb35e7e9}{\index{Game\+Model@{Game\+Model}!get\+Visible\+Chunks@{get\+Visible\+Chunks}}
+\index{get\+Visible\+Chunks@{get\+Visible\+Chunks}!Game\+Model@{Game\+Model}}
+\subsubsection[{get\+Visible\+Chunks}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Chunk} $\ast$ $>$ Game\+Model\+::get\+Visible\+Chunks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_game_model_a20185bd5c5c79e5d1d663600fb35e7e9}
+
+
+get\+Visible\+Chunks 
+
+\begin{DoxyReturn}{Renvoie}
+une liste de chunks qui sont actuellement visibles à l'ecran 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{game__model_8h}{game\+\_\+model.\+h}\item 
+src/game\+\_\+model.\+cpp\end{DoxyCompactItemize}

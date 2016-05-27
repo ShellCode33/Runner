@@ -1,0 +1,28 @@
+digraph "Movable"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Movable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="MissileModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_missile_model.html",tooltip="Modèle du missile suiveur. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Obstacle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_obstacle.html"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="CoinModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coin_model.html",tooltip="Partie modèle des pièces. "];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="HeartModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_heart_model.html",tooltip="Partie modèle du bonus Heart. "];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="MagnetModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_magnet_model.html",tooltip="Partie modèle du bonus Magnet. "];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="MoonModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_moon_model.html",tooltip="Partie modèle du bonus Moon. "];
+  Node3 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="PlatformModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_platform_model.html",tooltip="Partie modèle de l&#39;obstacle Platform. "];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="SawModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_saw_model.html",tooltip="Partie modèle de l&#39;obstacle scie circulaire. "];
+  Node3 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="SpikeModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_spike_model.html",tooltip="Modèle des pics. "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="PlayerModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_model.html",tooltip="Partie modele du joueur, contient l&#39;ensemble des calculs le concernant. "];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="PoliceModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_police_model.html"];
+}

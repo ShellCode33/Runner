@@ -1,0 +1,7 @@
+digraph "Graphe hiérarchique des classes"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="AABB",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_a_a_b_b.html",tooltip="AABB(axis aligned bounding box) Rectangle dont tout les côtés sont parralèles aux deux axes (horizont..."];
+}

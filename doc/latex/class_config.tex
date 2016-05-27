@@ -1,0 +1,66 @@
+\hypertarget{class_config}{\section{Référence de la classe Config}
+\label{class_config}\index{Config@{Config}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_config_aad65625e287f74e7618e54af59bce58f}{{\bfseries Config} (const std\+::string filename)}\label{class_config_aad65625e287f74e7618e54af59bce58f}
+
+\item 
+\hypertarget{class_config_a18410803ad858b99fcbd80b30d3dd1bd}{void \hyperlink{class_config_a18410803ad858b99fcbd80b30d3dd1bd}{create\+Config} ()}\label{class_config_a18410803ad858b99fcbd80b30d3dd1bd}
+
+\begin{DoxyCompactList}\small\item\em crée la configuration par défaut \end{DoxyCompactList}\item 
+\hypertarget{class_config_a10cc202278ee46b337939bee812b660f}{void \hyperlink{class_config_a10cc202278ee46b337939bee812b660f}{read\+Config} ()}\label{class_config_a10cc202278ee46b337939bee812b660f}
+
+\begin{DoxyCompactList}\small\item\em Se charge de lire la configuration et de tout mettre dans config\+\_\+map. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_config_ac7a5f71f677d53e4e80c81c12bb509bf}{get\+Setting} (const std\+::string key) const 
+\begin{DoxyCompactList}\small\item\em Récupère la valeur correspondante à un paramètre. \end{DoxyCompactList}\item 
+void \hyperlink{class_config_a0ac85d65a0bd9d91cac5b37bceaba3ac}{write\+Setting} (const std\+::string key, const std\+::string value)
+\begin{DoxyCompactList}\small\item\em write\+Setting permet d'écrire un paramètre dans le fichier de config \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_config_ac7a5f71f677d53e4e80c81c12bb509bf}{\index{Config@{Config}!get\+Setting@{get\+Setting}}
+\index{get\+Setting@{get\+Setting}!Config@{Config}}
+\subsubsection[{get\+Setting}]{\setlength{\rightskip}{0pt plus 5cm}string Config\+::get\+Setting (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{key}
+\end{DoxyParamCaption}
+) const}}\label{class_config_ac7a5f71f677d53e4e80c81c12bb509bf}
+
+
+Récupère la valeur correspondante à un paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \+: Le paramètre souhaité \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La valeur du paramètre 
+\end{DoxyReturn}
+\hypertarget{class_config_a0ac85d65a0bd9d91cac5b37bceaba3ac}{\index{Config@{Config}!write\+Setting@{write\+Setting}}
+\index{write\+Setting@{write\+Setting}!Config@{Config}}
+\subsubsection[{write\+Setting}]{\setlength{\rightskip}{0pt plus 5cm}void Config\+::write\+Setting (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{key, }
+\item[{const std\+::string}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_config_a0ac85d65a0bd9d91cac5b37bceaba3ac}
+
+
+write\+Setting permet d'écrire un paramètre dans le fichier de config 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{config_8h}{config.\+h}\item 
+src/config.\+cpp\end{DoxyCompactItemize}

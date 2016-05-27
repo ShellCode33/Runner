@@ -1,0 +1,12 @@
+digraph "Chunk"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Chunk",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ChunkSaw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_chunk_saw.html",tooltip="Chunk contenant les scies circulaires avec différentes positions définies aléatoirement. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ChunkSpecial",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_chunk_special.html",tooltip="Chunk utilisé pour les missiles. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ChunkSpike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_chunk_spike.html",tooltip="Chunk utilisé pour les pointes. "];
+}

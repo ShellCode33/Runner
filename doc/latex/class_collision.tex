@@ -1,0 +1,197 @@
+\hypertarget{class_collision}{\section{Référence de la classe Collision}
+\label{class_collision}\index{Collision@{Collision}}
+}
+
+
+Classe gérant toutes les collisions.  
+
+
+
+
+{\ttfamily \#include $<$collision.\+h$>$}
+
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_collision_a01a2ff17f908c50998fa2199b59d48cf}{point\+Intersect\+A\+A\+B\+B} (int x, int y, \hyperlink{struct_a_a_b_b}{A\+A\+B\+B} box)
+\begin{DoxyCompactList}\small\item\em point\+Intersect\+A\+A\+B\+B \end{DoxyCompactList}\item 
+static bool \hyperlink{class_collision_a1d7e04d1de76331f165e57ffbb1723fc}{A\+A\+B\+Bintersect\+A\+A\+B\+B} (\hyperlink{struct_a_a_b_b}{A\+A\+B\+B} box1, \hyperlink{struct_a_a_b_b}{A\+A\+B\+B} box2)
+\begin{DoxyCompactList}\small\item\em A\+A\+B\+Bintersect\+A\+A\+B\+B. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_collision_abf0d7915540a1332cb2d067a230ed75d}{point\+Intersect\+Circle} (int x, int y, \hyperlink{struct_circle}{Circle} c)
+\begin{DoxyCompactList}\small\item\em point\+Intersect\+Circle \end{DoxyCompactList}\item 
+static bool \hyperlink{class_collision_a1648869d14814dda9e7017758275d87c}{circle\+Intersect\+Circle} (\hyperlink{struct_circle}{Circle} c1, \hyperlink{struct_circle}{Circle} c2)
+\begin{DoxyCompactList}\small\item\em circle\+Intersect\+Circle \end{DoxyCompactList}\item 
+static bool \hyperlink{class_collision_a2991619fe7ba4ce21ef60e5ebbe77bc9}{A\+A\+B\+Bintersect\+Circle} (\hyperlink{struct_a_a_b_b}{A\+A\+B\+B} box\+Circle, \hyperlink{struct_a_a_b_b}{A\+A\+B\+B} box, \hyperlink{struct_circle}{Circle} c)
+\begin{DoxyCompactList}\small\item\em A\+A\+B\+Bintersect\+Circle. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_collision_addeae3ff20d6f6bfab34f5af5bc8cf5f}{segment\+Projection\+Point} (int Cx, int Cy, int Ax, int Ay, int Bx, int By)
+\begin{DoxyCompactList}\small\item\em segment\+Projection\+Point \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe gérant toutes les collisions. 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_collision_a1d7e04d1de76331f165e57ffbb1723fc}{\index{Collision@{Collision}!A\+A\+B\+Bintersect\+A\+A\+B\+B@{A\+A\+B\+Bintersect\+A\+A\+B\+B}}
+\index{A\+A\+B\+Bintersect\+A\+A\+B\+B@{A\+A\+B\+Bintersect\+A\+A\+B\+B}!Collision@{Collision}}
+\subsubsection[{A\+A\+B\+Bintersect\+A\+A\+B\+B}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::\+A\+A\+B\+Bintersect\+A\+A\+B\+B (
+\begin{DoxyParamCaption}
+\item[{{\bf A\+A\+B\+B}}]{box1, }
+\item[{{\bf A\+A\+B\+B}}]{box2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_a1d7e04d1de76331f165e57ffbb1723fc}
+
+
+A\+A\+B\+Bintersect\+A\+A\+B\+B. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em box1} & \\
+\hline
+{\em box2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collision_a2991619fe7ba4ce21ef60e5ebbe77bc9}{\index{Collision@{Collision}!A\+A\+B\+Bintersect\+Circle@{A\+A\+B\+Bintersect\+Circle}}
+\index{A\+A\+B\+Bintersect\+Circle@{A\+A\+B\+Bintersect\+Circle}!Collision@{Collision}}
+\subsubsection[{A\+A\+B\+Bintersect\+Circle}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::\+A\+A\+B\+Bintersect\+Circle (
+\begin{DoxyParamCaption}
+\item[{{\bf A\+A\+B\+B}}]{box\+Circle, }
+\item[{{\bf A\+A\+B\+B}}]{box, }
+\item[{{\bf Circle}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_a2991619fe7ba4ce21ef60e5ebbe77bc9}
+
+
+A\+A\+B\+Bintersect\+Circle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em box\+Circle} & \\
+\hline
+{\em box} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collision_a1648869d14814dda9e7017758275d87c}{\index{Collision@{Collision}!circle\+Intersect\+Circle@{circle\+Intersect\+Circle}}
+\index{circle\+Intersect\+Circle@{circle\+Intersect\+Circle}!Collision@{Collision}}
+\subsubsection[{circle\+Intersect\+Circle}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::circle\+Intersect\+Circle (
+\begin{DoxyParamCaption}
+\item[{{\bf Circle}}]{c1, }
+\item[{{\bf Circle}}]{c2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_a1648869d14814dda9e7017758275d87c}
+
+
+circle\+Intersect\+Circle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c1} & \\
+\hline
+{\em c2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collision_a01a2ff17f908c50998fa2199b59d48cf}{\index{Collision@{Collision}!point\+Intersect\+A\+A\+B\+B@{point\+Intersect\+A\+A\+B\+B}}
+\index{point\+Intersect\+A\+A\+B\+B@{point\+Intersect\+A\+A\+B\+B}!Collision@{Collision}}
+\subsubsection[{point\+Intersect\+A\+A\+B\+B}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::point\+Intersect\+A\+A\+B\+B (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf A\+A\+B\+B}}]{box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_a01a2ff17f908c50998fa2199b59d48cf}
+
+
+point\+Intersect\+A\+A\+B\+B 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em box} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collision_abf0d7915540a1332cb2d067a230ed75d}{\index{Collision@{Collision}!point\+Intersect\+Circle@{point\+Intersect\+Circle}}
+\index{point\+Intersect\+Circle@{point\+Intersect\+Circle}!Collision@{Collision}}
+\subsubsection[{point\+Intersect\+Circle}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::point\+Intersect\+Circle (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf Circle}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_abf0d7915540a1332cb2d067a230ed75d}
+
+
+point\+Intersect\+Circle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si collision, faux sinon 
+\end{DoxyReturn}
+\hypertarget{class_collision_addeae3ff20d6f6bfab34f5af5bc8cf5f}{\index{Collision@{Collision}!segment\+Projection\+Point@{segment\+Projection\+Point}}
+\index{segment\+Projection\+Point@{segment\+Projection\+Point}!Collision@{Collision}}
+\subsubsection[{segment\+Projection\+Point}]{\setlength{\rightskip}{0pt plus 5cm}bool Collision\+::segment\+Projection\+Point (
+\begin{DoxyParamCaption}
+\item[{int}]{Cx, }
+\item[{int}]{Cy, }
+\item[{int}]{Ax, }
+\item[{int}]{Ay, }
+\item[{int}]{Bx, }
+\item[{int}]{By}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_collision_addeae3ff20d6f6bfab34f5af5bc8cf5f}
+
+
+segment\+Projection\+Point 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Cx} & \\
+\hline
+{\em Cy} & \\
+\hline
+{\em Ax} & \\
+\hline
+{\em Ay} & \\
+\hline
+{\em Bx} & \\
+\hline
+{\em By} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la projection 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{collision_8h}{collision.\+h}\item 
+src/collision.\+cpp\end{DoxyCompactItemize}

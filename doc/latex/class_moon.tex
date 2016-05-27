@@ -1,0 +1,94 @@
+\hypertarget{class_moon}{\section{Référence de la classe Moon}
+\label{class_moon}\index{Moon@{Moon}}
+}
+
+
+Bonus appliquant une gravité différent au player.  
+
+
+
+
+{\ttfamily \#include $<$moon.\+h$>$}
+
+Graphe d'héritage de Moon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_moon}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_moon_a59b7233ce62ae4856c53c8846ef85c70}{{\bfseries Moon} (\hyperlink{class_player_model}{Player\+Model} \&player, int relat\+\_\+x, int relat\+\_\+y, int width, int height)}\label{class_moon_a59b7233ce62ae4856c53c8846ef85c70}
+
+\item 
+\hypertarget{class_moon_a1ca4998aa2f6b9730aa073a45a70bbc2}{void {\bfseries update} ()}\label{class_moon_a1ca4998aa2f6b9730aa073a45a70bbc2}
+
+\item 
+\hypertarget{class_moon_ad2d57b1cce334cdc34d1d8e5956851d3}{\hyperlink{class_moon_view}{Moon\+View} $\ast$ {\bfseries get\+View} ()}\label{class_moon_ad2d57b1cce334cdc34d1d8e5956851d3}
+
+\item 
+\hypertarget{class_moon_a031db138882c53af2f97eeba06ab6272}{\hyperlink{class_moon_model}{Moon\+Model} $\ast$ {\bfseries get\+Model} ()}\label{class_moon_a031db138882c53af2f97eeba06ab6272}
+
+\item 
+void \hyperlink{class_moon_a6970aae5c81e3f98666e36da618b513f}{start} (\hyperlink{class_player_model}{Player\+Model} \&player)
+\begin{DoxyCompactList}\small\item\em start permet de déterminer quel sera l'effet appliqué sur le joueur \end{DoxyCompactList}\item 
+void \hyperlink{class_moon_a9eb4ffd52d8bb525d07b2a7407900786}{stop} (\hyperlink{class_player_model}{Player\+Model} \&player)
+\begin{DoxyCompactList}\small\item\em stop permet d'arrêter cet l'effet \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Bonus appliquant une gravité différent au player. 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_moon_a6970aae5c81e3f98666e36da618b513f}{\index{Moon@{Moon}!start@{start}}
+\index{start@{start}!Moon@{Moon}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Moon\+::start (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+Model} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_moon_a6970aae5c81e3f98666e36da618b513f}
+
+
+start permet de déterminer quel sera l'effet appliqué sur le joueur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{class_effect_adb5fb4b0bfa4099ce418783ff74dfa1a}{Effect}.
+
+\hypertarget{class_moon_a9eb4ffd52d8bb525d07b2a7407900786}{\index{Moon@{Moon}!stop@{stop}}
+\index{stop@{stop}!Moon@{Moon}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void Moon\+::stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+Model} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_moon_a9eb4ffd52d8bb525d07b2a7407900786}
+
+
+stop permet d'arrêter cet l'effet 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{class_effect_ac8b826d884bfdfc41a2286bcbb4c7dab}{Effect}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{moon_8h}{moon.\+h}\item 
+src/moon.\+cpp\end{DoxyCompactItemize}

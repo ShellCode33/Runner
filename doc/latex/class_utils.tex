@@ -1,0 +1,118 @@
+\hypertarget{class_utils}{\section{Référence de la classe Utils}
+\label{class_utils}\index{Utils@{Utils}}
+}
+
+
+Classe utilitaire fournissant divers fonctionnalités.  
+
+
+
+
+{\ttfamily \#include $<$utils.\+h$>$}
+
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_utils_a35aee32a9a6a1b11de974641a3bbb35d}{static float {\bfseries rand\+Range} (float a, float b)}\label{class_utils_a35aee32a9a6a1b11de974641a3bbb35d}
+
+\item 
+static void \hyperlink{class_utils_add80e3b1ce0771a9896d75c44d835fdc}{log} (const std\+::string text)
+\begin{DoxyCompactList}\small\item\em Fonction de log permettant un suivi de l'execution. \end{DoxyCompactList}\item 
+static void \hyperlink{class_utils_a1170497447081a5ba51cbfc437df18ac}{add\+Score} (unsigned long score, std\+::string pseudo)
+\begin{DoxyCompactList}\small\item\em add\+Score ajoute un score au fichier de scores si celui-\/ci est dans les meilleurs scores \end{DoxyCompactList}\item 
+\hypertarget{class_utils_aeea1037d0f36d661c72f86d4d9b178b6}{static std\+::vector$<$ std\+::pair\\*
+$<$ unsigned long, std\+::string $>$ $>$ {\bfseries get\+Scores} ()}\label{class_utils_aeea1037d0f36d661c72f86d4d9b178b6}
+
+\item 
+static std\+::vector$<$ std\+::string $>$ \hyperlink{class_utils_a5f762bac5d0a135448e6b9b1247fde34}{get\+Available\+Languages} ()
+\begin{DoxyCompactList}\small\item\em get\+Available\+Languages \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_utils_a5f5d31e13c2283e72d3494ddd6544338}{translate} (std\+::string lang, std\+::string code)
+\begin{DoxyCompactList}\small\item\em translate traduit un code donné dans la langue demandée \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe utilitaire fournissant divers fonctionnalités. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_utils_a1170497447081a5ba51cbfc437df18ac}{\index{Utils@{Utils}!add\+Score@{add\+Score}}
+\index{add\+Score@{add\+Score}!Utils@{Utils}}
+\subsubsection[{add\+Score}]{\setlength{\rightskip}{0pt plus 5cm}void Utils\+::add\+Score (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{score, }
+\item[{std\+::string}]{pseudo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_utils_a1170497447081a5ba51cbfc437df18ac}
+
+
+add\+Score ajoute un score au fichier de scores si celui-\/ci est dans les meilleurs scores 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em score} & \\
+\hline
+{\em pseudo} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_utils_a5f762bac5d0a135448e6b9b1247fde34}{\index{Utils@{Utils}!get\+Available\+Languages@{get\+Available\+Languages}}
+\index{get\+Available\+Languages@{get\+Available\+Languages}!Utils@{Utils}}
+\subsubsection[{get\+Available\+Languages}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Utils\+::get\+Available\+Languages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_utils_a5f762bac5d0a135448e6b9b1247fde34}
+
+
+get\+Available\+Languages 
+
+\begin{DoxyReturn}{Renvoie}
+les langues supportées par le jeu 
+\end{DoxyReturn}
+\hypertarget{class_utils_add80e3b1ce0771a9896d75c44d835fdc}{\index{Utils@{Utils}!log@{log}}
+\index{log@{log}!Utils@{Utils}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}void Utils\+::log (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_utils_add80e3b1ce0771a9896d75c44d835fdc}
+
+
+Fonction de log permettant un suivi de l'execution. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & \+: texte qui va être affiché \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_utils_a5f5d31e13c2283e72d3494ddd6544338}{\index{Utils@{Utils}!translate@{translate}}
+\index{translate@{translate}!Utils@{Utils}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}string Utils\+::translate (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{lang, }
+\item[{std\+::string}]{code}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_utils_a5f5d31e13c2283e72d3494ddd6544338}
+
+
+translate traduit un code donné dans la langue demandée 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lang} & \\
+\hline
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{utils_8h}{utils.\+h}\item 
+src/utils.\+cpp\end{DoxyCompactItemize}

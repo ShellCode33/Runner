@@ -1,0 +1,11 @@
+digraph "Graphe hiérarchique des classes"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Entity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_entity.html",tooltip="classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l&#39;écran (..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="MissileSeeker",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_missile_seeker.html",tooltip="classe "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Police",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_police.html"];
+}

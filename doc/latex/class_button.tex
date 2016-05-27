@@ -1,0 +1,116 @@
+\hypertarget{class_button}{\section{Référence de la classe Button}
+\label{class_button}\index{Button@{Button}}
+}
+
+
+{\ttfamily \#include $<$button.\+h$>$}
+
+Graphe d'héritage de Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_button}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_button_ad8dae1505b6418a5f81829503e3b9dc7}{Button} (const std\+::string \&text, const \hyperlink{gamestate_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} action, const int pos\+\_\+x=0, const int pos\+\_\+y=0, const int width=500, const int height=80)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_button}{Button} permet de créer un bouton graphique avec la S\+F\+M\+L. \end{DoxyCompactList}\item 
+\hypertarget{class_button_a9ee0da19612c994fd4f92a88311a9d90}{void \hyperlink{class_button_a9ee0da19612c994fd4f92a88311a9d90}{set\+Boundaries} (const int pos\+\_\+x, const int pos\+\_\+y, const int width, const int height)}\label{class_button_a9ee0da19612c994fd4f92a88311a9d90}
+
+\begin{DoxyCompactList}\small\item\em set\+Boundaries Applique un filtre sur l'image afin de \char`\"{}découper\char`\"{} une certaine zone \end{DoxyCompactList}\item 
+void \hyperlink{class_button_a71c5cc7c8916f46949c427771f45feab}{set\+Image} (const std\+::string filename)
+\begin{DoxyCompactList}\small\item\em set\+Image Permet de définir une image sur le bouton \end{DoxyCompactList}\item 
+\hypertarget{class_button_a1730b67ffa2c2b179b47c206770247f3}{void \hyperlink{class_button_a1730b67ffa2c2b179b47c206770247f3}{process\+Event} (\hyperlink{class_window_runner}{Window\+Runner} \&window, sf\+::\+Event \&event)}\label{class_button_a1730b67ffa2c2b179b47c206770247f3}
+
+\begin{DoxyCompactList}\small\item\em process\+Event Gère les évenements des boutons \end{DoxyCompactList}\item 
+\hypertarget{class_button_ab6b733217aabf3efa8df58145949fd7c}{void {\bfseries set\+Position} (int x, int y)}\label{class_button_ab6b733217aabf3efa8df58145949fd7c}
+
+\item 
+\hypertarget{class_button_ae857e1560e56016bd07bd2974e76d942}{std\+::pair$<$ int, int $>$ {\bfseries get\+Position} () const }\label{class_button_ae857e1560e56016bd07bd2974e76d942}
+
+\item 
+\hypertarget{class_button_a7780a81b7459d51bb497bcd888bc226d}{std\+::pair$<$ int, int $>$ {\bfseries get\+Size} () const }\label{class_button_a7780a81b7459d51bb497bcd888bc226d}
+
+\item 
+\hypertarget{class_button_aad8dccffb2940c1c44d2e515d124143c}{void {\bfseries set\+Text} (std\+::string text)}\label{class_button_aad8dccffb2940c1c44d2e515d124143c}
+
+\item 
+std\+::string \hyperlink{class_button_a45a4f1f33bf80e057ac24fbcd9192edb}{to\+Upper} (std\+::string str) const 
+\begin{DoxyCompactList}\small\item\em to\+Upper met la chaine passée en paramètre en majuscules \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Clément \& Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_button_ad8dae1505b6418a5f81829503e3b9dc7}{\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection[{Button}]{\setlength{\rightskip}{0pt plus 5cm}Button\+::\+Button (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{text, }
+\item[{const {\bf State}}]{action, }
+\item[{const int}]{pos\+\_\+x = {\ttfamily 0}, }
+\item[{const int}]{pos\+\_\+y = {\ttfamily 0}, }
+\item[{const int}]{width = {\ttfamily 500}, }
+\item[{const int}]{height = {\ttfamily 80}}
+\end{DoxyParamCaption}
+)}}\label{class_button_ad8dae1505b6418a5f81829503e3b9dc7}
+
+
+\hyperlink{class_button}{Button} permet de créer un bouton graphique avec la S\+F\+M\+L. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & Texte affiché sur le bouton \\
+\hline
+{\em action} & Action effectuée par le bouton (voir enum State) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_button_a71c5cc7c8916f46949c427771f45feab}{\index{Button@{Button}!set\+Image@{set\+Image}}
+\index{set\+Image@{set\+Image}!Button@{Button}}
+\subsubsection[{set\+Image}]{\setlength{\rightskip}{0pt plus 5cm}void Button\+::set\+Image (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{class_button_a71c5cc7c8916f46949c427771f45feab}
+
+
+set\+Image Permet de définir une image sur le bouton 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Chemin d'accès vers le fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_button_a45a4f1f33bf80e057ac24fbcd9192edb}{\index{Button@{Button}!to\+Upper@{to\+Upper}}
+\index{to\+Upper@{to\+Upper}!Button@{Button}}
+\subsubsection[{to\+Upper}]{\setlength{\rightskip}{0pt plus 5cm}string Button\+::to\+Upper (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{str}
+\end{DoxyParamCaption}
+) const}}\label{class_button_a45a4f1f33bf80e057ac24fbcd9192edb}
+
+
+to\+Upper met la chaine passée en paramètre en majuscules 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la chaine en majuscules 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{button_8h}{button.\+h}\item 
+src/button.\+cpp\end{DoxyCompactItemize}

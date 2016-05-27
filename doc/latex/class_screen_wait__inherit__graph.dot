@@ -1,0 +1,14 @@
+digraph "ScreenWait"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="ScreenWait",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Drawable",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="GameOver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game_over.html",tooltip="classe permettant de gérer l&#39;écran de GameOver "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="HighScoresTab",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_high_scores_tab.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="OptionTab",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_option_tab.html",tooltip="classe pour la gestion de l&#39;écran d&#39;option "];
+}

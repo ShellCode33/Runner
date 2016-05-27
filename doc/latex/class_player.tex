@@ -1,0 +1,98 @@
+\hypertarget{class_player}{\section{Référence de la classe Player}
+\label{class_player}\index{Player@{Player}}
+}
+
+
+classe regroupant le modèle et la vue du player  
+
+
+
+
+{\ttfamily \#include $<$player.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_player_a4826396832eaa65968294d9486f18af1}{\hyperlink{class_player_view}{Player\+View} $\ast$ {\bfseries get\+View} ()}\label{class_player_a4826396832eaa65968294d9486f18af1}
+
+\item 
+\hypertarget{class_player_a0e210f812702faa3508c01d53333cd4c}{\hyperlink{class_player_model}{Player\+Model} $\ast$ {\bfseries get\+Model} ()}\label{class_player_a0e210f812702faa3508c01d53333cd4c}
+
+\item 
+bool \hyperlink{class_player_a22844678397a6154c266a8d644047d28}{need\+Move\+Background} () const 
+\item 
+void \hyperlink{class_player_a7b9865029a4efa532ef83b823042778d}{set\+Move\+Background} (bool value)
+\item 
+int \hyperlink{class_player_a89324c2da84e6af40d8151ab518e1c7a}{get\+Background\+Shift} () const 
+\item 
+\hypertarget{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}{void {\bfseries update} ()}\label{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}
+
+\item 
+void \hyperlink{class_player_ab5d570eef42811790ef64f4acb88368a}{kill} ()
+\item 
+void \hyperlink{class_player_a0208b77668f82ff6317a70bf8aeb5461}{add\+Effect} (\hyperlink{class_effect}{Effect} $\ast$effect, unsigned long time)
+\begin{DoxyCompactList}\small\item\em add\+Effect ajoute comme son nom l'indique un effet sur le joueur tel que le moon jump ou l'aimant \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+classe regroupant le modèle et la vue du player 
+
+\begin{DoxyAuthor}{Auteur}
+Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_player_a0208b77668f82ff6317a70bf8aeb5461}{\index{Player@{Player}!add\+Effect@{add\+Effect}}
+\index{add\+Effect@{add\+Effect}!Player@{Player}}
+\subsubsection[{add\+Effect}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::add\+Effect (
+\begin{DoxyParamCaption}
+\item[{{\bf Effect} $\ast$}]{effect, }
+\item[{unsigned long}]{time}
+\end{DoxyParamCaption}
+)}}\label{class_player_a0208b77668f82ff6317a70bf8aeb5461}
+
+
+add\+Effect ajoute comme son nom l'indique un effet sur le joueur tel que le moon jump ou l'aimant 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em effect} & \\
+\hline
+{\em time} & correspont au temps en ms que l'effet va durer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_player_a89324c2da84e6af40d8151ab518e1c7a}{\index{Player@{Player}!get\+Background\+Shift@{get\+Background\+Shift}}
+\index{get\+Background\+Shift@{get\+Background\+Shift}!Player@{Player}}
+\subsubsection[{get\+Background\+Shift}]{\setlength{\rightskip}{0pt plus 5cm}int Player\+::get\+Background\+Shift (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_player_a89324c2da84e6af40d8151ab518e1c7a}
+Retourne le nombre de pixel dont s'est déplacé le joueur au delà de la limite afin de déplacer les chunks en conséquence \hypertarget{class_player_ab5d570eef42811790ef64f4acb88368a}{\index{Player@{Player}!kill@{kill}}
+\index{kill@{kill}!Player@{Player}}
+\subsubsection[{kill}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::kill (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_player_ab5d570eef42811790ef64f4acb88368a}
+Tue le joueur \hypertarget{class_player_a22844678397a6154c266a8d644047d28}{\index{Player@{Player}!need\+Move\+Background@{need\+Move\+Background}}
+\index{need\+Move\+Background@{need\+Move\+Background}!Player@{Player}}
+\subsubsection[{need\+Move\+Background}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+::need\+Move\+Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_player_a22844678397a6154c266a8d644047d28}
+Détermine s'il faut déplacement les chunks ou pas \hypertarget{class_player_a7b9865029a4efa532ef83b823042778d}{\index{Player@{Player}!set\+Move\+Background@{set\+Move\+Background}}
+\index{set\+Move\+Background@{set\+Move\+Background}!Player@{Player}}
+\subsubsection[{set\+Move\+Background}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::set\+Move\+Background (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_player_a7b9865029a4efa532ef83b823042778d}
+Permet de signaler que le déplacement des chunks a bien été effectué 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{player_8h}{player.\+h}\item 
+src/player.\+cpp\end{DoxyCompactItemize}

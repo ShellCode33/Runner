@@ -1,0 +1,18 @@
+digraph "src/game_model.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/game_model.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="src/game.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8h.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="src/window.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$window_8h.html"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Point d&#39;entrée du programme, qui se charge de lancer l&#39;application. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="src/gameover.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gameover_8h_source.html"];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="src/game_view.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__view_8h.html"];
+  Node6 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

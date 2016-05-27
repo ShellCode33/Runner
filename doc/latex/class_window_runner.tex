@@ -1,0 +1,84 @@
+\hypertarget{class_window_runner}{\section{Référence de la classe Window\+Runner}
+\label{class_window_runner}\index{Window\+Runner@{Window\+Runner}}
+}
+
+
+Début de l'application, chargé de répartir les évênements et mettre à jour les composants graphiques.  
+
+
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+Graphe d'héritage de Window\+Runner\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_window_runner}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_runner_a5b7bc99d1b40c4661c134f12a9474301}{void {\bfseries create} ()}\label{class_window_runner_a5b7bc99d1b40c4661c134f12a9474301}
+
+\item 
+\hypertarget{class_window_runner_add3e284563a378e3e7942fa84a98bfbf}{virtual void {\bfseries draw} (const sf\+::\+Drawable \&drawable, const sf\+::\+Render\+States \&states=sf\+::\+Render\+States\+::\+Default) const }\label{class_window_runner_add3e284563a378e3e7942fa84a98bfbf}
+
+\item 
+\hypertarget{class_window_runner_a4d8b98152dc27e275759b431db4093b7}{\hyperlink{gamestate_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} {\bfseries get\+State} () const }\label{class_window_runner_a4d8b98152dc27e275759b431db4093b7}
+
+\item 
+void \hyperlink{class_window_runner_a1acb98f35f5784c6620abbc71da6847b}{set\+State} (const \hyperlink{gamestate_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} \&value)
+\item 
+\hypertarget{class_window_runner_aaf0c46901618e152f2fa803058286779}{sf\+::\+Render\+Window \& {\bfseries get\+Render} () const }\label{class_window_runner_aaf0c46901618e152f2fa803058286779}
+
+\item 
+\hypertarget{class_window_runner_a572fb0706838e095e265a52fd1fc7610}{void {\bfseries launch\+Game} ()}\label{class_window_runner_a572fb0706838e095e265a52fd1fc7610}
+
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{class_window_runner_a12ef4096096e5b65bc4b06904f15285c}{get\+Setting} (std\+::string name)
+\item 
+static void \hyperlink{class_window_runner_a971893c830bfed6ac2785966647f9941}{write\+Setting} (std\+::string key, std\+::string value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Début de l'application, chargé de répartir les évênements et mettre à jour les composants graphiques. 
+
+\begin{DoxyAuthor}{Auteur}
+Clément, Jérémie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_window_runner_a12ef4096096e5b65bc4b06904f15285c}{\index{Window\+Runner@{Window\+Runner}!get\+Setting@{get\+Setting}}
+\index{get\+Setting@{get\+Setting}!Window\+Runner@{Window\+Runner}}
+\subsubsection[{get\+Setting}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Window\+Runner\+::get\+Setting (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_window_runner_a12ef4096096e5b65bc4b06904f15285c}
+Crée une partie Récupère une valeur dans le fichier de config \hypertarget{class_window_runner_a1acb98f35f5784c6620abbc71da6847b}{\index{Window\+Runner@{Window\+Runner}!set\+State@{set\+State}}
+\index{set\+State@{set\+State}!Window\+Runner@{Window\+Runner}}
+\subsubsection[{set\+State}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+Runner\+::set\+State (
+\begin{DoxyParamCaption}
+\item[{const {\bf State} \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_window_runner_a1acb98f35f5784c6620abbc71da6847b}
+Défini l'état de la partie, dans le menu, en jeu, dans un onglet etc... \hypertarget{class_window_runner_a971893c830bfed6ac2785966647f9941}{\index{Window\+Runner@{Window\+Runner}!write\+Setting@{write\+Setting}}
+\index{write\+Setting@{write\+Setting}!Window\+Runner@{Window\+Runner}}
+\subsubsection[{write\+Setting}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+Runner\+::write\+Setting (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{key, }
+\item[{std\+::string}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_window_runner_a971893c830bfed6ac2785966647f9941}
+Définit une valeur dans le fichier de config 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{window_8h}{window.\+h}\item 
+src/window.\+cpp\end{DoxyCompactItemize}

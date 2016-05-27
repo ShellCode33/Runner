@@ -1,0 +1,43 @@
+\hypertarget{class_entity}{\section{Référence de la classe Entity}
+\label{class_entity}\index{Entity@{Entity}}
+}
+
+
+classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l'écran (cf\+: game\+\_\+view)  
+
+
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+Graphe d'héritage de Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_entity_a0a633036824859a3b60c853f83afe723}{virtual void {\bfseries draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const =0}\label{class_entity_a0a633036824859a3b60c853f83afe723}
+
+\item 
+\hypertarget{class_entity_a0bc71020ccfbb3872e56440b8e0454eb}{virtual void {\bfseries action} (\hyperlink{class_player}{Player} \&player)=0}\label{class_entity_a0bc71020ccfbb3872e56440b8e0454eb}
+
+\item 
+\hypertarget{class_entity_a21a2409eeb8af85fdabc145a4f464799}{virtual bool {\bfseries check\+Collision} (\hyperlink{class_movable}{Movable} \&m) const =0}\label{class_entity_a21a2409eeb8af85fdabc145a4f464799}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l'écran (cf\+: game\+\_\+view) 
+
+\begin{DoxyAuthor}{Auteur}
+Clément 
+\end{DoxyAuthor}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{entity_8h}{entity.\+h}\end{DoxyCompactItemize}
