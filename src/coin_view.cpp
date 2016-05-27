@@ -6,6 +6,7 @@ using namespace sf;
 CoinView::CoinView(CoinModel &model) : Animation(100.0), model(model), sound_played(false)
 {
     this->sound.load(COIN_TAKEN_SNG);
+    this->sound.setVolume(50);
 
     assert(this->coin_texture.loadFromFile(COIN_IMG));
     this->setTexture(this->coin_texture);

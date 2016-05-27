@@ -15,7 +15,7 @@ public:
     void setLoop();
     void stop();
     void pause();
-    static void coin_taken();
+    void setVolume(int);
 
 private:
     sf::Sound sound;

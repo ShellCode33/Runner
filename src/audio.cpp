@@ -32,9 +32,7 @@ void Audio::pause()
     this->sound.pause();
 }
 
-void Audio::coin_taken()
+void Audio::setVolume(int volume)
 {
-sf::Music music;
-music.openFromFile(COIN_TAKEN_SNG);
-music.play();
+    this->sound.setVolume(volume);
 }
