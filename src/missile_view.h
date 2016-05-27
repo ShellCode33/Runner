@@ -5,6 +5,7 @@
 #include "animation.h"
 #include "const.h"
 #include "missile_model.h"
+#include "audio.h"
 
 class MissileView : public Animation
 {
@@ -20,6 +21,8 @@ private:
 
     sf::Texture smoke_texture;
     Animation smoke;
+
+    Audio audio;
 
     bool anim_updated;
     bool anim_ended;

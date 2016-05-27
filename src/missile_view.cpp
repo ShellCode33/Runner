@@ -18,6 +18,8 @@ MissileView::MissileView(MissileModel &model) : Animation(20.0), model(model), s
             this->smoke.addClip(IntRect(256*j, 256*i, 256, 256));
 
     this->smoke.setOrigin(this->smoke.getLocalBounds().width / 2, this->smoke.getLocalBounds().height / 2);
+
+    audio.load(EXPLOSION_SNG);
 }
 
 MissileView::~MissileView()
@@ -45,6 +47,7 @@ void MissileView::update()
         for(IntRect* r : this->smoke.getClips())
             this->addClip(*r);
 
+        this->audio.play();
         this->anim_updated = true;
     }
 
