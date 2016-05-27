@@ -14,7 +14,6 @@ public:
     CoinView *getView();
 
     void update();
-    void action(GameModel &game);
 
 private:
     CoinModel model;

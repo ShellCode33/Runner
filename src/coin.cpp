@@ -25,8 +25,3 @@ void Coin::update()
     this->model.update();
     this->view.update();
 }
-
-void Coin::action(GameModel &game)
-{
-    this->model.action(game);
-}

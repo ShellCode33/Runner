@@ -22,7 +22,7 @@
 
 #define TITLE_WINDOW "Super Weed Boy"
 #define SPLASH_TEXT "Press <Space>"
-#define GAME_OVER_TEXT "FUCK YOU"
+#define GAME_OVER_TEXT ""
 
 /*####################  PATH  ###################*/
 
@@ -126,6 +126,6 @@
 #define MAX_FIRE_DIFFICULTY 18
 #define MAX_BEST_SCORES 10 /*!< Nombre maximum de meilleurs score */
 #define POLICE_SPEED 10
-#define COIN_SPEED_MAGNET 2
+#define COIN_SPEED_MAGNET 10
 #define NB_THEMES 2
 #endif // CONST_H

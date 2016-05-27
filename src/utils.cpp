@@ -228,12 +228,10 @@ string Utils::translate(string lang, string code)
 
     if(file.is_open())
     {
-        Utils::log("INSIDE FILE");
         string current_line;
 
         while(getline(file, current_line))
         {
-            Utils::log("line: " + current_line);
             if(current_line.substr(0, current_line.find('=')) == code)
             {
                 traduction = current_line.substr(current_line.find('=')+1, current_line.size() - 1);

@@ -3,8 +3,10 @@
 using namespace std;
 using namespace sf;
 
-CoinView::CoinView(CoinModel &model) : Animation(100.0), model(model)
+CoinView::CoinView(CoinModel &model) : Animation(100.0), model(model), sound_played(false)
 {
+    this->sound.load(COIN_TAKEN_SNG);
+
     assert(this->coin_texture.loadFromFile(COIN_IMG));
     this->setTexture(this->coin_texture);
 
@@ -24,6 +26,15 @@ CoinView::~CoinView()
 
 void CoinView::update()
 {
-    Animation::update();
-    this->setPosition(this->model.getX(), this->model.getY());
+    if(!this->model.isTaken())
+    {
+        Animation::update();
+        this->setPosition(this->model.getX(), this->model.getY());
+    }
+
+    else if(!this->sound_played)
+    {
+        this->sound.play();
+        this->sound_played = true;
+    }
 }

@@ -30,6 +30,10 @@ private:
     sf::Sprite board;
 
     sf::Font font;
+
+    sf::Text pseudo_label;
+    sf::Text score_label;
+
     sf::Text pseudo;
     sf::Text score;
 

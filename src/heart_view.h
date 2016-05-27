@@ -5,6 +5,7 @@
 #include "animation.h"
 #include "heart_model.h"
 #include <cassert>
+#include "audio.h"
 
 class HeartView : public Animation
 {
@@ -16,6 +17,8 @@ public:
 private:
     HeartModel & model;
     sf::Texture heart_texture;
+    Audio sound;
+    bool sound_played;
 
 };
 

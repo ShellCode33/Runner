@@ -4,7 +4,7 @@ Date de création : [4/20]
 
 jeremie.pereyrol@etu.u-bordeaux.fr, clement.fleury@etu.u-bordeaux.fr
 
-Ce logiciel est un programme informatique servant à jouer à un jeu-vidéo nommé SuperWeedBoy ! SuperWeedBoy est un jeu de type Runner, l'objectif étant d'aller le plus loin possible avec le plus gros score possible tout en évitant les différentes embuches que proposent le jeu.
+Ce logiciel est un programme informatique servant à jouer à un jeu-vidéo nommé SuperWeedBoy ! SuperWeedBoy est un jeu de type Runner, l'objectif étant d'aller le plus loin possible avec le plus gros score possible tout en évitant les différentes embuches que propose le jeu.
 
 Nous autorisons toute exploitation de l’œuvre originale à des fins non commerciales, ainsi que la création d’œuvres dérivées, à condition qu’elles soient distribuées sous une licence identique à celle qui régit l’œuvre originale.
 

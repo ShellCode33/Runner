@@ -72,7 +72,7 @@ void Chunk::update()
         if(this->bonus_heart->getModel()->isTaken())
         {
             this->removeObstacle(this->bonus_heart->getModel());
-            delete this->bonus_heart;
+            this->bonus_heart->update(); //son
             this->bonus_heart = nullptr;
         }
 
@@ -90,6 +90,8 @@ void Chunk::update()
             this->removeObstacle(this->bonus_moon->getModel());
             player.addEffect(this->bonus_moon, 10000.f);
 
+            this->bonus_moon->update(); //pour le son
+
             //On ne le delete pas car c'est un Effect mais on le met quand meme à nullptr
             this->bonus_moon = nullptr;
         }
@@ -106,6 +108,8 @@ void Chunk::update()
         {
             this->removeObstacle(this->bonus_magnet->getModel());
             player.addEffect(this->bonus_magnet, 10000.f);
+
+            this->bonus_magnet->update(); //son
 
             //On ne le delete pas car c'est un Effect mais on le met quand meme à nullptr
             this->bonus_magnet = nullptr;
@@ -129,68 +133,64 @@ void Chunk::update()
 
             pair<float, float> player_pos = this->player.getModel()->getPosition();
 
-            if(this->model.isInChunk(*this->player.getModel()) && this->player.getModel()->getAttractCoins()) //Les pièces sont attirées par le joueur
+            if(this->player.getModel()->getAttractCoins() && this->model.isInChunk(*this->player.getModel())) //Les pièces sont attirées par le joueur
             {
-                for(Coin *c : this->coins)
+                pair<float, float> direction(player_pos.first + this->player.getModel()->getWidth() / 2 - c->getModel()->getX(), player_pos.second + this->player.getModel()->getHeight() / 2 - c->getModel()->getY());
+
+                int angle = atan2(direction.second, direction.first) * 180 / 3.14159;
+
+                if(angle < 0)
+                    angle += 360;
+
+                int x_speed, y_speed; //Le déplacement selon x et y doit se faire en fonction de l'angle
+
+                /* On sépare en 4 cas différents :
+                 * - Lorsque le joueur est en haut à gauche de la piece
+                 * - Lorsque le joueur est en bas à gauche de la piece
+                 * - Lorsque le joueur est en bas à droite de la piece
+                 * - Lorsque le joueur est en haut à droite de la piece
+                 */
+
+                if(angle > 270 && angle <= 360)
                 {
-                    pair<float, float> direction(player_pos.first + this->player.getModel()->getWidth() / 2 - c->getModel()->getX(), player_pos.second + this->player.getModel()->getHeight() / 2 - c->getModel()->getY());
-
-                    int angle = atan2(direction.second, direction.first) * 180 / 3.14159;
-
-                    if(angle < 0)
-                        angle += 360;
-
-                    int x_speed, y_speed; //Le déplacement selon x et y doit se faire en fonction de l'angle
-
-                    /* On sépare en 4 cas différents :
-                     * - Lorsque le joueur est en haut à gauche de la piece
-                     * - Lorsque le joueur est en bas à gauche de la piece
-                     * - Lorsque le joueur est en bas à droite de la piece
-                     * - Lorsque le joueur est en haut à droite de la piece
-                     */
-
-                    if(angle > 270 && angle <= 360)
-                    {
-                        x_speed = (angle - 270) * COIN_SPEED_MAGNET / 90;
-                        y_speed = x_speed - COIN_SPEED_MAGNET;
-                    }
-
-                    else if(angle > 180 && angle <= 270)
-                    {
-                        y_speed = -(angle - 180) * COIN_SPEED_MAGNET / 90;
-                        x_speed = -(y_speed + COIN_SPEED_MAGNET);
-                    }
-
-                    else if(angle > 90 && angle <= 180)
-                    {
-                        x_speed = -(angle - 90) * COIN_SPEED_MAGNET / 90;
-                        y_speed = (COIN_SPEED_MAGNET + x_speed);
-                    }
-
-                    else
-                    {
-                        y_speed = angle * COIN_SPEED_MAGNET / 90;
-                        x_speed = COIN_SPEED_MAGNET - y_speed;
-                    }
-
-                    assert(abs(x_speed) + abs(y_speed) <= COIN_SPEED_MAGNET);
-
-                    c->getModel()->setPositionRelat(c->getModel()->getRelatPosition().first + x_speed, c->getModel()->getRelatPosition().second + y_speed);
+                    x_speed = (angle - 270) * COIN_SPEED_MAGNET / 90;
+                    y_speed = x_speed - COIN_SPEED_MAGNET;
                 }
-            }
 
-            c->update();
+                else if(angle > 180 && angle <= 270)
+                {
+                    y_speed = -(angle - 180) * COIN_SPEED_MAGNET / 90;
+                    x_speed = -(y_speed + COIN_SPEED_MAGNET);
+                }
+
+                else if(angle > 90 && angle <= 180)
+                {
+                    x_speed = -(angle - 90) * COIN_SPEED_MAGNET / 90;
+                    y_speed = (COIN_SPEED_MAGNET + x_speed);
+                }
+
+                else
+                {
+                    y_speed = angle * COIN_SPEED_MAGNET / 90;
+                    x_speed = COIN_SPEED_MAGNET - y_speed;
+                }
+
+                assert(abs(x_speed) + abs(y_speed) <= COIN_SPEED_MAGNET);
+
+                c->getModel()->setPositionRelat(c->getModel()->getRelatPosition().first + x_speed, c->getModel()->getRelatPosition().second + y_speed);
+            }
         }
 
         else
             to_remove.push_back(c);
+
+        c->update();
     }
 
     for(Coin *c : to_remove)
     {
         this->removeObstacle(c->getModel());
         this->coins.remove(c);
-        delete c;
     }
 
     for(Platform *p : this->platforms)

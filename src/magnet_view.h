@@ -5,6 +5,7 @@
 #include <cassert>
 #include "effect.h"
 #include "magnet_model.h"
+#include "audio.h"
 
 class MagnetView : public sf::Sprite
 {
@@ -17,6 +18,8 @@ public:
 private:
     sf::Texture texture;
     MagnetModel &model;
+    Audio sound;
+    bool sound_played;
 
 };
 
