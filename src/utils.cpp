@@ -207,6 +207,7 @@ vector<string> Utils::getAvailableLanguages()
     if(dp != NULL)
     {
         while(ep = readdir (dp))
+            if(strcmp(ep->d_name, ".") != 0 && strcmp(ep->d_name, "..") != 0)
             lang.push_back(string(ep->d_name));
 
         closedir(dp);

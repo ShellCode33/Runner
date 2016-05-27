@@ -38,8 +38,8 @@ void WindowRunner::create()
     this->window->setView(*this);
     this->state = SPLASH;
 
-    this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) / 1.2));
-    this->game_over.setTextPosition(Vector2f((this->getSize().x / 15), (this->getSize().y / 2)));
+    this->splash_screen.setText(Utils::translate(WindowRunner::getSetting("lang"), "splash.text"));
+    this->splash_screen.setTextPosition(Vector2f((this->getSize().x - this->splash_screen.getTextWidth()) / 2, (this->getSize().y - this->splash_screen.getTextHeight()) * 0.915));
 
     this->window->setFramerateLimit(FRAMERATE);
     this->window->setVerticalSyncEnabled(false); //Performance issues

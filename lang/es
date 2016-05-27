@@ -17,3 +17,5 @@ score.game=Score
 pseudo.game=Seudo
 rank.game=Rango
 pseudo.default=Desconocido
+splash.text=<<Pulsar espaciadora>>
+game.over=<<Pulsar espaciadora>>

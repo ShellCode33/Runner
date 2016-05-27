@@ -17,3 +17,5 @@ score.game=Score
 pseudo.game=Pseudo
 rank.game=Rang
 pseudo.default=Inconnu
+splash.text=<<Pressez Espace>>
+game.over=<<Pressez Espace pour recommencer>>

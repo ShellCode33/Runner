@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-GameOver::GameOver(WindowRunner *window, Game &game) : ScreenWait(GAMEOVER_BACKGROUND_IMG, GAME_OVER_TEXT), window(window), game(game), timer(20), cursor_blink(500), cursor_visible(false), button_menu("MENU", MENU, 0, 0), button_playagain("PLAY AGAIN", SURVIVAL, 0, 0)
+GameOver::GameOver(WindowRunner *window, Game &game) : ScreenWait(GAMEOVER_BACKGROUND_IMG, Utils::translate(WindowRunner::getSetting("lang"), "game.over")), window(window), game(game), timer(20), cursor_blink(500), cursor_visible(false), button_menu("MENU", MENU, 0, 0), button_playagain("PLAY AGAIN", SURVIVAL, 0, 0)
 {
     assert(this->board_texture.loadFromFile(GAMEOVER_BOARD_IMG));
     this->board.setTexture(this->board_texture);
@@ -72,6 +72,8 @@ void GameOver::update()
     this->button_playagain.setText(Utils::translate(WindowRunner::getSetting("lang"), "playagain.button"));
     this->pseudo.setString(game.getModel()->getPseudo());
     this->score.setString(to_string(game.getModel()->getScore()));
+    this->setText(Utils::translate(WindowRunner::getSetting("lang"), "game.over"));
+    this->setTextPosition(Vector2f((VIEW_WIDTH - this->getTextWidth()) / 2, VIEW_HEIGHT - this->getTextHeight() - 100));
 
     if(this->board.getPosition().y > (VIEW_HEIGHT - this->board.getLocalBounds().height) / 2)
     {
