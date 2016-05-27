@@ -11,6 +11,7 @@ public:
     ~OptionTab();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void processEvent(sf::RenderWindow &window, sf::Event &event, State &state);
+    void update();
 
 private:
     std::vector<std::string> available_langages;

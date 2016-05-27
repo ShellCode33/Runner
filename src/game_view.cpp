@@ -30,6 +30,7 @@ GameView::GameView(WindowRunner &window, GameModel &model, Player &player, list<
     this->score_display.setFont(this->font);
     this->score_display.setCharacterSize(50);
     this->score_display.setString("Score: 0");
+    this->score_display.setColor(Color::Black);
     this->score_display.setPosition(VIEW_WIDTH - (this->score_background.getLocalBounds().width + this->score_display.getLocalBounds().width) / 2 - 20, VIEW_HEIGHT - (GROUND_DEFAULT + this->score_display.getLocalBounds().height + 30) / 2); //-20 et + 15 pour l'espace depuis l'écran
 
 
