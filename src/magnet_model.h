@@ -14,7 +14,7 @@
 class MagnetModel : public Obstacle
 {
 public:
-    MagnetModel(PlayerModel &player, int relat_x, int relat_y, int width, int height);
+    MagnetModel(int relat_x, int relat_y, int width, int height);
     ~MagnetModel() = default;
     void start(PlayerModel& player);
     void stop(PlayerModel& player);

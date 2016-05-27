@@ -24,10 +24,10 @@ public:
     void update();
 
 private:
-    Audio sound;
-    bool sound_played;
     MoonModel & model;
     sf::Texture moon_texture;
+    Audio sound; /*!< Son lors de la récupération de la lune */
+    bool sound_played; /*!< true lorsque la lune a déjà joué le son de récupération */
 };
 
 #endif //MOON_VIEW_H

@@ -20,7 +20,7 @@ public:
     void addObstacle(Obstacle* obstacle); /*!< Ajouter un obstacle au chunk */
     void removeObstacle(Obstacle* obstacle);
     int pos_x; /*!< Position du chunk sur l'écran, un chunk prend toute la place selon y */
-    bool isInChunk(Movable &m) const;
+    bool isInChunk(Movable &m) const; /*!< Retourne vrai ou faux selon si Movable est dans ce chunk */
 
     unsigned int getTheme() const;
     void update();

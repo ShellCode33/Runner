@@ -42,7 +42,6 @@ private:
     WindowRunner& window;
     GameModel &game_model;
 
-
     sf::Texture fire_texture;
     Animation fire, fire2;
 
@@ -61,16 +60,16 @@ private:
     sf::Sprite life_heart;
     sf::Text life_display;
 
-    std::vector<Animation> lava_sprites;
-    Chunk *randomChunk() const;
+    std::vector<Animation> lava_sprites; /*!< Vecteur contenant les différents carrés de lave après le feu qui poursuivent le joueur */
+    Chunk *randomChunk() const; /*!< Retourne aléatoirement un chunk parmis tout ceux existant */
 
     std::list<Chunk *> &chunks;
     std::list<Entity *> &entities;
 
-    bool pause;
+    bool pause; /*!< Si le jeu est en pause (avec la touche echap) alors le boolean est à true */
 
     sf::Texture texture_pause;
-    sf::Shader blur;
+    sf::Shader blur; /*!< Shader utilisé pour le flou de la pause */
     sf::Image pause_img;
     sf::Sprite sprite_pause;
     sf::Text pause_text;

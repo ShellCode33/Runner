@@ -66,9 +66,18 @@ public:
     bool operator==(const Animation &second);
     bool operator!=(const Animation &second);
 
+
+    /*!
+     * \brief setSpeed permet de changer la vitesse entre 2 animations
+     * \param value
+     */
     void setSpeed(unsigned long value);
     unsigned long getSpeed() const;
 
+    /*!
+     * \brief getClips
+     * \return un vecteur contenant un pointeur vers l'ensemble des clips
+     */
     std::vector<sf::IntRect*> getClips() const;
 
 protected:

@@ -47,6 +47,9 @@ public:
      */
     void applyForces();
 
+    /*!
+     * \brief booleens publics définis pas la vue (pour la SFML)
+     */
     bool leftPressed, rightPressed, spacePressed, shiftPressed;
 
     std::pair<float, float> getGravity() const;
@@ -64,17 +67,32 @@ public:
     int getDeadLine() const;
     void setDeadLine(int value);
 
+    /*!
+     * \brief addEffect ajoute l'effet au joueur (ex: aimant, moon jump....)
+     * \param effect
+     * \param time_effect
+     */
     void addEffect(Effect *effect, unsigned long time_effect);
+
+    /*!
+     * \brief processEffects détermine si les effets ont toujours besoin d'être actifs à l'aide de timers.
+     */
     void processEffects();
 
+    /*!
+     * \brief setAttractCoins permet de déclancher l'attraction des pièces lors de la récupération du bonus aimant
+     * \param value
+     */
     void setAttractCoins(bool value);
     bool getAttractCoins() const;
 
+    /*!
+     * \brief getOnPlatform permet de déterminer si le joueur est sur une plate forme
+     * \return
+     */
     bool getOnPlatform() const;
     void setOnPlatform(bool value);
 
-    int getGround() const;
-    void setGround(int value);
 
 private:
     unsigned short life;/*!< Utilisé pour stocker la vie du joueur*/
@@ -97,11 +115,11 @@ private:
     bool move_background; /*!< utilisé lorsque le joueur essaye d'aller au delà de la limite imposée afin de faire "avancer" le background */
     int dead_line; /*!< Utilisé pour savoir où se situe le feu et tuer le joueur si celui-ci est dedans */
 
-    std::vector<Effect *> active_effects;
+    std::vector<Effect *> active_effects; /*!< Effets en cours sur le joueur */
     std::vector<Timer> timer_effects; /*!< Timer pour chacun des effets */
 
-    bool attractCoins;
-    bool on_platform;
+    bool attract_coins; /*!< true si le joueur a le bonus aimant */
+    bool on_platform; /*!< true si le joueur est sur une plateforme */
 };
 /*!
  * \brief Surchage de l'opérateur += de pair afin d'additionner plus facilement les pairs que nous utilisons

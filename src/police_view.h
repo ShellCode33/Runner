@@ -25,9 +25,9 @@ private:
     sf::Texture wheel_texture;
     sf::Sprite wheels[2];
 
-    sf::CircleShape circle1, circle2;
-    bool circle1_visible, circle2_visible;
-    Timer timer1, timer2; //Un timer par cercle afin de créer un effet de décalage
+    sf::CircleShape circle1, circle2; /*!< cerles pour les sirènes de la voiture de police */
+    bool circle1_visible, circle2_visible; /*!< visibilité alternée */
+    Timer timer1, timer2; /*!< Un timer par cercle afin de créer un effet de décalage */
 
 };
 

@@ -22,10 +22,10 @@ public:
     void update();
 
 private:
-    sf::RectangleShape board;
-    std::vector<std::pair<unsigned long, std::string> > scores;
+    sf::RectangleShape board; /*!< Background */
+    std::vector<std::pair<unsigned long, std::string> > scores; /*!< Vecteur de pair entre score et pseudo pour faire les correspondances */
     sf::Font font;
-    sf::Text scores_text[MAX_BEST_SCORES+1];
+    sf::Text scores_text[MAX_BEST_SCORES+1]; /*!< Tableau qui contiendra l'ensemble des meilleurs scores qui seront ensuite affichés  */
 
 };
 

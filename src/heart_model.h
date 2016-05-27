@@ -22,7 +22,7 @@ public:
     bool isTaken() const;
 
 private:
-    bool taken;
+    bool taken; /*!< true si le bonus a été récupéré */
 
 };
 

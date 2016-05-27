@@ -1,6 +1,6 @@
 #include "magnet.h"
 
-Magnet::Magnet(PlayerModel &player, int relat_x, int relat_y, int width, int height) : Effect(player), model(player, relat_x, relat_y, width, height), view(model)
+Magnet::Magnet(PlayerModel &player, int relat_x, int relat_y, int width, int height) : Effect(player), model(relat_x, relat_y, width, height), view(model)
 {
 
 }

@@ -5,7 +5,7 @@
 using namespace sf;
 using namespace std;
 
-Animation::Animation(const unsigned long ms) : speed_ms(ms), current_clip_i(0), timer(speed_ms), x_offset(0), y_offset(0), anim_enabled(true)
+Animation::Animation(const unsigned long ms) : speed_ms(ms), timer(speed_ms), x_offset(0), y_offset(0), anim_enabled(true), current_clip_i(0)
 {
     timer.begin();
 }
@@ -68,7 +68,7 @@ bool Animation::operator==(const Animation &second)
     else
     {
         int i;
-        for(i = 0; equals && i < this->clips.size(); i++)
+        for(i = 0; equals && i < (int)this->clips.size(); i++)
             if(this->clips.at(i) != second.clips.at(i))
                 equals = false;
     }

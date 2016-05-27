@@ -51,9 +51,9 @@ Animation* PlayerView::getDeadAnim()
     return &this->smoke;
 }
 
-Audio PlayerView::getDead_song() const
+Audio* PlayerView::getDeadSong()
 {
-    return dead_song;
+    return &this->dead_song;
 }
 
 void PlayerView::processEvents(WindowRunner &window, Event &event)

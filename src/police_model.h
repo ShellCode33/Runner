@@ -16,7 +16,7 @@ public:
     void setCollision(bool value);
 
 private:
-    bool collision;
+    bool collision; /*!< Permet de déterminer si la collision a déjà eu lieu de manière à ne pas la compter plusieurs fois */
 
 };
 

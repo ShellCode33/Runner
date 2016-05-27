@@ -44,7 +44,7 @@ public:
     bool isTaken() const;
 
 private:
-    bool taken;
+    bool taken; /*!< Attribut utilisé pour déterminer si la pièce a été récupérée par le joueur */
 };
 
 #endif // COIN_MODEL_H

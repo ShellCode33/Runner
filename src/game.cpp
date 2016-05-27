@@ -50,7 +50,7 @@ void Game::update()
 
             else
             {
-                this->player->getView()->getDead_song().play();
+                this->player->getView()->getDeadSong()->play();
                 this->audio.stop();
                 this->gameover.play();
                 this->game_over = !this->player->getView()->getDeadAnim()->playOneTime();

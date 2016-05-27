@@ -25,8 +25,8 @@ public:
 private:
     sf::Texture texture;
     MagnetModel &model;
-    Audio sound;
-    bool sound_played;
+    Audio sound; /*!< Son lors de la récupération de l'aimant */
+    bool sound_played; /*!< true lorsque l'aimant a déjà joué le son de récupération */
 
 };
 

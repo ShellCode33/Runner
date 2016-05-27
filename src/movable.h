@@ -33,9 +33,9 @@ public:
     void setWidth(int value);
 
 protected:
-    std::pair<float, float> pos;
-    int width;
-    int height;
+    std::pair<float, float> pos; /*!< pair correspondant à la position d'élément déplacable */
+    int width; /*!< Largeur de l'objet */
+    int height;/*!< Hauteur de l'objet */
 
 };
 

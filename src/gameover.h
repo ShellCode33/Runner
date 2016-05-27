@@ -44,6 +44,9 @@ private:
     sf::Text pseudo;
     sf::Text score;
 
+    /*!
+     * \brief ces 3 attributs permettent de simuler un curseur pour entrer son pseudo
+     */
     sf::RectangleShape cursor;
     Timer cursor_blink;
     bool cursor_visible;

@@ -22,14 +22,14 @@ public:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 private:
-    ChunkModel &model;
-    sf::Texture texture_ground[NB_THEMES];
+    ChunkModel &model; /*!< Référence vers le model correspondant au chunk */
+    sf::Texture texture_ground[NB_THEMES]; /*! Tableau de textures de sol pour chacun des themes */
     sf::Sprite sprite_ground;
 
-    sf::Texture texture_background[NB_THEMES];
+    sf::Texture texture_background[NB_THEMES];/*! Tableau de textures de background pour chacun des themes */
     sf::Sprite sprite_background;
 
-    unsigned short actual_theme;
+    unsigned short actual_theme; /*!< Theme actuellement utilisé par le chunk */
 
 
 };

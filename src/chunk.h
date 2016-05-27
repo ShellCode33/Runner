@@ -49,6 +49,9 @@ private:
     ChunkModel model;
     ChunkView view;
 
+    /*!
+     * \brief bonus qui peuvent apparaitre dans un chunk
+     */
     Heart *bonus_heart;
     Moon *bonus_moon;
     Magnet *bonus_magnet;
@@ -58,7 +61,14 @@ private:
 
 
 protected:
+    /*!
+     * \brief contient des pointeurs vers les pièces du chunk
+     */
     std::list<Coin*> coins;
+
+    /*!
+     * \brief contient des pointeurs vers les plateformes du chunk
+     */
     std::list<Platform*> platforms;
 
 };

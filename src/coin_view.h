@@ -30,9 +30,9 @@ public:
 
 private:
     sf::Texture coin_texture;
-    CoinModel& model;
-    Audio sound;
-    bool sound_played;
+    CoinModel& model; /*!< Référence vers le modèle correspondant à cette vue */
+    Audio sound; /*!< Son lors de la récupération de la pièce */
+    bool sound_played; /*!< true lorsque la pièce a déjà joué le son de récupération */
 
 };
 

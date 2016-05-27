@@ -30,7 +30,7 @@ bool Timer::isFinish() const
 
     auto diff = chrono::system_clock::now() - this->begin_time;
     auto msec = chrono::duration_cast<chrono::milliseconds>(diff);
-    return msec.count() >= this->ms;
+    return msec.count() >= (int)this->ms;
 }
 
 unsigned long Timer::getDuration() const

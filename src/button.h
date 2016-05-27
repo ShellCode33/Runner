@@ -26,7 +26,7 @@ private :
     sf::Sprite *sprite;
     sf::Text text; /*!< Texte du bouton */
     sf::Font font; /*!< Police du bouton */
-    Audio audio;
+    Audio audio; /*!< Bruit lors de l'appui sur un bouton */
     const State action; /*!< Action que va effectuer le bouton (ex: MENU, GAME_OVER etc...) */
     int pos_x, pos_y; /*!< Position x et y du bouton */
     int width, height; /*!< Largeur et hauteur du bouton */
@@ -56,7 +56,6 @@ public :
      */
     void processEvent(WindowRunner &window, sf::Event & event);
 
-
     void setPosition(int x, int y);
     std::pair<int, int> getPosition() const;
 
@@ -64,6 +63,11 @@ public :
 
     void setText(std::string text);
 
+    /*!
+     * \brief toUpper met la chaine passée en paramètre en majuscules
+     * \param str
+     * \return la chaine en majuscules
+     */
     std::string toUpper(std::string str) const;
 };
 

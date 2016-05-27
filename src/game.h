@@ -46,10 +46,10 @@ private:
      */
     GameView *game_view;
 
-    bool game_over;
+    bool game_over; /*!< Le joueur a perdu si le boolean est à true */
 
-    std::list<Chunk*> chunks;
-    std::list<Entity *> entities; //Liste qui stoque des objets qui doivent être dessinés en dernier!! (ex: missile) Afin d'apparaitre quelle que soit sa position sur l'écran
+    std::list<Chunk*> chunks; /*!< Liste qui stoque les chunks de la partie */
+    std::list<Entity *> entities; /*!< Liste qui stoque des objets qui doivent être dessinés en dernier!! (ex: missile) Afin d'apparaitre quelle que soit sa position sur l'écran */
 
 };
 

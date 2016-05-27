@@ -38,6 +38,11 @@ public:
      */
     std::string getSetting(const std::string key) const;
 
+    /*!
+     * \brief writeSetting permet d'écrire un paramètre dans le fichier de config
+     * \param key
+     * \param value
+     */
     void writeSetting(const std::string key, const std::string value);
 };
 

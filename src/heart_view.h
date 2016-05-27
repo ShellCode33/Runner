@@ -24,8 +24,8 @@ public:
 private:
     HeartModel & model;
     sf::Texture heart_texture;
-    Audio sound;
-    bool sound_played;
+    Audio sound; /*!< Son lors de la récupération du coeur */
+    bool sound_played; /*!< true lorsque le coeur a déjà joué le son de récupération */
 
 };
 

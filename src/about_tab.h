@@ -53,7 +53,7 @@ private:
     sf::Sprite illuminati;
 
     sf::Font font;
-    sf::Text text[4]; //Obligé d'en faire un tableau car la SFML ne gère pas le text-align center
+    sf::Text text[4]; /*!< Obligé d'en faire un tableau car la SFML ne gère pas le text-align center */
 
 };
 

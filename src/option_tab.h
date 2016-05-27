@@ -22,21 +22,21 @@ public:
     void update();
 
 private:
-    std::vector<std::string> available_langages;
-    std::vector<sf::Texture*> flags_texture;
-    std::vector<sf::Sprite*> flags_sprites;
-    sf::RectangleShape board;
+    std::vector<std::string> available_langages; /*!< Contient les différentes langues supportées */
+    std::vector<sf::Texture*> flags_texture; /*!< Textures des differents drapeaux pour le support multi-langues */
+    std::vector<sf::Sprite*> flags_sprites; /*!< Sprites des differents drapeaux pour le support multi-langues */
+    sf::RectangleShape board; /*!< Background */
 
     sf::Font font;
     sf::Text chooseLang;
     sf::Text chooseVolume;
 
-    int volume;
+    int volume; /*!< Volume du jeu de 0 à 100 (pas encore implémenté) */
     sf::Text volume_text;
 
     sf::Text chooseDifficulty;
-    int difficulty;
-    sf::Text difficulties_text[3]; //3difficultés
+    int difficulty; /*!< difficulté 1, 2, 3 */
+    sf::Text difficulties_text[3]; /*!< 3difficultés */
 
 
 };

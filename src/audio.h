@@ -57,7 +57,7 @@ public:
 
 private:
     sf::Sound sound;
-    sf::SoundBuffer buffer;/*!< Buffer utiliser pour charger le fichier son */
+    sf::SoundBuffer buffer;/*!< Buffer utilisé pour charger le fichier son */
 
 };
 

@@ -21,7 +21,17 @@ public:
     Effect(PlayerModel &player) : player(player) {  }
 
     virtual ~Effect() = default;
+
+    /*!
+     * \brief start permet de déterminer quel sera l'effet appliqué sur le joueur
+     * \param player
+     */
     virtual void start(PlayerModel& player) = 0;
+
+    /*!
+     * \brief stop permet d'arrêter cet l'effet
+     * \param player
+     */
     virtual void stop(PlayerModel& player) = 0;
 
 private:

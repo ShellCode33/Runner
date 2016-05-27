@@ -41,13 +41,11 @@ public:
     bool getExploded() const;
 
 private:
-    PlayerModel &player;
+    PlayerModel &player; /*!< Joueur à suivre */
     int angle; /*!< Angle entre le missile et le joueur */
     bool moving; /*!< état dépend de si le missile est en mouvement ou non */
-    bool exploded;
-    int x_when_detected;
-    int y_when_detected;
-    Timer update_timer;
+    bool exploded; /*!< état dépend de si le missile a explosé ou non */
+    Timer update_timer; /*!< Permet de faire évoluer le missile en fonction du temps afin de ne pas avoir un missile avec une vitesse variable d'un PC à l'autre */
 
 };
 

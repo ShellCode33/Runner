@@ -1,7 +1,7 @@
 #include "magnet_model.h"
 
 
-MagnetModel::MagnetModel(PlayerModel &player, int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height), taken(false)
+MagnetModel::MagnetModel(int relat_x, int relat_y, int width, int height) : Obstacle(relat_x, relat_y, width, height), taken(false)
 {
 
 }

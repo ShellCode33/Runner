@@ -22,7 +22,7 @@ public:
     ~MissileView();
     void update();
 
-    bool isDeadAnimFinished();
+    bool isDeadAnimFinished(); /*!< Retourne l'état de l'animation de l'explosion afin de savoir si celle-ci est terminée */
 private:
     sf::Texture texture_missile;
     MissileModel &model;
@@ -32,8 +32,8 @@ private:
 
     Audio audio;
 
-    bool anim_updated;
-    bool anim_ended;
+    bool anim_updated; /*!< Boolean utilisé pour savoir si l'image du missile a été changée par celle de la fumée */
+    bool anim_ended; /*!< Boolean utilisé pour savoir si l'animation d'explosion est terminée */
 
 };
 

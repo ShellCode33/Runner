@@ -28,7 +28,7 @@ public:
     void update();
     Animation *getDeadAnim();
 
-    Audio getDead_song() const;
+    Audio* getDeadSong();
 
 private:
     sf::Texture player_texture;
