@@ -12,6 +12,7 @@
 #include "movable.h"
 #include <algorithm>
 #include <utility>
+#include "audio.h"
 
 class CoinView : public Animation
 {
@@ -20,9 +21,13 @@ public:
     ~CoinView();
     void update();
 
+    Audio *getAudio();
+
 private:
     sf::Texture coin_texture;
     CoinModel& model;
+    Audio audio;
+
 };
 
 #endif // COIN_VIEW_H

@@ -16,6 +16,7 @@ void CoinModel::action(GameModel &game)
     Utils::log("Earned 1 coin !");
     this->taken = true;
     game.addBonusScore(100);
+
 }
 
 void CoinModel::update()

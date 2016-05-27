@@ -5,6 +5,8 @@ using namespace std;
 
 Game::Game(WindowRunner &window) : window(window), player(nullptr), game_model(nullptr), game_view(nullptr), game_over(false)
 {
+    this->audio.load(CHUNK1_MSC);
+    this->gameover.load(GAMEOVER_SNG);
     srand(time(NULL));
 }
 
@@ -47,7 +49,12 @@ void Game::update()
             }
 
             else
+            {
+                this->player->getView()->getDead_song().play();
+                this->audio.stop();
+                this->gameover.play();
                 this->game_over = !this->player->getView()->getDeadAnim()->playOneTime();
+            }
 
             this->game_model->update();
             this->player->update();
@@ -108,4 +115,6 @@ void Game::create()
 
     this->game_view = new GameView(this->window, *this->game_model, *this->player, this->chunks, this->entities);
     this->game_over = false;
+
+    this->audio.play();
 }

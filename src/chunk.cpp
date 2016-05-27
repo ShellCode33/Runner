@@ -183,7 +183,9 @@ void Chunk::update()
         }
 
         else
+        {
             to_remove.push_back(c);
+        }
     }
 
     for(Coin *c : to_remove)

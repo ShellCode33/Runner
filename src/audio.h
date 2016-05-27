@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include <cassert>
 #include <string>
+#include "const.h"
 
 class Audio
 {
@@ -11,6 +12,10 @@ public:
     void load(std::string filename);
     void play();
     void setPlayingOffset(sf::Time timeOffset);
+    void setLoop();
+    void stop();
+    void pause();
+    static void coin_taken();
 
 private:
     sf::Sound sound;

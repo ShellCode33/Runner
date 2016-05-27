@@ -67,3 +67,4 @@ void PoliceView::update()
         this->timer2.reset();
     }
 }
+

@@ -6,6 +6,7 @@
 #include "game_model.h"
 #include "game_view.h"
 #include "gamestate.h"
+#include "audio.h"
 
 class WindowRunner;
 
@@ -20,6 +21,8 @@ public:
 
     void create();
 private:
+    Audio audio, gameover;
+
     WindowRunner &window;
 
     /*!

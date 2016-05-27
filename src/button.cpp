@@ -7,7 +7,7 @@ using namespace sf;
 Button::Button(const string & text, const State action, const int pos_x, const int pos_y, const int width, const int height) : action(action), pos_x(pos_x), pos_y(pos_y), width(width), height(height)
 {
     this->audio.load(CLICK_BUTTON_SNG);
-    this->audio.setPlayingOffset(sf::milliseconds(320));
+    this->audio.setPlayingOffset(sf::milliseconds(450));
 
     assert(this->font.loadFromFile(PIXEL_TTF));
     this->text.setFont(this->font);
