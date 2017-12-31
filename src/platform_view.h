@@ -2,7 +2,7 @@
  * \file platform_view.h
  * \class PlatformView
  * \brief Partie vue de l'obstacle
- * \author Jérémie
+ * \author J3ry
  *
  */
 

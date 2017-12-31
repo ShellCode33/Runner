@@ -2,7 +2,7 @@
  * \file player.h
  * \class Player
  * \brief classe regroupant le modèle et la vue du player
- * \author Jérémie
+ * \author J3ry
  *
  */
 

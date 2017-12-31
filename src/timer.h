@@ -2,7 +2,7 @@
  * \file timer.h
  * \class Timer
  * \brief Classe permettant de créer un chrono simplement
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef TIMER_H

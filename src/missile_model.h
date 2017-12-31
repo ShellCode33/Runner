@@ -2,7 +2,7 @@
  * \file missile_model.h
  * \class MissileModel
  * \brief Modèle du missile suiveur
- * \author Clément
+ * \author ShellCode
  *
  */
 

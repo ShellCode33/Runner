@@ -2,7 +2,7 @@
  * \file magnet_view.h
  * \class MagnetView
  * \brief Partie vue du bonus Magnet
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef MAGNET_VIEW_H

@@ -2,7 +2,7 @@
  * \file heart_model.h
  * \class HeartModel
  * \brief Partie modèle du bonus Heart
- * \author Clément
+ * \author ShellCode
  */
 
 

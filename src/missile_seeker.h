@@ -2,7 +2,7 @@
  * \file missile_seeker.h
  * \class MissileSeeker
  * \brief classe
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef MISSILE_SEEKER_H

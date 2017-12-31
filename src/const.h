@@ -1,7 +1,7 @@
 /*!
  * \file const.h
  * \brief Fichier contenant toutes les constantes utiles au jeu
- * \author Clément, Jérémie
+ * \author ShellCode, J3ry
  *
  */
 

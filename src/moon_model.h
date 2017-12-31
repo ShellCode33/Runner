@@ -2,7 +2,7 @@
  * \file moon_model.h
  * \class MoonModel
  * \brief Partie modèle du bonus Moon
- * \author Jérémie
+ * \author J3ry
  *
  */
 

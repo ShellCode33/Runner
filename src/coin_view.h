@@ -2,7 +2,7 @@
  * \file coin_view.h
  * \class CoinView
  * \brief Partie vue de Coin
- * \author Jérémie
+ * \author J3ry
  */
 
 #ifndef COIN_VIEW_H

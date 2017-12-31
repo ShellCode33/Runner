@@ -2,7 +2,7 @@
  * \file utils.h
  * \class Utils
  * \brief Classe utilitaire fournissant divers fonctionnalités
- * \author Clément
+ * \author ShellCode
  *
  */
 

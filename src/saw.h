@@ -2,7 +2,7 @@
  * \file saw.h
  * \class Saw
  * \brief Scie circulaire au sol qui tue le joueur
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SAW_H

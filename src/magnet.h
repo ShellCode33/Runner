@@ -2,7 +2,7 @@
  * \file magnet.h
  * \class Magnet
  * \brief Bonus permettant d'attirer les pièces
- * \author Clément
+ * \author ShellCode
  */
 
 

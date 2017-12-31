@@ -2,7 +2,7 @@
  * \file spike_view.h
  * \class SpikeView
  * \brief Vue des pics
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SPIKE_VIEW_H

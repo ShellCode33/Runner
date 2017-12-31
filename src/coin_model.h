@@ -2,7 +2,7 @@
  * \file coin_model.h
  * \class CoinModel
  * \brief Partie modèle des pièces
- * \author Jérémie
+ * \author J3ry
  */
 
 #ifndef COIN_MODEL_H

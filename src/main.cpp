@@ -1,7 +1,7 @@
 /*!
  * \file main.cpp
  * \brief Point d'entrée du programme, qui se charge de lancer l'application
- * \author Clément
+ * \author ShellCode
  */
 
 #include "window.h"

@@ -2,7 +2,7 @@
  * \file player_view.h
  * \class PlayerView
  * \brief Partie vue du player
- * \author Jérémie
+ * \author J3ry
  *
  */
 

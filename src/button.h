@@ -1,7 +1,7 @@
 /*!
  * \file button.h
  * \class Button
- * \author Clément & Jérémie
+ * \author ShellCode & J3ry
  */
 
 #ifndef BUTTON_H

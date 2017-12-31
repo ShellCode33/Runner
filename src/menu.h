@@ -1,7 +1,7 @@
 /*!
  * \file menu.h
  * \brief Menu qui sera affiché et avec lequel l'utilisateur pourra interagir
- * \author Jérémie, Clément
+ * \author J3ry, ShellCode
  */
 
 #ifndef MENU_H

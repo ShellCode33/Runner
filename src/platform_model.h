@@ -2,7 +2,7 @@
  * \file platform_model.h
  * \class PlatformModel
  * \brief Partie modèle de l'obstacle Platform
- * \author Jérémie
+ * \author J3ry
  *
  */
 

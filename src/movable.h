@@ -2,7 +2,7 @@
  * \file movable.h
  * \class Movable
  * \brief classe modèle "primaire"
- * \author Jérémie & Clément
+ * \author J3ry & ShellCode
  *
  */
 

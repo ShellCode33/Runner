@@ -2,7 +2,7 @@
  * \file effect.h
  * \class Effect
  * \brief classe abstraite qui permet de gérer la durée d'action des bonus
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef EFFECT_H

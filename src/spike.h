@@ -2,7 +2,7 @@
  * \file spike.h
  * \class Spike
  * \brief Pointes au sol qui tue le joueur
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SPIKE_H

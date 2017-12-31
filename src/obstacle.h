@@ -1,7 +1,7 @@
 /*!
  * \file obstacle.h
  * \brief Fichier générique d'obstacle
- * \author Clément
+ * \author ShellCode
  *
  */
 

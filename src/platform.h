@@ -2,7 +2,7 @@
  * \file platform.h
  * \class Platform
  * \brief obstacle générique de type plateforme
- * \author Jérémie
+ * \author J3ry
  *
  */
 

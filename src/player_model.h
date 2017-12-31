@@ -2,7 +2,7 @@
  * \file player_model.h
  * \class PlayerModel
  * \brief Partie modele du joueur, contient l'ensemble des calculs le concernant
- * \author Jérémie
+ * \author J3ry
  */
 
 #ifndef PLAYERMODEL_H

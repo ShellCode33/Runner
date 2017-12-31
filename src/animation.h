@@ -2,7 +2,7 @@
  * \file animation.h
  * \class Animation
  * \brief Classe permettant de faire un sprite animé de plusieurs séquences
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef ANIMATION_H

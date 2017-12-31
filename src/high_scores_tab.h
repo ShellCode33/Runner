@@ -2,7 +2,7 @@
  * \file high_score_tab.h
  * \class HighScoreTab
  * \brief classe s'occupant de l'écran de meilleurs scores
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef HIGH_SCORES_H

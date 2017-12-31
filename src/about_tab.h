@@ -2,7 +2,7 @@
  * \file about_tab.h
  * \class AboutTab
  * \brief Onglet à propos dans le menu
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef ABOUT_TAB_H

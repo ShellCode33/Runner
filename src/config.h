@@ -1,7 +1,7 @@
 /*!
  * \file config.h
  * \brief Classe utilisée pour gérer le fichier de config
- * \author Clément
+ * \author ShellCode
  *
  */
 

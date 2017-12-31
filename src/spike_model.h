@@ -2,7 +2,7 @@
  * \file spike_model.h
  * \class SpikeModel
  * \brief Modèle des pics
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SPIKE_MODEL_H

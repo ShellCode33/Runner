@@ -2,7 +2,7 @@
  * \file moon_view.h
  * \class MoonView
  * \brief Partie vue du bonus Moon
- * \author Jérémie
+ * \author J3ry
  *
  */
 

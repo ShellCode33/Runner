@@ -2,7 +2,7 @@
  * \file entity.h
  * \class Entity
  * \brief classe abstraite qui permet de regrouper certains objets qui devront apparaitre partout sur l'écran (cf: game_view)
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef ENTITY_H

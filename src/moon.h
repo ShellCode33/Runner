@@ -2,7 +2,7 @@
  * \file moon.h
  * \class Moon
  * \brief Bonus appliquant une gravité différent au player
- * \author Jérémie
+ * \author J3ry
  *
  */
 

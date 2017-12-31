@@ -2,7 +2,7 @@
  * \file game_view.h
  * \class GameView
  * \brief
- * \author Jérémie, Clément
+ * \author J3ry, ShellCode
  */
 
 #ifndef GAMEVIEW_H

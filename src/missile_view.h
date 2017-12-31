@@ -2,7 +2,7 @@
  * \file missile_view.h
  * \class MissileView
  * \brief Vue du missile suiveur
- * \author Clément
+ * \author ShellCode
  *
  */
 

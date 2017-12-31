@@ -2,7 +2,7 @@
  * \file chunk_view.h
  * \class ChunkView
  * \brief Partie vue des Chunk
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNK_VIEW_H

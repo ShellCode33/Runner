@@ -2,7 +2,7 @@
  * \file chunk_model.h
  * \class ChunkModel
  * \brief Modele de Chunk
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNK_MODEL_H

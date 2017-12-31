@@ -2,7 +2,7 @@
  * \file collision.h
  * \class Collision
  * \brief Classe gérant toutes les collisions
- * \author Jérémie
+ * \author J3ry
  */
 
 #ifndef COLLISION_H

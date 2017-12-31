@@ -2,7 +2,7 @@
  * \file magnet_model.h
  * \class MagnetModel
  * \brief Partie modèle du bonus Magnet
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef MAGNET_MODEL_H

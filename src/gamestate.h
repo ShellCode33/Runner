@@ -1,7 +1,7 @@
 /*!
  * \file gamestate.h
  * \brief Enumeration des différents états du jeu
- * \author Clément
+ * \author ShellCode
  *
  */
 

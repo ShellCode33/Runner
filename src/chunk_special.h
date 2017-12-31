@@ -2,7 +2,7 @@
  * \file chunk_special.h
  * \class ChunkSpecial
  * \brief Chunk utilisé pour les missiles
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNK_SPECIAL_H

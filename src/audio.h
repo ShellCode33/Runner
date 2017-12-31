@@ -2,7 +2,7 @@
  * \file audio.h
  * \class Audio
  * \brief Gestion des sons
- * \author Jérémie
+ * \author J3ry
  */
 
 #ifndef AUDIO_H

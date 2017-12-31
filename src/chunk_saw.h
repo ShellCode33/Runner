@@ -2,7 +2,7 @@
  * \file chunk_saw.h
  * \class ChunkSaw
  * \brief Chunk contenant les scies circulaires avec différentes positions définies aléatoirement
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNKSAW_H

@@ -1,7 +1,7 @@
 /*!
  * \file saw_view.h
  * \brief Partie vue de l'obstacle scie circulaire
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SAW_VIEW_H

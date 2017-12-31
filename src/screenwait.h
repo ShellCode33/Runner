@@ -1,7 +1,7 @@
 /*!
  * \class ScreenWait
  * \brief Classe utilisée afin de mettre une image en fond ainsi qu'un texte et attend que la touche espace soit pressée
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef SCREENWAIT_H

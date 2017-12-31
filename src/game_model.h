@@ -2,7 +2,7 @@
  * \file game_model.h
  * \class GameModel
  * \brief Classe chargée de répartir les taches, de gérer le fonctionnement logique du jeu
- * \author Jérémie, Clément
+ * \author J3ry, ShellCode
  */
 
 #ifndef GAMEMODEL_H

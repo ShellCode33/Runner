@@ -2,7 +2,7 @@
  * \file chunk.h
  * \class Chunk
  * \brief Classe permettant un découpage de l'écran afin de faciliter la génération aléatoire de Chunks prédéfinis
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNK_H

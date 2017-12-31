@@ -1,7 +1,7 @@
 /*!
  * \file game.h
  * \class Game
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef GAME_H

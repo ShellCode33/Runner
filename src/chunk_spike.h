@@ -2,7 +2,7 @@
  * \file chunk_spike.h
  * \class ChunkSpike
  * \brief Chunk utilisé pour les pointes
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef CHUNK_SPIKE_H

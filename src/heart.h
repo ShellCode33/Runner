@@ -2,7 +2,7 @@
  * \file heart.h
  * \class Heart
  * \brief Bonus permettant de remettre la vie du joueur a 100
- * \author Clément
+ * \author ShellCode
  */
 
 #ifndef HEART_H

@@ -2,7 +2,7 @@
  * \file game_over.h
  * \class GameOver
  * \brief classe permettant de gérer l'écran de GameOver
- * \author Clément & Jérémie
+ * \author ShellCode & J3ry
  */
 
 #ifndef GAMEOVER_H

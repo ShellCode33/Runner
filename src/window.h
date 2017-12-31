@@ -3,7 +3,7 @@
  * \file window.h
  * \class WindowRunner
  * \brief Début de l'application, chargé de répartir les évênements et mettre à jour les composants graphiques.
- * \author Clément, Jérémie
+ * \author ShellCode, J3ry
  */
 
 #define WINDOW_H
