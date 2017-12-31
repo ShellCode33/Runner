@@ -50,9 +50,9 @@ AboutTab::AboutTab() : first_snoop(20.0), second_snoop(20.0)
 
     //Pas très propre mais necessaire car la SFML n'est pas capable de centrer horizontalement du texte multi-ligne
     this->text[0].setString(Utils::translate(WindowRunner::getSetting("lang"), "about.dev"));
-    this->text[1].setString(String(L"J3ry Pereyrol"));
+    this->text[1].setString(String(L"J3ry"));
     this->text[2].setString(String("&"));
-    this->text[3].setString(String(L"ShellCode Fleury"));
+    this->text[3].setString(String(L"ShellCode"));
 
 
     for(i = 0; i < (int)(sizeof(this->text)/sizeof(Text)); i++)
