@@ -22,7 +22,7 @@ chmod +x Runner && ./Runner
 ```
 
 ## Screenshots
-![alt tag]()
-![alt tag]()
-![alt tag]()
-![alt tag]()
+![alt tag](https://github.com/ShellCode33/Runner/raw/master/screenshots/runner.png)
+![alt tag](https://github.com/ShellCode33/Runner/raw/master/screenshots/runner2.png)
+![alt tag](https://github.com/ShellCode33/Runner/raw/master/screenshots/options.png)
+![alt tag](https://github.com/ShellCode33/Runner/raw/master/screenshots/high-scores.png)
